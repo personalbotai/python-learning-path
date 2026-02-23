@@ -1,0 +1,241 @@
+{
+  "title": "Python Learning Path",
+  "description": "Belajar Python dari nol hingga mahir dengan proyek nyata. Path ini mencakup dasar-dasar, pemrograman berorientasi objek, web development, data science, dan automasi.",
+  "author": "Archon Systems",
+  "version": "1.0.0",
+  "modules": [
+    {
+      "id": "intro",
+      "title": "Pengenalan Python",
+      "description": "Mengenal Python, sejarah, filosofi, dan mengatur lingkungan pengembangan.",
+      "lessons": [
+        { "id": "intro-what-is-python", "title": "Apa itu Python?", "type": "theory", "duration": "15 menit", "tags": ["intro", "history"] },
+        { "id": "intro-installation", "title": "Instalasi Python", "type": "exercise", "duration": "20 menit", "tags": ["setup", "environment"] },
+        { "id": "intro-first-program", "title": "Program Pertama: Hello World", "type": "exercise", "duration": "10 menit", "tags": ["basics", "hello-world"] },
+        { "id": "intro-python-repl", "title": "Menggunakan Python REPL", "type": "exercise", "duration": "15 menit", "tags": ["tools", "repl"] },
+        { "id": "intro-ide-vscode", "title": "Setup VS Code untuk Python", "type": "exercise", "duration": "20 menit", "tags": ["tools", "ide"] },
+        { "id": "intro-quiz", "title": "Quiz: Pengenalan", "type": "quiz", "duration": "10 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "syntax-basics",
+      "title": "Sintaks Dasar",
+      "description": "Pelajari variabel, tipe data, operator, dan input/output dasar.",
+      "lessons": [
+        { "id": "basics-variables", "title": "Variabel & Assignment", "type": "theory", "duration": "15 menit", "tags": ["variables", "basics"] },
+        { "id": "basics-data-types", "title": "Tipe Data: int, float, str, bool", "type": "theory", "duration": "20 menit", "tags": ["types", "basics"] },
+        { "id": "basics-operators", "title": "Operator Aritmatika & Perbandingan", "type": "theory", "duration": "20 menit", "tags": ["operators", "basics"] },
+        { "id": "basics-string-ops", "title": "Operasi String & f-strings", "type": "exercise", "duration": "25 menit", "tags": ["strings", "formatting"] },
+        { "id": "basics-input-output", "title": "Input dari User & Print", "type": "exercise", "duration": "20 menit", "tags": ["io", "basics"] },
+        { "id": "basics-type-conversion", "title": "Konversi Tipe Data", "type": "exercise", "duration": "15 menit", "tags": ["types", "conversion"] },
+        { "id": "basics-quiz", "title": "Quiz: Sintaks Dasar", "type": "quiz", "duration": "15 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "control-flow",
+      "title": "Kontrol Alur",
+      "description": "Kondisional, loops, dan pengambilan keputusan dalam program.",
+      "lessons": [
+        { "id": "control-if-else", "title": "If, Else, Elif", "type": "theory", "duration": "20 menit", "tags": ["conditionals", "basics"] },
+        { "id": "control-logical-ops", "title": "Operator Logika & Comparison", "type": "theory", "duration": "15 menit", "tags": ["operators", "conditionals"] },
+        { "id": "control-nested-if", "title": "Nested If & Ternary Operator", "type": "exercise", "duration": "20 menit", "tags": ["conditionals", "practice"] },
+        { "id": "control-for-loop", "title": "For Loop & range()", "type": "theory", "duration": "20 menit", "tags": ["loops", "basics"] },
+        { "id": "control-while-loop", "title": "While Loop & break/continue", "type": "theory", "duration": "20 menit", "tags": ["loops", "basics"] },
+        { "id": "control-loop-exercises", "title": "Latihan Loops", "type": "exercise", "duration": "30 menit", "tags": ["loops", "practice"] },
+        { "id": "control-quiz", "title": "Quiz: Kontrol Alur", "type": "quiz", "duration": "15 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "data-structures",
+      "title": "Struktur Data",
+      "description": "List, tuple, dictionary, set, dan operasi-operasinya.",
+      "lessons": [
+        { "id": "ds-list", "title": "List: Create, Access, Modify", "type": "theory", "duration": "25 menit", "tags": ["lists", "data-structures"] },
+        { "id": "ds-list-methods", "title": "List Methods (append, extend, sort, dll)", "type": "exercise", "duration": "30 menit", "tags": ["lists", "methods"] },
+        { "id": "ds-tuple", "title": "Tuple & Immutability", "type": "theory", "duration": "15 menit", "tags": ["tuples", "data-structures"] },
+        { "id": "ds-dict", "title": "Dictionary: Key-Value Pairs", "type": "theory", "duration": "25 menit", "tags": ["dictionaries", "data-structures"] },
+        { "id": "ds-dict-methods", "title": "Dictionary Methods (get, keys, values, items)", "type": "exercise", "duration": "25 menit", "tags": ["dictionaries", "methods"] },
+        { "id": "ds-set", "title": "Set & Unique Elements", "type": "theory", "duration": "15 menit", "tags": ["sets", "data-structures"] },
+        { "id": "ds-comprehensions", "title": "List, Dict, Set Comprehensions", "type": "exercise", "duration": "30 menit", "tags": ["comprehensions", "pythonic"] },
+        { "id": "ds-quiz", "title": "Quiz: Struktur Data", "type": "quiz", "duration": "20 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "functions",
+      "title": "Fungsi",
+      "description": "Membuat dan menggunakan fungsi, parameters, return values, dan scope.",
+      "lessons": [
+        { "id": "func-basics", "title": "Definisi Fungsi & Panggilan", "type": "theory", "duration": "20 menit", "tags": ["functions", "basics"] },
+        { "id": "func-parameters", "title": "Parameters & Arguments", "type": "theory", "duration": "25 menit", "tags": ["functions", "parameters"] },
+        { "id": "func-return", "title": "Return Values & Multiple Returns", "type": "exercise", "duration": "20 menit", "tags": ["functions", "return"] },
+        { "id": "func-scope", "title": "Variable Scope (Local, Global, nonlocal)", "type": "theory", "duration": "20 menit", "tags": ["functions", "scope"] },
+        { "id": "func-lambda", "title": "Lambda Functions", "type": "exercise", "duration": "15 menit", "tags": ["functions", "lambda"] },
+        { "id": "func-docstrings", "title": "Docstrings & Type Hints", "type": "theory", "duration": "20 menit", "tags": ["functions", "documentation"] },
+        { "id": "func-quiz", "title": "Quiz: Fungsi", "type": "quiz", "duration": "15 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "modules-packages",
+      "title": "Modul & Paket",
+      "description": "Mengorganisir kode dengan modul, paket, dan menggunakan library standar.",
+      "lessons": [
+        { "id": "mod-what-is-module", "title": "Apa itu Modul?", "type": "theory", "duration": "15 menit", "tags": ["modules", "organization"] },
+        { "id": "mod-import", "title": "Statement Import (import, from, as)", "type": "theory", "duration": "20 menit", "tags": ["modules", "import"] },
+        { "id": "mod-create-module", "title": "Membuat Modul Sendiri", "type": "exercise", "duration": "30 menit", "tags": ["modules", "practice"] },
+        { "id": "mod-packages", "title": "Paket & __init__.py", "type": "theory", "duration": "20 menit", "tags": ["packages", "organization"] },
+        { "id": "mod-stdlib", "title": "Eksplorasi Library Standar", "type": "exercise", "duration": "40 menit", "tags": ["stdlib", "exploration"] },
+        { "id": "mod-quiz", "title": "Quiz: Modul & Paket", "type": "quiz", "duration": "15 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "file-io",
+      "title": "File I/O",
+      "description": "Membaca dan menulis file, exception handling untuk file operations.",
+      "lessons": [
+        { "id": "io-open-close", "title": "Membuka & Menutup File", "type": "theory", "duration": "15 menit", "tags": ["file-io", "basics"] },
+        { "id": "io-read-write", "title": "Read & Write Operations", "type": "exercise", "duration": "30 menit", "tags": ["file-io", "practice"] },
+        { "id": "io-context-manager", "title": "With Statement (Context Manager)", "type": "theory", "duration": "20 menit", "tags": ["file-io", "best-practices"] },
+        { "id": "io-json", "title": "Bekerja dengan JSON", "type": "exercise", "duration": "30 menit", "tags": ["file-io", "json"] },
+        { "id": "io-csv", "title": "File CSV", "type": "exercise", "duration": "25 menit", "tags": ["file-io", "csv"] },
+        { "id": "io-quiz", "title": "Quiz: File I/O", "type": "quiz", "duration": "15 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "error-handling",
+      "title": "Error Handling",
+      "description": "Try-except, custom exceptions, dan debugging dasar.",
+      "lessons": [
+        { "id": "err-exceptions", "title": "Apa itu Exception?", "type": "theory", "duration": "15 menit", "tags": ["exceptions", "basics"] },
+        { "id": "err-try-except", "title": "Try, Except, Else, Finally", "type": "theory", "duration": "25 menit", "tags": ["exceptions", "handling"] },
+        { "id": "err-multiple", "title": "Multiple Except Blocks", "type": "exercise", "duration": "20 menit", "tags": ["exceptions", "practice"] },
+        { "id": "err-raise", "title": "Menaikkan Exception (raise)", "type": "theory", "duration": "20 menit", "tags": ["exceptions", "raise"] },
+        { "id": "err-custom", "title": "Custom Exception Class", "type": "exercise", "duration": "30 menit", "tags": ["exceptions", "advanced"] },
+        { "id": "err-debugging", "title": "Debugging dengan print & pdb", "type": "exercise", "duration": "25 menit", "tags": ["debugging", "tools"] },
+        { "id": "err-quiz", "title": "Quiz: Error Handling", "type": "quiz", "duration": "15 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "oop",
+      "title": "Pemrograman Berorientasi Objek",
+      "description": "Class, object, inheritance, encapsulation, polymorphism.",
+      "lessons": [
+        { "id": "oop-class-object", "title": "Class & Object Dasar", "type": "theory", "duration": "25 menit", "tags": ["oop", "basics"] },
+        { "id": "oop-constructor", "title": "__init__ & Instance Attributes", "type": "exercise", "duration": "25 menit", "tags": ["oop", "constructors"] },
+        { "id": "oop-methods", "title": "Instance, Class, & Static Methods", "type": "theory", "duration": "25 menit", "tags": ["oop", "methods"] },
+        { "id": "oop-encapsulation", "title": "Encapsulation & Properties", "type": "exercise", "duration": "30 menit", "tags": ["oop", "encapsulation"] },
+        { "id": "oop-inheritance", "title": "Inheritance & Method Overriding", "type": "theory", "duration": "30 menit", "tags": ["oop", "inheritance"] },
+        { "id": "oop-polymorphism", "title": "Polymorphism & Duck Typing", "type": "exercise", "duration": "25 menit", "tags": ["oop", "polymorphism"] },
+        { "id": "oop-magic-methods", "title": "Magic Methods (__str__, __len__, dll)", "type": "theory", "duration": "25 menit", "tags": ["oop", "dunder"] },
+        { "id": "oop-quiz", "title": "Quiz: OOP", "type": "quiz", "duration": "20 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "advanced-features",
+      "title": "Fitur Lanjutan Python",
+      "description": "Decorators, generators, context managers, dan itertools.",
+      "lessons": [
+        { "id": "adv-decorators", "title": "Decorators: Membuat & Menggunakan", "type": "theory", "duration": "35 menit", "tags": ["decorators", "advanced"] },
+        { "id": "adv-generators", "title": "Generators & yield", "type": "theory", "duration": "30 menit", "tags": ["generators", "advanced"] },
+        { "id": "adv-iterators", "title": "Iterator Protocol", "type": "exercise", "duration": "30 menit", "tags": ["iterators", "advanced"] },
+        { "id": "adv-context-manager", "title": "Custom Context Manager", "type": "exercise", "duration": "30 menit", "tags": ["context-managers", "advanced"] },
+        { "id": "adv-itertools", "title": "Modul itertools", "type": "exercise", "duration": "25 menit", "tags": ["itertools", "stdlib"] },
+        { "id": "adv-quiz", "title": "Quiz: Fitur Lanjutan", "type": "quiz", "duration": "20 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "testing",
+      "title": "Testing & Quality",
+      "description": "Unit testing dengan pytest, TDD, dan code coverage.",
+      "lessons": [
+        { "id": "test-why-testing", "title": "Mengapa Testing Penting?", "type": "theory", "duration": "15 menit", "tags": ["testing", "basics"] },
+        { "id": "test-pytest-basics", "title": "Pytest: Test Functions", "type": "exercise", "duration": "30 menit", "tags": ["testing", "pytest"] },
+        { "id": "test-fixtures", "title": "Fixtures & Setup/Teardown", "type": "exercise", "duration": "30 menit", "tags": ["testing", "fixtures"] },
+        { "id": "test-assertions", "title": "Assertions & Parametrize", "type": "exercise", "duration": "25 menit", "tags": ["testing", "assertions"] },
+        { "id": "test-coverage", "title": "Coverage & Reporting", "type": "exercise", "duration": "25 menit", "tags": ["testing", "coverage"] },
+        { "id": "test-tdd", "title": "Test-Driven Development (TDD)", "type": "theory", "duration": "30 menit", "tags": ["testing", "tdd"] },
+        { "id": "test-quiz", "title": "Quiz: Testing", "type": "quiz", "duration": "15 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "virtual-env-deps",
+      "title": "Virtual Environment & Dependencies",
+      "description": "Isolasi proyek dengan venv, pip, requirements.txt, dan Poetry.",
+      "lessons": [
+        { "id": "venv-why", "title": "Mengapa Virtual Environment?", "type": "theory", "duration": "15 menit", "tags": ["venv", "best-practices"] },
+        { "id": "venv-create-activate", "title": "Membuat & Mengaktifkan venv", "type": "exercise", "duration": "20 menit", "tags": ["venv", "practice"] },
+        { "id": "venv-pip", "title": "pip: Install, Uninstall, Freeze", "type": "exercise", "duration": "30 menit", "tags": ["pip", "dependencies"] },
+        { "id": "venv-requirements", "title": "requirements.txt & Version Pinning", "type": "exercise", "duration": "25 menit", "tags": ["requirements", "dependencies"] },
+        { "id": "venv-poetry", "title": "Pengantar Poetry", "type": "theory", "duration": "25 menit", "tags": ["poetry", "dependencies"] },
+        { "id": "venv-quiz", "title": "Quiz: Virtual Environment", "type": "quiz", "duration": "15 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "web-dev-basics",
+      "title": "Web Development: Flask",
+      "description": "Membuat aplikasi web dengan Flask, routing, templates, dan forms.",
+      "prerequisites": ["functions", "modules-packages", "file-io"],
+      "lessons": [
+        { "id": "web-flask-intro", "title": "Flask: Hello World App", "type": "exercise", "duration": "30 menit", "tags": ["flask", "web"] },
+        { "id": "web-routing", "title": "Routing & URL Parameters", "type": "exercise", "duration": "40 menit", "tags": ["flask", "routing"] },
+        { "id": "web-templates", "title": "Jinja2 Templates", "type": "exercise", "duration": "45 menit", "tags": ["flask", "templates"] },
+        { "id": "web-forms", "title": "HTML Forms & Request Data", "type": "exercise", "duration": "40 menit", "tags": ["flask", "forms"] },
+        { "id": "web-static-files", "title": "Static Files (CSS, JS, Images)", "type": "exercise", "duration": "25 menit", "tags": ["flask", "static"] },
+        { "id": "web-quiz", "title": "Quiz: Flask Basics", "type": "quiz", "duration": "20 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "web-dev-advanced",
+      "title": "Web Development: API & Database",
+      "description": "REST API dengan Flask/FastAPI, SQLAlchemy, dan database PostgreSQL.",
+      "prerequisites": ["web-dev-basics", "virtual-env-deps"],
+      "lessons": [
+        { "id": "web-api-design", "title": "REST API Principles", "type": "theory", "duration": "30 menit", "tags": ["api", "rest"] },
+        { "id": "web-flask-api", "title": "Flask REST API Endpoints", "type": "exercise", "duration": "50 menit", "tags": ["flask", "api"] },
+        { "id": "web-fastapi-intro", "title": "FastAPI: Modern Python API", "type": "exercise", "duration": "45 menit", "tags": ["fastapi", "api"] },
+        { "id": "web-sqlalchemy", "title": "SQLAlchemy ORM Basics", "type": "exercise", "duration": "60 menit", "tags": ["sqlalchemy", "orm"] },
+        { "id": "web-migrations", "title": "Database Migrations (Alembic)", "type": "exercise", "duration": "40 menit", "tags": ["migrations", "database"] },
+        { "id": "web-quiz", "title": "Quiz: Web Advanced", "type": "quiz", "duration": "25 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "data-science",
+      "title": "Data Science Fundamentals",
+      "description": "NumPy, pandas, visualisasi data dengan Matplotlib & Seaborn.",
+      "prerequisites": ["data-structures", "file-io"],
+      "lessons": [
+        { "id": "ds-numpy-intro", "title": "NumPy: Arrays & Operations", "type": "exercise", "duration": "50 menit", "tags": ["numpy", "data-science"] },
+        { "id": "ds-pandas-intro", "title": "Pandas: Series & DataFrame", "type": "exercise", "duration": "60 menit", "tags": ["pandas", "data-science"] },
+        { "id": "ds-data-cleaning", "title": "Data Cleaning & Transformation", "type": "exercise", "duration": "60 menit", "tags": ["pandas", "cleaning"] },
+        { "id": "ds-matplotlib", "title": "Matplotlib: Basic Plotting", "type": "exercise", "duration": "45 menit", "tags": ["matplotlib", "visualization"] },
+        { "id": "ds-seaborn", "title": "Seaborn: Statistical Visualization", "type": "exercise", "duration": "45 menit", "tags": ["seaborn", "visualization"] },
+        { "id": "ds-quiz", "title": "Quiz: Data Science", "type": "quiz", "duration": "25 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "automation-scripting",
+      "title": "Automation & Scripting",
+      "description": "Scripting untuk task automation, web scraping, dan scheduling.",
+      "lessons": [
+        { "id": "auto-file-ops", "title": "File & Directory Automation", "type": "exercise", "duration": "30 menit", "tags": ["automation", "file-io"] },
+        { "id": "auto-requests", "title": "HTTP Requests dengan requests", "type": "exercise", "duration": "35 menit", "tags": ["requests", "http"] },
+        { "id": "auto-scraping", "title": "Web Scraping dengan BeautifulSoup", "type": "exercise", "duration": "50 menit", "tags": ["scraping", "beautifulsoup"] },
+        { "id": "auto-schedule", "title": "Scheduling dengan schedule/cron", "type": "exercise", "duration": "30 menit", "tags": ["scheduling", "automation"] },
+        { "id": "auto-logging", "title": "Logging & Monitoring", "type": "exercise", "duration": "25 menit", "tags": ["logging", "best-practices"] },
+        { "id": "auto-quiz", "title": "Quiz: Automation", "type": "quiz", "duration": "20 menit", "tags": ["assessment"] }
+      ]
+    },
+    {
+      "id": "project-final",
+      "title": "Proyek Akhir",
+      "description": "Gabungkan semua kemampuan dalam proyek nyata yang bisa ditambahkan ke portfolio.",
+      "lessons": [
+        { "id": "proj-idea", "title": "Memilih Ide Proyek", "type": "theory", "duration": "20 menit", "tags": ["project", "planning"] },
+        { "id": "proj-setup", "title": "Setup Proyek & Struktur Direktori", "type": "exercise", "duration": "30 menit", "tags": ["project", "setup"] },
+        { "id": "proj-implementation", "title": "Implementasi Fitur Inti", "type": "project", "duration": "3 jam", "tags": ["project", "coding"] },
+        { "id": "proj-testing", "title": "Testing & Documentation", "type": "project", "duration": "2 jam", "tags": ["project", "testing"] },
+        { "id": "proj-deployment", "title": "Deployment (Heroku/Railway/VPS)", "type": "project", "duration": "2 jam", "tags": ["deployment", "devops"] },
+        { "id": "proj-submit", "title": "Submit & Portfolio", "type": "project", "duration": "30 menit", "tags": ["project", "portfolio"] }
+      ]
+    }
+  ]
+}
