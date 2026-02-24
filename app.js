@@ -43,7 +43,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Monaco Editor Setup
 // ==========================================================
 
+let pyodideReady = false;
+let pyodide = null;
+
 async function initMonaco() {
+    // Load Monaco
     require.config({
         paths: {
             'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs'
@@ -65,7 +69,48 @@ async function initMonaco() {
             formatOnPaste: true,
             formatOnType: true
         });
+
+        // Initialize Pyodide after Monaco loads
+        initPyodide();
     });
+}
+
+async function initPyodide() {
+    try {
+        // Show loading message
+        const statusDiv = document.getElementById('status-message');
+        if (statusDiv) {
+            statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Loading Python runtime...';
+            statusDiv.classList.remove('hidden');
+        }
+
+        // Load Pyodide
+        pyodide = await loadPyodide({
+            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/"
+        });
+
+        // Load required packages
+        await pyodide.loadPackage("numpy");
+        await pyodide.loadPackage("pandas");
+        await pyodide.loadPackage("matplotlib");
+        await pyodide.loadPackage("scipy");
+
+        pyodideReady = true;
+
+        if (statusDiv) {
+            statusDiv.innerHTML = '<i class="fas fa-check-circle text-green-400 mr-2"></i> Python runtime ready';
+            setTimeout(() => statusDiv.classList.add('hidden'), 2000);
+        }
+
+        console.log('Pyodide loaded and ready');
+    } catch (error) {
+        console.error('Failed to load Pyodide:', error);
+        const statusDiv = document.getElementById('status-message');
+        if (statusDiv) {
+            statusDiv.innerHTML = '<i class="fas fa-exclamation-triangle text-red-400 mr-2"></i> Python runtime failed to load';
+            statusDiv.classList.remove('hidden');
+        }
+    }
 }
 
 function getMonacoLanguage() {
@@ -109,9 +154,9 @@ print(message)
 // ==========================================================
 
 async function loadModules() {
-    // Load module definitions from lessons/modules.json
+    // Load module definitions from modules.json (in root)
     try {
-        const response = await fetch('lessons/modules.json');
+        const response = await fetch('modules.json');
         const data = await response.json();
         // Transform data to match expected structure
         Modules.push(...data.modules.map(m => ({
@@ -120,9 +165,26 @@ async function loadModules() {
             lessons: m.lessons.map(l => ({
                 title: l.title,
                 objectives: l.objectives,
-                code: null // Will be extracted from markdown
+                code: null, // Will be extracted from markdown file
+                quiz: null // Will be loaded from quiz data if exists
             }))
         })));
+
+        // Load quiz data if available
+        try {
+            const quizResponse = await fetch('quizzes.json');
+            const quizData = await quizResponse.json();
+            // Attach quizzes to modules
+            quizData.forEach(q => {
+                const module = Modules.find(m => m.id === q.module);
+                if (module) {
+                    module.quiz = q;
+                }
+            });
+        } catch (e) {
+            console.log('No quizzes.json found, quizzes will be optional');
+        }
+
     } catch (error) {
         console.error('Failed to load modules:', error);
         // Fallback: create basic module structure
@@ -361,21 +423,49 @@ async function runCode(code) {
 }
 
 async function runPython(code) {
-    // Simple simulation - in production use Pyodide
-    const originalLog = console.log;
-    let output = [];
-    console.log = (...args) => output.push(args.join(' '));
+    if (!pyodideReady || !pyodide) {
+        throw new Error('Python runtime is not ready. Please wait a moment and try again.');
+    }
 
     try {
-        // WARNING: This is unsafe! For demo only.
-        // In production: use WebContainer with Python installed
-        eval(`(function() {
-            ${code}
-        })()`);
-        console.log = originalLog;
-        return output.join('\n') || '(no output)';
+        // Redirect stdout to capture output
+        let output = [];
+        const originalStdout = pyodide.runPython;
+        
+        // Setup output capture
+        pyodide.runPython(`
+import sys
+from io import StringIO
+sys.stdout = StringIO()
+sys.stderr = StringIO()
+        `);
+
+        // Run the user code
+        pyodide.runPython(code);
+
+        // Get captured output
+        const stdout = pyodide.runPython('sys.stdout.getvalue()');
+        const stderr = pyodide.runPython('sys.stderr.getvalue()');
+
+        // Reset stdout/stderr
+        pyodide.runPython(`
+sys.stdout = sys.__stdout__
+sys.stderr = sys.__stderr__
+        `);
+
+        if (stderr && stderr.trim()) {
+            throw new Error(stderr.trim());
+        }
+
+        return stdout.trim() || '(no output)';
     } catch (error) {
-        console.log = originalLog;
+        // Clean up on error
+        try {
+            pyodide.runPython(`
+sys.stdout = sys.__stdout__
+sys.stderr = sys.__stderr__
+            `);
+        } catch (e) {}
         throw error;
     }
 }
@@ -399,21 +489,203 @@ async function runJavaScript(code) {
 // Quiz System
 // ==========================================================
 
-function openQuiz(quizData) {
-    if (!quizData) {
-        // No quiz for this module, go to next or project
-        openNextModuleOrProject();
-        return;
+// Quiz Manager Class
+const QuizManager = {
+    currentQuiz: null,
+    currentQuestion: 0,
+    answers: [],
+    score: 0,
+
+    load(quizData) {
+        this.currentQuiz = quizData;
+        this.currentQuestion = 0;
+        this.answers = [];
+        this.score = 0;
+        this.render();
+    },
+
+    render() {
+        if (!this.currentQuiz || this.currentQuiz.questions.length === 0) {
+            this.showNoQuiz();
+            return;
+        }
+
+        const q = this.currentQuiz.questions[this.currentQuestion];
+        const quizContainer = document.getElementById('quiz-container');
+        const questionNum = this.currentQuestion + 1;
+        const totalQuestions = this.currentQuiz.questions.length;
+
+        quizContainer.innerHTML = `
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm text-gray-400">Question ${questionNum} of ${totalQuestions}</span>
+                    <span class="text-sm font-bold ${this.score > 0 ? 'text-green-400' : 'text-gray-400'}">
+                        Score: ${this.score}
+                    </span>
+                </div>
+                <div class="w-full bg-gray-700 rounded-full h-2">
+                    <div class="bg-blue-600 h-2 rounded-full transition-all" style="width: ${(questionNum/totalQuestions)*100}%"></div>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-6 text-white">${q.question}</h3>
+
+            <div class="space-y-3">
+                ${q.options.map((opt, idx) => `
+                    <button class="quiz-option w-full text-left p-4 rounded-lg border-2 transition ${
+                        this.answers[this.currentQuestion] === idx
+                            ? 'border-blue-500 bg-blue-900/30 text-white'
+                            : 'border-gray-600 hover:border-gray-500 text-gray-300'
+                    }" data-index="${idx}">
+                        <span class="font-mono text-sm mr-3">${String.fromCharCode(65+idx)}.</span>
+                        ${opt}
+                    </button>
+                `).join('')}
+            </div>
+
+            ${q.code_snippet ? `
+                <div class="mt-6 p-4 bg-gray-800 rounded-lg border border-gray-700">
+                    <p class="text-sm text-gray-400 mb-2">Code Example:</p>
+                    <pre class="text-sm text-gray-300 overflow-x-auto"><code>${this.escapeHtml(q.code_snippet)}</code></pre>
+                </div>
+            ` : ''}
+
+            <div class="mt-8 flex justify-between">
+                <button id="quiz-prev-btn" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition ${this.currentQuestion === 0 ? 'opacity-50 cursor-not-allowed' : ''}" ${this.currentQuestion === 0 ? 'disabled' : ''}>
+                    <i class="fas fa-arrow-left mr-2"></i> Previous
+                </button>
+                <button id="quiz-next-btn" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded transition">
+                    Next <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        `;
+
+        // Bind events
+        quizContainer.querySelectorAll('.quiz-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const idx = parseInt(btn.dataset.index);
+                this.selectAnswer(idx);
+            });
+        });
+
+        document.getElementById('quiz-prev-btn').addEventListener('click', () => this.prev());
+        document.getElementById('quiz-next-btn').addEventListener('click', () => this.next());
+    },
+
+    selectAnswer(index) {
+        this.answers[this.currentQuestion] = index;
+        this.render();
+    },
+
+    prev() {
+        if (this.currentQuestion > 0) {
+            this.currentQuestion--;
+            this.render();
+        }
+    },
+
+    next() {
+        if (!this.answers[this.currentQuestion]) {
+            alert('Please select an answer before continuing.');
+            return;
+        }
+
+        if (this.currentQuestion < this.currentQuiz.questions.length - 1) {
+            this.currentQuestion++;
+            this.render();
+        } else {
+            this.submit();
+        }
+    },
+
+    submit() {
+        // Calculate score
+        this.score = 0;
+        this.currentQuiz.questions.forEach((q, idx) => {
+            if (this.answers[idx] === q.correct_answer) {
+                this.score += q.points || 1;
+            }
+        });
+
+        // Show results
+        const passed = this.score >= (this.currentQuiz.passing_score || this.currentQuiz.questions.length * 0.7);
+        const resultModal = document.getElementById('quiz-result-modal');
+        const resultContent = document.getElementById('quiz-result-content');
+
+        resultContent.innerHTML = `
+            <div class="text-center p-8">
+                <div class="mb-6">
+                    <i class="fas fa-trophy text-6xl ${passed ? 'text-yellow-400' : 'text-gray-500'}"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-2 ${passed ? 'text-green-400' : 'text-red-400'}">
+                    ${passed ? 'PASSED!' : 'NEEDS MORE PRACTICE'}
+                </h2>
+                <p class="text-xl text-gray-300 mb-6">
+                    Your Score: <span class="font-bold text-white">${this.score}</span> / ${this.currentQuiz.questions.reduce((sum, q) => sum + (q.points || 1), 0)}
+                </p>
+                <p class="text-gray-400 mb-8 max-w-md mx-auto">
+                    ${passed
+                        ? 'Great job! You have mastered this module. Ready to move on?'
+                        : 'Don\'t worry! Review the lessons and try again.'}
+                </p>
+                <div class="flex gap-4 justify-center">
+                    ${!passed ? `
+                        <button onclick="QuizManager.retry()" class="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 rounded-lg font-bold transition">
+                            <i class="fas fa-redo mr-2"></i> Try Again
+                        </button>
+                    ` : ''}
+                    <button onclick="QuizManager.close()" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition">
+                        ${passed ? 'Continue <i class="fas fa-arrow-right ml-2"></i>' : 'Back to Module <i class="fas fa-arrow-left ml-2"></i>'}
+                    </button>
+                </div>
+            </div>
+        `;
+
+        resultModal.classList.remove('hidden');
+    },
+
+    retry() {
+        document.getElementById('quiz-result-modal').classList.add('hidden');
+        this.currentQuestion = 0;
+        this.answers = [];
+        this.score = 0;
+        this.render();
+    },
+
+    close() {
+        document.getElementById('quiz-result-modal').classList.add('hidden');
+        if (this.score >= (this.currentQuiz.passing_score || this.currentQuiz.questions.length * 0.7)) {
+            // Mark module quiz as complete
+            AppState.progress[`m${AppState.currentModule}_quiz`] = true;
+            saveProgress();
+            updateProgressStats();
+            openNextModuleOrProject();
+        } else {
+            // Back to current module
+            document.getElementById('quiz-viewer').classList.add('hidden');
+            document.getElementById('lesson-viewer').classList.remove('hidden');
+        }
+    },
+
+    showNoQuiz() {
+        document.getElementById('quiz-container').innerHTML = `
+            <div class="text-center p-12">
+                <i class="fas fa-info-circle text-6xl text-blue-400 mb-6"></i>
+                <h2 class="text-2xl font-bold mb-4">No Quiz Available</h2>
+                <p class="text-gray-400 mb-8">This module doesn't have a quiz yet.</p>
+                <button onclick="QuizManager.close()" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition">
+                    Continue <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        `;
+    },
+
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
-
-    AppState.isQuizMode = true;
-    document.getElementById('lesson-viewer').classList.add('hidden');
-    document.getElementById('quiz-viewer').classList.remove('hidden');
-    document.getElementById('project-viewer').classList.add('hidden');
-
-    // Load quiz
-    QuizManager.load(quizData);
-}
+};
 
 function openNextModuleOrProject() {
     const currentIndex = Modules.findIndex(m => m.id === AppState.currentModule);

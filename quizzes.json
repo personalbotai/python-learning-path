@@ -1,0 +1,224 @@
+{
+  "quizzes": [
+    {
+      "module": 1,
+      "title": "Python Fundamentals Quiz",
+      "description": "Test your understanding of Python basics, environment setup, and first programs.",
+      "questions": [
+        {
+          "question": "What is the correct file extension for Python scripts?",
+          "options": [".py", ".python", ".pyt", ".pt"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "Python scripts use the .py file extension."
+        },
+        {
+          "question": "Which command creates a virtual environment in Python?",
+          "options": ["python -m venv venv", "pip install venv", "python create venv", "virtualenv create"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "The standard way is 'python -m venv venv' (or 'python3 -m venv venv')."
+        },
+        {
+          "question": "What is the output of: print('Hello' + 'World')?",
+          "options": ["HelloWorld", "Hello World", "Hello+World", "Error"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "String concatenation with + joins without spaces."
+        },
+        {
+          "question": "Which of these is a valid variable name in Python?",
+          "options": ["1var", "var-name", "_var", "var name"],
+          "correct_answer": 2,
+          "points": 1,
+          "explanation": "Underscore-starting names are valid; others have syntax errors."
+        },
+        {
+          "question": "What does the 'type()' function do?",
+          "options": ["Returns variable type", "Converts type", "Checks syntax", "Prints type"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "type() returns the data type of an object."
+        }
+      ],
+      "passing_score": 4,
+      "time_limit_minutes": 10
+    },
+    {
+      "module": 2,
+      "title": "Control Flow Quiz",
+      "description": "Test your knowledge of conditionals, loops, and logical operators.",
+      "questions": [
+        {
+          "question": "What does 'elif' stand for?",
+          "options": ["Else If", "Else In", "Elastic If", "None"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "'elif' is short for 'else if'."
+        },
+        {
+          "question": "Which loop executes at least once?",
+          "options": ["for", "while", "do-while", "None (Python has no do-while)"],
+          "correct_answer": 3,
+          "points": 1,
+          "explanation": "Python has no built-in do-while; while/for may execute zero times."
+        },
+        {
+          "question": "What does 'break' do?",
+          "options": ["Skips to next iteration", "Exits loop", "Pauses loop", "Restarts loop"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "'break' immediately exits the nearest enclosing loop."
+        },
+        {
+          "question": "What is the result of: True and False?",
+          "options": ["True", "False", "Error", "None"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Logical AND returns False if any operand is False."
+        },
+        {
+          "question": "Which operator is used for identity comparison?",
+          "options": ["==", "=", "is", "in"],
+          "correct_answer": 2,
+          "points": 1,
+          "explanation": "'is' checks if two references point to the same object."
+        }
+      ],
+      "passing_score": 4,
+      "time_limit_minutes": 10
+    },
+    {
+      "module": 3,
+      "title": "Data Structures Quiz",
+      "description": "Test your understanding of lists, tuples, dictionaries, and sets.",
+      "questions": [
+        {
+          "question": "Which data structure is mutable?",
+          "options": ["tuple", "list", "str", "frozenset"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Lists are mutable; tuples, strings, and frozensets are immutable."
+        },
+        {
+          "question": "How do you access the last element of a list 'arr'?",
+          "options": ["arr[-1]", "arr.last()", "arr[0]", "arr[end]"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "Negative indices count from the end: -1 is last element."
+        },
+        {
+          "question": "What does a set do?",
+          "options": ["Stores ordered elements", "Stores unique elements", "Stores key-value pairs", "Stores immutable sequence"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Sets store unique, unordered elements."
+        },
+        {
+          "question": "Which method removes and returns the last element of a list?",
+          "options": ["remove()", "pop()", "del", "discard"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "pop() removes and returns the last (or specified) element."
+        },
+        {
+          "question": "What is the output of: dict([('a',1),('b',2)])?",
+          "options": ["[('a',1),('b',2)]", "{'a':1, 'b':2}", "('a',1,'b',2)", "Error"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "dict() constructor creates a dictionary from an iterable of key-value pairs."
+        }
+      ],
+      "passing_score": 4,
+      "time_limit_minutes": 10
+    },
+    {
+      "module": 4,
+      "title": "Functions & Modular Programming Quiz",
+      "description": "Test your knowledge of functions, arguments, modules, and packages.",
+      "questions": [
+        {
+          "question": "What keyword defines a function?",
+          "options": ["func", "def", "function", "define"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Python uses 'def' to define functions."
+        },
+        {
+          "question": "What does *args allow?",
+          "options": ["Keyword arguments", "Variable positional arguments", "Variable keyword arguments", "Arbitrary expressions"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "*args collects extra positional arguments as a tuple."
+        },
+        {
+          "question": "What is the purpose of __name__ == '__main__'?",
+          "options": ["Import module", "Define main function", "Check if script is run directly", "None"],
+          "correct_answer": 2,
+          "points": 1,
+          "explanation": "It allows code to run only when the file is executed as a script, not when imported."
+        },
+        {
+          "question": "Which statement imports a specific function from a module?",
+          "options": ["import module", "from module import function", "include module", "use module.function"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "'from module import function' imports just that function."
+        },
+        {
+          "question": "What is a docstring?",
+          "options": ["String literal as first statement in function/class/module", "Comment", "Type hint", "None"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "A docstring is a string literal that appears as the first statement in a function, class, or module."
+        }
+      ],
+      "passing_score": 4,
+      "time_limit_minutes": 10
+    },
+    {
+      "module": 5,
+      "title": "Object-Oriented Programming Quiz",
+      "description": "Test your understanding of classes, objects, inheritance, and OOP concepts.",
+      "questions": [
+        {
+          "question": "What is the first parameter of instance methods by convention?",
+          "options": ["self", "this", "obj", "instance"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "Python uses 'self' as the first parameter of instance methods."
+        },
+        {
+          "question": "What does super() do?",
+          "options": ["Calls parent method", "Creates subclass", "Checks inheritance", "None"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "super() returns a temporary object of the parent class to allow method calls."
+        },
+        {
+          "question": "Which method is called when an object is converted to string with str()?",
+          "options": ["__str__", "__repr__", "__toString__", "__string__"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "__str__ is called by str() and print() for user-friendly string representation."
+        },
+        {
+          "question": "What does a property decorator do?",
+          "options": ["Makes method static", "Creates getter/setter for attribute", "Hides attribute", "None"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "@property turns a method into a read-only attribute; can pair with setter."
+        },
+        {
+          "question": "What is duck typing?",
+          "options": ["Type checking at compile time", "Type checking at runtime", "'If it walks like a duck...'", "None"],
+          "correct_answer": 2,
+          "points": 1,
+          "explanation": "Duck typing means object suitability is determined by presence of methods/attributes, not explicit type."
+        }
+      ],
+      "passing_score": 4,
+      "time_limit_minutes": 10
+    }
+  ]
+}
