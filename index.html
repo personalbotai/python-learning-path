@@ -253,6 +253,44 @@
     </div>
 
     <!-- Scripts -->
+    <!-- Load marked FIRST with blocking behavior -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js" onload="window.marked = marked; console.log('marked loaded from CDN')" onerror="loadMarkedFallback()"></script>
+    <script>
+        // Fallback: load marked from alternative CDN if jsdelivr fails
+        function loadMarkedFallback() {
+            console.warn('jsdelivr failed, trying unpkg...');
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/marked@9.1.6/marked.min.js';
+            script.onload = function() {
+                window.marked = marked;
+                console.log('marked loaded from unpkg fallback');
+            };
+            script.onerror = function() {
+                console.error('Failed to load marked from all CDNs');
+                // Show error to user immediately
+                document.body.innerHTML = `
+                    <div class="flex items-center justify-center min-h-screen bg-gray-900 text-white">
+                        <div class="max-w-md text-center p-8 bg-gray-800 rounded-lg">
+                            <i class="fas fa-exclamation-triangle text-5xl text-red-400 mb-4"></i>
+                            <h2 class="text-2xl font-bold mb-4">Gagal Memuat Library</h2>
+                            <p class="text-gray-300 mb-4">Tidak dapat memuat library Marked (marked.min.js) dari CDN.</p>
+                            <p class="text-sm text-gray-400 mb-4">Periksa koneksi internet atau adblocker.</p>
+                            <button onclick="location.reload()" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded">
+                                Coba Lagi
+                            </button>
+                        </div>
+                    </div>
+                `;
+            };
+            document.head.appendChild(script);
+        }
+
+        // If marked is already available (from cache), set it immediately
+        if (typeof marked !== 'undefined') {
+            window.marked = marked;
+            console.log('marked already available');
+        }
+    </script>
     <!-- Configure Monaco before loading to avoid conflicts -->
     <script>
         // Set up Monaco loader config before loading Monaco
@@ -264,12 +302,6 @@
     </script>
     <!-- Monaco Editor -->
     <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.min.js"></script>
-    <!-- Marked for Markdown parsing -->
-    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
-    <script>
-        // Ensure marked is globally available immediately after load
-        window.marked = window.marked || marked;
-    </script>
     <!-- Main App (loads Pyodide dynamically via loadPyodide()) -->
     <script src="app.js"></script>
 </body>
