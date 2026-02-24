@@ -253,8 +253,22 @@
     </div>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    <!-- Configure Monaco before loading to avoid stackframe error -->
+    <script>
+        // Set up Monaco loader config before loading Monaco
+        require = {
+            paths: {
+                'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs'
+            }
+        };
+    </script>
+    <!-- Monaco Editor -->
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.min.js"></script>
+    <!-- Marked for Markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Pyodide for Python execution (use same version in app.js) -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+    <!-- Main App -->
     <script src="app.js"></script>
 </body>
 </html><!-- Trigger deployment Tue Feb 24 01:53:28 UTC 2026 -->

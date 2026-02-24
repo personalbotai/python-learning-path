@@ -47,13 +47,6 @@ let pyodideReady = false;
 let pyodide = null;
 
 async function initMonaco() {
-    // Configure Monaco to use official CDN with CORS support
-    require.config({
-        paths: {
-            'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs'
-        }
-    });
-
     require(['vs/editor/editor.main'], function () {
         // Register Python language if not already
         if (!monaco.languages.getLanguages().some(lang => lang.id === 'python')) {
