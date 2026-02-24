@@ -1411,8 +1411,8 @@ function setupEventListeners() {
         openNextModuleOrProject();
     });
 
-    // Initialize first page
-    showPage('welcome');
+    // Welcome screen is visible by default - no need to call showPage('welcome')
+    // This prevents the blank flash during async initialization
 }
 
 // ==========================================================
