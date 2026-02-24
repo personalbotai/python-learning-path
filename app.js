@@ -113,10 +113,8 @@ async function initPyodide() {
             statusDiv.classList.remove('hidden');
         }
 
-        // Use Pyodide v0.25.0 (matching CDN version in index.html)
-        pyodide = await loadPyodide({
-            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.25.0/full/"
-        });
+        // Load Pyodide - automatically uses the same version as the loaded script
+        pyodide = await loadPyodide();
 
         // Load only essential packages initially (lazy load others)
         await pyodide.loadPackage("numpy");
