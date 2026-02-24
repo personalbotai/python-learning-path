@@ -112,7 +112,17 @@ async function loadModules() {
     // Load module definitions from lessons/modules.json
     try {
         const response = await fetch('lessons/modules.json');
-        Modules.push(...await response.json());
+        const data = await response.json();
+        // Transform data to match expected structure
+        Modules.push(...data.modules.map(m => ({
+            id: m.module,
+            title: m.title,
+            lessons: m.lessons.map(l => ({
+                title: l.title,
+                objectives: l.objectives,
+                code: null // Will be extracted from markdown
+            }))
+        })));
     } catch (error) {
         console.error('Failed to load modules:', error);
         // Fallback: create basic module structure
@@ -126,7 +136,6 @@ function createFallbackModules() {
         Modules.push({
             id: i,
             title: `Module ${i}`,
-            description: `Module ${i} description`,
             lessons: [],
             quiz: null,
             project: null
@@ -213,16 +222,27 @@ async function loadLesson(lesson, current, total) {
     // Update UI
     document.getElementById('lesson-module-badge').textContent = `Module ${AppState.currentModule}`;
     document.getElementById('lesson-title').textContent = lesson.title;
-    document.getElementById('lesson-objective').textContent = lesson.objective || '';
+    document.getElementById('lesson-objective').textContent = lesson.objectives || '';
 
-    // Render markdown content
-    const contentDiv = document.getElementById('lesson-content');
-    contentDiv.innerHTML = marked.parse(lesson.content);
+    // Load markdown content from file
+    const lessonId = `M${AppState.currentModule.toString().padStart(2, '0')}-L${current.toString().padStart(2, '0')}`;
+    try {
+        const response = await fetch(`lessons/${lessonId}.md`);
+        if (!response.ok) throw new Error('Lesson content not found');
+        const markdownContent = await response.text();
+        const contentDiv = document.getElementById('lesson-content');
+        contentDiv.innerHTML = marked.parse(markdownContent);
 
-    // Set code in editor
-    if (lesson.code) {
-        window.monacoEditor.setValue(lesson.code);
-    } else {
+        // Extract starter code from markdown
+        const extractedCode = extractCodeFromMarkdown(markdownContent);
+        if (extractedCode) {
+            window.monacoEditor.setValue(extractedCode);
+        } else {
+            window.monacoEditor.setValue(getDefaultCode());
+        }
+    } catch (error) {
+        console.error('Failed to load lesson content:', error);
+        document.getElementById('lesson-content').innerHTML = `<p class="text-red-400">Error loading lesson content: ${error.message}</p>`;
         window.monacoEditor.setValue(getDefaultCode());
     }
 
@@ -253,6 +273,13 @@ async function loadLesson(lesson, current, total) {
     completeBtn.className = isCompleted
         ? 'bg-green-800 text-white text-sm font-bold py-1 px-4 rounded cursor-default'
         : 'bg-green-600 hover:bg-green-700 text-white text-sm font-bold py-1 px-4 rounded transition';
+}
+
+// Extract first Python code block from markdown
+function extractCodeFromMarkdown(markdown) {
+    const codeBlockRegex = /```python\s*([\s\S]*?)```/;
+    const match = markdown.match(codeBlockRegex);
+    return match ? match[1].trim() : null;
 }
 
 document.getElementById('prev-lesson-btn').addEventListener('click', () => {

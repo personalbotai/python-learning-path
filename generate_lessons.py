@@ -31,11 +31,15 @@ total_generated = 0
 for module in modules:
     module_num = module['module']
     module_title = module['title']
+    lessons = module['lessons']
     
-    for lesson in module['lessons']:
+    for idx, lesson in enumerate(lessons):
         lesson_num = lesson['lesson']
         lesson_title = lesson['title']
         lesson_objectives = lesson['objectives']
+        
+        # Calculate next lesson number (for next steps link)
+        next_lesson = lesson_num + 1 if lesson_num < len(lessons) else 1
         
         # Format file name: M{module}-L{lesson}.md
         filename = f"M{module_num:02d}-L{lesson_num:02d}.md"
@@ -46,6 +50,7 @@ for module in modules:
             module_number=module_num,
             module_title=module_title,
             lesson_number=lesson_num,
+            next_lesson=next_lesson,
             lesson_title=lesson_title,
             lesson_objectives=lesson_objectives
         )
