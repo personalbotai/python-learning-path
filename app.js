@@ -496,7 +496,7 @@ document.getElementById('next-lesson-btn').addEventListener('click', () => {
         // All lessons done, open quiz
         openQuiz(module.quiz);
     }
-}
+});
 
 // Open quiz viewer with quiz data
 function openQuiz(quizData) {
