@@ -25,10 +25,10 @@
                     </div>
                 </div>
                 <div class="hidden md:flex items-center gap-6">
-                    <a href="#" class="text-gray-300 hover:text-white transition">Modul</a>
-                    <a href="#" class="text-gray-300 hover:text-white transition">Proyek</a>
-                    <a href="#" class="text-gray-300 hover:text-white transition">Progress</a>
-                    <a href="#" class="text-gray-300 hover:text-white transition">FAQ</a>
+                    <a href="#" id="nav-modules" class="text-gray-300 hover:text-white transition">Modul</a>
+                    <a href="#" id="nav-projects" class="text-gray-300 hover:text-white transition">Proyek</a>
+                    <a href="#" id="nav-progress" class="text-gray-300 hover:text-white transition">Progress</a>
+                    <a href="#" id="nav-faq" class="text-gray-300 hover:text-white transition">FAQ</a>
                 </div>
                 <div class="flex items-center gap-3">
                     <div id="progress-summary" class="text-sm text-gray-400 hidden sm:block">
@@ -124,6 +124,124 @@
                             <div class="bg-gray-800 p-4 rounded-lg">
                                 <div class="text-2xl font-bold text-purple-400">100%</div>
                                 <div class="text-gray-400">Free</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modules Overview Page -->
+                    <div id="modules-page" class="hidden">
+                        <div class="mb-8">
+                            <h1 class="text-3xl font-bold mb-2">Daftar Modul</h1>
+                            <p class="text-gray-400">Pilih modul untuk mulai belajar</p>
+                        </div>
+                        <div id="modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <!-- Projects Page -->
+                    <div id="projects-page" class="hidden">
+                        <div class="mb-8">
+                            <h1 class="text-3xl font-bold mb-2">Proyek</h1>
+                            <p class="text-gray-400">Kumpulkan dan kerjakan proyek-proyek untuk mengasah kemampuan</p>
+                        </div>
+                        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+
+                    <!-- Progress Page -->
+                    <div id="progress-page" class="hidden">
+                        <div class="mb-8">
+                            <h1 class="text-3xl font-bold mb-2">Progress Saya</h1>
+                            <p class="text-gray-400">Pantau perkembangan belajarmu</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="text-xl font-semibold">Ringkasan</h2>
+                                <span id="overall-progress" class="text-2xl font-bold text-blue-400">0%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-4 mb-6">
+                                <div id="overall-progress-bar" class="bg-blue-600 h-4 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                                <div class="bg-gray-700 p-4 rounded-lg">
+                                    <div class="text-2xl font-bold text-blue-300" id="progress-lessons">0/0</div>
+                                    <div class="text-gray-400">Lessons</div>
+                                </div>
+                                <div class="bg-gray-700 p-4 rounded-lg">
+                                    <div class="text-2xl font-bold text-green-300" id="progress-quizzes">0/0</div>
+                                    <div class="text-gray-400">Quizzes</div>
+                                </div>
+                                <div class="bg-gray-700 p-4 rounded-lg">
+                                    <div class="text-2xl font-bold text-yellow-300" id="progress-projects">0/0</div>
+                                    <div class="text-gray-400">Projects</div>
+                                </div>
+                                <div class="bg-gray-700 p-4 rounded-lg">
+                                    <div class="text-2xl font-bold text-purple-300" id="progress-achievements">0</div>
+                                    <div class="text-gray-400">Achievements</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h2 class="text-xl font-semibold mb-4">Detail Modul</h2>
+                            <div id="progress-modules-list">
+                                <!-- Dynamically populated -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Page -->
+                    <div id="faq-page" class="hidden">
+                        <div class="mb-8">
+                            <h1 class="text-3xl font-bold mb-2">Pertanyaan Umum (FAQ)</h1>
+                            <p class="text-gray-400">Jawaban untuk pertanyaan yang sering diajukan</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                                <button class="faq-question w-full text-left p-4 flex justify-between items-center hover:bg-gray-700 transition">
+                                    <span class="font-semibold">Apa itu Python Learning Path?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer hidden p-4 pt-0 text-gray-400">
+                                    Python Learning Path adalah platform interaktif untuk belajar Python dari nol hingga mahir. Setiap modul menyediakan pelajaran, quiz, dan proyek untuk memastikan pemahaman yang mendalam.
+                                </div>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                                <button class="faq-question w-full text-left p-4 flex justify-between items-center hover:bg-gray-700 transition">
+                                    <span class="font-semibold">Apakah ini gratis?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer hidden p-4 pt-0 text-gray-400">
+                                    Ya! Python Learning Path sepenuhnya gratis dan akan selalu gratis. Tidak ada biaya tersembunyi.
+                                </div>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                                <button class="faq-question w-full text-left p-4 flex justify-between items-center hover:bg-gray-700 transition">
+                                    <span class="font-semibold">Bagaimana cara menyimpan progress?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer hidden p-4 pt-0 text-gray-400">
+                                    Progress Anda disimpan otomatis di browser (localStorage). Pastikan Anda tidak membersihkan data browser. Untuk backup, Anda bisa mengekspor progress dari halaman Progress.
+                                </div>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                                <button class="faq-question w-full text-left p-4 flex justify-between items-center hover:bg-gray-700 transition">
+                                    <span class="font-semibold">Kode yang saya jalankan aman?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer hidden p-4 pt-0 text-gray-400">
+                                    Ya, kode Anda dijalankan di lingkungan terisolasi (Pyodide) di browser Anda sendiri. Tidak ada eksekusi di server, sehingga data Anda tetap privat dan aman.
+                                </div>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                                <button class="faq-question w-full text-left p-4 flex justify-between items-center hover:bg-gray-700 transition">
+                                    <span class="font-semibold">Bagaimana cara melaporkan bug atau saran?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer hidden p-4 pt-0 text-gray-400">
+                                    Kami sangat mengharapkan masukan Anda! Silakan buka issue di GitHub repository kami atau hubungi tim pengembang.
+                                </div>
                             </div>
                         </div>
                     </div>
