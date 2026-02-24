@@ -8,7 +8,8 @@ const AppState = {
     currentLesson: 0,
     isQuizMode: false,
     progress: {},
-    achievements: new Set()
+    achievements: new Set(),
+    theme: localStorage.getItem('theme') || 'dark' // 'dark' or 'light'
 };
 
 // Language Configuration (will be replaced per repo)
@@ -46,6 +47,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         await waitForMarked();
         console.log('Marked library ready');
         
+        // Initialize theme first
+        initTheme();
+        
         await initMonaco();
         await loadProgress();
         await loadAchievements();
@@ -66,6 +70,53 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // ==========================================================
+// Theme Management
+// ==========================================================
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    AppState.theme = savedTheme;
+    applyTheme(savedTheme);
+    
+    // Set up theme toggle button
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', toggleTheme);
+    }
+}
+
+function toggleTheme() {
+    const newTheme = AppState.theme === 'dark' ? 'light' : 'dark';
+    AppState.theme = newTheme;
+    localStorage.setItem('theme', newTheme);
+    applyTheme(newTheme);
+    
+    // Update Monaco editor theme
+    if (window.monacoEditor) {
+        const monacoTheme = newTheme === 'dark' ? 'vs-dark' : 'vs';
+        window.monacoEditor.updateOptions({ theme: monacoTheme });
+    }
+}
+
+function applyTheme(theme) {
+    // Set data-theme attribute on html element for CSS variables
+    document.documentElement.setAttribute('data-theme', theme);
+    
+    // Also set dark class for Tailwind dark: variants
+    if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+    
+    // Update theme icon
+    const themeIcon = document.getElementById('theme-icon');
+    if (themeIcon) {
+        themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+}
+
+// ==========================================================
 // Monaco Editor Setup
 // ==========================================================
 
@@ -84,10 +135,13 @@ async function initMonaco() {
             });
         }
 
+        // Set Monaco theme based on current theme
+        const monacoTheme = AppState.theme === 'dark' ? 'vs-dark' : 'vs';
+        
         window.monacoEditor = monaco.editor.create(document.getElementById('code-editor'), {
             value: getDefaultCode(),
             language: 'python',
-            theme: 'vs-dark',
+            theme: monacoTheme,
             automaticLayout: true,
             minimap: { enabled: false },
             scrollBeyondLastLine: false,
@@ -1298,40 +1352,61 @@ function showCompletionScreen() {
 
 function setupEventListeners() {
     // Sidebar toggle for mobile
-    document.getElementById('sidebar-toggle').addEventListener('click', () => {
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('sidebar-overlay');
-        sidebar.classList.toggle('-translate-x-full');
-        overlay.classList.toggle('active');
-    });
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('-translate-x-full');
+            if (overlay) overlay.classList.toggle('active');
+        });
+    }
 
     // Overlay click to close sidebar
     const overlay = document.getElementById('sidebar-overlay');
     if (overlay) {
         overlay.addEventListener('click', () => {
-            document.getElementById('sidebar').classList.add('-translate-x-full');
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.add('-translate-x-full');
             overlay.classList.remove('active');
         });
     }
 
     // Start button (on welcome screen)
-    document.getElementById('start-btn').addEventListener('click', () => {
-        openModule(1);
-    });
+    const startBtn = document.getElementById('start-btn');
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            openModule(1);
+        });
+    }
 
     // Reset progress
-    document.getElementById('reset-progress').addEventListener('click', () => {
-        if (confirm('Reset all progress? This cannot be undone.')) {
-            localStorage.removeItem(`${LanguageConfig.name.toLowerCase()}_progress`);
-            location.reload();
-        }
-    });
+    const resetBtn = document.getElementById('reset-progress');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            if (confirm('Reset all progress? This cannot be undone.')) {
+                localStorage.removeItem(`${LanguageConfig.name.toLowerCase()}_progress`);
+                location.reload();
+            }
+        });
+    }
+
+    // Theme toggle
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+        themeBtn.addEventListener('click', toggleTheme);
+    }
 
     // Quiz buttons
-    document.getElementById('quiz-prev-btn')?.addEventListener('click', () => QuizManager.prev());
-    document.getElementById('quiz-next-btn')?.addEventListener('click', () => QuizManager.next());
-    document.getElementById('quiz-submit-btn')?.addEventListener('click', () => QuizManager.submit());
-    document.getElementById('quiz-close-modal')?.addEventListener('click', () => {
+    const quizPrevBtn = document.getElementById('quiz-prev-btn');
+    const quizNextBtn = document.getElementById('quiz-next-btn');
+    const quizSubmitBtn = document.getElementById('quiz-submit-btn');
+    const quizCloseModal = document.getElementById('quiz-close-modal');
+
+    if (quizPrevBtn) quizPrevBtn.addEventListener('click', () => QuizManager.prev());
+    if (quizNextBtn) quizNextBtn.addEventListener('click', () => QuizManager.next());
+    if (quizSubmitBtn) quizSubmitBtn.addEventListener('click', () => QuizManager.submit());
+    if (quizCloseModal) quizCloseModal.addEventListener('click', () => {
         document.getElementById('quiz-result-modal').classList.add('hidden');
         openNextModuleOrProject();
     });
