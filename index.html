@@ -266,6 +266,10 @@
     <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.min.js"></script>
     <!-- Marked for Markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <script>
+        // Ensure marked is globally available immediately after load
+        window.marked = window.marked || marked;
+    </script>
     <!-- Main App (loads Pyodide dynamically via loadPyodide()) -->
     <script src="app.js"></script>
 </body>

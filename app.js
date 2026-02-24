@@ -24,9 +24,16 @@ const LanguageConfig = {
 // Module Definitions (will be populated from lessons structure)
 const Modules = [];
 
-// Ensure marked is available globally before any usage
-if (typeof marked !== 'undefined') {
-    window.marked = marked;
+// Wait for marked to be available globally
+async function waitForMarked(timeout = 5000) {
+    const start = Date.now();
+    while (typeof window.marked === 'undefined') {
+        if (Date.now() - start > timeout) {
+            throw new Error('Marked library failed to load within timeout. Check your internet connection.');
+        }
+        await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    return window.marked;
 }
 
 // ==========================================================
@@ -34,14 +41,28 @@ if (typeof marked !== 'undefined') {
 // ==========================================================
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await initMonaco();
-    await loadProgress();
-    await loadAchievements();
-    await loadModules();
-    setupEventListeners();
-    renderNavigation();
-    updateProgressStats();
-    checkFirstTime();
+    try {
+        // Wait for all dependencies to load
+        await waitForMarked();
+        console.log('Marked library ready');
+        
+        await initMonaco();
+        await loadProgress();
+        await loadAchievements();
+        await loadModules();
+        setupEventListeners();
+        renderNavigation();
+        updateProgressStats();
+        checkFirstTime();
+    } catch (error) {
+        console.error('Initialization failed:', error);
+        // Show error to user
+        const statusDiv = document.getElementById('status-message');
+        if (statusDiv) {
+            statusDiv.innerHTML = `<i class="fas fa-exclamation-triangle text-red-400 mr-2"></i> ${error.message}`;
+            statusDiv.classList.remove('hidden');
+        }
+    }
 });
 
 // ==========================================================
