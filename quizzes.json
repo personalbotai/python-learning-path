@@ -219,6 +219,226 @@
       ],
       "passing_score": 4,
       "time_limit_minutes": 10
+    },
+    {
+      "module": 6,
+      "title": "Error Handling & Exceptions Quiz",
+      "description": "Test your knowledge of try-except, custom exceptions, and error handling strategies.",
+      "questions": [
+        {
+          "question": "Which keyword is used to catch exceptions?",
+          "options": ["catch", "except", "handle", "try"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "'except' is used to catch and handle exceptions."
+        },
+        {
+          "question": "What does 'finally' do in a try-except block?",
+          "options": ["Runs only if no exception", "Runs only if exception occurs", "Always runs regardless", "None"],
+          "correct_answer": 2,
+          "points": 1,
+          "explanation": "'finally' executes whether an exception occurs or not, typically for cleanup."
+        },
+        {
+          "question": "How do you raise a custom exception?",
+          "options": ["throw Exception()", "raise Exception()", "error Exception()", "except Exception()"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Use 'raise' followed by an exception instance or class."
+        },
+        {
+          "question": "What is the base class for all built-in exceptions?",
+          "options": ["BaseException", "Exception", "Error", "RuntimeError"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Most built-in exceptions inherit from 'Exception' (BaseException is the absolute root)."
+        },
+        {
+          "question": "What does 'else' in a try-except block do?",
+          "options": ["Handles else clause", "Runs if no exception was raised", "Runs if exception raised", "None"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "'else' runs only if the try block completed without raising an exception."
+        }
+      ],
+      "passing_score": 4,
+      "time_limit_minutes": 10
+    },
+    {
+      "module": 7,
+      "title": "File I/O & Data Handling Quiz",
+      "description": "Test your ability to read/write files, work with CSV/JSON, and manage data persistence.",
+      "questions": [
+        {
+          "question": "Which mode opens a file for reading text?",
+          "options": ["'r'", "'w'", "'a'", "'x'"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "'r' is read mode (default). 'w' write, 'a' append, 'x' exclusive creation."
+        },
+        {
+          "question": "What is the safest way to open a file?",
+          "options": ["open(); close()", "with open() as f:", "try: open(); finally: close()", "Using os.open()"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "'with' statement ensures proper cleanup even if exceptions occur."
+        },
+        {
+          "question": "Which module is used for JSON serialization?",
+          "options": ["csv", "json", "pickle", "yaml"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "The 'json' module provides json.load() and json.dump()."
+        },
+        {
+          "question": "How do you read all lines of a file into a list?",
+          "options": ["f.read()", "f.readlines()", "f.read().splitlines()", "Both B and C"],
+          "correct_answer": 3,
+          "points": 1,
+          "explanation": "readlines() returns list with newlines; read().splitlines() removes newlines. Both are valid."
+        },
+        {
+          "question": "What does 'rb' mode do?",
+          "options": ["Read binary", "Read both", "Read with backup", "None"],
+          "correct_answer": 0,
+          "points": 1,
+          "explanation": "'rb' opens file in binary read mode (for images, etc.)."
+        }
+      ],
+      "passing_score": 4,
+      "time_limit_minutes": 10
+    },
+    {
+      "module": 8,
+      "title": "Modules & Packages Quiz",
+      "description": "Test your understanding of Python's module system, imports, and package structure.",
+      "questions": [
+        {
+          "question": "What file marks a directory as a Python package?",
+          "options": ["package.py", "main.py", "__init__.py", "setup.py"],
+          "correct_answer": 2,
+          "points": 1,
+          "explanation": "__init__.py (can be empty) marks a directory as a package."
+        },
+        {
+          "question": "What is the difference between 'import module' and 'from module import *'?",
+          "options": ["No difference", "First imports all, second imports specific", "First keeps namespace, second pollutes", "Second is faster"],
+          "correct_answer": 2,
+          "points": 1,
+          "explanation": "from module import * brings all names into current namespace, which can cause conflicts."
+        },
+        {
+          "question": "How do you import a module from a parent package?",
+          "options": ["import parent.module", "from .. import module", "import ..module", "None"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Relative imports use dots: 'from .. import module' goes up one level."
+        },
+        {
+          "question": "What does sys.path control?",
+          "options": ["System path", "Module search paths", "Executable path", "None"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "sys.path is a list of directories Python searches for modules."
+        },
+        {
+          "question": "What is __all__ used for?",
+          "options": ["Define all modules", "Control 'from module import *' exports", "List all functions", "None"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "__all__ in a module defines which names are exported with 'import *'."
+        }
+      ],
+      "passing_score": 4,
+      "time_limit_minutes": 10
+    },
+    {
+      "module": 9,
+      "title": "Virtual Environments & Dependencies Quiz",
+      "description": "Test your knowledge of venv, pip, requirements.txt, and dependency management.",
+      "questions": [
+        {
+          "question": "What command creates a virtual environment?",
+          "options": ["pip install venv", "python -m venv venv", "virtualenv create", "conda create"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Standard library: 'python -m venv venv'. virtualenv is third-party, conda is Anaconda."
+        },
+        {
+          "question": "How do you activate a virtual environment on Linux/macOS?",
+          "options": ["activate", "venv activate", "source venv/bin/activate", "start venv"],
+          "correct_answer": 2,
+          "points": 1,
+          "explanation": "On POSIX systems: 'source venv/bin/activate'. On Windows: 'venv\\Scripts\\activate'."
+        },
+        {
+          "question": "What command installs packages from requirements.txt?",
+          "options": ["pip install requirements.txt", "pip install -r requirements.txt", "pip install all", "pip install ."],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "'pip install -r requirements.txt' installs all listed dependencies."
+        },
+        {
+          "question": "What does 'pip freeze' do?",
+          "options": ["Shows outdated packages", "Lists all installed packages with versions", "Uninstalls packages", "None"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "'pip freeze' outputs installed packages in requirements format."
+        },
+        {
+          "question": "What is the purpose of a virtual environment?",
+          "options": ["Speed up Python", "Isolate project dependencies", "Create new Python version", "None"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Virtual environments isolate dependencies per project, avoiding conflicts."
+        }
+      ],
+      "passing_score": 4,
+      "time_limit_minutes": 10
+    },
+    {
+      "module": 10,
+      "title": "Next Steps & Resources Quiz",
+      "description": "Test your awareness of Python ecosystem resources, best practices, and learning pathways.",
+      "questions": [
+        {
+          "question": "Which style guide is the official Python convention?",
+          "options": ["Google Style", "PEP 8", "Airbnb Style", "None"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "PEP 8 is the official Python style guide."
+        },
+        {
+          "question": "What is a good practice for managing project dependencies?",
+          "options": ["Use system Python packages", "Use virtual environments and requirements.txt", "Install globally", "Avoid dependencies"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Isolate dependencies with venv and pin versions in requirements.txt."
+        },
+        {
+          "question": "Which tool is commonly used for Python package publishing?",
+          "options": ["npm", "pip", "twine", "conda"],
+          "correct_answer": 2,
+          "points": 1,
+          "explanation": "twine is used to upload packages to PyPI."
+        },
+        {
+          "question": "What is the recommended way to share a Python script with others?",
+          "options": ["Send .py file", "Create a package with setup.py/pyproject.toml", "Send via email", "Use Google Drive"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "Proper packaging with pyproject.toml or setup.py makes sharing and installation easy."
+        },
+        {
+          "question": "Which community resource is best for Python documentation?",
+          "options": ["Wikipedia", "docs.python.org", "Stack Overflow", "GitHub Issues"],
+          "correct_answer": 1,
+          "points": 1,
+          "explanation": "docs.python.org is the official Python documentation."
+        }
+      ],
+      "passing_score": 4,
+      "time_limit_minutes": 10
     }
   ]
 }
