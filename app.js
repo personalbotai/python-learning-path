@@ -92,9 +92,9 @@ async function initPyodide() {
             statusDiv.classList.remove('hidden');
         }
 
-        // Use official Pyodide CDN (jsDelivr) - correct package structure
+        // Use Pyodide v0.24.1 (stable, no stackframe dependency)
         pyodide = await loadPyodide({
-            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.25.0/full/"
+            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/"
         });
 
         // Load only essential packages initially (lazy load others)
