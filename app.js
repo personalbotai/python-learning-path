@@ -47,17 +47,27 @@ let pyodideReady = false;
 let pyodide = null;
 
 async function initMonaco() {
-    // Load Monaco
+    // Configure Monaco to use official CDN with CORS support
     require.config({
         paths: {
-            'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs'
+            'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs'
         }
     });
 
     require(['vs/editor/editor.main'], function () {
+        // Register Python language if not already
+        if (!monaco.languages.getLanguages().some(lang => lang.id === 'python')) {
+            monaco.languages.register({
+                id: 'python',
+                extensions: ['.py'],
+                aliases: ['Python', 'py'],
+                mimetypes: ['text/x-python']
+            });
+        }
+
         window.monacoEditor = monaco.editor.create(document.getElementById('code-editor'), {
             value: getDefaultCode(),
-            language: getMonacoLanguage(),
+            language: 'python',
             theme: 'vs-dark',
             automaticLayout: true,
             minimap: { enabled: false },
@@ -84,16 +94,14 @@ async function initPyodide() {
             statusDiv.classList.remove('hidden');
         }
 
-        // Load Pyodide
+        // Use official Pyodide CDN (jsDelivr) - correct package structure
         pyodide = await loadPyodide({
-            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/"
+            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.25.0/full/"
         });
 
-        // Load required packages
+        // Load only essential packages initially (lazy load others)
         await pyodide.loadPackage("numpy");
-        await pyodide.loadPackage("pandas");
-        await pyodide.loadPackage("matplotlib");
-        await pyodide.loadPackage("scipy");
+        // Pandas/matplotlib/scipy will be loaded on demand
 
         pyodideReady = true;
 
