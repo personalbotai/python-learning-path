@@ -324,7 +324,7 @@ async function loadLesson(lesson, current, total) {
         if (typeof window.marked === 'undefined') {
             throw new Error('Markdown library (marked) is not loaded. Please check your internet connection and refresh the page.');
         }
-        contentDiv.innerHTML = window.marked(markdownContent);
+        contentDiv.innerHTML = marked.parse(markdownContent);
 
         // Extract starter code from markdown
         const extractedCode = extractCodeFromMarkdown(markdownContent);
