@@ -24,6 +24,11 @@ const LanguageConfig = {
 // Module Definitions (will be populated from lessons structure)
 const Modules = [];
 
+// Ensure marked is available globally before any usage
+if (typeof marked !== 'undefined') {
+    window.marked = marked;
+}
+
 // ==========================================================
 // Initialization
 // ==========================================================
@@ -294,7 +299,11 @@ async function loadLesson(lesson, current, total) {
         if (!response.ok) throw new Error('Lesson content not found');
         const markdownContent = await response.text();
         const contentDiv = document.getElementById('lesson-content');
-        contentDiv.innerHTML = marked.parse(markdownContent);
+        // Ensure marked is loaded globally
+        if (typeof window.marked === 'undefined') {
+            throw new Error('Markdown library (marked) is not loaded. Please check your internet connection and refresh the page.');
+        }
+        contentDiv.innerHTML = window.marked(markdownContent);
 
         // Extract starter code from markdown
         const extractedCode = extractCodeFromMarkdown(markdownContent);
