@@ -1,4 +1,4 @@
-// Main Application Controller for {{LANGUAGE}} Learning Path
+// Main Application Controller for Python Learning Path
 // ==========================================================
 
 // Global State
@@ -565,7 +565,7 @@ function showCompletionScreen() {
         </div>
         <h1 class="text-4xl font-bold mb-4">🎉 Selamat! Anda Menyelesaikan Semua Modul!</h1>
         <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Anda telah menyelesaikan seluruh learning path {{LANGUAGE}}. 
+            Anda telah menyelesaikan seluruh learning path Python. 
             Sekarang saatnya menguji kemampuan Anda dengan proyek akhir.
         </p>
         <button onclick="location.reload()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
