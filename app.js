@@ -527,7 +527,7 @@ function openQuiz(quizData) {
 
     // Load quiz into QuizManager
     QuizManager.load(quizData);
-});
+}
 
 document.getElementById('mark-complete-btn').addEventListener('click', () => {
     markLessonComplete(AppState.currentModule, AppState.currentLesson);
