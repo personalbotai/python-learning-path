@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         setupEventListeners();
         renderNavigation();
         updateProgressStats();
-        checkFirstTime();
+        // checkFirstTime() removed - was causing error
     } catch (error) {
         console.error('Initialization failed:', error);
         // Show error to user
