@@ -113,9 +113,9 @@ async function initPyodide() {
             statusDiv.classList.remove('hidden');
         }
 
-        // Use Pyodide v0.24.1 (stable, no stackframe dependency)
+        // Use Pyodide v0.25.0 (matching CDN version in index.html)
         pyodide = await loadPyodide({
-            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.24.1/full/"
+            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.25.0/full/"
         });
 
         // Load only essential packages initially (lazy load others)
@@ -184,6 +184,7 @@ async function loadModules() {
     // Load module definitions from modules.json (in root)
     try {
         const response = await fetch('modules.json');
+        if (!response.ok) throw new Error('modules.json not found');
         const data = await response.json();
         // Transform data to match expected structure
         Modules.push(...data.modules.map(m => ({
@@ -200,6 +201,7 @@ async function loadModules() {
         // Load quiz data if available
         try {
             const quizResponse = await fetch('quizzes.json');
+            if (!quizResponse.ok) throw new Error('quizzes.json not found');
             const quizData = await quizResponse.json();
             // Attach quizzes to modules
             quizData.forEach(q => {
