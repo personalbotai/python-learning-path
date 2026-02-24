@@ -287,7 +287,7 @@ function createFallbackModules() {
 }
 
 // ==========================================================
-// Navigation
+// Navigation - Sidebar (Expandable)
 // ==========================================================
 
 function renderNavigation() {
@@ -298,29 +298,79 @@ function renderNavigation() {
         const isCompleted = isModuleCompleted(module.id);
         const isCurrent = module.id === AppState.currentModule;
 
-        const item = document.createElement('div');
-        item.className = `mb-2 ${isCurrent ? 'bg-gray-700 rounded' : ''}`;
-        item.innerHTML = `
-            <button class="w-full flex items-center justify-between px-3 py-2 text-left hover:bg-gray-700 rounded transition" data-module="${module.id}">
-                <div class="flex items-center gap-2">
-                    <span class="text-sm ${isCompleted ? 'text-green-400' : 'text-gray-400'}">
-                        ${isCompleted ? '<i class="fas fa-check-circle"></i>' : '<i class="far fa-circle"></i>'}
-                    </span>
-                    <span class="text-sm font-medium ${isCurrent ? 'text-white' : 'text-gray-300'}">
-                        ${module.title}
-                    </span>
-                </div>
-                <i class="fas fa-chevron-right text-xs text-gray-500"></i>
-            </button>
+        const moduleItem = document.createElement('div');
+        moduleItem.className = `mb-2 ${isCurrent ? 'bg-gray-700 rounded' : ''}`;
+        
+        // Module header (clickable to expand/collapse)
+        const header = document.createElement('button');
+        header.className = 'w-full flex items-center justify-between px-3 py-2 text-left hover:bg-gray-700 rounded transition';
+        header.dataset.moduleId = module.id;
+        header.innerHTML = `
+            <div class="flex items-center gap-2">
+                <span class="text-sm ${isCompleted ? 'text-green-400' : 'text-gray-400'}">
+                    ${isCompleted ? '<i class="fas fa-check-circle"></i>' : '<i class="far fa-circle"></i>'}
+                </span>
+                <span class="text-sm font-medium ${isCurrent ? 'text-white' : 'text-gray-300'}">
+                    ${module.title}
+                </span>
+            </div>
+            <i class="fas fa-chevron-down text-xs text-gray-500 transition-transform"></i>
         `;
-        nav.appendChild(item);
-    });
 
-    // Add click handlers
-    nav.querySelectorAll('button[data-module]').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const moduleId = parseInt(btn.dataset.module);
-            openModule(moduleId);
+        // Lessons container (collapsible)
+        const lessonsContainer = document.createElement('div');
+        lessonsContainer.className = 'lessons-container hidden pl-6 pr-2 space-y-1';
+        lessonsContainer.dataset.moduleId = module.id;
+
+        // Add lessons if they exist
+        if (module.lessons && module.lessons.length > 0) {
+            module.lessons.forEach((lesson, lessonIndex) => {
+                const lessonCompleted = getLessonProgress(module.id, lessonIndex + 1);
+                const lessonBtn = document.createElement('button');
+                lessonBtn.className = `w-full flex items-center gap-2 px-2 py-1.5 text-left text-xs rounded transition hover:bg-gray-700`;
+                lessonBtn.dataset.moduleId = module.id;
+                lessonBtn.dataset.lessonNum = lessonIndex + 1;
+                lessonBtn.innerHTML = `
+                    <span class="${lessonCompleted ? 'text-green-400' : 'text-gray-500'}">
+                        ${lessonCompleted ? '<i class="fas fa-check"></i>' : '<i class="far fa-circle text-[8px]"></i>'}
+                    </span>
+                    <span class="text-gray-300 truncate">${lessonIndex + 1}. ${lesson.title}</span>
+                `;
+                lessonBtn.addEventListener('click', () => {
+                    openLessonFromSidebar(module.id, lessonIndex + 1);
+                });
+                lessonsContainer.appendChild(lessonBtn);
+            });
+        }
+
+        moduleItem.appendChild(header);
+        moduleItem.appendChild(lessonsContainer);
+        nav.appendChild(moduleItem);
+
+        // Toggle expand/collapse on header click
+        header.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const container = header.nextElementSibling;
+            const chevron = header.querySelector('i.fa-chevron-down');
+            
+            if (container.classList.contains('hidden')) {
+                // Close all other modules
+                nav.querySelectorAll('.lessons-container').forEach(c => c.classList.add('hidden'));
+                nav.querySelectorAll('button[data-module-id] i.fa-chevron-down').forEach(i => i.style.transform = 'rotate(0deg)');
+                
+                // Open this one
+                container.classList.remove('hidden');
+                chevron.style.transform = 'rotate(180deg)';
+            } else {
+                container.classList.add('hidden');
+                chevron.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Open module on clicking the module title (not the chevron area)
+        header.addEventListener('click', (e) => {
+            if (e.target.closest('i.fa-chevron-down')) return;
+            openModule(module.id);
         });
     });
 }
@@ -349,7 +399,7 @@ function openModule(moduleId) {
 function renderBreadcrumb(title, type) {
     const breadcrumb = document.getElementById('breadcrumb');
     breadcrumb.innerHTML = `
-        <a href="#" class="hover:text-white transition">Home</a>
+        <button onclick="goHome()" class="hover:text-white transition bg-transparent border-none cursor-pointer text-sm">Home</button>
         <i class="fas fa-chevron-right mx-2 text-xs"></i>
         <span class="text-white">${type}: ${title}</span>
     `;
@@ -446,6 +496,37 @@ document.getElementById('next-lesson-btn').addEventListener('click', () => {
         // All lessons done, open quiz
         openQuiz(module.quiz);
     }
+}
+
+// Open quiz viewer with quiz data
+function openQuiz(quizData) {
+    if (!quizData) {
+        // No quiz for this module, mark as complete and move to next
+        console.log('No quiz available for this module, marking as complete and proceeding');
+        AppState.progress[`m${AppState.currentModule}_quiz`] = true;
+        saveProgress();
+        updateProgressStats();
+        openNextModuleOrProject();
+        return;
+    }
+
+    AppState.isQuizMode = true;
+    document.getElementById('welcome-screen').classList.add('hidden');
+    document.getElementById('modules-page').classList.add('hidden');
+    document.getElementById('projects-page').classList.add('hidden');
+    document.getElementById('progress-page').classList.add('hidden');
+    document.getElementById('faq-page').classList.add('hidden');
+    document.getElementById('lesson-viewer').classList.add('hidden');
+    document.getElementById('quiz-viewer').classList.remove('hidden');
+    document.getElementById('project-viewer').classList.add('hidden');
+
+    // Update quiz header
+    document.getElementById('quiz-module-num').textContent = AppState.currentModule;
+    document.getElementById('quiz-status').textContent = 'In Progress';
+    document.getElementById('quiz-status').className = 'text-sm px-3 py-1 rounded-full bg-yellow-900 text-yellow-200';
+
+    // Load quiz into QuizManager
+    QuizManager.load(quizData);
 });
 
 document.getElementById('mark-complete-btn').addEventListener('click', () => {
@@ -782,6 +863,33 @@ function openNextModuleOrProject() {
         // All modules completed, show final project or completion
         showCompletionScreen();
     }
+}
+
+// Home navigation
+function goHome() {
+    // Reset state
+    AppState.currentModule = 0;
+    AppState.currentLesson = 0;
+    AppState.isQuizMode = false;
+    
+    // Show welcome screen directly
+    document.getElementById('welcome-screen').classList.remove('hidden');
+    document.getElementById('modules-page').classList.add('hidden');
+    document.getElementById('projects-page').classList.add('hidden');
+    document.getElementById('progress-page').classList.add('hidden');
+    document.getElementById('faq-page').classList.add('hidden');
+    document.getElementById('lesson-viewer').classList.add('hidden');
+    document.getElementById('quiz-viewer').classList.add('hidden');
+    document.getElementById('project-viewer').classList.add('hidden');
+    
+    // Update navigation highlight
+    document.querySelectorAll('[id^="nav-"]').forEach(el => {
+        el.classList.remove('text-white', 'font-semibold');
+        el.classList.add('text-gray-300');
+    });
+    
+    // Render navigation with no module selected
+    renderNavigation();
 }
 
 // ==========================================================
