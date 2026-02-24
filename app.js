@@ -253,7 +253,13 @@ async function loadModules() {
         // Load quiz data if available
         try {
             const quizResponse = await fetch('quizzes.json');
-            if (!quizResponse.ok) throw new Error('quizzes.json not found');
+            if (!quizResponse.ok) {
+                // Check if we're running on file:// protocol (CORS error)
+                if (window.location.protocol === 'file:') {
+                    console.warn('Running on file:// protocol. Quizzes will be optional. Please use a local server (python3 -m http.server 8000) for full functionality.');
+                }
+                throw new Error('quizzes.json not found');
+            }
             const quizData = await quizResponse.json();
             // Attach quizzes to modules
             quizData.forEach(q => {
@@ -453,11 +459,13 @@ async function loadLesson(lesson, current, total) {
     const nextBtn = document.getElementById('next-lesson-btn');
 
     prevBtn.disabled = current <= 1;
-    nextBtn.disabled = current >= module.lessons.length;
-
     if (current >= module.lessons.length) {
+        // Di lesson terakhir: tombol untuk quiz (jika ada)
+        nextBtn.disabled = !module.quiz;
         nextBtn.innerHTML = 'Next Quiz <i class="fas fa-arrow-right ml-2"></i>';
     } else {
+        // Masih ada lesson berikutnya
+        nextBtn.disabled = false;
         nextBtn.innerHTML = 'Selanjutnya <i class="fas fa-arrow-right ml-2"></i>';
     }
 
