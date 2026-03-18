@@ -1359,3 +1359,17 @@ function markComplete() {
 function updateProgress() { const done = Object.keys(progress).length; const pct = Math.round((done / lessons.length) * 100); document.getElementById('progress-text').textContent = pct + '%'; document.getElementById('progress-bar').style.width = pct + '%'; }
 function resetProgress() { if (!confirm('Reset semua progress?')) return; progress = {}; localStorage.removeItem('python_progress'); renderNav(); updateProgress(); }
 function escapeHtml(str) { return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Load progress from localStorage
+    progress = JSON.parse(localStorage.getItem('python_progress') || '{}');
+    
+    // Render sidebar
+    renderNav();
+    
+    // Load first lesson
+    if (lessons.length > 0) {
+        loadLesson(0);
+    }
+});
