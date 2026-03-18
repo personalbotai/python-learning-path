@@ -152,3 +152,74 @@
     <script src="app.js"></script>
 </body>
 </html>
+
+<!-- Markdown Renderer -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+// Override loadLesson to fetch and render markdown
+const originalLoadLesson = loadLesson;
+loadLesson = async function(index) {
+    currentLesson = index;
+    const lesson = lessons[index];
+    
+    // Show loading
+    document.getElementById('current-lesson').innerHTML = `
+        <div class="text-xs text-gray-500 mb-2">${lesson.module || ''}</div>
+        <h2 class="text-xl font-bold mb-4">${lesson.title}</h2>
+        <div class="text-gray-400"><i class="fas fa-spinner fa-spin mr-2"></i>Loading...</div>
+    `;
+    
+    // Fetch and render markdown
+    if (lesson.mdFile) {
+        try {
+            const response = await fetch(lesson.mdFile);
+            const mdContent = await response.text();
+            const htmlContent = marked.parse(mdContent);
+            document.getElementById('current-lesson').innerHTML = `
+                <div class="text-xs text-gray-500 mb-2">${lesson.module || ''}</div>
+                <h2 class="text-xl font-bold mb-4">${lesson.title}</h2>
+                <div class="prose prose-invert max-w-none text-sm leading-relaxed">${htmlContent}</div>
+            `;
+        } catch (e) {
+            document.getElementById('current-lesson').innerHTML = `
+                <div class="text-xs text-gray-500 mb-2">${lesson.module || ''}</div>
+                <h2 class="text-xl font-bold mb-4">${lesson.title}</h2>
+                <div class="prose prose-invert max-w-none">${lesson.description || 'Error loading content'}</div>
+            `;
+        }
+    } else {
+        document.getElementById('current-lesson').innerHTML = `
+            <div class="text-xs text-gray-500 mb-2">${lesson.module || ''}</div>
+            <h2 class="text-xl font-bold mb-4">${lesson.title}</h2>
+            <div class="prose prose-invert max-w-none">${lesson.description || ''}</div>
+        `;
+    }
+    
+    // Rest of original logic
+    document.getElementById('code-editor').value = (lesson.defaultCode || '').replace(/\\n/g, '\n');
+    document.getElementById('terminal-output').innerHTML = '<span class="text-gray-500">// Output akan muncul di sini</span>';
+    document.getElementById('validation-msg').className = 'mt-4 p-3 rounded hidden';
+    
+    if (lesson.quiz) {
+        document.getElementById('quiz-section').classList.remove('hidden');
+        document.getElementById('quiz-content').innerHTML = `
+            <p class="font-medium mb-3">${lesson.quiz.question}</p>
+            <div class="space-y-2">
+                ${lesson.quiz.options.map((opt, i) => `
+                    <label class="flex items-start space-x-3 p-2 rounded hover:bg-gray-700 cursor-pointer">
+                        <input type="radio" name="quiz" value="${i}" class="mt-1 text-blue-500">
+                        <span class="text-sm">${opt}</span>
+                    </label>
+                `).join('')}
+            </div>
+        `;
+    } else {
+        document.getElementById('quiz-section').classList.add('hidden');
+    }
+    
+    document.getElementById('prev-btn').disabled = index === 0;
+    document.getElementById('next-btn').disabled = index === lessons.length - 1;
+    renderNav();
+    window.scrollTo(0, 0);
+};
+</script>
