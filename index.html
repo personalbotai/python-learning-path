@@ -142,16 +142,32 @@ let pyodideReady = false;
 async function initPyodide() {
     if (pyodideReady) return;
     try {
-        document.getElementById('output').innerHTML = '<span class="text-yellow-400">Loading Python runtime...</span>';
+        document.getElementById('output').innerHTML = '<span class="text-yellow-400">⏳ Loading Python runtime (first load takes ~10s)...</span>';
+        // Show loading in button
+        const runBtn = document.querySelector('.btn-run');
+        if (runBtn) {
+            runBtn.disabled = true;
+            runBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
+        }
         pyodide = await loadPyodide();
         pyodideReady = true;
-        document.getElementById('output').innerHTML = '<span class="text-gray-500"># Python ready! Write code and click Run.</span>';
+        document.getElementById('output').innerHTML = '<span class="text-green-400">✅ Python ready! Write code and click Run.</span>';
+        const runBtn = document.querySelector('.btn-run');
+        if (runBtn) {
+            runBtn.disabled = false;
+            runBtn.innerHTML = '<i class="fas fa-play mr-2"></i>Run';
+        }
     } catch (e) {
         document.getElementById('output').innerHTML = '<span class="text-red-400">Failed to load Python: ' + e.message + '</span>';
     }
 }
 
 // Override runCode for Python
+// HTML escape utility
+function escapeHtml(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 async function runCode() {
     if (!pyodideReady) {
         await initPyodide();
@@ -192,7 +208,14 @@ sys.stdout = StringIO()
         }
     } catch (e) {
         // Python error
-        let errorMsg = e.message || String(e);
+        let errorMsg = '';
+        if (e.message) {
+            errorMsg = e.message;
+        } else if (typeof e === 'string') {
+            errorMsg = e;
+        } else {
+            errorMsg = JSON.stringify(e);
+        }
         // Clean up Pyodide error format
         errorMsg = errorMsg.replace('Pyodide has suffered a fatal error', '').trim();
         output.innerHTML = '<span class="text-red-400">❌ Error:\n' + escapeHtml(errorMsg) + '</span>';
