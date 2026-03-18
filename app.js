@@ -35,13 +35,13 @@ const MODULES = [
 const lessons = [
     {
         "id": 1,
-        "title": "1. M01 L01",
-        "description": "<p><strong>Installing Python and Setting Up Development Environment</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "1. Instalasi Python",
+        "description": "<p><strong>Instalasi Python</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Python terinstall!\")\nimport sys\nprint(f\"Python {sys.version}\")",
+        "expectedOutput": "Python terinstall!\nPython 3.x.x",
+        "hint": "Install dari python.org atau gunakan package manager.",
         "quiz": {
-            "question": "Apa yang dipelajari di M01 L01?",
+            "question": "Apa yang dipelajari di Instalasi Python?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -50,17 +50,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 1,
+        "module": "Pengenalan Python",
         "mdContent": "# Installing Python and Setting Up Development Environment\n**ID**: `M01-L01`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nInstall Python 3.11+, configure IDE (VS Code/PyCharm), understand virtual environments with venv and pip.\n\n## Materi\n\n### Konsep Dasar\nPython adalah bahasa pemrograman yang perlu diinstal di sistem kita sebelum bisa digunakan. Versi terbaru saat ini adalah Python 3.11 atau lebih. Proses instalasi melibatkan download dari python.org dan memastikan Python ditambahkan ke PATH environment variable. Setelah instalasi, kita bisa mengakses Python melalui terminal dengan perintah `python` atau `python3`.\n\nVirtual environment adalah cara untuk mengisolasi dependencies proyek Python. Setiap proyek bisa memiliki versi library yang berbeda tanpa konflik. Python menyediakan modul `venv` yang bisa membuat lingkungan virtual dengan menjalankan `python -m venv myenv`. Setelah dibuat, kita mengaktifkannya dengan `source myenv/bin/activate` di Linux/Mac atau `myenv\\Scripts\\activate` di Windows.\n\nPackage manager `pip` adalah alat untuk menginstall dan mengelola package Python. Setelah virtual environment aktif, kita bisa install package dengan `pip install package_name`. Perlu diingat bahwa selalu gunakan virtual environment untuk setiap proyek agar dependencies tetap terisolasi.\n\n### Detail Teknis\n- Download Python dari python.org dan pilih checkbox \"Add Python to PATH\" saat instalasi\n- Buat virtual environment dengan `python -m venv nama_env` dan aktivasi sesuai OS\n- Gunakan `pip freeze > requirements.txt` untuk mengeksport dependencies dan `pip install -r requirements.txt` untuk install dari file\n\n## Latihan\n\n### Soal 1\nInstal Python 3.11+ di sistem kamu dan buat virtual environment baru. Setelah itu, install package `requests` dan buat file `requirements.txt`.\n\n```python\n# Template kode - ini hanya untuk menginstal package, bukan kode Python\n# Di terminal, jalankan:\n# python -m venv myenv\n# source myenv/bin/activate  (Linux/Mac) atau myenv\\Scripts\\activate (Windows)\n# pip install requests\n# pip freeze > requirements.txt\n```\n\n**Expected Output**:\nFile `requirements.txt` berisi daftar package termasuk requests dengan versinya.\n\n### Soal 2\nBuat script Python yang menampilkan versi Python yang sedang digunakan dan daftar package yang terinstall di virtual environment saat ini.\n\n```python\nimport sys\nimport pkg_resources\n\ndef latihan_2():\n    print(f\"Python version: {sys.version}\")\n    print(\"\\nInstalled packages:\")\n    for dist in sorted(pkg_resources.working_set, key=lambda x: x.project_name.lower()):\n        print(f\"{dist.project_name}=={dist.version}\")\n\nif __name__ == \"__main__\":\n    latihan_2()\n```\n\n**Expected Output**:\n```\nPython version: 3.11.x (tanggal dan build info)\nInstalled packages:\ncertifi==x.x.x\ncharset-normalizer==x.x.x\nidna==x.x.x\npip==x.x.x\nrequests==x.x.x\n... (package lainnya)\n```\n\n## Referensi\n- [Python Official Documentation](https://docs.python.org/3/)\n- [Real Python - Python Virtual Environments](https://realpython.com/python-virtual-environments-a-primer/)\n- [W3Schools Python Tutorial](https://www.w3schools.com/python/)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M01-L02](M01-L02.md)"
     },
     {
         "id": 2,
-        "title": "2. M01 L02",
-        "description": "<p><strong>First Steps: Hello World and Basic Syntax</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "2. Hello World",
+        "description": "<p><strong>Hello World</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Hello, World!\")\nprint(\"Selamat datang di Python!\")",
+        "expectedOutput": "Hello, World!\nSelamat datang di Python!",
+        "hint": "print() = fungsi untuk mencetak output.",
         "quiz": {
-            "question": "Apa yang dipelajari di M01 L02?",
+            "question": "Apa yang dipelajari di Hello World?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -69,17 +71,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 1,
+        "module": "Pengenalan Python",
         "mdContent": "# First Steps: Hello World and Basic Syntax\n**ID**: `M01-L02`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nWrite your first Python script, understand indentation rules, comments, and basic program structure.\n\n## Materi\n\n### Konsep Dasar\nPython menggunakan indentation (spasi atau tab) untuk menentukan blok kode, bukan kurung kurawal seperti bahasa lain. Standar PEP 8 merekomendasikan 4 spasi per level indentasi. Indentation yang konsisten sangat penting karena akan menyebabkan error jika tidak sesuai.\n\nKomentar di Python dimulai dengan `#` dan berlaku sampai akhir baris. Komentar berguna untuk menjelaskan kode kepada pembaca manusia. Python tidak memiliki sintaks untuk komentar multi-baris seperti `/* */` di C, tetapi kita bisa menggunakan string literal yang tidak ditugaskan untuk komentar multi-baris.\n\nProgram Python paling sederhana adalah \"Hello World\" yang hanya berisi satu baris `print(\"Hello World\")`. Script Python biasanya memiliki ekstensi `.py` dan dapat dijalankan dengan perintah `python script.py`. Struktur program dapat mencakup import statements, function definitions, dan kode yang dieksekusi langsung.\n\n### Detail Teknis\n- Gunakan 4 spasi untuk indentasi, jangan gunakan tab\n- Komentar sebaiknya ditulis dengan jelas dan singkat\n- Script Python dapat dijalankan dari terminal atau IDE\n- Gunakan `if __name__ == \"__main__\":` untuk mencegah kode berjalan saat di-import\n\n## Latihan\n\n### Soal 1\nBuat script Python yang menampilkan \"Hello, World!\" di terminal, lalu modifikasi untuk menampilkan nama kamu.\n\n```python\ndef latihan_1():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1()\n```\n\n**Expected Output**:\n```\nHello, World!\nHello, [Nama Kamu]!\n```\n\n### Soal 2\nBuat script yang menampilkan pola bintang sederhana dengan menggunakan print dan string multiplication.\n\n```python\ndef latihan_2():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_2()\n```\n\n**Expected Output**:\n```\n*\n**\n***\n****\n*****\n```\n\n## Referensi\n- [Python Official Documentation](https://docs.python.org/3/)\n- [Real Python - Python Syntax and Structure](https://realpython.com/python-syntax-and-structure/)\n- [W3Schools Python Tutorial](https://www.w3schools.com/python/)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M01-L03](M01-L03.md)"
     },
     {
         "id": 3,
-        "title": "3. M01 L03",
-        "description": "<p><strong>Variables, Data Types, and Type System</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "3. Variabel dan Tipe Data",
+        "description": "<p><strong>Variabel dan Tipe Data</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "nama = \"Archon\"\numur = 25\ntinggi = 175.5\naktif = True\n\nprint(f\"Nama: {nama}, Umur: {umur}\")\nprint(f\"Tipe nama: {type(nama).__name__}\")",
+        "expectedOutput": "Nama: Archon, Umur: 25\nTipe nama: str",
+        "hint": "Python = dynamic typing. Tipe: str, int, float, bool.",
         "quiz": {
-            "question": "Apa yang dipelajari di M01 L03?",
+            "question": "Apa yang dipelajari di Variabel dan Tipe Data?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -88,17 +92,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 1,
+        "module": "Pengenalan Python",
         "mdContent": "# Variables, Data Types, and Type System\n**ID**: `M01-L03`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nLearn about dynamic typing, basic types (int, float, str, bool), type conversion, and type hints introduction.\n\n## Materi\n\n### Konsep Dasar\nPython menggunakan dynamic typing, artinya tipe data variabel ditentukan secara otomatis berdasarkan nilai yang diberikan, tanpa deklarasi eksplisit. Tipe data dasar di Python meliputi:\n- `int`: bilangan bulat (contoh: 42, -10)\n- `float`: bilangan desimal (contoh: 3.14, -0.5)\n- `str`: teks/string (contoh: \"hello\", 'world')\n- `bool`: boolean True atau False\n\nType conversion dapat dilakukan dengan fungsi seperti `int()`, `float()`, `str()`, `bool()`. Namun, perlu hati-hati karena konversi yang tidak sesuai dapat menyebabkan error (misal: int(\"abc\")). Python 3.5+ mendukung type hints yang memungkinkan menambahkan anotasi tipe untuk meningkatkan readability dan tooling support, meski tidak memaksa.\n\n### Detail Teknis\n- Gunakan `type(variable)` untuk memeriksa tipe data\n- Type hints hanya informatif, tidak mengharuskan type checking saat runtime\n- Konversi string ke number harus memastikan string tersebut valid\n- Python memiliki tipe lain seperti `None`, `list`, `dict`, dll\n\n## Latihan\n\n### Soal 1\nBuat variabel dengan tipe data yang berbeda (int, float, str, bool) dan tampilkan tipe masing-masing menggunakan fungsi `type()`.\n\n```python\ndef latihan_1():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1()\n```\n\n**Expected Output**:\n```\n<class 'int'>\n<class 'float'>\n<class 'str'>\n<class 'bool'>\n```\n\n### Soal 2\nBuat fungsi yang menerima dua angka (string atau number) dan mengembalikan hasil penjumlahan dengan konversi tipe yang tepat. Jika input berupa string, convert ke float terlebih dahulu.\n\n```python\ndef latihan_2(a, b):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2(5, 3))        # Output: 8\n    print(latihan_2(\"5.5\", 2.5))  # Output: 8.0\n    print(latihan_2(\"10\", \"20\")) # Output: 30\n```\n\n**Expected Output**:\n```\n8\n8.0\n30\n```\n\n## Referensi\n- [Python Official Documentation](https://docs.python.org/3/)\n- [Real Python - Python Variables and Data Types](https://realpython.com/python-variables/)\n- [W3Schools Python Tutorial](https://www.w3schools.com/python/)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M01-L04](M01-L04.md)"
     },
     {
         "id": 4,
-        "title": "4. M01 L04",
-        "description": "<p><strong>Basic Input/Output and String Formatting</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "4. Operator",
+        "description": "<p><strong>Operator</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "a, b = 10, 3\nprint(f\"a + b = {a + b}\")\nprint(f\"a % b = {a % b}\")\nprint(f\"a ** b = {a ** b}\")\nprint(f\"a == b: {a == b}\")",
+        "expectedOutput": "a + b = 13\na % b = 1\na ** b = 1000\na == b: False",
+        "hint": "Operator: +, -, *, /, //, %, **, ==, !=.",
         "quiz": {
-            "question": "Apa yang dipelajari di M01 L04?",
+            "question": "Apa yang dipelajari di Operator?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -107,17 +113,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 1,
+        "module": "Pengenalan Python",
         "mdContent": "# Basic Input/Output and String Formatting\n**ID**: `M01-L04`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUse print() and input(), format strings with f-strings, .format(), and % operator.\n\n## Materi\n\n### Konsep Dasar\nFungsi `print()` digunakan untuk menampilkan output ke konsol. Bisa menerima beberapa argumen dan secara otomatis menambahkan spasi di antara mereka. `input()` digunakan untuk menerima input dari pengguna, akan selalu mengembalikan string walaupun pengguna mengetik angka.\n\nString formatting memungkinkan kita menyisipkan nilai ke dalam string. Ada beberapa cara:\n- f-strings (Python 3.6+): `f\"Nama: {name}, Umur: {age}\"`\n- .format(): `\"Nama: {}, Umur: {}\".format(name, age)`\n- % operator (lama): `\"Nama: %s, Umur: %d\" % (name, age)`\n\nf-strings adalah cara terbaru dan paling readable karena expression langsung ditulis dalam kurung kurawal.\n\n### Detail Teknis\n- `print()` parameter `sep` untuk separator, `end` untuk akhiri baris\n- `input(prompt)` menampilkan prompt sebelum menerima input\n- f-strings bisa mengandung expression termasuk pemanggilan fungsi\n- Format specifier seperti `{value:.2f}` untuk 2 desimal, `{value:>10}` untuk rata kanan\n\n## Latihan\n\n### Soal 1\nBuat program yang meminta nama dan umur pengguna, lalu menampilkan sapaan dengan format: \"Halo [nama]! Usia kamu [umur] tahun.\"\n\n```python\ndef latihan_1():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1()\n```\n\n**Expected Output**:\n```\nMasukkan nama: Alice\nMasukkan umur: 25\nHalo Alice! Usia kamu 25 tahun.\n```\n\n### Soal 2\nBuat fungsi yang menerima angka (integer atau float) dan mengembalikan string dengan format: \"Angka: [nilai] (bulat: [bulat], desimal: [desimal])\". Gunakan f-string dengan format specifier.\n\n```python\ndef latihan_2(angka):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2(42))\n    print(latihan_2(3.14159))\n```\n\n**Expected Output**:\n```\nAngka: 42 (bulat: 42, desimal: 42.00)\nAngka: 3.14159 (bulat: 3, desimal: 3.14)\n```\n\n## Referensi\n- [Python Official Documentation](https://docs.python.org/3/)\n- [Real Python - Python f-strings](https://realpython.com/python-f-strings/)\n- [W3Schools Python Tutorial](https://www.w3schools.com/python/)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M02-L01](M02-L01.md)"
     },
     {
         "id": 5,
-        "title": "5. M02 L01",
-        "description": "<p><strong>Conditional Statements: if, elif, else</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "5. If/Else",
+        "description": "<p><strong>If/Else</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "umur = 20\nif umur >= 18:\n    print(\"Dewasa\")\nelif umur >= 13:\n    print(\"Remaja\")\nelse:\n    print(\"Anak-anak\")",
+        "expectedOutput": "Dewasa",
+        "hint": "Indentasi penting! Gunakan 4 spasi.",
         "quiz": {
-            "question": "Apa yang dipelajari di M02 L01?",
+            "question": "Apa yang dipelajari di If/Else?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -126,17 +134,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 2,
+        "module": "Kontrol Alur",
         "mdContent": "# Conditional Statements: if, elif, else\n**ID**: `M02-L01`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nMaster branching logic, comparison operators, and nested conditionals.\n\n## Materi\n\n### Konsep Dasar\nStatement `if` digunakan untuk eksekusi bersyarat. Sintaksnya:\n```python\nif kondisi:\n    # kode jika True\nelif kondisi_lain:\n    # kode jika True\nelse:\n    # kode jika semua False\n```\n`elif` opsional, bisa banyak. `else` juga opsional. Kondisi berupa expression yang dievaluasi ke boolean. Python menggunakan indentasi untuk blok.\n\nOperator perbandingan: `==`, `!=`, `<`, `>`, `<=`, `>=`. Gabungan dengan `and`, `or`, `not`. Nested if dimungkinkan tapi harus hati-hati agar tidak terlalu dalam (spaghetti code). Ternary operator: `x if condition else y`.\n\n### Detail Teknis\n- Python tidak memiliki switch statement, gunakan if-elif\n- Perbandingan string dilakukan leksikografis\n- Gunakan parentheses untuk memperjelas precedence\n- Satu baris if: `if x > 0: print(\"positive\")`\n\n## Latihan\n\n### Soal 1\nBuat fungsi yang menerima integer dan mengembalikan \"positif\" jika >0, \"negatif\" jika <0, atau \"nol\" jika sama dengan 0.\n\n```python\ndef latihan_1(angka):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1(5))    # Output: positif\n    print(latihan_1(-3))   # Output: negatif\n    print(latihan_1(0))    # Output: nol\n```\n\n**Expected Output**:\n```\npositif\nnegatif\nnol\n```\n\n### Soal 2\nBuat fungsi yang menerima three numbers dan mengembalikan yang terbesar. Jangan gunakan fungsi built-in `max()`.\n\n```python\ndef latihan_2(a, b, c):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2(10, 20, 15))  # Output: 20\n    print(latihan_2(-5, -1, -10)) # Output: -1\n```\n\n**Expected Output**:\n```\n20\n-1\n```\n\n## Referensi\n- [Python Official Documentation](https://docs.python.org/3/)\n- [Real Python - Python Conditional Statements](https://realpython.com/python-conditional-statements/)\n- [W3Schools Python Tutorial](https://www.w3schools.com/python/)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M02-L02](M02-L02.md)"
     },
     {
         "id": 6,
-        "title": "6. M02 L02",
-        "description": "<p><strong>Loops: while and for</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "6. For Loop",
+        "description": "<p><strong>For Loop</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "buah = [\"apel\", \"jeruk\", \"mangga\"]\nfor item in buah:\n    print(item)\n\nfor i in range(3):\n    print(f\"i={i}\")",
+        "expectedOutput": "apel\njeruk\nmangga\ni=0\ni=1\ni=2",
+        "hint": "for item in iterable: ... range() untuk angka.",
         "quiz": {
-            "question": "Apa yang dipelajari di M02 L02?",
+            "question": "Apa yang dipelajari di For Loop?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -145,17 +155,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 2,
+        "module": "Kontrol Alur",
         "mdContent": "# Loops: while and for\n**ID**: `M02-L02`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUse while loops and for loops, understand range(), and loop control (break, continue, else).\n\n## Materi\n\n### Konsep Dasar\nLoop digunakan untuk mengulang eksekusi kode. Python memiliki dua jenis loop utama:\n\n**while loop**: Mengulang selama kondisi bernilai True.\n```python\nwhile kondisi:\n    # kode di sini diulang\n```\n\n**for loop**: Mengulang untuk setiap elemen dalam iterable (list, tuple, string, range, dll).\n```python\nfor item in iterable:\n    # kode di sini diulang untuk setiap item\n```\n\n**range()**: Fungsi untuk menghasilkan sequence angka.\n- `range(stop)`: 0 sampai stop-1\n- `range(start, stop)`: start sampai stop-1\n- `range(start, stop, step)`: dengan langkah step\n\n### Loop Control Statements\n- `break`: Keluar dari loop segera\n- `continue`: Lewati sisa iterasi saat ini, lanjut ke iterasi berikutnya\n- `else`: Blok else setelah loop hanya dieksekusi jika loop selesai normally (tidak via break)\n\n### Detail Teknis\n- while loop bisa infinite jika kondisi selalu True (butuh break untuk keluar)\n- for loop menggunakan iterator protocol di balik layar\n- range() menghasilkan range object (lazy), bukan list (tapi bisa di-cast ke list)\n- else pada loop berguna untuk pencarian: jika tidak ditemukan (loop selesai tanpa break)\n- Perlu hati-hati dengan off-by-one errors saat menggunakan range\n\n## Latihan\n\n### Soal 1\nBuat program yang meminta pengguna untuk menebak angka rahasia (misal: 42). Program harus:\n- Menampilkan \"Tebakan Anda: \" dan menerima input\n- Jika tebakan terlalu kecil, tampilkan \"Terlalu kecil!\"\n- Jika tebakan terlalu besar, tampilkan \"Terlalu besar!\"\n- Jika benar, tampilkan \"Selamat! Anda menebak dalam X percobaan.\" dan berhenti\n- Gunakan while loop\n\n```python\ndef latihan_1():\n    rahasia = 42\n    percobaan = 0\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1()\n```\n\n**Expected Output** (contoh):\n```\nTebakan Anda: 50\nTerlalu besar!\nTebakan Anda: 30\nTerlalu kecil!\nTebakan Anda: 42\nSelamat! Anda menebak dalam 3 percobaan.\n```\n\n### Soal 2\nBuat fungsi yang menghitung factorial dari bilangan non-negative integer n menggunakan for loop dan range().\n\n```python\ndef latihan_2(n):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2(5))\n    print(latihan_2(0))\n```\n\n**Expected Output**:\n```\n120\n1\n```\n\n## Referensi\n- [Python Official Documentation - while statement](https://docs.python.org/3/reference/compound_stmts.html#while)\n- [Python Official Documentation - for statement](https://docs.python.org/3/reference/compound_stmts.html#for)\n- [Real Python - Python for Loops](https://realpython.com/python-for-loop/)\n- [W3Schools Python Loops](https://www.w3schools.com/python/python_for_loops.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M02-L03](M02-L03.md)"
     },
     {
         "id": 7,
-        "title": "7. M02 L03",
-        "description": "<p><strong>Logical Operators and Boolean Expressions</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "7. While Loop",
+        "description": "<p><strong>While Loop</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "count = 0\nwhile count < 3:\n    print(f\"count={count}\")\n    count += 1",
+        "expectedOutput": "count=0\ncount=1\ncount=2",
+        "hint": "while condition: ... Jangan lupa update variable!",
         "quiz": {
-            "question": "Apa yang dipelajari di M02 L03?",
+            "question": "Apa yang dipelajari di While Loop?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -164,17 +176,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 2,
+        "module": "Kontrol Alur",
         "mdContent": "# Logical Operators and Boolean Expressions\n**ID**: `M02-L03`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nCombine conditions with and, or, not; understand truthiness and operator precedence.\n\n## Materi\n\n### Konsep Dasar\nLogical operators digunakan untuk menggabungkan atau membalikkan kondisi boolean:\n\n- `and`: True jika kedua operand True\n- `or`: True jika salah satu operand True\n- `not`: membalikkan nilai boolean\n\n**Truthiness**: Nilai-nilai berikut dianggap False dalam konteks boolean:\n- `False`, `None`\n- Angka nol: `0`, `0.0`\n- Sequence kosong: `\"\"`, `\"\"`, `[]`, `()`, `{}`, `set()`, `range(0)`\n- Objek yang mengimplementasikan `__bool__()` yang mengembalikan False\n\nSemua nilai lain dianggap True.\n\n### Operator Precedence\nPrioritas operator (dari tertinggi ke terendah):\n1. `not`\n2. `and`\n3. `or`\n\nGunakan parentheses `()` untuk kontrol eksplisit dan readability.\n\n### Detail Teknis\n- Short-circuit evaluation: `and` berhenti jika pertama False; `or` berhenti jika pertama True\n- Comparison operators (`==`, `!=`, `<`, `>`, dll) memiliki precedence lebih tinggi daripada `not`\n- `is` dan `in` juga comparison operators\n- `bool()` function untuk konversi eksplisit ke boolean\n- Truthiness umumnya mengikuti `__bool__()` atau `__len__()` (0 = False)\n\n## Latihan\n\n### Soal 1\nBuat fungsi `valid_username(username)` yang mengembalikan True jika:\n- Panjang username minimal 3 karakter\n- Hanya mengandung huruf dan angka\n- Tidak mengandung spasi\n\nGunakan kombinasi kondisi dengan `and`. Manfaatkan truthiness string methods.\n\n```python\ndef latihan_1(username):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1(\"alice\"))      # True\n    print(latihan_1(\"a\"))          # False (too short)\n    print(latihan_1(\"alice smith\")) # False (contains space)\n    print(latihan_1(\"alice@123\"))  # False (contains @)\n```\n\n**Expected Output**:\n```\nTrue\nFalse\nFalse\nFalse\n```\n\n### Soal 2\nBuat fungsi `kalkulator_sederhana(a, b, operasi)` yang menerima dua angka dan string operasi ('+', '-', '*', '/'). Fungsi harus:\n- Menggunakan if-elif-else\n- Menangani pembagian dengan nol (kembalikan string \"Error: Division by zero\")\n- Kembalikan hasil perhitungan atau error message\n\n```python\ndef latihan_2(a, b, operasi):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2(10, 5, '+'))\n    print(latihan_2(10, 0, '/'))\n```\n\n**Expected Output**:\n```\n15\nError: Division by zero\n```\n\n## Referensi\n- [Python Official Documentation - Boolean Operations](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not)\n- [Python Official Documentation - Truth Value Testing](https://docs.python.org/3/library/stdtypes.html#truth-value-testing)\n- [Real Python - Python Booleans](https://realpython.com/python-boolean/)\n- [W3Schools Python Operators](https://www.w3schools.com/python/python_operators.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M02-L04](M02-L04.md)"
     },
     {
         "id": 8,
-        "title": "8. M02 L04",
-        "description": "<p><strong>Match-Case Statements (Python 3.10+)</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "8. Match-Case (Python 3.10+)",
+        "description": "<p><strong>Match-Case (Python 3.10+)</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "status = 200\nmatch status:\n    case 200:\n        print(\"OK\")\n    case 404:\n        print(\"Not Found\")\n    case _:\n        print(\"Unknown\")",
+        "expectedOutput": "OK",
+        "hint": "match-case = switch-case di Python 3.10+.",
         "quiz": {
-            "question": "Apa yang dipelajari di M02 L04?",
+            "question": "Apa yang dipelajari di Match-Case (Python 3.10+)?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -183,17 +197,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 2,
+        "module": "Kontrol Alur",
         "mdContent": "# Match-Case Statements (Python 3.10+)\n**ID**: `M02-L04`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUse structural pattern matching for complex conditional logic.\n\n## Materi\n\n### Konsep Dasar\nMatch-case (structural pattern matching) diperkenalkan di Python 3.10. Mirip switch-case di bahasa lain, tapi lebih powerful karena bisa match berdasarkan struktur data, tidak hanya nilai.\n\nSintaks:\n```python\nmatch subject:\n    case pattern1:\n        # kode\n    case pattern2 if guard:\n        # kode dengan kondisi (guard)\n    case _:\n        # default (catch-all)\n```\n\n### Pattern Matching\n- **Literal patterns**: match nilai literal (angka, string, boolean)\n- **Name patterns**: capture value ke variable (seperti assignment)\n- **Sequence patterns**: match list/tuple dengan nested patterns\n- **Mapping patterns**: match dictionary dengan key patterns\n- **Class patterns**: match instance dengan attributes\n- **Or patterns**: `case 1 | 2 | 3:` (multiple alternatives)\n- **Guard clauses**: `if condition` setelah pattern\n\n### Detail Teknis\n- `case _:` adalah wildcard (match apa pun, biasanya di akhir)\n- Patterns dievaluasi berurutan, pertama yang match dieksekusi\n- Bisa capture value dengan pattern variable (contoh: `case x:` mencaptur subject ke variable x)\n- Sequence patterns bisa dengan `*rest` untuk capture sisa\n- Mapping patterns hanya match keys yang ada, bisa dengan `**rest` untuk sisa\n- Class patterns cocok untuk matching tipe data dan atributnya\n- Performance: match-case sebenarnya if-elif-else dengan lebih banyak fitur\n\n## Latihan\n\n### Soal 1\nBuat kalkulator sederhana menggunakan match-case yang menerima operator string ('+', '-', '*', '/', '**', '%') dan dua angka. Handle error pembagian nol.\n\n```python\ndef latihan_1(a, b, operasi):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1(10, 5, '+'))\n    print(latihan_1(10, 0, '/'))\n    print(latihan_1(2, 3, '**'))\n```\n\n**Expected Output**:\n```\n15\nError: Division by zero\n8\n```\n\n### Soal 2\nBuat fungsi `parse_command(command)` yang menerima string perintah dan mengembalikan tuple (aksi, argumen). Format perintah:\n- \"mulai <nama>\" -> (\"mulai\", \"<nama>\")\n- \"berhenti\" -> (\"berhenti\", None)\n- \"atur volume <level>\" -> (\"atur\", (\"volume\", \"<level>\"))\n- \"tampilkan status\" -> (\"tampilkan\", \"status\")\n- Jika tidak dikenali -> (\"unknown\", command asli)\n\nGunakan match-case dengan sequence patterns (split string).\n\n```python\ndef latihan_2(command):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2(\"mulai server\"))\n    print(latihan_2(\"berhenti\"))\n    print(latihan_2(\"atur volume 50\"))\n```\n\n**Expected Output**:\n```\n('mulai', 'server')\n('berhenti', None)\n('atur', ('volume', '50'))\n```\n\n## Referensi\n- [Python Official Documentation - match statement](https://docs.python.org/3/reference/compound_stmts.html#match)\n- [PEP 634 - Structural Pattern Matching](https://peps.python.org/pep-0634/)\n- [Real Python - Python Match-Case](https://realpython.com/structpatternmatching-python/)\n- [W3Schools Python Match-Case](https://www.w3schools.com/python/python_match_case.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M03-L01](M03-L01.md)"
     },
     {
         "id": 9,
-        "title": "9. M03 L01",
-        "description": "<p><strong>Lists: Creation, Indexing, and Basic Operations</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "9. List",
+        "description": "<p><strong>List</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "buah = [\"apel\", \"jeruk\", \"mangga\"]\nbuah.append(\"pisang\")\nprint(buah)\nprint(buah[0])\nprint(len(buah))",
+        "expectedOutput": "[\"apel\", \"jeruk\", \"mangga\", \"pisang\"]\napel\n4",
+        "hint": "List = mutable, ordered. Method: append, pop, sort.",
         "quiz": {
-            "question": "Apa yang dipelajari di M03 L01?",
+            "question": "Apa yang dipelajari di List?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -202,17 +218,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 3,
+        "module": "Struktur Data",
         "mdContent": "# Lists: Creation, Indexing, and Basic Operations\n**ID**: `M03-L01`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nCreate lists, access elements, slicing, common methods (append, extend, insert, remove, pop).\n\n## Materi\n\n### Konsep Dasar\nList adalah mutable sequence yang dapat berisi elemen dengan tipe berbeda.\n\n**Creating Lists**:\n- Literal: `my_list = [1, 2, 3]`\n- Constructor: `my_list = list()` atau `list(iterable)`\n- Empty list: `[]` atau `list()`\n\n**Indexing & Slicing**:\n- Indexing: `list[i]` (negatif: -1 terakhir)\n- Slicing: `list[start:stop:step]` (stop exclusive)\n- Out of range: IndexError\n\n### Basic List Methods\n- `append(x)`: tambah elemen di akhir\n- `extend(iterable)`: tambah semua elemen dari iterable\n- `insert(i, x)`: sisipkan di posisi i\n- `remove(x)`: hapus elemen pertama dengan nilai x (ValueError jika tidak ada)\n- `pop([i])`: hapus dan kembalikan elemen di i (default terakhir)\n- `clear()`: hapus semua elemen\n- `index(x)`: indeks pertama dengan nilai x\n- `count(x)`: jumlah kemunculan x\n- `sort(key=None, reverse=False)`: urutkan in-place\n- `reverse()`: balik urutan in-place\n\n### Detail Teknis\n- List mutable: elemen bisa diubah, ditambah, dihapus\n- Slicing menghasilkan list baru (shallow copy)\n- `pop()` tanpa argumen menghapus elemen terakhir (LIFO)\n- `remove()` mencari dari awal, hanya menghapus satu\n- `sort()` menggunakan Timsort (stable, O(n log n) worst-case)\n- `list.copy()` untuk shallow copy (sama dengan `list[:]`)\n\n## Latihan\n\n### Soal 1\nBuat fungsi yang menerima list angka dan melakukan:\n- Tambah angka 10 di akhir\n- Tambah list [20, 30] di akhir (gunakan extend)\n- Sisipkan 5 di indeks 2\n- Hapus angka pertama yang sama dengan 10 (gunakan remove)\n- Pop elemen terakhir dan kembalikan nilai yang di-pop\n- Urutkan list secara ascending\n\nKembalikan list yang sudah dimodifikasi.\n\n```python\ndef latihan_1(angka):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    data = [1, 2, 3, 4]\n    hasil = latihan_1(data)\n    print(hasil)\n```\n\n**Expected Output**:\n```\n[1, 2, 5, 3, 4, 20, 30]\n```\n\n### Soal 2\nBuat fungsi `reverse_list(lst)` yang membalik urutan list TANPA menggunakan method `reverse()` atau `reversed()`. Gunakan slicing atau algoritma manual.\n\n```python\ndef latihan_2(lst):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2([1, 2, 3, 4]))\n    print(latihan_2([]))\n```\n\n**Expected Output**:\n```\n[4, 3, 2, 1]\n[]\n```\n\n## Referensi\n- [Python Official Documentation - lists](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)\n- [Real Python - Python Lists](https://realpython.com/python-lists-tuples/)\n- [W3Schools Python Lists](https://www.w3schools.com/python/python_lists.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M03-L02](M03-L02.md)"
     },
     {
         "id": 10,
-        "title": "10. M03 L02",
-        "description": "<p><strong>List Comprehensions and Advanced Manipulation</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "10. Tuple",
+        "description": "<p><strong>Tuple</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "koordinat = (10, 20)\nx, y = koordinat  # unpacking\nprint(f\"x={x}, y={y}\")\nprint(f\"Length: {len(koordinat)}\")",
+        "expectedOutput": "x=10, y=20\nLength: 2",
+        "hint": "Tuple = immutable, ordered. Gunakan untuk data tetap.",
         "quiz": {
-            "question": "Apa yang dipelajari di M03 L02?",
+            "question": "Apa yang dipelajari di Tuple?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -221,17 +239,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 3,
+        "module": "Struktur Data",
         "mdContent": "# List Comprehensions and Advanced Manipulation\n**ID**: `M03-L02`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nWrite concise list comprehensions, filter, map, and sort lists.\n\n## Materi\n\n### Konsep Dasar\nList comprehension adalah cara elegan untuk membuat list baru dari iterable dengan ekspresi.\n\n**Syntax**:\n```python\n[expression for item in iterable]\n[expression for item in iterable if condition]\n[expression for item1 in iterable1 for item2 in iterable2]  # nested loops\n```\n\n**Equivalent with map/filter**:\n- `[f(x) for x in iterable]` ≈ `list(map(f, iterable))`\n- `[x for x in iterable if cond(x)]` ≈ `list(filter(cond, iterable))`\n\n### Advanced Manipulation\n- **sort()**: `list.sort(key=func, reverse=bool)` - in-place sorting\n- **sorted()**: `sorted(list, key=func, reverse=bool)` - returns new sorted list\n- **key function**: fungsi yang mengembalikan nilai untuk perbandingan\n- **lambda**: sering dipakai untuk key function sederhana\n\n### Detail Teknis\n- List comprehension lebih readable dan sering lebih cepat daripada loop eksplisit\n- Bisa menggunakan unpacking: `[x+y for x, y in pairs]`\n- Conditional di akhir (filter) bisa dengan `if-else`: `[x if x>0 else 0 for x in nums]`\n- Nested comprehensions untuk nested lists\n- Map dan filter masih useful ketika bekerja dengan banyak data (lazy evaluation dengan itertools)\n- `sorted()` bisa sorting tipe apapun asal bisa dibandingkan (dengan key function)\n\n## Latihan\n\n### Soal 1\nBuat fungsi `squares(nums)` yang mengembalikan list berisi kuadrat dari setiap angka dalam input list menggunakan list comprehension.\n\n```python\ndef latihan_1(nums):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1([1, 2, 3, 4]))\n```\n\n**Expected Output**:\n```\n[1, 4, 9, 16]\n```\n\n### Soal 2\nBuat fungsi `filter_even_square(nums)` yang:\n- Filter hanya angka genap dari input list\n- Kuadratkan setiap angka genap tersebut\n- Urutkan hasilnya descending\n\nGunakan list comprehension dengan conditional, lalu sort.\n\n```python\ndef latihan_2(nums):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2([1, 2, 3, 4, 5, 6]))\n```\n\n**Expected Output**:\n```\n[36, 16, 4]\n```\n\n## Referensi\n- [Python Official Documentation - List Comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)\n- [Real Python - List Comprehensions](https://realpython.com/list-comprehension-python/)\n- [W3Schools Python List Comprehension](https://www.w3schools.com/python/python_lists_comprehension.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M03-L03](M03-L03.md)"
     },
     {
         "id": 11,
-        "title": "11. M03 L03",
-        "description": "<p><strong>Tuples: Immutable Sequences</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "11. Dictionary",
+        "description": "<p><strong>Dictionary</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "user = {\"nama\": \"Archon\", \"umur\": 25}\nprint(user[\"nama\"])\nuser[\"email\"] = \"a@mail.com\"\nprint(user.get(\"phone\", \"N/A\"))\nprint(user.keys())",
+        "expectedOutput": "Archon\nN/A\ndict_keys([\"nama\", \"umur\", \"email\"])",
+        "hint": "Dict = key-value pairs. .get() untuk safe access.",
         "quiz": {
-            "question": "Apa yang dipelajari di M03 L03?",
+            "question": "Apa yang dipelajari di Dictionary?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -240,17 +260,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 3,
+        "module": "Struktur Data",
         "mdContent": "# Tuples: Immutable Sequences\n**ID**: `M03-L03`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUnderstand tuple immutability, packing/unpacking, and when to use tuples vs lists.\n\n## Materi\n\n### Konsep Dasar\nTuple adalah immutable sequence yang一旦 dibuat, elemennya tidak bisa diubah (tidak bisa tambah/hapus/ubah).\n\n**Creating Tuples**:\n- `t = (1, 2, 3)`\n- `t = tuple(iterable)`\n- Single element tuple: `(1,)` (perlu koma)\n- Empty tuple: `()`\n\n**Tuple Packing & Unpacking**:\n- Packing: `t = 1, 2, 3` (tanpa parentheses)\n- Unpacking: `a, b, c = t`\n- Extended unpacking: `a, *rest, b = t`\n- Swap dengan unpacking: `a, b = b, a`\n\n### Immutability\n- Tidak bisa: assign elemen, append, extend, remove, pop\n- Bisa: contains, indexing, slicing (hasilnya tuple baru), concatenation (membuat tuple baru)\n- Keamanan: immutable → bisa digunakan sebagai key dalam dictionary\n- Performance: lebih cepat dan hemat memory dibanding list\n\n### When to Use Tuples vs Lists\n- **Tuple**: data yang seharusnya tidak berubah, heterogeneous (tipe berbeda), sebagai record/struct, dictionary keys\n- **List**: data yang mungkin berubah, homogeneous (tipe sama), mutable collection\n\n### Detail Teknis\n- Tuple methods: `count()`, `index()` (hanya dua karena immutable)\n- Slicing tuple menghasilkan tuple baru\n- Concatenation `+` membuat tuple baru\n- Tuple bisa berisi mutable objects (list di dalam tuple bisa diubah, tapi tuple structure tetap)\n- Named tuple (`collections.namedtuple`) untuk readability\n\n## Latihan\n\n### Soal 1\nBuat fungsi `swap_values(a, b)` yang mengembalikan tuple dengan nilai a dan b ditukar, tanpa menggunakan temporary variable. Gunakan tuple unpacking.\n\n```python\ndef latihan_1(a, b):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    x, y = 10, 20\n    hasil = latihan_1(x, y)\n    print(hasil)  # (20, 10)\n```\n\n**Expected Output**:\n```\n(20, 10)\n```\n\n### Soal 2\nBuat fungsi `unpack_first_last(nums)` yang menerima tuple atau list angka dan mengembalikan tuple `(pertama, terakhir, jumlah_elemen)`. Gunakan unpacking. Jika hanya ada satu elemen, kembalikan `(elemen, elemen, 1)`.\n\n```python\ndef latihan_2(nums):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2((1, 2, 3, 4, 5)))\n    print(latihan_2([10]))\n```\n\n**Expected Output**:\n```\n(1, 5, 5)\n(10, 10, 1)\n```\n\n## Referensi\n- [Python Official Documentation - Tuples](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)\n- [Real Python - Python Tuples](https://realpython.com/python-lists-tuples/)\n- [W3Schools Python Tuples](https://www.w3schools.com/python/python_tuples.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M03-L04](M03-L04.md)"
     },
     {
         "id": 12,
-        "title": "12. M03 L04",
-        "description": "<p><strong>Dictionaries: Key-Value Mappings</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "12. Set",
+        "description": "<p><strong>Set</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "a = {1, 2, 3, 3, 3}\nb = {2, 3, 4}\nprint(a)  # {1, 2, 3}\nprint(a | b)  # union\nprint(a & b)  # intersection\nprint(a - b)  # difference",
+        "expectedOutput": "{1, 2, 3}\n{1, 2, 3, 4}\n{2, 3}\n{1}",
+        "hint": "Set = unique, unordered. | = union, & = intersection.",
         "quiz": {
-            "question": "Apa yang dipelajari di M03 L04?",
+            "question": "Apa yang dipelajari di Set?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -259,17 +281,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 3,
+        "module": "Struktur Data",
         "mdContent": "# Dictionaries: Key-Value Mappings\n**ID**: `M03-L04`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nCreate dictionaries, access values, iterate over keys/values/items, and common methods.\n\n## Materi\n\n### Konsep Dasar\nDictionary adalah mapping type yang menyimpan data dalam pasangan key-value. Key harus hashable (immutable) dan unik; value bisa apa pun.\n\n**Creating Dictionaries**:\n- Literal: `d = {'a': 1, 'b': 2}`\n- Constructor: `d = dict(a=1, b=2)` atau `dict([('a',1), ('b',2)])`\n- Empty dict: `{}` atau `dict()`\n\n**Accessing Values**:\n- `d[key]`: mengembalikan value, KeyError jika key tidak ada\n- `d.get(key, default=None)`: mengembalikan value atau default jika key tidak ada\n- `d.setdefault(key, default)`: jika key ada, kembalikan value; jika tidak, set d[key]=default dan kembalikan default\n\n**Iteration**:\n- `for key in d:` atau `for key in d.keys():`\n- `for value in d.values():`\n- `for key, value in d.items():`\n\n### Basic Dict Methods\n- `keys()`: view semua keys\n- `values()`: view semua values\n- `items()`: view semua (key, value) pairs\n- `get(key, default)`: safe access\n- `pop(key, default)`: hapus key dan kembalikan value\n- `popitem()`: hapus dan kembalikan (key, value) terakhir (LIFO) (3.7+)\n- `clear()`: hapus semua\n- `update(other)`: merge dictionary lain\n- `copy()`: shallow copy\n\n### Detail Teknis\n- Dictionary mutable: bisa tambah, ubah, hapus pasangan\n- Keys harus hashable (str, int, tuple, dll); values bebas\n- Python 3.7+: dict preserves insertion order (sebelumnya tidak dijamin)\n- `in` operator cek key: `key in d` (O(1) average)\n- View objects (keys(), values(), items()) dinamis: perubahan dict langsung terlihat\n- `dict.fromkeys(iterable, value)` untuk membuat dict dengan value default\n\n## Latihan\n\n### Soal 1\nBuat fungsi `phonebook_operations()` yang:\n- Buat dictionary `phonebook` dengan data: 'Alice': '12345', 'Bob': '67890'\n- Tambah kontak 'Charlie': '54321'\n- Update nomor Bob menjadi '11111'\n- Hapus kontak Alice\n- Iterasi dan cetak semua nama dan nomor dalam format \"Nama: <nama>, Nomor: <nomor>\"\n\nKembalikan dictionary setelah modifikasi.\n\n```python\ndef latihan_1():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    pb = latihan_1()\n    print(pb)\n```\n\n**Expected Output** (saat iterasi):\n```\nNama: Bob, Nomor: 11111\nNama: Charlie, Nomor: 54321\n```\nDan dictionary akhir: `{'Bob': '11111', 'Charlie': '54321'}`\n\n### Soal 2\nBuat fungsi `count_words(text)` yang menghitung frekuensi setiap kata dalam string `text` (case-insensitive, abaikan punctuation). Gunakan dictionary. Kembalikan dictionary `{word: count}`.\n\n```python\nimport string\n\ndef latihan_2(text):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2(\"Hello world! Hello.\"))\n```\n\n**Expected Output**:\n```\n{'hello': 2, 'world': 1}\n```\n\n## Referensi\n- [Python Official Documentation - Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)\n- [Real Python - Dictionaries](https://realpython.com/python-dicts/)\n- [W3Schools Python Dictionaries](https://www.w3schools.com/python/python_dictionaries.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M03-L05](M03-L05.md)"
     },
     {
         "id": 13,
-        "title": "13. M03 L05",
-        "description": "<p><strong>Dictionary Comprehensions and Dict Methods</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "13. Lesson M03-L05",
+        "description": "<p><strong>Lesson M03-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M03-L05 di Python!\")",
+        "expectedOutput": "Belajar Lesson M03-L05 di Python!",
+        "hint": "Pelajari lesson m03-l05.",
         "quiz": {
-            "question": "Apa yang dipelajari di M03 L05?",
+            "question": "Apa yang dipelajari di Lesson M03-L05?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -278,17 +302,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 4,
+        "module": "Fungsi",
         "mdContent": "# Dictionary Comprehensions and Dict Methods\n**ID**: `M03-L05`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nBuild dictionaries with comprehensions, use get(), setdefault(), update(), and understand defaultdict.\n\n## Materi\n\n### Konsep Dasar\n**Dictionary Comprehension**: Mirip list comprehension tapi menghasilkan dictionary.\n\nSyntax:\n```python\n{key_expr: value_expr for item in iterable}\n{key_expr: value_expr for item in iterable if condition}\n```\n\n**Common Dict Methods**:\n- `get(key, default=None)`: safe access tanpa KeyError\n- `setdefault(key, default)`: get value, atau set default jika tidak ada\n- `update(other)`: merge dictionary lain (bisa dict, tuple pairs, kwargs)\n- `defaultdict(default_factory)`: dari `collections`, otomatis buat value default untuk key yang tidak ada\n\n### defaultdict\n- `from collections import defaultdict`\n- `dd = defaultdict(int)` → default value 0\n- `dd = defaultdict(list)` → default value empty list []\n- `dd = defaultdict(str)` → default value \"\"\n- `dd[key]` akan otomatis membuat entry dengan default jika key belum ada\n\n### Detail Teknis\n- Dictionary comprehension lebih readable dan sering lebih cepat daripada loop + assignment\n- `setdefault` sering dipakai untuk grouping: `d.setdefault(key, []).append(value)`\n- `update()` bisa menerima multiple dictionaries, keyword arguments, atau iterable of pairs\n- `defaultdict` sangat berguna untuk grouping, counting (dengan `int`), dan nested dicts\n- Hati-hati: `dd[key]` akan selalu membuat entry, bahkan saat cek `if key in dd` → `dd[key]` akan membuat default\n\n## Latihan\n\n### Soal 1\nBuat fungsi `invert_dict(d)` yang menerima dictionary dan mengembalikan dictionary baru dengan key-value dibalik. Jika value asli tidak hashable (mutable), abaikan (jangan masukkan). Gunakan dictionary comprehension.\n\n```python\ndef latihan_1(d):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(invert_dict({'a': 1, 'b': 2, 'c': 3}))\n```\n\n**Expected Output**:\n```\n{1: 'a', 2: 'b', 3: 'c'}\n```\n\n### Soal 2\nBuat fungsi `group_by_first_letter(words)` yang menerima list kata dan mengembalikan dictionary yang mengelompokkan kata berdasarkan huruf pertama. Gunakan `defaultdict(list)`.\n\n```python\nfrom collections import defaultdict\n\ndef latihan_2(words):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(group_by_first_letter(['apple', 'banana', 'apricot', 'blueberry', 'cherry']))\n```\n\n**Expected Output**:\n```\n{'a': ['apple', 'apricot'], 'b': ['banana', 'blueberry'], 'c': ['cherry']}\n```\n\n## Referensi\n- [Python Official Documentation - Dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)\n- [Python Official Documentation - defaultdict](https://docs.python.org/3/library/collections.html#collections.defaultdict)\n- [Real Python - Python Dictionaries](https://realpython.com/python-dicts/)\n- [W3Schools Python Dictionaries](https://www.w3schools.com/python/python_dictionaries.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M03-L06](M03-L06.md)"
     },
     {
         "id": 14,
-        "title": "14. M03 L06",
-        "description": "<p><strong>Sets: Unordered Unique Collections</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "14. Lesson M03-L06",
+        "description": "<p><strong>Lesson M03-L06</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M03-L06 di Python!\")",
+        "expectedOutput": "Belajar Lesson M03-L06 di Python!",
+        "hint": "Pelajari lesson m03-l06.",
         "quiz": {
-            "question": "Apa yang dipelajari di M03 L06?",
+            "question": "Apa yang dipelajari di Lesson M03-L06?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -297,17 +323,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 4,
+        "module": "Fungsi",
         "mdContent": "# Sets: Unordered Unique Collections\n**ID**: `M03-L06`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nCreate sets, perform set operations (union, intersection, difference), and understand set comprehensions.\n\n## Materi\n\n### Konsep Dasar\nSet adalah unordered collection dari unique elements (tidak ada duplikat). Set mutable (bisa tambah/hapus), tapi elemennya harus hashable (immutable).\n\n**Creating Sets**:\n- `s = {1, 2, 3}` (literal)\n- `s = set(iterable)` (constructor)\n- Empty set: `set()` (bukan `{}` yang berarti dict)\n- `frozenset` adalah immutable set\n\n**Set Operations** (binary operators):\n- Union: `s1 | s2` atau `s1.union(s2)`\n- Intersection: `s1 & s2` atau `s1.intersection(s2)`\n- Difference: `s1 - s2` (elements in s1 not in s2)\n- Symmetric Difference: `s1 ^ s2` (elements in either but not both)\n\n**Set Methods**:\n- `add(elem)`: tambah satu elemen\n- `update(iterable)`: tambah banyak elemen\n- `remove(elem)`: hapus elemen, KeyError jika tidak ada\n- `discard(elem)`: hapus elemen, tidak error jika tidak ada\n- `pop()`: hapus dan kembalikan arbitrary elemen (KeyError jika kosong)\n- `clear()`: kosongkan set\n- `issubset(other)`, `issuperset(other)`, `isdisjoint(other)`\n\n### Set Comprehensions\n```python\n{expr for item in iterable if condition}\n```\nMirip list comprehension tapi dengan curly braces.\n\n### Detail Teknis\n- Set unordered: tidak ada index, tidak bisa di-access by index\n- Element unik: duplikat otomatis dieliminasi saat create/update\n- Membership test `in` sangat cepat (O(1) average) → berguna untuk deduplication dan membership check\n- Set operations efisien: union O(len(s1)+len(s2)), intersection O(min(len(s1), len(s2)))\n- `frozenset` bisa digunakan sebagai dictionary key (karena immutable)\n- Set bisa berisi tipe混合 asalkan hashable\n\n## Latihan\n\n### Soal 1\nBuat fungsi `unique_elements(lst)` yang menerima list (bisa duplikat) dan mengembalikan list berisi hanya elemen unik, tanpa mengubah urutan pertama kali muncul. Gunakan set untuk tracking, tapi output harus list.\n\n```python\ndef latihan_1(lst):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1([3, 1, 2, 1, 4, 3, 5]))\n```\n\n**Expected Output**:\n```\n[3, 1, 2, 4, 5]\n```\n\n### Soal 2\nBuat fungsi `set_operations(s1, s2)` yang menerima dua set dan mengembalikan dictionary dengan:\n- 'union': s1 | s2\n- 'intersection': s1 & s2\n- 'difference_s1_s2': s1 - s2\n- 'difference_s2_s1': s2 - s1\n- 'symmetric_difference': s1 ^ s2\n\nGunakan set comprehension untuk membuat dictionary hasil.\n\n```python\ndef latihan_2(s1, s2):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    a = {1, 2, 3, 4}\n    b = {3, 4, 5, 6}\n    hasil = latihan_2(a, b)\n    for k, v in hasil.items():\n        print(f\"{k}: {v}\")\n```\n\n**Expected Output**:\n```\nunion: {1, 2, 3, 4, 5, 6}\nintersection: {3, 4}\ndifference_s1_s2: {1, 2}\ndifference_s2_s1: {5, 6}\nsymmetric_difference: {1, 2, 5, 6}\n```\n\n## Referensi\n- [Python Official Documentation - Sets](https://docs.python.org/3/tutorial/datastructures.html#sets)\n- [Real Python - Python Sets](https://realpython.com/python-sets/)\n- [W3Schools Python Sets](https://www.w3schools.com/python/python_sets.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M04-L01](M04-L01.md)"
     },
     {
         "id": 15,
-        "title": "15. M04 L01",
-        "description": "<p><strong>Defining and Calling Functions</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "15. Function Dasar",
+        "description": "<p><strong>Function Dasar</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "def sapa(nama):\n    return f\"Halo, {nama}!\"\n\nprint(sapa(\"Archon\"))\n\ndef tambah(a, b=0):\n    return a + b\n\nprint(tambah(3, 5))\nprint(tambah(3))",
+        "expectedOutput": "Halo, Archon!\n8\n3",
+        "hint": "def function(params): ... Default value = b=0.",
         "quiz": {
-            "question": "Apa yang dipelajari di M04 L01?",
+            "question": "Apa yang dipelajari di Function Dasar?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -316,17 +344,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 4,
+        "module": "Fungsi",
         "mdContent": "# Defining and Calling Functions\n**ID**: `M04-L01`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nWrite functions with def, understand parameters and return values, scope rules (LEGB).\n\n## Materi\n\n### Konsep Dasar\nFunction adalah blok kode yang dapat dipanggil berulang. Dengan `def` kita mendefinisikan function.\n\n**Defining Functions**:\n```python\ndef nama_fungsi(parameter1, parameter2, ...):\n    \"\"\"docstring optional\"\"\"\n    # body\n    return nilai  # optional, default None\n```\n\n**Calling Functions**:\n- `nama_fungsi(arg1, arg2)`\n- Positional arguments: urutan matters\n- Keyword arguments: `nama_fungsi(param=value)` bisa acak urutan\n- Bisa campur: positional dulu, baru keyword\n\n**Return**:\n- `return` mengembalikan nilai dan keluar dari fungsi\n- Tanpa `return` atau `return None` mengembalikan `None`\n- Bisa return multiple values (sebenarnya tuple): `return a, b, c`\n\n### Scope: LEGB Rule\nPython mencari nama dalam urutan:\n1. **Local**: dalam fungsi saat ini\n2. **Enclosing**: dalam fungsi luar (closure)\n3. **Global**: di module level\n4. **Built-in**: nama built-in Python (len, print, dll)\n\n**global** dan **nonlocal** statements bisa digunakan untuk memodifikasi variabel di scope yang lebih luas.\n\n### Detail Teknis\n- Function adalah objek first-class: bisa disimpan ke variabel, passed sebagai argumen, dikembalikan\n- Default arguments dievaluasi sekali saat definisi (hati-hati dengan mutable default)\n- Docstring: `func.__doc__` menyimpan string dokumentasi\n- Function annotations (PEP 484) untuk type hints: `def f(x: int) -> str:`\n- Positional-only parameters (`/`) dan keyword-only (`*`) tersedia di Python 3.8+\n\n## Latihan\n\n### Soal 1\nBuat fungsi `konversi_suhu(celsius=None, fahrenheit=None)` yang:\n- Menerima salah satu parameter (celsius atau fahrenheit)\n- Jika celsius diberikan, konversi ke fahrenheit: F = C * 9/5 + 32\n- Jika fahrenheit diberikan, konversi ke celsius: C = (F - 32) * 5/9\n- Jika tidak ada atau keduanya, kembalikan None\n- Gunakan keyword arguments\n\n```python\ndef latihan_1(celsius=None, fahrenheit=None):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1(celsius=0))\n    print(latihan_1(fahrenheit=212))\n```\n\n**Expected Output**:\n```\n32.0\n100.0\n```\n\n### Soal 2\nBuat fungsi `statistik_sederhana(nums)` yang menerima list angka dan mengembalikan tuple `(min, max, rata_rata)`. Gunakan built-in functions `min()`, `max()`, dan `sum()`.\n\n```python\ndef latihan_2(nums):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2([1, 2, 3, 4, 5]))\n```\n\n**Expected Output**:\n```\n(1, 5, 3.0)\n```\n\n## Referensi\n- [Python Official Documentation - Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)\n- [Real Python - Python Functions](https://realpython.com/defining-your-own-python-function/)\n- [W3Schools Python Functions](https://www.w3schools.com/python/python_functions.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M04-L02](M04-L02.md)"
     },
     {
         "id": 16,
-        "title": "16. M04 L02",
-        "description": "<p><strong>Arguments: Positional, Keyword, Default, and *args/**kwargs</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "16. Lambda dan Higher-Order",
+        "description": "<p><strong>Lambda dan Higher-Order</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "kuadrat = lambda x: x ** 2\nprint(kuadrat(5))\n\nangka = [1, 2, 3, 4, 5]\nprint(list(map(lambda x: x*2, angka)))\nprint(list(filter(lambda x: x > 2, angka)))",
+        "expectedOutput": "25\n[2, 4, 6, 8, 10]\n[3, 4, 5]",
+        "hint": "lambda = anonymous function. map/filter = HOF.",
         "quiz": {
-            "question": "Apa yang dipelajari di M04 L02?",
+            "question": "Apa yang dipelajari di Lambda dan Higher-Order?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -335,17 +365,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 4,
+        "module": "Fungsi",
         "mdContent": "# Arguments: Positional, Keyword, Default, and *args/**kwargs\n**ID**: `M04-L02`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nMaster flexible function signatures, unpacking arguments, and variable-length parameters.\n\n## Materi\n\n### Konsep Dasar\nPython mendukung berbagai cara passing arguments ke fungsi:\n\n**Positional Arguments**: Urutan penting.\n```python\ndef f(a, b):\n    return a + b\nf(1, 2)  # a=1, b=2\n```\n\n**Keyword Arguments**: Urutan tidak penting, gunakan nama parameter.\n```python\nf(b=2, a=1)  # sama dengan f(1,2)\n```\n\n**Default Arguments**: Nilai default jika tidak diberikan.\n```python\ndef f(a, b=10):\n    return a + b\nf(5)  # b=10\n```\n\n**Variable-Length Arguments**:\n- `*args`: tuple dari positional arguments yang tidak disebutkan\n- `**kwargs`: dict dari keyword arguments yang tidak disebutkan\n\n```python\ndef f(*args, **kwargs):\n    print(args)   # tuple\n    print(kwargs) # dict\nf(1, 2, x=3, y=4)  # args=(1,2), kwargs={'x':3,'y':4}\n```\n\n### Unpacking Arguments\n- `*iterable` dalam call: unpack iterable menjadi positional arguments\n- `**dict` dalam call: unpack dict menjadi keyword arguments\n\n```python\ndef f(a, b, c):\n    return a + b + c\nargs = (1, 2, 3)\nf(*args)  # unpack tuple → f(1,2,3)\n\nkwargs = {'a':1, 'b':2, 'c':3}\nf(**kwargs)  # unpack dict → f(a=1,b=2,c=3)\n```\n\n### Detail Teknis\n- Default arguments dievaluasi sekali saat definisi (hati-hati dengan mutable default seperti `def f(x=[])`)\n- `*args` dan `**kwargs` adalah konvensi nama, bisa apa saja (misal `*numbers`, `**options`)\n- Bisa campur: `def f(pos1, pos2, /, standard, *, kwonly1, kwonly2)`\n  - `/` : parameters sebelum ini positional-only (Python 3.8+)\n  - `*` : parameters setelah ini keyword-only\n- `*args` bisa dikombinasi dengan `args` biasa: `def f(a, *args, b)`\n- `**kwargs` selalu terakhir\n\n## Latihan\n\n### Soal 1\nBuat fungsi `konversi_uang(amount, from_currency, to_currency)` yang menerima jumlah uang, mata uang asal, dan mata uang tujuan. Gunakan default arguments untuk `from_currency='IDR'` dan `to_currency='USD'`. Gunakan dictionary kurs (simulasi) untuk konversi. Contoh kurs: USD=15000, EUR=16000, JPY=110. Jika mata uang tidak dikenal, kembalikan None.\n\n```python\ndef latihan_1(amount, from_currency='IDR', to_currency='USD'):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1(15000))  # 1 USD\n    print(latihan_1(100, 'USD', 'EUR'))  # approx 6.25\n```\n\n**Expected Output**:\n```\n1.0\n6.25\n```\n\n### Soal 2\nBuat fungsi `print_all(*args, **kwargs)` yang mencetak semua positional arguments dan keyword arguments dengan format:\n- Positional: \"Positional: (arg1, arg2, ...)\"\n- Keyword: \"Keyword: {'key1': val1, 'key2': val2, ...}\"\n\n```python\ndef latihan_2(*args, **kwargs):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print_all(1, 2, 3, name='Alice', age=25)\n```\n\n**Expected Output**:\n```\nPositional: (1, 2, 3)\nKeyword: {'name': 'Alice', 'age': 25}\n```\n\n## Referensi\n- [Python Official Documentation - More on Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions)\n- [Real Python - Python Arguments](https://realpython.com/defining-your-own-python-function/#accepting-any-number-of-arguments)\n- [W3Schools Python Args](https://www.w3schools.com/python/gloss_python_function_arguments.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M04-L03](M04-L03.md)"
     },
     {
         "id": 17,
-        "title": "17. M04 L03",
-        "description": "<p><strong>Lambda Functions and Higher-Order Functions</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "17. List Comprehension",
+        "description": "<p><strong>List Comprehension</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "kuadrat = [x**2 for x in range(5)]\nprint(kuadrat)\n\ngenap = [x for x in range(10) if x % 2 == 0]\nprint(genap)\n\nmatrix = [[i*j for j in range(3)] for i in range(3)]\nprint(matrix)",
+        "expectedOutput": "[0, 1, 4, 9, 16]\n[0, 2, 4, 6, 8]\n[[0, 0, 0], [0, 1, 2], [0, 2, 4]]",
+        "hint": "[expr for item in iterable if condition].",
         "quiz": {
-            "question": "Apa yang dipelajari di M04 L03?",
+            "question": "Apa yang dipelajari di List Comprehension?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -354,17 +386,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 4,
+        "module": "Fungsi",
         "mdContent": "# Lambda Functions and Higher-Order Functions\n**ID**: `M04-L03`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUse lambda expressions, pass functions as arguments, and understand map/filter/reduce.\n\n## Materi\n\n### Konsep Dasar\n**Lambda Functions**: Anonymous functions (tidak memiliki nama) dengan sintaks singkat.\n```python\nlambda arguments: expression\n```\nLambda hanya bisa berupa single expression (bukan statements). Umum dipakai saat butuh fungsi sederhana sementara.\n\n**Higher-Order Functions**: Fungsi yang menerima fungsi lain sebagai argumen, atau mengembalikan fungsi.\n\n**map()**: Terapkan fungsi ke setiap elemen iterable.\n```python\nmap(func, iterable)  # returns iterator\nlist(map(func, iterable))  # convert ke list\n```\n\n**filter()**: Filter elemen berdasarkan predikat (fungsi yang mengembalikan boolean).\n```python\nfilter(pred, iterable)  # keeps elements where pred(element) True\nlist(filter(pred, iterable))\n```\n\n**reduce()**: (dari `functools`) Akumulasi elemen dengan fungsi biner.\n```python\nfrom functools import reduce\nreduce(func, iterable, initializer=None)\n```\n`func` menerima dua argumen (akumulator, next_item) dan mengembalikan nilai baru.\n\n### Detail Teknis\n- Lambda sering dipakai sebagai argument untuk `sorted()`, `map()`, `filter()`, `reduce()`, `key` functions\n- `map()` dan `filter()` lazy (returns iterator) → hemat memory\n- `reduce()` tidak built-in, harus import dari `functools`\n- `reduce()` tanpa initializer: pertama kali menggunakan dua elemen pertama\n- `reduce()` dengan initializer: initializer sebagai akumulator awal\n- Alternatif modern: list comprehensions sering lebih readable daripada map/filter\n- Higher-order functions memungkinkan functional programming style\n\n## Latihan\n\n### Soal 1\nBuat fungsi `sort_by_last_name(names)` yang menerima list nama lengkap (string \"First Last\") dan mengurutkan berdasarkan nama keluarga (last name) menggunakan `sorted()` dengan lambda sebagai key. Asumsi setiap nama punya tepat satu spasi.\n\n```python\ndef latihan_1(names):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1([\"John Doe\", \"Alice Smith\", \"Bob Johnson\"]))\n```\n\n**Expected Output**:\n```\n['Bob Johnson', 'John Doe', 'Alice Smith']\n```\n\n### Soal 2\nBuat fungsi `sum_of_squares(nums)` yang menghitung jumlah kuadrat dari angka-angka dalam list menggunakan `map()` dan `reduce()`. Jangan gunakan loop eksplisit atau list comprehension.\n\n```python\nfrom functools import reduce\n\ndef latihan_2(nums):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2([1, 2, 3, 4]))\n```\n\n**Expected Output**:\n```\n30  # 1^2 + 2^2 + 3^2 + 4^2 = 1+4+9+16 = 30\n```\n\n## Referensi\n- [Python Official Documentation - Lambda Expressions](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions)\n- [Python Official Documentation - map()](https://docs.python.org/3/library/functions.html#map)\n- [Python Official Documentation - filter()](https://docs.python.org/3/library/functions.html#filter)\n- [Python Official Documentation - functools.reduce()](https://docs.python.org/3/library/functools.html#functools.reduce)\n- [Real Python - Python Lambda](https://realpython.com/python-lambda/)\n- [W3Schools Python Lambda](https://www.w3schools.com/python/python_lambda.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M04-L04](M04-L04.md)"
     },
     {
         "id": 18,
-        "title": "18. M04 L04",
-        "description": "<p><strong>Docstrings, Type Hints, and Function Annotations</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "18. Lesson M04-L04",
+        "description": "<p><strong>Lesson M04-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M04-L04 di Python!\")",
+        "expectedOutput": "Belajar Lesson M04-L04 di Python!",
+        "hint": "Pelajari lesson m04-l04.",
         "quiz": {
-            "question": "Apa yang dipelajari di M04 L04?",
+            "question": "Apa yang dipelajari di Lesson M04-L04?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -373,17 +407,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 4,
+        "module": "Fungsi",
         "mdContent": "# Docstrings, Type Hints, and Function Annotations\n**ID**: `M04-L04`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nWrite professional docstrings (Google/NumPy style), add type hints, and use typing module.\n\n## Materi\n\n### Konsep Dasar\n**Docstrings**: String literal pertama dalam function/class/module yang berfungsi sebagai dokumentasi. Diakses via `__doc__` atau `help()`.\n\n**Style Populer**:\n- **Google Style**:\n```python\ndef func(arg1, arg2):\n    \"\"\"Short description.\n\n    Longer description explaining details.\n\n    Args:\n        arg1 (int): description\n        arg2 (str): description\n\n    Returns:\n        bool: description\n    \"\"\"\n```\n- **NumPy Style**:\n```python\ndef func(arg1, arg2):\n    \"\"\"\n    Short description.\n\n    Longer description.\n\n    Parameters\n    ----------\n    arg1 : int\n        description\n    arg2 : str\n        description\n\n    Returns\n    -------\n    bool\n        description\n    \"\"\"\n```\n\n**Type Hints** (PEP 484): Menambahkan informasi tipe ke parameter dan return value.\n```python\ndef greet(name: str) -> str:\n    return \"Hello \" + name\n```\nType hints tidak mengubah runtime behavior (tidak enforced), hanya untuk documentation dan static analysis (mypy, IDE).\n\n### typing Module\n- Basic: `int`, `str`, `float`, `bool`, `None`\n- Containers: `List[int]`, `Dict[str, int]`, `Tuple[int, str]`, `Set[str]`\n- Special: `Any` (bisa apa saja), `Optional[T]` (T atau None), `Union[T1, T2]`, `Callable`\n- `TypedDict` untuk dictionary dengan keys tertentu\n- `Protocol` untuk structural subtyping (duck typing with types)\n\n### Detail Teknis\n- Type hints bisa diabaikan oleh interpreter (dynamic typing tetap berlaku)\n- `from typing import List, Dict, Tuple, Optional, Union, Callable, Any`\n- Python 3.9+: bisa pakai built-in collection types: `list[int]`, `dict[str, int]`\n- `Callable[[Arg1Type, Arg2Type], ReturnType]` untuk fungsi sebagai parameter\n- `@overload` decorator untuk fungsi dengan multiple signatures\n- Docstring dan type hints saling melengkapi: docstring untuk deskripsi, type hints untuk kontrak tipe\n\n## Latihan\n\n### Soal 1\nBuat fungsi `calculate_total(prices: List[float], discount: float = 0.0) -> float` yang:\n- Menerima list harga (float) dan discount (0-1, default 0)\n- Menghitung total setelah discount\n- Tambahkan Google-style docstring\n- Tambahkan type hints\n\n```python\n# Import typing jika perlu\ndef latihan_1(prices, discount=0.0):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1([10.0, 20.0, 30.0], 0.1))\n```\n\n**Expected Output**:\n```\n54.0\n```\n\n### Soal 2\nBuat fungsi `filter_by_length(strings: List[str], min_len: int) -> List[str]` yang mengembalikan hanya string dengan panjang >= min_len. Gunakan type hints dan docstring (Google style). Gunakan list comprehension.\n\n```python\ndef latihan_2(strings, min_len):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2([\"apple\", \"fig\", \"banana\", \"kiwi\"], 4))\n```\n\n**Expected Output**:\n```\n['apple', 'banana']\n```\n\n## Referensi\n- [PEP 484 - Type Hints](https://peps.python.org/pep-0484/)\n- [PEP 257 - Docstring Conventions](https://peps.python.org/pep-0257/)\n- [Google Python Style Guide - Docstrings](https://google.github.io/styleguide/pyguide.html#doc-function-args-returns)\n- [Real Python - Python Type Checking](https://realpython.com/python-type-checking/)\n- [Python Official Documentation - typing](https://docs.python.org/3/library/typing.html)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M04-L05](M04-L05.md)"
     },
     {
         "id": 19,
-        "title": "19. M04 L05",
-        "description": "<p><strong>Modules and Packages</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "19. Lesson M04-L05",
+        "description": "<p><strong>Lesson M04-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M04-L05 di Python!\")",
+        "expectedOutput": "Belajar Lesson M04-L05 di Python!",
+        "hint": "Pelajari lesson m04-l05.",
         "quiz": {
-            "question": "Apa yang dipelajari di M04 L05?",
+            "question": "Apa yang dipelajari di Lesson M04-L05?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -392,17 +428,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 5,
+        "module": "OOP",
         "mdContent": "# Modules and Packages\n**ID**: `M04-L05`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nOrganize code into modules, create packages with __init__.py, and use import statements correctly.\n\n## Materi\n\n### Konsep Dasar\n**Module**: File Python (.py) yang berisi kode (functions, classes, variables). Setiap file adalah module.\n**Package**: Folder yang berisi module-module atau sub-packages, ditandai dengan file `__init__.py` (bisa kosong).\n\n**Import Statements**:\n```python\nimport module_name\nimport package.module_name\nfrom module_name import name1, name2\nfrom package.module_name import something\nfrom module_name import *\nimport module_name as alias\n```\n\n### Import Mechanics\n- `sys.path`: list direktori di mana Python mencari module\n- Current directory biasanya pertama dalam `sys.path`\n- Package relative imports: `from . import sibling` (dalam package)\n- `__init__.py`: executed saat package di-import, bisa define `__all__` untuk `from package import *`\n\n### __name__ dan __main__\n- `__name__` variable: jika file dieksekusi langsung, nilainya `\"__main__\"`; jika di-import, nilainya nama module\n- Pattern `if __name__ == '__main__':` untuk kode yang hanya jalan saat script langsung di-run\n\n### Detail Teknis\n- Module adalah objek; atributnya bisa di-access via `module.attr`\n- `dir(module)` menunjukkan apa yang diekspor\n- `__all__` dalam module atau `__init__.py` mengontrol `from module import *`\n- Absolute import (dari root package) lebih disarankan daripada relative\n- Circular imports bisa menyebabkan error; hindari dengan design ulang\n- Module di-cache di `sys.modules` setelah import pertama\n\n## Latihan\n\n### Soal 1\nBuat struktur package sederhana:\n```\nmyutils/\n    __init__.py\n    math_ops.py\n    string_ops.py\n```\n- Di `math_ops.py`: fungsi `add(a, b)` dan `multiply(a, b)`\n- Di `string_ops.py`: fungsi `reverse(s)` dan `capitalize_words(s)`\n- Di `__init__.py`: import fungsi-fungsi tersebut agar bisa diakses langsung dari `myutils`\n- Di script utama: `from myutils import add, reverse` dan gunakan.\n\nBuat file-file tersebut dan buktikan importnya berjalan.\n\n```python\n# File: latihan_1_main.py\ndef latihan_1():\n    from myutils import add, reverse\n    print(add(2, 3))\n    print(reverse(\"hello\"))\n\nif __name__ == \"__main__\":\n    latihan_1()\n```\n\n**Expected Output**:\n```\n5\nolleh\n```\n\n### Soal 2\nBuat module `calculator.py` yang berisi fungsi `add`, `subtract`, `multiply`, `divide`. Di file terpisah, import module tersebut dan gunakan semua fungsi. Juga tunjukkan cara `import calculator as calc`.\n\n```python\n# File: latihan_2_main.py\ndef latihan_2():\n    import calculator as calc\n    print(calc.add(10, 5))\n    print(calc.subtract(10, 5))\n    print(calc.multiply(10, 5))\n    print(calc.divide(10, 5))\n\nif __name__ == \"__main__\":\n    latihan_2()\n```\n\n**Expected Output**:\n```\n15\n5\n50\n2.0\n```\n\n## Referensi\n- [Python Official Documentation - Modules](https://docs.python.org/3/tutorial/modules.html)\n- [Python Official Documentation - Packages](https://docs.python.org/3/tutorial/modules.html#packages)\n- [Real Python - Python Modules and Packages](https://realpython.com/python-modules-packages/)\n- [W3Schools Python Modules](https://www.w3schools.com/python/python_modules.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M04-L06](M04-L06.md)"
     },
     {
         "id": 20,
-        "title": "20. M04 L06",
-        "description": "<p><strong>The if __name__ == '__main__' Pattern</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "20. Lesson M04-L06",
+        "description": "<p><strong>Lesson M04-L06</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M04-L06 di Python!\")",
+        "expectedOutput": "Belajar Lesson M04-L06 di Python!",
+        "hint": "Pelajari lesson m04-l06.",
         "quiz": {
-            "question": "Apa yang dipelajari di M04 L06?",
+            "question": "Apa yang dipelajari di Lesson M04-L06?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -411,17 +449,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 5,
+        "module": "OOP",
         "mdContent": "# The if __name__ == '__main__' Pattern\n**ID**: `M04-L06`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nMake files executable as scripts and importable as modules.\n\n## Materi\n\n### Konsep Dasar\nSetiap Python module memiliki built-in variable `__name__`. Nilainya tergantung bagaimana file dieksekusi:\n- Jika dijalankan langsung (`python file.py`), `__name__ == \"__main__\"`\n- Jika di-import (`import file`), `__name__ == \"nama_file\"` (nama module)\n\n**Pattern**:\n```python\ndef main():\n    # kode utama program\n    pass\n\nif __name__ == \"__main__\":\n    main()\n```\nAtau sederhana:\n```python\nif __name__ == \"__main__\":\n    # kode langsung\n```\n\n### Mengapa Penting?\n- **Reusability**: File bisa di-import tanpa mengeksekusi kode utama\n- **Testing**: Bisa menambahkan test cases di bawah `if __name__ == \"__main__\":`\n- **Modularitas**: Memisahkan definisi (functions, classes) dari eksekusi\n- **Best Practice**: Setiap script yang bisa di-run langsung sebaiknya pakai pattern ini\n\n### Detail Teknis\n- `__name__` adalah string, bisa dicek dengan `==`\n- Bisa juga mengecek `if __name__ != \"__main__\":` untuk kode yang hanya jalan saat import (tapi jarang digunakan)\n- `sys.argv` bisa diakses di dalam `main()` untuk command-line arguments\n- Bukan hanya untuk script; juga untuk package dengan `__main__.py` (jalankan `python -m package`)\n- Jika tidak ada `if __name__ == \"__main__\":`, semua kode level-module akan dieksekusi saat import\n\n## Latihan\n\n### Soal 1\nBuat module `math_utils.py` yang berisi fungsi `factorial(n)` dan `is_prime(n)`. Di akhir file, tambahkan `if __name__ == \"__main__\":` yang menjalankan test sederhana untuk kedua fungsi (misal: factorial(5) harus 120, is_prime(7) harus True). Buktikan bahwa saat di-import, test tidak berjalan.\n\n```python\n# math_utils.py\ndef factorial(n):\n    # Tulis kode kamu di sini\n    pass\n\ndef is_prime(n):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    # Test cases\n    print(factorial(5))\n    print(is_prime(7))\n```\n\n**Expected Output** (saat di-run langsung):\n```\n120\nTrue\n```\nSaat di-import, tidak ada output.\n\n### Soal 2\nBuat script `greet.py` yang menerima nama dari command-line argument (`sys.argv[1]`) dan mencetak \"Hello, <nama>!\". Gunakan `if __name__ == \"__main__\":` dan pastikan file bisa di-import tanpa error (meski tidak berguna saat import).\n\n```python\n# greet.py\nimport sys\n\ndef greet(name):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    if len(sys.argv) > 1:\n        greet(sys.argv[1])\n    else:\n        print(\"Usage: python greet.py <name>\")\n```\n\n**Expected Output** (run: `python greet.py Alice`):\n```\nHello, Alice!\n```\n\n## Referensi\n- [Python Official Documentation - __main__](https://docs.python.org/3/library/__main__.html)\n- [Real Python - if __name__ == \"__main__\"](https://realpython.com/if-name-main-python/)\n- [W3Schools Python Main](https://www.w3schools.com/python/python_main.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M05-L01](M05-L01.md)"
     },
     {
         "id": 21,
-        "title": "21. M05 L01",
-        "description": "<p><strong>Classes and Objects: Basics of OOP</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "21. Class Dasar",
+        "description": "<p><strong>Class Dasar</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "class User:\n    def __init__(self, nama):\n        self.nama = nama\n    \n    def sapa(self):\n        return f\"Halo, {self.nama}!\"\n\nu = User(\"Archon\")\nprint(u.sapa())",
+        "expectedOutput": "Halo, Archon!",
+        "hint": "class = blueprint. __init__ = constructor. self = this.",
         "quiz": {
-            "question": "Apa yang dipelajari di M05 L01?",
+            "question": "Apa yang dipelajari di Class Dasar?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -430,17 +470,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 5,
+        "module": "OOP",
         "mdContent": "# Classes and Objects: Basics of OOP\n**ID**: `M05-L01`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nDefine classes, create objects (instances), understand __init__ and self.\n\n## Materi\n\n### Konsep Dasar\n**Class**: Blueprint untuk membuat objects. Mendefinisikan atribut (data) dan methods (fungsi).\n**Object**: Instance dari class.\n\n**Defining Class**:\n```python\nclass Person:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n    \n    def greet(self):\n        return f\"Hello, I'm {self.name}\"\n```\n\n**__init__ Method**:\n- Constructor: dipanggil saat object dibuat\n- `self` adalah reference ke object instance yang baru dibuat\n- Atribut.instance didefinisikan dengan `self.attr = value`\n\n**Creating Objects**:\n```python\np = Person(\"Alice\", 25)  # p adalah instance\n```\n\n### Self Parameter\n- `self` harus menjadi parameter pertama di setiap instance method\n- Dipanggil otomatis saat method dipanggil: `p.greet()` → `Person.greet(p)`\n- Nama `self` hanya konvensi, bisa apa saja (tapi gunakan `self` untuk readability)\n\n### Atribut dan Methods\n- **Instance attributes**: `self.attr` (unik per instance)\n- **Class attributes**: `ClassName.attr` (shared semua instance)\n- **Instance methods**: `def method(self, ...)`\n- Bisa tambah atribut setelah creation: `p.new_attr = value` (tapi tidak disarankan)\n\n### Detail Teknis\n- Class juga merupakan objek (instance of `type`)\n- `__dict__` menyimpan atribut instance\n- `isinstance(obj, Class)` cek apakah obj adalah instance dari Class\n- `issubclass(Sub, Super)` cek inheritance\n- `__module__` dan `__qualname__` untuk introspection\n- Class bisa tanpa `__init__` (default tidak melakukan apa-apa)\n\n## Latihan\n\n### Soal 1\nBuat class `BankAccount` dengan:\n- Atribut instance: `account_holder` (str), `balance` (float, default 0.0)\n- Method: `deposit(amount)` (tambah balance), `withdraw(amount)` (kurangi balance, tapi jika amount > balance, print \"Insufficient funds\" dan tidak ubah balance), `get_balance()` (kembalikan balance)\n- Test dengan membuat beberapa account dan lakukan transaksi.\n\n```python\nclass BankAccount:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    acc1 = BankAccount(\"Alice\", 100)\n    acc2 = BankAccount(\"Bob\")\n    acc1.deposit(50)\n    acc1.withdraw(30)\n    acc2.deposit(200)\n    acc2.withdraw(250)  # harus print error\n    print(acc1.get_balance())  # 120\n    print(acc2.get_balance())  # 200\n```\n\n**Expected Output**:\n```\nInsufficient funds\n120\n200\n```\n\n### Soal 2\nBuat class `Rectangle` dengan:\n- `__init__(self, width, height)`\n- Method `area()` mengembalikan luas\n- Method `perimeter()` mengembalikan keliling\n- Method `is_square()` mengembalikan True jika width == height\n\n```python\nclass Rectangle:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    r1 = Rectangle(4, 5)\n    print(r1.area())       # 20\n    print(r1.perimeter())  # 18\n    print(r1.is_square())  # False\n    r2 = Rectangle(3, 3)\n    print(r2.is_square())  # True\n```\n\n**Expected Output**:\n```\n20\n18\nFalse\nTrue\n```\n\n## Referensi\n- [Python Official Documentation - Classes](https://docs.python.org/3/tutorial/classes.html)\n- [Real Python - Python Classes and Objects](https://realpython.com/python3-object-oriented-programming/)\n- [W3Schools Python Classes](https://www.w3schools.com/python/python_classes.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M05-L02](M05-L02.md)"
     },
     {
         "id": 22,
-        "title": "22. M05 L02",
-        "description": "<p><strong>Instance Variables, Class Variables, and Methods</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "22. Inheritance",
+        "description": "<p><strong>Inheritance</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "class Animal:\n    def __init__(self, nama):\n        self.nama = nama\n    def speak(self):\n        return f\"{self.nama} bersuara\"\n\nclass Dog(Animal):\n    def speak(self):\n        return f\"{self.nama} menggonggong!\"\n\nprint(Dog(\"Buddy\").speak())",
+        "expectedOutput": "Buddy menggonggong!",
+        "hint": "class Child(Parent): ... = inheritance.",
         "quiz": {
-            "question": "Apa yang dipelajari di M05 L02?",
+            "question": "Apa yang dipelajari di Inheritance?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -449,17 +491,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 5,
+        "module": "OOP",
         "mdContent": "# Instance Variables, Class Variables, and Methods\n**ID**: `M05-L02`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nDistinguish between instance and class attributes, define instance/class/static methods.\n\n## Materi\n\n### Konsep Dasar\n**Instance Attributes**: `self.attr` - setiap instance memiliki nilai sendiri.\n**Class Attributes**: `ClassName.attr` atau `self.__class__.attr` - dikelola bersama semua instance.\n\n**Atribut precedence**: Jika instance memiliki attribute dengan nama yang sama dengan class attribute, instance attribute akan diutamakan.\n\n**Types of Methods**:\n- **Instance method**: `def method(self, ...)` - akses dan modifikasi instance & class attributes\n- **Class method**: `@classmethod` def method(cls, ...) - akses class attributes, tidak bisa akses instance attributes (karena tidak ada `self`), biasanya untuk factory methods atau operasi tingkat class\n- **Static method**: `@staticmethod` def method(...) - tidak menerima `self` atau `cls`, hanya fungsi biasa yang diletakkan di dalam class karena grouping\n\n### Decorators\n- `@classmethod` dan `@staticmethod` adalah decorators yang mengubah cara method di-call\n- Class method menerima class sebagai argumen pertama (`cls`)\n- Static method tidak menerima argumen khusus\n\n### Detail Teknis\n- Class attributes shared; perubahan melalui class akan terlihat di semua instance (kecuali instance override dengan own attribute)\n- Class method bisa digunakan untuk membuat alternative constructors: `@classmethod def from_string(cls, s): ...`\n- Static method untuk utility functions yang relevan dengan class tapi tidak perlu akses ke class/instance\n- `cls` bisa digunakan untuk membuat instance baru: `obj = cls(...)`\n- `__dict__` pada class berisi class attributes dan methods\n\n## Latihan\n\n### Soal 1\nBuat class `Counter` yang:\n- Memiliki class attribute `total_count` (int, awal 0) untuk menghitung total instance yang dibuat\n- Setiap instance memiliki instance attribute `count` (awal 0)\n- `__init__` meningkatkan `Counter.total_count` dan set `self.count = 0`\n- Method `increment()` menaikkan `self.count` sebanyak 1\n- Method `get_total_class_count()` (class method) mengembalikan `Counter.total_count`\n- Method `get_instance_count()` (instance method) mengembalikan `self.count`\n\nTest: Buat beberapa instance, panggil increment beberapa kali, cek total class count dan instance count.\n\n```python\nclass Counter:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    c1 = Counter()\n    c2 = Counter()\n    c1.increment()\n    c1.increment()\n    c2.increment()\n    print(c1.get_instance_count())  # 2\n    print(c2.get_instance_count())  # 1\n    print(Counter.get_total_class_count())  # 2\n```\n\n**Expected Output**:\n```\n2\n1\n2\n```\n\n### Soal 2\nBuat class `MathUtils` dengan static methods:\n- `is_even(n)` → True jika n genap\n- `is_prime(n)` → True jika n bilangan prima (>=2)\n- `factorial(n)` → factorial n (gunakan loop)\n\nJangan ada instance attributes, hanya static methods.\n\n```python\nclass MathUtils:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(MathUtils.is_even(4))\n    print(MathUtils.is_prime(7))\n    print(MathUtils.factorial(5))\n```\n\n**Expected Output**:\n```\nTrue\nTrue\n120\n```\n\n## Referensi\n- [Python Official Documentation - Class and Instance Variables](https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables)\n- [Real Python - Class Methods vs Static Methods](https://realpython.com/classmethod-versus-staticmethod-python/)\n- [W3Schools Python Class Methods](https://www.w3schools.com/python/python_class_methods.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M05-L03](M05-L03.md)"
     },
     {
         "id": 23,
-        "title": "23. M05 L03",
-        "description": "<p><strong>Inheritance and Method Resolution Order (MRO)</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "23. Lesson M05-L03",
+        "description": "<p><strong>Lesson M05-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M05-L03 di Python!\")",
+        "expectedOutput": "Belajar Lesson M05-L03 di Python!",
+        "hint": "Pelajari lesson m05-l03.",
         "quiz": {
-            "question": "Apa yang dipelajari di M05 L03?",
+            "question": "Apa yang dipelajari di Lesson M05-L03?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -468,17 +512,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 5,
+        "module": "OOP",
         "mdContent": "# Inheritance and Method Resolution Order (MRO)\n**ID**: `M05-L03`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nCreate subclass relationships, use super(), understand multiple inheritance and MRO.\n\n## Materi\n\n### Konsep Dasar\n**Inheritance**: Subclass mewarisi atribut dan methods dari superclass. Memungkinkan code reuse dan polymorphism.\n\n**Syntax**:\n```python\nclass SubClass(SuperClass):\n    # override atau tambah methods\n```\n\n**super()**: Memanggil method dari superclass.\n```python\nclass Sub(Super):\n    def method(self):\n        super().method()  # panggil Super.method\n```\n\n**Multiple Inheritance**: Subclass bisa memiliki lebih dari satu superclass.\n```python\nclass Child(Parent1, Parent2):\n    pass\n```\n\n**Method Resolution Order (MRO)**: Urutan di mana Python mencari method saat multiple inheritance. MRO ditentukan oleh C3 linearization algorithm. Dapat dilihat dengan `ClassName.__mro__` atau `ClassName.mro()`.\n\n### Detail Teknis\n- `super()` tanpa argumen dalam instance method otomatis menggunakan class instance dan instance itu sendiri\n- Di Python 3, `super()` bisa dipakai tanpa arguments dalam kebanyakan kasus\n- MRO memastikan setiap class dicari tepat sekali (no duplication) dan urutan konsisten\n- Diamond problem (sebuah class diwariskan dua kali) diselesaikan oleh MRO\n- `super()` bisa digunakan di `__init__` untuk memanggil `super().__init__()`\n- Bisa akses superclass langsung dengan `SuperClass.method(self, ...)` tapi `super()` lebih fleksibel untuk multiple inheritance\n\n## Latihan\n\n### Soal 1\nBuat class hierarchy:\n- `Animal` dengan `__init__(self, name)` dan method `speak(self)` yang mengembalikan `\"...\"` (placeholder)\n- `Dog(Animal)` yang override `speak()` mengembalikan `\"Woof!\"`\n- `Cat(Animal)` yang override `speak()` mengembalikan `\"Meow!\"`\n- Test: buat Dog dan Cat, panggil speak().\n\n```python\nclass Animal:\n    # Tulis kode kamu di sini\n    pass\n\nclass Dog(Animal):\n    # Tulis kode kamu di sini\n    pass\n\nclass Cat(Animal):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    dog = Dog(\"Buddy\")\n    cat = Cat(\"Whiskers\")\n    print(dog.speak())  # Woof!\n    print(cat.speak())  # Meow!\n```\n\n**Expected Output**:\n```\nWoof!\nMeow!\n```\n\n### Soal 2\nBuat multiple inheritance:\n- `A` dengan method `foo()` yang print \"A.foo\"\n- `B` dengan method `foo()` yang print \"B.foo\"\n- `C(A, B)` yang override `foo()` dan memanggil `super().foo()` (harus print \"A.foo\" lalu \"B.foo\" sesuai MRO)\n- Cek MRO dengan `C.__mro__` atau `C.mro()`\n\n```python\nclass A:\n    def foo(self):\n        print(\"A.foo\")\n\nclass B:\n    def foo(self):\n        print(\"B.foo\")\n\nclass C(A, B):\n    def foo(self):\n        super().foo()\n        B.foo(self)  # eksplisit\n\nif __name__ == \"__main__\":\n    c = C()\n    c.foo()\n    print(C.mro())\n```\n\n**Expected Output**:\n```\nA.foo\nB.foo\n[<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>]\n```\n\n## Referensi\n- [Python Official Documentation - Inheritance](https://docs.python.org/3/tutorial/classes.html#inheritance)\n- [Real Python - Multiple Inheritance](https://realpython.com/inheritance-composition-python/)\n- [W3Schools Python Inheritance](https://www.w3schools.com/python/python_inheritance.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M05-L04](M05-L04.md)"
     },
     {
         "id": 24,
-        "title": "24. M05 L04",
-        "description": "<p><strong>Encapsulation: Public, Private, and Protected</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "24. Lesson M05-L04",
+        "description": "<p><strong>Lesson M05-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M05-L04 di Python!\")",
+        "expectedOutput": "Belajar Lesson M05-L04 di Python!",
+        "hint": "Pelajari lesson m05-l04.",
         "quiz": {
-            "question": "Apa yang dipelajari di M05 L04?",
+            "question": "Apa yang dipelajari di Lesson M05-L04?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -487,17 +533,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 5,
+        "module": "OOP",
         "mdContent": "# Encapsulation: Public, Private, and Protected\n**ID**: `M05-L04`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUse naming conventions (_protected, __private), understand name mangling.\n\n## Materi\n\n### Konsep Dasar\nPython tidak memiliki strict private/protected modifiers seperti Java/C++. Sebagai gantinya, menggunakan naming conventions:\n\n- **Public**: `name` - bisa diakses dari mana saja\n- **Protected**: `_name` - convention: \"internal use, treat as non-public\" (masih bisa diakses, tapi berhati-hati)\n- **Private**: `__name` (double underscore) - name mangling: Python mengubah nama menjadi `_ClassName__name` untuk mengurangi akses dari subclass\n\n**Name Mangling**:\n```python\nclass MyClass:\n    def __init__(self):\n        self.__private = 42  # becomes _MyClass__private\n```\nAkses dari luar: `obj._MyClass__private` (bisa, tapi tidak disarankan)\n\n### Detail Teknis\n- Protected (`_`) adalah convention only; Python tidak enforce\n- Private (`__`) hanya name mangling, bukan true privacy; masih bisa diakses dengan mangled name\n- `__init__` dan `__str__` adalah special methods (dunder) bukan private; double underscore di awal dan akhir memiliki makna khusus\n- Class attributes juga bisa protected/private: `_class_attr` atau `__class_attr`\n- `from module import *` tidak meng-import nama yang dimulai dengan underscore (kecuali didefinisikan di `__all__`)\n- Gunakan single underscore untuk \"internal use\" dan double underscore untuk menghindari name collision di subclass\n\n## Latihan\n\n### Soal 1\nBuat class `Person` dengan:\n- `__init__(self, name, age)` menyimpan `self.name` (public) dan `self._age` (protected)\n- Method `get_age()` mengembalikan `self._age`\n- Method `set_age(new_age)` yang validasi: jika new_age >= 0, set `self._age = new_age`; else print \"Invalid age\"\n- Method `_is_adult()` (protected) mengembalikan True jika `self._age >= 18`\n- Method `is_adult()` (public) yang memanggil `_is_adult()` dan mengembalikan hasilnya\n\n```python\nclass Person:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    p = Person(\"Alice\", 25)\n    print(p.get_age())       # 25\n    print(p.is_adult())      # True\n    p.set_age(15)\n    print(p.is_adult())      # False\n    p.set_age(-5)            # print \"Invalid age\"\n```\n\n**Expected Output**:\n```\n25\nTrue\nFalse\nInvalid age\n```\n\n### Soal 2\nBuat class `SecretKeeper` dengan:\n- `__init__(self, secret)` menyimpan `self.__secret` (private)\n- Method `reveal()` yang mengembalikan `self.__secret`\n- Method `change_secret(new_secret)` yang mengubah `self.__secret`\n- Di luar class, coba akses `__secret` langsung (akan error), lalu akses via name mangling `_SecretKeeper__secret` (harus berhasil)\n\n```python\nclass SecretKeeper:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    keeper = SecretKeeper(\"my_secret\")\n    print(keeper.reveal())  # my_secret\n    # print(keeper.__secret)  # AttributeError\n    print(keeper._SecretKeeper__secret)  # harus berhasil\n```\n\n**Expected Output**:\n```\nmy_secret\nmy_secret\n```\n\n## Referensi\n- [Python Official Documentation - Private Variables](https://docs.python.org/3/tutorial/classes.html#private-variables)\n- [Real Python - Private Variables](https://realpython.com/python-private-variables/)\n- [W3Schools Python Private Variables](https://www.w3schools.com/python/python_private_class_variables.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M05-L05](M05-L05.md)"
     },
     {
         "id": 25,
-        "title": "25. M05 L05",
-        "description": "<p><strong>Properties, Getters, and Setters</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "25. Lesson M05-L05",
+        "description": "<p><strong>Lesson M05-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M05-L05 di Python!\")",
+        "expectedOutput": "Belajar Lesson M05-L05 di Python!",
+        "hint": "Pelajari lesson m05-l05.",
         "quiz": {
-            "question": "Apa yang dipelajari di M05 L05?",
+            "question": "Apa yang dipelajari di Lesson M05-L05?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -506,17 +554,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 5,
+        "module": "OOP",
         "mdContent": "# Properties, Getters, and Setters\n**ID**: `M05-L05`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nImplement computed properties with @property, create getter/setter decorators.\n\n## Materi\n\n### Konsep Dasar\nPython menggunakan `@property` decorator untuk membuat computed attributes dan encapsulation tanpa perlu explicit getter/setter methods.\n\n**Property**:\n```python\nclass Celsius:\n    def __init__(self, temperature):\n        self._temperature = temperature\n\n    @property\n    def fahrenheit(self):\n        return (self._temperature * 9/5) + 32\n\n    @fahrenheit.setter\n    def fahrenheit(self, value):\n        self._temperature = (value - 32) * 5/9\n```\n- `@property` membuat method menjadi getter yang bisa diakses seperti attribute\n- `@name.setter` membuat setter untuk property yang sama\n- `@name.deleter` untuk delete (opsional)\n\n### Getters and Setters\n- Getter: method yang mengembalikan nilai attribute, diakses tanpa parentheses\n- Setter: method yang menetapkan nilai attribute, dipanggil dengan assignment\n- Decorator `@property` mengubah method menjadi attribute-like\n\n### Detail Teknis\n- Property bersifat read-only jika tidak ada setter\n- Setter harus memiliki nama yang sama dengan property\n- Deleter: `@name.deleter` untuk `del obj.name`\n- Property bisa juga untuk computed attributes yang tidak tersimpan (hanya dihitung)\n- Bisa menggunakan `@property` pada method tanpa parameter (selain self)\n- Cocok untuk validation saat set, lazy computation, backward compatibility\n\n## Latihan\n\n### Soal 1\nBuat class `Temperature` dengan:\n- Private attribute `_celsius` (float)\n- Property `celsius` (getter & setter) yang mengakses `_celsius`\n- Property `fahrenheit` (hanya getter) yang mengembalikan nilai dalam Fahrenheit: `(celsius * 9/5) + 32`\n- Setter untuk `celsius` harus memastikan nilai adalah number (gunakan `isinstance(value, (int, float))`) dan tidak None; jika invalid, raise `ValueError(\"Invalid temperature\")`\n\n```python\nclass Temperature:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    t = Temperature(25)\n    print(t.celsius)      # 25\n    print(t.fahrenheit)   # 77.0\n    t.celsius = -40\n    print(t.fahrenheit)   # -40.0\n    # t.celsius = \"hot\"  # ValueError\n```\n\n**Expected Output**:\n```\n25\n77.0\n-40.0\n```\n\n### Soal 2\nBuat class `Circle` dengan:\n- `__init__(self, radius)`\n- Property `radius` (getter & setter) dengan validation: radius harus >= 0, else ValueError\n- Property `diameter` (hanya getter) → `2 * radius`\n- Property `area` (hanya getter) → `π * radius²` (gunakan `math.pi`)\n- Setter untuk `radius` hanya mengubah `_radius`, `diameter` dan `area` otomatis recompute\n\n```python\nimport math\n\nclass Circle:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    c = Circle(5)\n    print(c.radius)    # 5\n    print(c.diameter)  # 10\n    print(round(c.area, 2))  # 78.54\n    c.radius = 10\n    print(c.diameter)  # 20\n```\n\n**Expected Output**:\n```\n5\n10\n78.54\n20\n```\n\n## Referensi\n- [Python Official Documentation - property](https://docs.python.org/3/library/functions.html#property)\n- [Real Python - Properties](https://realpython.com/property-in-python/)\n- [W3Schools Python Properties](https://www.w3schools.com/python/python_properties.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M05-L06](M05-L06.md)"
     },
     {
         "id": 26,
-        "title": "26. M05 L06",
-        "description": "<p><strong>Special (Dunder) Methods</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "26. Lesson M05-L06",
+        "description": "<p><strong>Lesson M05-L06</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M05-L06 di Python!\")",
+        "expectedOutput": "Belajar Lesson M05-L06 di Python!",
+        "hint": "Pelajari lesson m05-l06.",
         "quiz": {
-            "question": "Apa yang dipelajari di M05 L06?",
+            "question": "Apa yang dipelajari di Lesson M05-L06?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -525,17 +575,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Special (Dunder) Methods\n**ID**: `M05-L06`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nImplement __str__, __repr__, __len__, __getitem__, __setitem__, and other magic methods.\n\n## Materi\n\n### Konsep Dasar\nDunder (double underscore) methods adalah special methods yang mengizinkan class Python berperilaku seperti built-in types. Dikenali dengan nama `__nama__`.\n\n**Common Dunder Methods**:\n- `__str__(self)`: string untuk user (print(obj))\n- `__repr__(self)`: string untuk developer (representasi unambiguous, ideal untuk debugging)\n- `__len__(self)`: untuk `len(obj)` (harus return int >= 0)\n- `__getitem__(self, key)`: untuk `obj[key]` (indexing)\n- `__setitem__(self, key, value)`: untuk `obj[key] = value`\n- `__delitem__(self, key)`: untuk `del obj[key]`\n- `__iter__(self)`: untuk iterasi (return iterator)\n- `__next__(self)`: untuk iterator (return next value atau raise StopIteration)\n- `__call__(self, ...)`: membuat instance bisa dipanggil seperti fungsi\n- Arithmetic: `__add__`, `__sub__`, `__mul__`, `__truediv__`, dll\n- Comparison: `__eq__`, `__ne__`, `__lt__`, `__le__`, `__gt__`, `__ge__`\n\n### Detail Teknis\n- `__str__` untuk display; `__repr__` untuk unambiguous representation (bisa eval'd jika memungkinkan)\n- Jika `__str__` tidak didefinisikan, Python fallback ke `__repr__`\n- `__len__` harus return integer non-negative; digunakan oleh `len()` dan untuk truthiness (`__bool__` fallback ke `__len__`)\n- `__getitem__` harus menangani slice objects (`slice`) juga, tidak hanya integer\n- `__iter__` harus mengembalikan objek yang memiliki `__next__` (iterator)\n- `__call__` membuat instance menjadi callable\n- Dunder methods dipanggil oleh interpreter, bukan langsung dipanggil (kecuali intentional)\n- Bisa override operator dengan dunder methods (operator overloading)\n\n## Latihan\n\n### Soal 1\nBuat class `SimpleVector` yang:\n- `__init__(self, components)` menerima list angka\n- `__len__(self)` mengembalikan panjang vector (jumlah komponen)\n- `__getitem__(self, index)` mengembalikan komponen pada index (support indexing dan slicing)\n- `__str__(self)` mengembalikan representasi seperti `Vector(1, 2, 3)`\n- `__repr__(self)` mengembalikan `\"Vector([1, 2, 3])\"` (bisa eval'd)\n\n```python\nclass SimpleVector:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    v = SimpleVector([1, 2, 3])\n    print(len(v))       # 3\n    print(v[0])         # 1\n    print(v[1:])        # [2, 3]\n    print(str(v))       # Vector(1, 2, 3)\n    print(repr(v))      # Vector([1, 2, 3])\n```\n\n**Expected Output**:\n```\n3\n1\n[2, 3]\nVector(1, 2, 3)\nVector([1, 2, 3])\n```\n\n### Soal 2\nBuat class `BankAccount` (lanjutan) dengan dunder methods:\n- `__str__`: \"Account(holder='Alice', balance=100.0)\"\n- `__repr__`: \"BankAccount('Alice', 100.0)\"\n- `__add__(self, other)`: jika other adalah number, tambah balance dan kembalikan new BankAccount (immutable operation, jangan modifikasi asli); jika other adalah BankAccount, gabungkan balance (sum) dan gabungkan nama (contoh: \"Alice & Bob\")\n- `__eq__(self, other)`: dua account equal jika holder sama dan balance sama\n\n```python\nclass BankAccount:\n    def __init__(self, holder, balance):\n        self.holder = holder\n        self.balance = balance\n\n    # Tulis dunder methods di sini\n    pass\n\nif __name__ == \"__main__\":\n    a1 = BankAccount(\"Alice\", 100)\n    a2 = BankAccount(\"Bob\", 200)\n    a3 = BankAccount(\"Alice\", 100)\n    print(a1)                # Account(holder='Alice', balance=100)\n    print(repr(a2))          # BankAccount('Bob', 200)\n    a4 = a1 + 50\n    print(a4.balance)       # 150\n    a5 = a1 + a2\n    print(a5.holder)        # Alice & Bob\n    print(a5.balance)       # 300\n    print(a1 == a3)         # True\n    print(a1 == a2)         # False\n```\n\n**Expected Output**:\n```\nAccount(holder='Alice', balance=100)\nBankAccount('Bob', 200)\n150\nAlice & Bob\n300\nTrue\nFalse\n```\n\n## Referensi\n- [Python Official Documentation - Special Method Names](https://docs.python.org/3/reference/datamodel.html#special-method-names)\n- [Real Python - Dunder Methods](https://realpython.com/python-dunder-methods/)\n- [W3Schools Python Magic Methods](https://www.w3schools.com/python/python_ref_string.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M05-L07](M05-L07.md)"
     },
     {
         "id": 27,
-        "title": "27. M05 L07",
-        "description": "<p><strong>Polymorphism and Duck Typing</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "27. Lesson M05-L07",
+        "description": "<p><strong>Lesson M05-L07</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M05-L07 di Python!\")",
+        "expectedOutput": "Belajar Lesson M05-L07 di Python!",
+        "hint": "Pelajari lesson m05-l07.",
         "quiz": {
-            "question": "Apa yang dipelajari di M05 L07?",
+            "question": "Apa yang dipelajari di Lesson M05-L07?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -544,17 +596,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Polymorphism and Duck Typing\n**ID**: `M05-L07`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUnderstand polymorphism in Python, embrace duck typing, and use abstract base classes (ABC).\n\n## Materi\n\n### Konsep Dasar\n**Polymorphism**: Ability to use a unified interface for different types. Python achieves polymorphism through duck typing and inheritance.\n\n**Duck Typing**: \"If it walks like a duck and quacks like a duck, it must be a duck.\" Artinya, kita tidak perlu cek tipe formal; kita hanya perlu memastikan objek memiliki methods yang kita butuhkan.\n\n```python\ndef make_sound(animal):\n    print(animal.speak())  # asumsi animal punya method speak()\n```\n\n**Abstract Base Classes (ABC)**: Dari `abc` module, digunakan untuk define interface formal. ABC tidak bisa di-instansiasi, dan subclass harus implement abstract methods.\n\n```python\nfrom abc import ABC, abstractmethod\n\nclass Animal(ABC):\n    @abstractmethod\n    def speak(self):\n        pass\n\nclass Dog(Animal):\n    def speak(self):\n        return \"Woof\"\n```\n\n### Polymorphism via Inheritance\nSubclass bisa override methods. Function yang mengharapkan superclass bisa menerima subclass.\n\n### Interface vs Implementation\n- Duck typing: fokus pada behavior (methods yang tersedia), bukan tipe\n- ABC: define kontrak formal, enforce implementasi\n- Structural subtyping (Protocols) juga bisa digunakan (PEP 544)\n\n### Detail Teknis\n- `isinstance(obj, Class)` bisa digunakan tapi kadang tidak perlu dengan duck typing\n- `hasattr(obj, 'method')` bisa cek apakah obj memiliki attribute (tapi lebih baik \"easier to ask for forgiveness than permission\" - EAFP)\n- ABC: `@abstractmethod` harus di-override; jika tidak, subclass tetap abstract dan tidak bisa di-instansiasi\n- ABC bisa memiliki concrete methods juga\n- `ABC` bisa digunakan untuk mixins dan interfaces\n- Python's polymorphism lebih fleksibel karena dynamic typing\n\n## Latihan\n\n### Soal 1\nBuat polymorphism dengan duck typing:\n- `class Cat` dengan `speak()` → \"Meow\"\n- `class Dog` dengan `speak()` → \"Woof\"\n- `class Robot` dengan `speak()` → \"Beep boop\"\n- Fungsi `animal_concert(animals)` yang menerima list objek (berbagai tipe) dan memanggil `speak()` pada setiap elemen.\n\n```python\nclass Cat:\n    def speak(self):\n        return \"Meow\"\n\nclass Dog:\n    def speak(self):\n        return \"Woof\"\n\nclass Robot:\n    def speak(self):\n        return \"Beep boop\"\n\ndef latihan_1(animals):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    animals = [Cat(), Dog(), Robot()]\n    latihan_1(animals)\n```\n\n**Expected Output**:\n```\nMeow\nWoof\nBeep boop\n```\n\n### Soal 2\nBuat ABC `Shape` dengan abstract methods `area()` dan `perimeter()`. Buat subclass `Rectangle` dan `Circle` yang mengimplementasikan kedua method. Buat fungsi `print_shape_info(shape)` yang menerima objek `Shape` (bisa Rectangle atau Circle) dan mencetak area dan perimeter.\n\n```python\nfrom abc import ABC, abstractmethod\nimport math\n\nclass Shape(ABC):\n    @abstractmethod\n    def area(self):\n        pass\n\n    @abstractmethod\n    def perimeter(self):\n        pass\n\nclass Rectangle(Shape):\n    # Tulis kode kamu di sini\n    pass\n\nclass Circle(Shape):\n    # Tulis kode kamu di sini\n    pass\n\ndef latihan_2(shape):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    rect = Rectangle(4, 5)\n    circle = Circle(3)\n    latihan_2(rect)\n    latihan_2(circle)\n```\n\n**Expected Output**:\n```\nArea: 20, Perimeter: 18\nArea: 28.27, Perimeter: 18.85\n```\n\n## Referensi\n- [Python Official Documentation - abc](https://docs.python.org/3/library/abc.html)\n- [Real Python - Polymorphism](https://realpython.com/polymorphism-python/)\n- [W3Schools Python Polymorphism](https://www.w3schools.com/python/python_polymorphism.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M06-L01](M06-L01.md)"
     },
     {
         "id": 28,
-        "title": "28. M06 L01",
-        "description": "<p><strong>Exceptions: try, except, else, finally</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "28. Lesson M06-L01",
+        "description": "<p><strong>Lesson M06-L01</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M06-L01 di Python!\")",
+        "expectedOutput": "Belajar Lesson M06-L01 di Python!",
+        "hint": "Pelajari lesson m06-l01.",
         "quiz": {
-            "question": "Apa yang dipelajari di M06 L01?",
+            "question": "Apa yang dipelajari di Lesson M06-L01?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -563,17 +617,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Exceptions: try, except, else, finally\n**ID**: `M06-L01`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nCatch and handle exceptions, understand the exception hierarchy, use else and finally blocks.\n\n## Materi\n\n### Konsep Dasar\nExceptions adalah mekanisme Python untuk menangani errors dan situasi tidak terduga. Gunakan `try-except` untuk menangkap dan menangani exceptions.\n\n**Basic Structure**:\n```python\ntry:\n    # kode yang mungkin raise exception\n    result = 10 / 0\nexcept ZeroDivisionError:\n    # handle exception tertentu\n    print(\"Cannot divide by zero\")\nexcept (TypeError, ValueError) as e:\n    # handle multiple exceptions\n    print(f\"Error: {e}\")\nexcept Exception as e:\n    # catch所有 exceptions (tapi lebih baik spesifik)\n    print(f\"Unexpected error: {e}\")\nelse:\n    # dieksekusi jika tidak ada exception\n    print(\"Operation successful\")\nfinally:\n    # selalu dieksekusi (ada exception atau tidak)\n    print(\"Cleanup\")\n```\n\n### Exception Hierarchy\nBaseException → Exception → (specific exceptions)\n- Specific: ZeroDivisionError, ValueError, TypeError, IndexError, KeyError, FileNotFoundError, dll\n- `Exception` menangkap semua built-in exceptions (kecuar KeyboardInterrupt, SystemExit yang inherit BaseException langsung)\n\n### else dan finally\n- `else`: hanya jika try berhasil tanpa exception\n- `finally`: untuk cleanup (close file, release resource), selalu dieksekusi, bahkan jika ada `return` di try/except\n\n### Detail Teknis\n- Bisa multiple `except` clauses\n- `except Exception as e:` menangkap exception dan mengassign ke variable `e`\n- `except:` tanpa specifying exception menangkap semua (termasuk KeyboardInterrupt - tidak disarankan)\n- `finally` dieksekusi sebelum function return atau exception propagate\n- `else` berguna untuk memisahkan kode yang seharusnya tidak dalam try block\n- Bisa raise exception baru setelah menangkap: `raise MyError(...) from original_exception` (exception chaining)\n\n## Latihan\n\n### Soal 1\nBuat fungsi `safe_divide(a, b)` yang:\n- Mencoba `a / b`\n- Jika `b == 0`, tangkap ZeroDivisionError dan kembalikan string `\"Error: Division by zero\"`\n- Jika TypeError (misal a atau b bukan number), kembalikan `\"Error: Invalid type\"`\n- Jika success, kembalikan hasil pembagian\n- Gunakan try-except-else (finally tidak wajib)\n\n```python\ndef latihan_1(a, b):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1(10, 2))   # 5.0\n    print(latihan_1(10, 0))   # Error: Division by zero\n    print(latihan_1(10, \"2\")) # Error: Invalid type\n```\n\n**Expected Output**:\n```\n5.0\nError: Division by zero\nError: Invalid type\n```\n\n### Soal 2\nBuat fungsi `read_file_safe(filename)` yang:\n- Coba buka file dan read semua konten\n- Jika file tidak ada (FileNotFoundError), kembalikan `\"Error: File not found\"`\n- Jika I/O error lain, kembalikan `\"Error: I/O error\"`\n- Jika success, kembalikan isi file sebagai string\n- Gunakan try-except-else-finally untuk menampilkan \"Attempting to read...\" di awal dan \"Read complete\" di finally (print, tidak affect return)\n\n```python\ndef latihan_2(filename):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_2(\"existing.txt\"))  # asumsi file ada\n    print(latihan_2(\"missing.txt\"))\n```\n\n**Expected Output** (contoh):\n```\nAttempting to read...\nRead complete\n<isi file>\nAttempting to read...\nRead complete\nError: File not found\n```\n\n## Referensi\n- [Python Official Documentation - Errors and Exceptions](https://docs.python.org/3/tutorial/errors.html)\n- [Real Python - Python Exceptions](https://realpython.com/python-exceptions/)\n- [W3Schools Python Try Except](https://www.w3schools.com/python/python_try_except.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M06-L02](M06-L02.md)"
     },
     {
         "id": 29,
-        "title": "29. M06 L02",
-        "description": "<p><strong>Raising Exceptions and Custom Exceptions</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "29. Lesson M06-L02",
+        "description": "<p><strong>Lesson M06-L02</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M06-L02 di Python!\")",
+        "expectedOutput": "Belajar Lesson M06-L02 di Python!",
+        "hint": "Pelajari lesson m06-l02.",
         "quiz": {
-            "question": "Apa yang dipelajari di M06 L02?",
+            "question": "Apa yang dipelajari di Lesson M06-L02?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -582,17 +638,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Raising Exceptions and Custom Exceptions\n**ID**: `M06-L02`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nRaise exceptions with raise, define custom exception classes by inheriting from Exception.\n\n## Materi\n\n### Konsep Dasar\n**Raising Exceptions**: Gunakan `raise` untuk memicu exception.\n```python\nraise ValueError(\"Invalid value\")\nraise MyCustomError(\"Something went wrong\")\n```\n\n**Custom Exceptions**: Buat class sendiri yang inherit dari `Exception` (atau subclass lain).\n```python\nclass MyError(Exception):\n    def __init__(self, message, code=None):\n        super().__init__(message)\n        self.code = code\n```\n\n### Exception Chaining\nSaat menangkap exception dan raise baru, gunakan `raise NewError() from original_exception` untuk preserve traceback.\n\n```python\ntry:\n    risky_operation()\nexcept SomeError as e:\n    raise MyError(\"Operation failed\") from e\n```\n\n### When to Raise\n- Validasi input: jika parameter tidak valid, `raise ValueError`\n- Jika kondisi tidak terpenuhi, `raise RuntimeError` atau custom\n- Untuk menandakan error yang tidak bisa ditangani di level saat ini\n- Custom exception membantu differentiate error types\n\n### Detail Teknis\n- `raise` tanpa arguments di dalam except block akan re-raise exception yang sedang ditangkap\n- Custom exception class bisa menambahkan attributes tambahan (seperti error code)\n- `Exception` adalah base class untuk几乎所有 built-in exceptions yang bisa di-catch\n- `BaseException` lebih tinggi (termasuk SystemExit, KeyboardInterrupt) - jarang di-raise manual\n- `__str__` bisa di-override di custom exception untuk custom message\n- Bisa raise instance atau class: `raise ValueError(\"msg\")` atau `raise ValueError` (tapi dengan message lebih baik)\n\n## Latihan\n\n### Soal 1\nBuat custom exception `InvalidAgeError` yang inherit dari `Exception`. Buat fungsi `set_age(age)` yang:\n- Jika age < 0 atau age > 150, raise `InvalidAgeError(\"Age must be between 0 and 150\")`\n- Jika success, kembalikan age\n\n```python\nclass InvalidAgeError(Exception):\n    # Tulis kode kamu di sini\n    pass\n\ndef latihan_1(age):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    try:\n        print(latihan_1(25))\n        print(latihan_1(-5))\n    except InvalidAgeError as e:\n        print(f\"Caught: {e}\")\n```\n\n**Expected Output**:\n```\n25\nCaught: Age must be between 0 and 150\n```\n\n### Soal 2\nBuat fungsi `process_data(data)` yang:\n- Jika data adalah None, raise `ValueError(\"Data cannot be None\")`\n- Jika data bukan list atau tuple, raise `TypeError(\"Data must be list or tuple\")`\n- Jika list/tuple kosong, raise `RuntimeError(\"Empty data\")`\n- Jika success, kembalikan `len(data)`\n- Di caller, tangkap semua exceptions dengan try-except dan print message-nya.\n\n```python\ndef latihan_2(data):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    for test in [None, \"string\", [], [1,2,3]]:\n        try:\n            result = latihan_2(test)\n            print(f\"Result: {result}\")\n        except Exception as e:\n            print(f\"Error ({type(e).__name__}): {e}\")\n```\n\n**Expected Output**:\n```\nError (ValueError): Data cannot be None\nError (TypeError): Data must be list or tuple\nError (RuntimeError): Empty data\nResult: 3\n```\n\n## Referensi\n- [Python Official Documentation - raise](https://docs.python.org/3/reference/simple_stmts.html#raise)\n- [Python Official Documentation - User-defined Exceptions](https://docs.python.org/3/tutorial/errors.html#user-defined-exceptions)\n- [Real Python - Python Exceptions](https://realpython.com/python-exceptions/)\n- [W3Schools Python Raise Exception](https://www.w3schools.com/python/python_raise.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M06-L03](M06-L03.md)"
     },
     {
         "id": 30,
-        "title": "30. M06 L03",
-        "description": "<p><strong>Context Managers and the with Statement</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "30. Lesson M06-L03",
+        "description": "<p><strong>Lesson M06-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M06-L03 di Python!\")",
+        "expectedOutput": "Belajar Lesson M06-L03 di Python!",
+        "hint": "Pelajari lesson m06-l03.",
         "quiz": {
-            "question": "Apa yang dipelajari di M06 L03?",
+            "question": "Apa yang dipelajari di Lesson M06-L03?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -601,17 +659,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Context Managers and the with Statement\n**ID**: `M06-L03`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUse with for resource management, create custom context managers with __enter__ and __exit__.\n\n## Materi\n\n### Konsep Dasar\nContext managers mengelola resource (seperti file, lock, koneksi) dengan memastikan cleanup dilakukan meskipun ada exception. Digunakan dengan `with` statement.\n\n**Built-in Context Managers**: `open()`, `threading.Lock()`, `sqlite3.connect()`, dll.\n\n**Syntax**:\n```python\nwith context_manager as variable:\n    # block code\n# otomatis cleanup (exit) terjadi di sini\n```\n\n### Custom Context Manager dengan __enter__ dan __exit__\nClass dapat mengimplementasikan dua methods untuk menjadi context manager:\n- `__enter__(self)`: dipanggil saat masuk ke `with` block, mengembalikan value yang akan di-assign ke `as variable`\n- `__exit__(self, exc_type, exc_val, exc_tb)`: dipanggil saat keluar dari `with` block. Parameter exception info (jika ada exception). Jika return True, exception akan di-suppress.\n\n### contextlib.contextmanager\nDecorator untuk membuat context manager dengan generator function (lebih sederhana).\n```python\nfrom contextlib import contextmanager\n\n@contextmanager\ndef my_context():\n    # setup\n    yield resource\n    # cleanup\n```\n\n### Detail Teknis\n- `__exit__` harus return boolean: `True` untuk suppress exception, `False` atau `None` untuk propagate\n- `__enter__` bisa return apa pun (will be assigned to variable after `as`)\n- `contextlib.contextmanager` generator harus yield tepat sekali; cleanup code setelah yield\n- Context manager juga bisa digunakan tanpa `as` jika tidak perlu variable\n- `with` bisa nested: `with a() as x, b() as y:`\n- `contextlib.ExitStack` untuk multiple context managers dinamis\n\n## Latihan\n\n### Soal 1\nBuat custom context manager `Timer` yang mengukur waktu eksekusi block.\n- `__enter__` catat waktu awal (gunakan `time.time()`)\n- `__exit__` catat waktu akhir, hitung durasi, print \"Elapsed: X.XX seconds\"\n- Jangan suppress exceptions (return False dari `__exit__`)\n\n```python\nimport time\n\nclass Timer:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    with Timer():\n        total = sum(range(1000000))\n```\n\n**Expected Output**:\n```\nElapsed: 0.045 seconds (approx)\n```\n\n### Soal 2\nBuat context manager `SuppressErrors` yang men-suppress exceptions tertentu (diberikan saat konstruksi). `__exit__` harus return True jika exception type cocok, agar exception tidak propagate.\n\n```python\nclass SuppressErrors:\n    def __init__(self, *exceptions):\n        # Tulis kode kamu di sini\n        pass\n    \n    def __enter__(self):\n        pass\n    \n    def __exit__(self, exc_type, exc_val, exc_tb):\n        # Tulis kode kamu di sini\n        pass\n\nif __name__ == \"__main__\":\n    with SuppressErrors(ZeroDivisionError, TypeError):\n        result = 1 / 0  # akan di-suppress\n        int(\"abc\")      # TypeError juga di-suppress\n    print(\"Continuing...\")  # tetap dieksekusi\n```\n\n**Expected Output**:\n```\nContinuing...\n```\n\n## Referensi\n- [Python Official Documentation - with statement](https://docs.python.org/3/reference/compound_stmts.html#with)\n- [Python Official Documentation - contextlib](https://docs.python.org/3/library/contextlib.html)\n- [Real Python - Python Context Managers](https://realpython.com/python-with-statement/)\n- [W3Schools Python With](https://www.w3schools.com/python/python_with.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M06-L04](M06-L04.md)"
     },
     {
         "id": 31,
-        "title": "31. M06 L04",
-        "description": "<p><strong>Exception Chaining and Best Practices</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "31. Lesson M06-L04",
+        "description": "<p><strong>Lesson M06-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M06-L04 di Python!\")",
+        "expectedOutput": "Belajar Lesson M06-L04 di Python!",
+        "hint": "Pelajari lesson m06-l04.",
         "quiz": {
-            "question": "Apa yang dipelajari di M06 L04?",
+            "question": "Apa yang dipelajari di Lesson M06-L04?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -620,17 +680,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Exception Chaining and Best Practices\n**ID**: `M06-L04`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nPreserve traceback with raise from, follow Pythonic error handling patterns.\n\n## Materi\n\n### Konsep Dasar\n**Exception Chaining**: Ketika menangkap exception dan raise exception baru, gunakan `raise NewException(...) from original_exception` untuk mempertahankan traceback asli. Ini membantu debugging karena menunjukkan akar masalah.\n\n```python\ntry:\n    risky_operation()\nexcept SomeError as e:\n    raise MyError(\"Higher-level failure\") from e\n```\n\nOutput traceback akan menunjukkan Both exceptions:\n```\nTraceback (most recent call last):\n  File \"...\", line ..., in ...\n    SomeError: original\nThe above exception was the direct cause of the following exception:\nTraceback (most recent call last):\n  ...\nMyError: Higher-level failure\n```\n\n**Best Practices**:\n- Catch specific exceptions, not bare `except:` (kecuali really needed)\n- Jangan swallow exceptions silently (minimal log atau raise)\n- Gunakan custom exception untuk level abstraksi yang berbeda\n- Sertakan informasi yang berguna dalam exception message\n- `finally` untuk cleanup, `else` untuk success path\n- Hindari exception untuk control flow (kecuali truly exceptional)\n\n### Detail Teknis\n- `raise from None` untuk men-suppress chain (tidak disarankan kecuali intentional)\n- `sys.exc_info()` memberikan (type, value, traceback) saat dalam except block\n- `logging.exception()` otomatis log traceback\n- `except Exception as e:` menangkap semua built-in exceptions (tapi bukan KeyboardInterrupt/SystemExit)\n- `raise` tanpa arguments di dalam except akan re-raise dengan traceback asli (tidak membuat chain baru)\n- Defensive programming: validate input early, raise appropriate exceptions\n\n## Latihan\n\n### Soal 1\nBuat fungsi `read_config(filename)` yang:\n- Mencoba membaca file dan parse JSON\n- Jika FileNotFoundError, raise `RuntimeError(\"Config file missing\")` from original exception (chain)\n- Jika JSON decode error, raise `ValueError(\"Invalid JSON in config\")` from original\n- Jika success, kembalikan dictionary config\n\n```python\nimport json\n\ndef latihan_1(filename):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    try:\n        config = latihan_1(\"config.json\")\n    except Exception as e:\n        print(f\"Failed: {e}\")\n        # Perhatikan traceback akan menunjukkan chain\n```\n\n**Expected Output** (jika file tidak ada):\n```\nFailed: Config file missing\n```\nDan traceback akan menunjukkan FileNotFoundError sebagai cause.\n\n### Soal 2\nRefactor fungsi `safe_divide(a, b)` dari latihan sebelumnya agar mengikuti best practices:\n- Jangan gunakan bare `except:`; gunakan specific exceptions\n- Jika exception ditangkap, log message dengan `logging.error()` (import logging dan configure basicConfig)\n- Setelah logging, raise ulang exception (jangan silent swallow) atau raise custom exception yang lebih bermakana\n- Gunakan exception chaining jika menimbulkan exception baru\n\n```python\nimport logging\n\nlogging.basicConfig(level=logging.ERROR)\n\ndef latihan_2(a, b):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    try:\n        latihan_2(10, \"2\")\n    except Exception as e:\n        print(f\"Final error: {e}\")\n```\n\n**Expected Output**:\n```\nERROR:root:Division error: invalid literal for int() with base 10: '2'\nFinal error: invalid literal for int() with base 10: '2'\n```\n\n## Referensi\n- [Python Official Documentation - raise](https://docs.python.org/3/reference/simple_stmts.html#raise)\n- [Python Official Documentation - Exception Chaining](https://docs.python.org/3/tutorial/errors.html#exception-chaining)\n- [Real Python - Python Exception Chaining](https://realpython.com/python-exception-chaining/)\n- [W3Schools Python Try Except](https://www.w3schools.com/python/python_try_except.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M07-L01](M07-L01.md)"
     },
     {
         "id": 32,
-        "title": "32. M07 L01",
-        "description": "<p><strong>Reading and Writing Text Files</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "32. Lesson M07-L01",
+        "description": "<p><strong>Lesson M07-L01</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M07-L01 di Python!\")",
+        "expectedOutput": "Belajar Lesson M07-L01 di Python!",
+        "hint": "Pelajari lesson m07-l01.",
         "quiz": {
-            "question": "Apa yang dipelajari di M07 L01?",
+            "question": "Apa yang dipelajari di Lesson M07-L01?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -639,17 +701,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Reading and Writing Text Files\n**ID**: `M07-L01`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nOpen files with open(), use read/write modes, context managers, and encoding parameters.\n\n## Materi\n\n### Konsep Dasar\nFile I/O di Python menggunakan built-in function `open()`.\n\n**Modes**:\n- `'r'`: read (default)\n- `'w'`: write (truncate, create jika tidak ada)\n- `'a'`: append (create jika tidak ada)\n- `'x'`: exclusive creation (error jika file exists)\n- `'b'`: binary mode\n- `'t'`: text mode (default)\n- `'+'`: update (read and write)\n\nContoh: `'rb'` (read binary), `'w+'` (read/write truncate), `'a+'` (read/append)\n\n**Encoding**: Parameter `encoding` (misal `'utf-8'`). Default platform-dependent.\n\n### Reading Methods\n- `file.read(size=-1)`: bisa seluruh file atau sejumlah byte/char\n- `file.readline()`: satu baris (termasuk newline)\n- `file.readlines()`: list semua baris\n- Iterasi langsung: `for line in file:` (recommended untuk large files)\n\n### Writing Methods\n- `file.write(string)`: tulis string\n- `file.writelines(iterable)`: tulis setiap string dari iterable (tidak tambah newline otomatis)\n- `print(..., file=file)` juga bisa\n\n### Context Manager\nGunakan `with open(...) as f:` untuk otomatis close file, meskipun ada exception.\n\n### Detail Teknis\n- Text mode: `read()` mengembalikan `str`, `readlines()` list of `str`\n- Binary mode: `read()` mengembalikan `bytes`, `readlines()` list of `bytes`\n- `newline` parameter mengontrol newline translation (text mode)\n- `open()` mengembalikan `TextIOWrapper` (text) atau `BufferedReader/Writer` (binary)\n- `file.closed` attribute untuk cek status\n- `file.tell()` dan `file.seek(offset, whence)` untuk random access (binary lebih akurat)\n- Hati-hati dengan encoding errors: gunakan `errors='ignore'` atau `'replace'` jika perlu\n\n## Latihan\n\n### Soal 1\nBuat fungsi `copy_file(src, dst)` yang menyalin isi file teks dari `src` ke `dst`. Gunakan `with` untuk kedua file. Jika `src` tidak ada, tangkap FileNotFoundError dan print \"Source not found\". Jangan gunakan `shutil`.\n\n```python\ndef latihan_1(src, dst):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1(\"input.txt\", \"output.txt\")\n```\n\n**Expected Output**: (jika input.txt ada, output.txt akan berisi salinan)\n\n### Soal 2\nBuat fungsi `count_lines_words(filename)` yang menghitung jumlah baris dan kata dalam file teks. Gunakan `with` dan iterasi per baris. Kata didefinisikan sebagai string non-whitespace characters yang dipisahkan oleh spasi/newline.\n\n```python\ndef latihan_2(filename):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    lines, words = latihan_2(\"sample.txt\")\n    print(f\"Lines: {lines}, Words: {words}\")\n```\n\n**Expected Output** (contoh):\n```\nLines: 10, Words: 50\n```\n\n## Referensi\n- [Python Official Documentation - open](https://docs.python.org/3/library/functions.html#open)\n- [Python Official Documentation - io](https://docs.python.org/3/library/io.html)\n- [Real Python - Reading and Writing Files in Python](https://realpython.com/read-write-files-python/)\n- [W3Schools Python File Handling](https://www.w3schools.com/python/python_file_handling.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M07-L02](M07-L02.md)"
     },
     {
         "id": 33,
-        "title": "33. M07 L02",
-        "description": "<p><strong>Working with CSV and JSON Data</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "33. Lesson M07-L02",
+        "description": "<p><strong>Lesson M07-L02</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M07-L02 di Python!\")",
+        "expectedOutput": "Belajar Lesson M07-L02 di Python!",
+        "hint": "Pelajari lesson m07-l02.",
         "quiz": {
-            "question": "Apa yang dipelajari di M07 L02?",
+            "question": "Apa yang dipelajari di Lesson M07-L02?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -658,17 +722,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Working with CSV and JSON Data\n**ID**: `M07-L02`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nParse CSV files with csv module, serialize/deserialize JSON with json module.\n\n## Materi\n\n### Konsep Dasar\n**CSV Module**:\n```python\nimport csv\n\n# Reading\nwith open('file.csv', newline='') as f:\n    reader = csv.reader(f)  # returns iterator of lists\n    for row in reader:\n        print(row)  # list of strings\n\n# DictReader (more convenient)\nwith open('file.csv') as f:\n    reader = csv.DictReader(f)  # each row is dict dengan keys dari header\n    for row in reader:\n        print(row['name'])\n\n# Writing\nwith open('out.csv', 'w', newline='') as f:\n    writer = csv.writer(f)\n    writer.writerow(['name', 'age'])  # header\n    writer.writerow(['Alice', 25])\n\n# DictWriter\nwith open('out.csv', 'w', newline='') as f:\n    fieldnames = ['name', 'age']\n    writer = csv.DictWriter(f, fieldnames=fieldnames)\n    writer.writeheader()\n    writer.writerow({'name': 'Bob', 'age': 30})\n```\n\n**JSON Module**:\n```python\nimport json\n\n# Serialize (Python → JSON)\ndata = {'name': 'Alice', 'age': 25}\njson_str = json.dumps(data, indent=2)  # pretty print\njson_str = json.dumps(data, ensure_ascii=False)  # support unicode\n\n# Deserialize (JSON → Python)\ndata = json.loads(json_str)\n\n# File I/O\nwith open('data.json', 'w') as f:\n    json.dump(data, f, indent=2)\n\nwith open('data.json') as f:\n    data = json.load(f)\n```\n\n### Detail Teknis\n- CSV: `newline=''` penting saat open file untuk writing (hindari extra newlines di Windows)\n- `csv.reader` delimiter default ','; bisa `delimiter=';'` atau `'\\t'`\n- `csv.QUOTE_MINIMAL`, `QUOTE_ALL`, `QUOTE_NONNUMERIC`, `QUOTE_NONE` untuk quoting\n- JSON: `default` parameter untuk serialize objek non-standard (contoh: datetime → str)\n- `json.load()`/`dump()` bisa dengan file object atau `fp`\n- JSON types: object (dict), array (list), string, number, true/false/null\n- `sort_keys=True` untuk urutan key terurut saat dump\n- `skipkeys=True` untuk abaikan keys yang non-serializable (tapi lebih baik handle)\n\n## Latihan\n\n### Soal 1\nBuat fungsi `csv_to_dict(filename)` yang membaca CSV file (dengan header) dan mengembalikan list of dictionaries (masing-masing row sebagai dict). Gunakan `csv.DictReader`.\n\n```python\nimport csv\n\ndef latihan_1(filename):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    data = latihan_1(\"users.csv\")\n    for row in data:\n        print(row)\n```\n\n**Expected Output** (jika users.csv: name,age; Alice,25; Bob,30):\n```\n{'name': 'Alice', 'age': '25'}\n{'name': 'Bob', 'age': '30'}\n```\n\n### Soal 2\nBuat fungsi `save_json(data, filename)` yang menyimpan dictionary ke file JSON dengan indent=2 dan ensure_ascii=False. Lalu buat fungsi `load_json(filename)` yang memuat kembali. Test dengan data berisi teks Indonesia (misal: \"nama\": \"Samsul\").\n\n```python\nimport json\n\ndef latihan_2(data, filename):\n    # Tulis kode kamu di sini\n    pass\n\ndef load_json(filename):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    data = {\"nama\": \"Samsul\", \"umur\": 30}\n    latihan_2(data, \"data.json\")\n    loaded = load_json(\"data.json\")\n    print(loaded)\n```\n\n**Expected Output**:\n```\n{'nama': 'Samsul', 'umur': 30}\n```\n\n## Referensi\n- [Python Official Documentation - csv](https://docs.python.org/3/library/csv.html)\n- [Python Official Documentation - json](https://docs.python.org/3/library/json.html)\n- [Real Python - Working with CSV Files in Python](https://realpython.com/python-csv/)\n- [Real Python - Working with JSON Data in Python](https://realpython.com/python-json/)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M07-L03](M07-L03.md)"
     },
     {
         "id": 34,
-        "title": "34. M07 L03",
-        "description": "<p><strong>Pickle and Binary Serialization</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "34. Lesson M07-L03",
+        "description": "<p><strong>Lesson M07-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M07-L03 di Python!\")",
+        "expectedOutput": "Belajar Lesson M07-L03 di Python!",
+        "hint": "Pelajari lesson m07-l03.",
         "quiz": {
-            "question": "Apa yang dipelajari di M07 L03?",
+            "question": "Apa yang dipelajari di Lesson M07-L03?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -677,17 +743,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Pickle and Binary Serialization\n**ID**: `M07-L03`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUse pickle for Python object serialization, understand security implications.\n\n## Materi\n\n### Konsep Dasar\n**Pickle**: Module untuk serialization (mengubah objek Python menjadi byte stream) dan deserialization (membalikkan). Bisa menyimpan hampir semua objek Python (termasuk functions, classes, dll) tetapi **tidak aman** untuk data dari sumber tidak tepercaya.\n\n**Serialization (Pickling)**:\n```python\nimport pickle\n\ndata = {'a': [1, 2.0, 3+4j], 'b': ('string', u'unicode string'), 'c': None}\nwith open('data.pkl', 'wb') as f:\n    pickle.dump(data, f)                # default protocol tertinggi yang tersedia\n    pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)  # explicit\n```\n\n**Deserialization (Unpickling)**:\n```python\nwith open('data.pkl', 'rb') as f:\n    data = pickle.load(f)\n```\n\n### Pickle Protocols\n- Protocol 0: ASCII (oldest, compatible)\n- Protocol 1: old binary\n- Protocol 2: Python 2.3+\n- Protocol 3: Python 3.0+ (default for Python 3)\n- Protocol 4: Python 3.4+ (large objects)\n- Protocol 5: Python 3.8+ (out-of-band data)\nGunakan `pickle.HIGHEST_PROTOCOL` untuk efisiensi.\n\n### Security Warning\n**Jangan pernah pickle data dari sumber tidak tepercaya** (seperti user input, internet). Pickle bisa mengeksekusi arbitrary code saat unpickling. Hanya gunakan untuk data yang Anda sendiri buat dan kontrol.\n\n### Alternative: Shelve\n`shelve` module menyimpan dictionary-like objek ke file menggunakan pickle di balik layar.\n```python\nimport shelve\nwith shelve.open('mydata') as db:\n    db['key'] = value\n    value = db['key']\n```\n\n### Detail Teknis\n- Pickle bisa meng-handle recursive objects (circular references)\n- Beberapa tipe tidak bisa pickle: lambda functions, nested functions, file handles, sockets, threads, dll (harus custom __reduce__)\n- `pickle.dumps()` dan `pickle.loads()` untuk byte strings instead of files\n- `pickle.DEFAULT_PROTOCOL` = protocol tertinggi untuk versi Python saat ini\n- Untuk compatibility antar versi Python, gunakan protocol 2 atau 3\n- `pickle.UnpicklingError` untuk error saat unpickling\n\n## Latihan\n\n### Soal 1\nBuat fungsi `save_object(obj, filename)` yang menyimpan objek Python apapun ke file menggunakan pickle dengan highest protocol. Lalu buat `load_object(filename)` yang memuat kembali.\n\n```python\nimport pickle\n\ndef latihan_1(obj, filename):\n    # Tulis kode kamu di sini\n    pass\n\ndef load_object(filename):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    data = {'list': [1,2,3], 'tuple': (4,5), 'set': {6,7}, 'nested': {'a': 1}}\n    latihan_1(data, \"data.pkl\")\n    loaded = load_object(\"data.pkl\")\n    print(loaded)\n```\n\n**Expected Output**:\n```\n{'list': [1, 2, 3], 'tuple': (4, 5), 'set': {6, 7}, 'nested': {'a': 1}}\n```\n\n### Soal 2\nBuat program yang menyimpan state aplikasi (seperti user preferences) menggunakan `shelve`. Simpan dictionary `{'theme': 'dark', 'font_size': 14}`. Kemudian buka shelve dan baca kembali.\n\n```python\nimport shelve\n\ndef latihan_2():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_2()\n```\n\n**Expected Output** (saat print):\n```\n{'theme': 'dark', 'font_size': 14}\n```\n\n## Referensi\n- [Python Official Documentation - pickle](https://docs.python.org/3/library/pickle.html)\n- [Python Official Documentation - shelve](https://docs.python.org/3/library/shelve.html)\n- [Real Python - Pickle](https://realpython.com/python-pickle-module/)\n- [W3Schools Python Pickle](https://www.w3schools.com/python/python_pickle.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M07-L04](M07-L04.md)"
     },
     {
         "id": 35,
-        "title": "35. M07 L04",
-        "description": "<p><strong>Working with Paths: os.path and pathlib</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "35. Lesson M07-L04",
+        "description": "<p><strong>Lesson M07-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M07-L04 di Python!\")",
+        "expectedOutput": "Belajar Lesson M07-L04 di Python!",
+        "hint": "Pelajari lesson m07-l04.",
         "quiz": {
-            "question": "Apa yang dipelajari di M07 L04?",
+            "question": "Apa yang dipelajari di Lesson M07-L04?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -696,17 +764,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Working with Paths: os.path and pathlib\n**ID**: `M07-L04`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nManipulate file paths with os.path and the modern pathlib API.\n\n## Materi\n\n### Konsep Dasar\n**os.path**: Module untuk operasi path berbasis string.\n```python\nimport os.path\n\npath = '/home/user/file.txt'\nos.path.join('dir', 'subdir', 'file.txt')\nos.path.split(path)          # ('/home/user', 'file.txt')\nos.path.dirname(path)       # '/home/user'\nos.path.basename(path)      # 'file.txt'\nos.path.splitext(path)      # ('/home/user/file', '.txt')\nos.path.exists(path)\nos.path.isfile(path)\nos.path.isdir(path)\nos.path.getsize(path)\n```\n\n**pathlib** (Python 3.4+): OOP approach.\n```python\nfrom pathlib import Path\n\np = Path('dir') / 'subdir' / 'file.txt'   # operator overloading\np.exists()\np.is_file()\np.is_dir()\np.name          # 'file.txt'\np.stem          # 'file'\np.suffix        # '.txt'\np.parent        # Path('dir/subdir')\np.read_text()\np.write_text('content')\np.read_bytes()\np.write_bytes(b'content')\np.mkdir(parents=True, exist_ok=True)\np.rmdir()\np.unlink()      # delete file\np.glob('*.py')  # pattern matching\np.iterdir()\n```\n\n### Detail Teknis\n- `os.path` selalu pakai string; `pathlib` menggunakan objek Path (lebih readable)\n- `Path` bisa di-overload dengan `/` operator: `p = Path('a') / 'b'` → `a/b`\n- `Path` methods return Path objects (chainable)\n- `Path.home()`, `Path.cwd()` untuk path umum\n- `os.path` masih valid dan sering dipakai di code legacy; `pathlib` direkomendasikan untuk code baru\n- `os.path.abspath()` untuk path absolut\n- `os.path.normpath()` untuk normalisasi (resolve `.` dan `..`)\n- `os.path.samefile()` cek apakah dua path menuju file yang sama\n- `os.path.realpath()` untuk resolve symbolic links\n\n## Latihan\n\n### Soal 1\nBuat fungsi `find_files_by_extension(directory, ext)` yang mencari semua file dengan ekstensi `ext` (misal '.txt') di dalam `directory` (rekursif). Gunakan `os.path` dan `os.walk()`. Kembalikan list path lengkap.\n\n```python\nimport os.path\n\ndef latihan_1(directory, ext):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    files = latihan_1(\".\", \".py\")\n    for f in files[:5]:  # print 5 saja\n        print(f)\n```\n\n**Expected Output** (contoh):\n```\n./main.py\n./utils.py\n./tests/test.py\n...\n```\n\n### Soal 2\nBuat fungsi `backup_file(filepath)` yang:\n- Menggunakan pathlib\n- Membuat backup dengan menambahkan timestamp (format: `file_YYYYMMDD_HHMMSS.ext`) di direktori yang sama\n- Timestamp bisa dengan `datetime.now().strftime(\"%Y%m%d_%H%M%S\")`\n- Jika file tidak ada, raise FileNotFoundError\n- Kembalikan path file backup\n\n```python\nfrom pathlib import Path\nfrom datetime import datetime\n\ndef latihan_2(filepath):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    try:\n        backup = latihan_2(\"data.txt\")\n        print(f\"Backup created: {backup}\")\n    except FileNotFoundError as e:\n        print(e)\n```\n\n**Expected Output** (jika data.txt ada):\n```\nBackup created: data_20260224_023000.txt\n```\n\n## Referensi\n- [Python Official Documentation - os.path](https://docs.python.org/3/library/os.path.html)\n- [Python Official Documentation - pathlib](https://docs.python.org/3/library/pathlib.html)\n- [Real Python - Python Pathlib](https://realpython.com/python-pathlib/)\n- [W3Schools Python Path](https://www.w3schools.com/python/python_path.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M07-L05](M07-L05.md)"
     },
     {
         "id": 36,
-        "title": "36. M07 L05",
-        "description": "<p><strong>File System Operations</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "36. Lesson M07-L05",
+        "description": "<p><strong>Lesson M07-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M07-L05 di Python!\")",
+        "expectedOutput": "Belajar Lesson M07-L05 di Python!",
+        "hint": "Pelajari lesson m07-l05.",
         "quiz": {
-            "question": "Apa yang dipelajari di M07 L05?",
+            "question": "Apa yang dipelajari di Lesson M07-L05?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -715,17 +785,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# File System Operations\n**ID**: `M07-L05`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nList directories, check file existence, create/remove files and directories.\n\n## Materi\n\n### Konsep Dasar\nOperasi file system menggunakan modul `os` dan `shutil`.\n\n**os module**:\n```python\nimport os\n\nos.listdir(path='.')          # list direktori (names only)\nos.scandir(path='.')          # iterator of DirEntry (lebih efisien, punya atribut)\nos.getcwd()\nos.chdir(path)\nos.mkdir(path)               # buat satu level\nos.makedirs(path, exist_ok=True)  # buat recursively\nos.rmdir(path)               # hapus direktori kosong\nos.remove(path)              # hapus file\nos.removedirs(path)          # hapus recursively (jika kosong)\nos.rename(src, dst)\nos.replace(src, dst)         # atomic rename\nos.scandir() untuk atribut: entry.name, entry.path, entry.is_file(), entry.is_dir()\n```\n\n**shutil module** (high-level operations):\n```python\nimport shutil\n\nshutil.copy(src, dst)            # copy file\nshutil.copy2(src, dst)           # copy dengan metadata\nshutil.copytree(src, dst)        # copy directory tree\nshutil.move(src, dst)            # move/rename\nshutil.rmtree(path)              # hapus directory tree (berbahaya!)\nshutil.disk_usage(path)          # (total, used, free) dalam bytes\n```\n\n**os.path** (tambahan):\n```python\nos.path.exists(path)\nos.path.isfile(path)\nos.path.isdir(path)\nos.path.getsize(path)\n```\n\n### Detail Teknis\n- `os.scandir()` lebih cepat daripada `os.listdir()` karena mengembalikan `DirEntry` dengan cached type info\n- `os.makedirs(..., exist_ok=True)` untuk avoid error jika directory sudah ada\n- `shutil.rmtree()` tidak bisa di-undo - hati-hati\n- `os.remove()` untuk file, `os.rmdir()` untuk empty directory\n- `os.rename()` bisa cross-filesystem? Tidak selalu; gunakan `shutil.move()` untuk cross-filesystem\n- `os.walk()` untuk recursive directory traversal (generator)\n- Permission errors bisa terjadi; tangkap exceptions\n\n## Latihan\n\n### Soal 1\nBuat fungsi `list_files(directory, pattern=None)` yang mengembalikan list file dalam `directory` (bukan directory) dengan filter opsional `pattern` (misal '*.py'). Gunakan `os.scandir()` untuk efisiensi. Jika pattern None, kembalikan semua files.\n\n```python\nimport os\n\ndef latihan_1(directory, pattern=None):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    files = list_files(\".\", \"*.py\")\n    for f in files:\n        print(f)\n```\n\n**Expected Output** (contoh):\n```\nmain.py\nutils.py\n...\n```\n\n### Soal 2\nBuat fungsi `cleanup_empty_dirs(root)` yang menghapus semua empty directories di bawah `root` (rekursif). Gunakan `os.walk()` dengan `topdown=False` agar proses dari leaf ke root. Hapus directory jika `os.listdir(dir)` kosong. Jangan hapus root itself. Return jumlah direktori yang dihapus.\n\n```python\nimport os\n\ndef latihan_2(root):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    count = latihan_2(\"testdir\")\n    print(f\"Removed {count} empty directories\")\n```\n\n**Expected Output** (contoh):\n```\nRemoved 3 empty directories\n```\n\n## Referensi\n- [Python Official Documentation - os](https://docs.python.org/3/library/os.html)\n- [Python Official Documentation - shutil](https://docs.python.org/3/library/shutil.html)\n- [Real Python - Python os Module](https://realpython.com/python-os-module/)\n- [W3Schools Python Dir](https://www.w3schools.com/python/python_dir_remove.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M08-L01](M08-L01.md)"
     },
     {
         "id": 37,
-        "title": "37. M08 L01",
-        "description": "<p><strong>Iterators and the Iterator Protocol</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "37. Lesson M08-L01",
+        "description": "<p><strong>Lesson M08-L01</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M08-L01 di Python!\")",
+        "expectedOutput": "Belajar Lesson M08-L01 di Python!",
+        "hint": "Pelajari lesson m08-l01.",
         "quiz": {
-            "question": "Apa yang dipelajari di M08 L01?",
+            "question": "Apa yang dipelajari di Lesson M08-L01?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -734,17 +806,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Iterators and the Iterator Protocol\n**ID**: `M08-L01`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUnderstand iter() and next(), create custom iterator classes, use iterators efficiently.\n\n## Materi\n\n### Konsep Dasar\n**Iterator**: Objek yang mengimplementasikan `__iter__()` (mengembalikan iterator itu sendiri) dan `__next__()` (mengembalikan next element atau raise `StopIteration`).\n\n**Iterable**: Objek yang bisa di-iterasi (mempunyai `__iter__()` yang mengembalikan iterator). Contoh: list, tuple, dict, set, string, range, dan custom class dengan `__iter__`.\n\n**Iteration Process**:\n```python\niterator = iter(iterable)  # panggil __iter__()\nwhile True:\n    try:\n        item = next(iterator)  # panggil __next__()\n        # process item\n    except StopIteration:\n        break\n```\n`for` loop melakukan ini secara otomatis.\n\n### Custom Iterator Class\n```python\nclass Counter:\n    def __init__(self, start, end):\n        self.current = start\n        self.end = end\n\n    def __iter__(self):\n        return self\n\n    def __next__(self):\n        if self.current >= self.end:\n            raise StopIteration\n        result = self.current\n        self.current += 1\n        return result\n```\n\n### Infinite Iterators\nBisa membuat iterator yang tidak pernah berhenti (jangan lupa gunakan `break` di loop atau `itertools.islice`).\n\n### Detail Teknis\n- `iter(obj)` memanggil `obj.__iter__()` atau `obj.__getitem__()` (jika `__iter__` tidak ada, Python mencoba indexing mulai dari 0)\n- `next(iterator)` memanggil `iterator.__next__()`\n- Iterator exhausted setelah `StopIteration`; untuk restart, buat iterator baru\n- Iterator stateful; bisa digunakan untuk generating sequence on-the-fly (hemat memory)\n- `collections.abc.Iterator` dan `Iterable` untuk type checking (sebagai abstract base classes)\n- Generator functions (`yield`) otomatis menjadi iterator\n\n## Latihan\n\n### Soal 1\nBuat custom iterator `Fibonacci` yang menghasilkan deret Fibonacci hingga batas `max_value` (tidak melebihi). Iterator harus mengembalikan angka Fibonacci satu per satu.\n\n```python\nclass Fibonacci:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    fib = Fibonacci(100)\n    for num in fib:\n        print(num, end=' ')  # 0 1 1 2 3 5 8 13 21 34 55 89\n```\n\n**Expected Output**:\n```\n0 1 1 2 3 5 8 13 21 34 55 89\n```\n\n### Soal 2\nBuat iterator `ChunkedFileReader` yang menerima file path dan chunk size (bytes). Iterator membaca file dalam chunk binary (mengembalikan bytes) tanpa memuat seluruh file ke memory. Gunakan `with open(..., 'rb') as f` di `__init__` atau `__iter__`.\n\n```python\nclass ChunkedFileReader:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    for chunk in ChunkedFileReader(\"large.bin\", 1024):\n        print(f\"Chunk size: {len(chunk)}\")\n```\n\n**Expected Output** (contoh):\n```\nChunk size: 1024\nChunk size: 1024\nChunk size: 512\n...\n```\n\n## Referensi\n- [Python Official Documentation - iterator](https://docs.python.org/3/glossary.html#term-iterator)\n- [Python Official Documentation - __iter__](https://docs.python.org/3/reference/datamodel.html#object.__iter__)\n- [Real Python - Python Iterators](https://realpython.com/python-iterators/)\n- [W3Schools Python Iterators](https://www.w3schools.com/python/python_iterators.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M08-L02](M08-L02.md)"
     },
     {
         "id": 38,
-        "title": "38. M08 L02",
-        "description": "<p><strong>Generators and yield</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "38. Lesson M08-L02",
+        "description": "<p><strong>Lesson M08-L02</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M08-L02 di Python!\")",
+        "expectedOutput": "Belajar Lesson M08-L02 di Python!",
+        "hint": "Pelajari lesson m08-l02.",
         "quiz": {
-            "question": "Apa yang dipelajari di M08 L02?",
+            "question": "Apa yang dipelajari di Lesson M08-L02?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -753,17 +827,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Generators and yield\n**ID**: `M08-L02`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nWrite generator functions, use yield for lazy evaluation, understand generator expressions.\n\n## Materi\n\n### Konsep Dasar\n**Generator**: Type iterator yang dibuat dengan fungsi yang menggunakan `yield`. Lebih sederhana daripada custom iterator class.\n\n```python\ndef count_up_to(n):\n    i = 0\n    while i < n:\n        yield i\n        i += 1\n\nfor x in count_up_to(5):\n    print(x)  # 0 1 2 3 4\n```\n\n**Generator Expression**: Mirip list comprehension tapi dengan parentheses, menghasilkan generator (lazy).\n```python\ngen = (x*x for x in range(10))\n```\n\n### Lazy Evaluation\nGenerator menghasilkan nilai satu per satu saat diminta (dengan `next()` atau `for`). Hemat memory untuk large sequences atau infinite sequences.\n\n**Generator State**: Generator mempertahankan state antar `yield`. Setelah selesai, `StopIteration` diraise. Tidak bisa restart; harus buat baru.\n\n### Advanced Generator Features\n- `yield` bisa mengirim nilai keluar dan menerima nilai masuk via `.send(value)`\n- `yield from` untuk delegasi ke sub-generator\n- `return` dalam generator mengembalikan nilai (Python 3.3+), bisa di-catch di `StopIteration.value`\n- `next(gen, default)` untuk default value saat habis\n- Generator adalah iterator, bisa digunakan di `for`, `list()`, `tuple()`, dll.\n\n### Detail Teknis\n- Generator function mengembalikan `generator object` (jenis iterator)\n- `gen.__next__()` sama dengan `next(gen)`\n- `send()` hanya bekerja jika generator sedang paused di `yield`; pertama kali harus `next(gen)` atau `send(None)`\n- `throw(exc_type, exc_val, exc_tb)` untuk raise exception di dalam generator\n- `close()` untuk menutup generator prematurely\n- Generator expression sintaks: `(expr for item in iterable if condition)`\n- Generator lebih慢 daripada list untuk small sequences karena overhead, tapi lebih baik untuk large data\n\n## Latihan\n\n### Soal 1\nBuat generator `primes(limit)` yang menghasilkan bilangan prima hingga `limit` (inklusif). Gunakan algoritma sederhana (test pembagian hingga sqrt). Gunakan `yield`.\n\n```python\ndef latihan_1(limit):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    for p in latihan_1(30):\n        print(p, end=' ')  # 2 3 5 7 11 13 17 19 23 29\n```\n\n**Expected Output**:\n```\n2 3 5 7 11 13 17 19 23 29\n```\n\n### Soal 2\nBuat generator `read_large_file(filename, chunk_size=1024)` yang membaca file dalam chunk binary (seperti iterator). Gunakan `yield` untuk mengembalikan setiap chunk. Demonstrasikan dengan menghitung total bytes dari file tanpa memuat seluruh file ke memory.\n\n```python\ndef latihan_2(filename, chunk_size=1024):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    total = 0\n    for chunk in latihan_2(\"large_file.bin\"):\n        total += len(chunk)\n    print(f\"Total bytes: {total}\")\n```\n\n**Expected Output**:\n```\nTotal bytes: 1234567\n```\n\n## Referensi\n- [Python Official Documentation - yield](https://docs.python.org/3/reference/simple_stmts.html#yield)\n- [Python Official Documentation - generator](https://docs.python.org/3/glossary.html#term-generator)\n- [Real Python - Python Generators](https://realpython.com/introduction-to-python-generators/)\n- [W3Schools Python Generators](https://www.w3schools.com/python/python_generators.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M08-L03](M08-L03.md)"
     },
     {
         "id": 39,
-        "title": "39. M08 L03",
-        "description": "<p><strong>Decorators: Functions That Wrap Functions</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "39. Lesson M08-L03",
+        "description": "<p><strong>Lesson M08-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M08-L03 di Python!\")",
+        "expectedOutput": "Belajar Lesson M08-L03 di Python!",
+        "hint": "Pelajari lesson m08-l03.",
         "quiz": {
-            "question": "Apa yang dipelajari di M08 L03?",
+            "question": "Apa yang dipelajari di Lesson M08-L03?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -772,17 +848,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Decorators: Functions That Wrap Functions\n**ID**: `M08-L03`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nCreate function decorators, use @ syntax, understand closure and functools.wraps.\n\n## Materi\n\n### Konsep Dasar\n**Decorator**: Fungsi yang menerima fungsi sebagai argumen dan mengembalikan fungsi baru (biasanya menambahkan fungsionalitas tanpa modifikasi fungsi asli). Sintaks sugar: `@decorator` di atas definisi fungsi.\n\n```python\ndef my_decorator(func):\n    def wrapper(*args, **kwargs):\n        # pre-processing\n        result = func(*args, **kwargs)\n        # post-processing\n        return result\n    return wrapper\n\n@my_decorator\ndef say_hello():\n    print(\"Hello\")\n\nsay_hello()  # sebenarnya memanggil wrapper\n```\n\n**functools.wraps**: Decorator untuk mempertahankan metadata (name, docstring) dari fungsi asli ke wrapper.\n```python\nfrom functools import wraps\n\ndef my_decorator(func):\n    @wraps(func)\n    def wrapper(*args, **kwargs):\n        return func(*args, **kwargs)\n    return wrapper\n```\n\n### Decorators with Arguments\nDecorator yang menerima argumen memerlukan level嵌套 tambahan.\n```python\ndef repeat(times):\n    def decorator(func):\n        @wraps(func)\n        def wrapper(*args, **kwargs):\n            for _ in range(times):\n                result = func(*args, **kwargs)\n            return result\n        return wrapper\n    return decorator\n\n@repeat(times=3)\ndef greet():\n    print(\"Hi\")\n```\n\n### Class Decorators\nClass juga bisa jadi decorator: `__call__` method membuat instance bisa dipanggil seperti fungsi.\n```python\nclass CountCalls:\n    def __init__(self, func):\n        self.func = func\n        self.num_calls = 0\n    def __call__(self, *args, **kwargs):\n        self.num_calls += 1\n        return self.func(*args, **kwargs)\n```\n\n### Detail Teknis\n- Decorator adalah Higher-Order Function\n- `@decorator` di atas `def` adalah `func = decorator(func)`\n- Bisa chain: `@d1 @d2 def f(): ...` → `f = d1(d2(f))`\n- `*args, **kwargs` membuat wrapper general untuk semua arguments\n- `functools.wraps` meng-copy `__name__`, `__doc__`, `__module__`, `__qualname__`, `__annotations__`, `__dict__`\n- Decorator bisa juga untuk class (mengembalikan class baru atau modify)\n- Property decorators (`@property`, `@staticmethod`, `@classmethod`) adalah built-in decorators\n\n## Latihan\n\n### Soal 1\nBuat decorator `timer` yang mengukur waktu eksekusi fungsi dan print waktu yang dibutuhkan (dalam detik). Gunakan `time.time()` atau `time.perf_counter()`. Jangan lupa `@wraps`.\n\n```python\nimport time\nfrom functools import wraps\n\ndef timer(func):\n    # Tulis kode kamu di sini\n    pass\n\n@timer\ndef slow_function():\n    time.sleep(1)\n\nif __name__ == \"__main__\":\n    slow_function()  # print \"slow_function took 1.00 seconds\"\n```\n\n**Expected Output**:\n```\nslow_function took 1.00 seconds\n```\n\n### Soal 2\nBuat decorator `validate_positive` yang memastikan semua positional arguments numerik (int/float) yang diberikan ke fungsi adalah positif (>0). Jika ada yang <=0, raise `ValueError(\"All numeric arguments must be positive\")`. Decorator harus bekerja untuk fungsi dengan arbitrary arguments.\n\n```python\ndef validate_positive(func):\n    # Tulis kode kamu di sini\n    pass\n\n@validate_positive\ndef multiply(a, b):\n    return a * b\n\nif __name__ == \"__main__\":\n    print(multiply(2, 3))   # 6\n    print(multiply(-1, 5))  # ValueError\n```\n\n**Expected Output**:\n```\n6\nValueError: All numeric arguments must be positive\n```\n\n## Referensi\n- [Python Official Documentation - decorators](https://docs.python.org/3/reference/compound_stmts.html#function-definitions)\n- [Real Python - Decorators](https://realpython.com/primer-on-python-decorators/)\n- [W3Schools Python Decorators](https://www.w3schools.com/python/python_decorators.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M08-L04](M08-L04.md)"
     },
     {
         "id": 40,
-        "title": "40. M08 L04",
-        "description": "<p><strong>Contextlib and Advanced Context Managers</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "40. Lesson M08-L04",
+        "description": "<p><strong>Lesson M08-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M08-L04 di Python!\")",
+        "expectedOutput": "Belajar Lesson M08-L04 di Python!",
+        "hint": "Pelajari lesson m08-l04.",
         "quiz": {
-            "question": "Apa yang dipelajari di M08 L04?",
+            "question": "Apa yang dipelajari di Lesson M08-L04?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -791,17 +869,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Contextlib and Advanced Context Managers\n**ID**: `M08-L04`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUse contextmanager decorator, suppress, redirect_stdout, and other utilities.\n\n## Materi\n\n### Konsep Dasar\n**contextlib**: Module yang menyediakan utilities untuk bekerja dengan context managers.\n\n**@contextmanager**: Decorator untuk membuat context manager dari generator function.\n```python\nfrom contextlib import contextmanager\n\n@contextmanager\ndef my_context():\n    # setup\n    resource = acquire_resource()\n    try:\n        yield resource\n    finally:\n        # cleanup\n        release_resource(resource)\n```\nGenerator harus `yield` tepat sekali; cleanup code setelah `yield` di `finally` untuk ensure execution meskipun exception.\n\n**contextlib utilities**:\n- `contextlib.suppress(*exceptions)`: Men-suppress exceptions tertentu di dalam block.\n  ```python\n  with suppress(FileNotFoundError):\n      os.remove('temp.txt')\n  ```\n- `contextlib.redirect_stdout(new_target)`: Redirect `sys.stdout` ke file-like object.\n  ```python\n  with open('output.txt', 'w') as f, redirect_stdout(f):\n      print(\"Hello\")  # goes to file\n  ```\n- `contextlib.redirect_stderr(new_target)`: Sama untuk stderr.\n- `contextlib.closing(thing)`: Memastikan `thing.close()` dipanggil (alternative untuk `with thing:` jika thing tidak punya `__enter__/__exit__` tapi punya `close()`).\n- `contextlib.ExitStack`: Mengelola context managers dinamis (tidak tahu jumlah sebelumnya).\n  ```python\n  with ExitStack() as stack:\n      files = [stack.enter_context(open(f)) for f in filenames]\n      # semua files akan ditutup saat exit\n  ```\n\n### Detail Teknis\n- `@contextmanager` membuat class di belakang layar yang mengimplementasikan `__enter__` dan `__exit__`\n- Exception yang terjadi di block diteruskan ke generator; jika tidak ditangkap di generator, akan propagate\n- Di `__exit__` dari contextmanager, exception info passed sebagai args ke `try` block yang melingkari `yield`\n- Bisa handle exception di generator: `try: yield ... except SomeError: handle`\n- `suppress` mengabaikan exception yang cocok; exception lain propagate\n- `redirect_stdout` dan `redirect_stderr` mengubah global `sys.stdout`/`sys.stderr` sementara\n- `ExitStack` juga memiliki `pop_all()` untuk transfer context managers ke stack lain (advanced)\n\n## Latihan\n\n### Soal 1\nBuat context manager `temp_file(content=None)` menggunakan `@contextmanager` yang:\n- Membuat temporary file (gunakan `tempfile.NamedTemporaryFile(mode='w+', delete=False)`) agar file tidak auto-delete (kita ingin cek isi setelah block)\n- Jika `content` diberikan, tulis ke file\n- Yield nama file (path)\n- Setelah block, file dihapus dengan `os.remove()`\n\n```python\nimport os\nimport tempfile\nfrom contextlib import contextmanager\n\n@contextmanager\ndef latihan_1(content=None):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    with latihan_1(\"Hello World\") as fname:\n        with open(fname) as f:\n            print(f.read())  # Hello World\n    # setelah with, file sudah dihapus\n    print(os.path.exists(fname))  # False\n```\n\n**Expected Output**:\n```\nHello World\nFalse\n```\n\n### Soal 2\nGunakan `contextlib.suppress` untuk menangani exception saat menghapus beberapa file yang mungkin tidak ada. Buat list file ['a.txt', 'b.txt', 'c.txt'] (hanya 'b.txt' yang ada). Gunakan `suppress(FileNotFoundError)` di dalam loop.\n\n```python\nfrom contextlib import suppress\n\ndef latihan_2():\n    files = ['a.txt', 'b.txt', 'c.txt']\n    # Buat file b.txt dulu untuk demo\n    open('b.txt', 'w').close()\n    # Tulis kode kamu di sini\n    # Hapus semua file dengan suppress\n\nif __name__ == \"__main__\":\n    latihan_2()\n    # Pastikan tidak ada error meskipun a.txt dan c.txt tidak ada\n```\n\n**Expected Output**: (no output, no errors)\n\n### Soal 3\nGunakan `contextlib.ExitStack` untuk membuka multiple files (misal 3 file) dan memastikan semua ditutup. Buat list filenames, lalu `with ExitStack() as stack:` dan `files = [stack.enter_context(open(f)) for f in filenames]`. Cek bahwa semua file closed setelah exit.\n\n```python\nfrom contextlib import ExitStack\n\ndef latihan_3():\n    filenames = ['file1.txt', 'file2.txt', 'file3.txt']\n    # Buat file kosong dulu\n    for f in filenames:\n        open(f, 'w').close()\n    # Tulis kode kamu di sini dengan ExitStack\n    # Buka semua file, lalu di dalam block print status, setelah block cek closed\n\nif __name__ == \"__main__\":\n    latihan_3()\n```\n\n**Expected Output** (contoh):\n```\nFiles opened.\nAll files closed? True\n```\n\n## Referensi\n- [Python Official Documentation - contextlib](https://docs.python.org/3/library/contextlib.html)\n- [Real Python - Python Context Managers and the with Statement](https://realpython.com/python-with-statement/)\n- [W3Schools Python With](https://www.w3schools.com/python/python_with.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M08-L05](M08-L05.md)"
     },
     {
         "id": 41,
-        "title": "41. M08 L05",
-        "description": "<p><strong>Descriptors and the Descriptor Protocol</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "41. Lesson M08-L05",
+        "description": "<p><strong>Lesson M08-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M08-L05 di Python!\")",
+        "expectedOutput": "Belajar Lesson M08-L05 di Python!",
+        "hint": "Pelajari lesson m08-l05.",
         "quiz": {
-            "question": "Apa yang dipelajari di M08 L05?",
+            "question": "Apa yang dipelajari di Lesson M08-L05?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -810,17 +890,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Descriptors and the Descriptor Protocol\n**ID**: `M08-L05`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nImplement __get__, __set__, __delete__ for custom attribute behavior.\n\n## Materi\n\n### Konsep Dasar\n**Descriptor**: Objek yang mengimplementasikan salah satu dari `__get__`, `__set__`, atau `__delete__`. Digunakan untuk custom attribute access pada class.\n\n**Types**:\n- **Data descriptor**: Mengimplementasikan `__set__` dan `__get__` (dan/atau `__delete__`). Memiliki precedence lebih tinggi daripada instance dictionary.\n- **Non-data descriptor**: Hanya `__get__`. Precedence lebih rendah; instance attribute akan menimpa.\n\n**Syntax**:\n```python\nclass Descriptor:\n    def __init__(self, name):\n        self.name = name\n\n    def __get__(self, instance, owner):\n        # instance: objek yang memiliki attribute, atau None jika diakses via class\n        # owner: class yang own descriptor\n        return instance.__dict__[self.name]\n\n    def __set__(self, instance, value):\n        instance.__dict__[self.name] = value\n\n    def __delete__(self, instance):\n        del instance.__dict__[self.name]\n\nclass MyClass:\n    attr = Descriptor('attr')\n```\n\n### Use Cases\n- Type checking\n- Lazy loading (computed on first access)\n- Validation\n- Logging attribute access\n- Read-only attributes\n- Unit conversion (misal: Celsius/Fahrenheit)\n\n### Property vs Descriptor\n`@property` sebenarnya adalah data descriptor (hanya read-only jika tidak ada setter). Descriptor lebih general dan bisa digunakan di banyak attribute sekaligus.\n\n### Detail Teknis\n- Descriptor di-class dictionary, bukan instance dictionary\n- `instance.__dict__` menyimpan actual data\n- `owner` param sering tidak digunakan kecuali untuk class-level info\n- Jika `__get__` diakses via class (`MyClass.attr`), `instance` adalah None\n- Bisa membuat descriptor reusable dengan passing attribute name di `__init__` atau menggunakan `__set_name__(self, owner, name)` (Python 3.6+)\n- `__set_name__` otomatis dipanggil saat class dibuat; name descriptor disimpan\n\n## Latihan\n\n### Soal 1\nBuat descriptor `Typed` yang melakukan type checking. Saat set, jika value bukan tipe yang diharapkan (passed saat konstruksi), raise TypeError.\n\n```python\nclass Typed:\n    def __init__(self, name, expected_type):\n        self.name = name\n        self.expected_type = expected_type\n\n    def __get__(self, instance, owner):\n        # Tulis kode kamu di sini\n        pass\n\n    def __set__(self, instance, value):\n        # Tulis kode kamu di sini\n        pass\n\nclass Person:\n    age = Typed('age', int)\n    height = Typed('height', float)\n\n    def __init__(self, age, height):\n        self.age = age\n        self.height = height\n\nif __name__ == \"__main__\":\n    p = Person(25, 1.75)\n    print(p.age)   # 25\n    p.age = \"old\"  # TypeError\n```\n\n**Expected Output**:\n```\n25\nTypeError: Expected <class 'int'>, got <class 'str'>\n```\n\n### Soal 2\nBuat descriptor `LazyAttribute` yang melakukan lazy computation: first access memanggil fungsi factory (diberikan saat konstruksi) untuk menghitung nilai, lalu menyimpan di instance dictionary agar tidak dihitung ulang.\n\n```python\nclass LazyAttribute:\n    def __init__(self, func):\n        self.func = func\n        self.name = func.__name__\n\n    def __get__(self, instance, owner):\n        # Tulis kode kamu di sini\n        pass\n\nclass Data:\n    @LazyAttribute\n    def expensive_data(self):\n        print(\"Computing...\")\n        return sum(range(1000000))\n\nif __name__ == \"__main__\":\n    d = Data()\n    print(\"Accessing first time:\")\n    print(d.expensive_data)  # print \"Computing...\" lalu nilai\n    print(\"Accessing second time:\")\n    print(d.expensive_data)  # tidak print \"Computing...\" lagi\n```\n\n**Expected Output**:\n```\nAccessing first time:\nComputing...\n499999500000\nAccessing second time:\n499999500000\n```\n\n## Referensi\n- [Python Official Documentation - descriptor](https://docs.python.org/3/howto/descriptor.html)\n- [Real Python - Python Descriptors](https://realpython.com/python-descriptors/)\n- [W3Schools Python Decorators](https://www.w3schools.com/python/python_decorators.asp) (descriptor terkait erat dengan decorator)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M08-L06](M08-L06.md)"
     },
     {
         "id": 42,
-        "title": "42. M08 L06",
-        "description": "<p><strong>Metaclasses and Class Creation</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "42. Lesson M08-L06",
+        "description": "<p><strong>Lesson M08-L06</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M08-L06 di Python!\")",
+        "expectedOutput": "Belajar Lesson M08-L06 di Python!",
+        "hint": "Pelajari lesson m08-l06.",
         "quiz": {
-            "question": "Apa yang dipelajari di M08 L06?",
+            "question": "Apa yang dipelajari di Lesson M08-L06?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -829,17 +911,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Metaclasses and Class Creation\n**ID**: `M08-L06`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nUnderstand type(), create custom metaclasses, and know when to use them (rarely).\n\n## Materi\n\n### Konsep Dasar\n**Metaclass**: Class dari class. Class adalah instance dari metaclass. Default metaclass adalah `type`.\n\n```python\nclass MyClass:\n    pass\n# Di balik layar: MyClass = type('MyClass', (object,), {})\n```\n\n**type()** bisa digunakan untuk membuat class secara dinamis:\n```python\nMyClass = type('MyClass', (base1, base2), {'attr': value, 'method': lambda self: ...})\n```\n\n**Custom Metaclass**: Inherit dari `type` dan override `__new__` atau `__init__`.\n```python\nclass Meta(type):\n    def __new__(mcs, name, bases, attrs):\n        # mcs: metaclass instance (Meta)\n        # name: nama class yang akan dibuat\n        # bases: tuple base classes\n        # attrs: dict attributes (methods, class variables)\n        # modify attrs jika perlu\n        cls = super().__new__(mcs, name, bases, attrs)\n        return cls\n\nclass MyClass(metaclass=Meta):\n    pass\n```\n\n### Use Cases (Rare)\n- Framework development (ORM, API schema, serialization)\n- Automatic registration of subclasses\n- Enforcing coding conventions (misal: semua methods harus punya docstring)\n- Singleton pattern (dengan override `__call__`)\n- API versioning\n\n### __init__ vs __new__ dalam Metaclass\n- `__new__`: membuat class object (langsung memodifikasi dict sebelum class dibuat)\n- `__init__`: menginisialisasi class object setelah dibuat (lebih umum digunakan)\n\n### Detail Teknis\n- `__prepare__` bisa didefinisikan di metaclass untuk mengembalikan custom mapping (misal OrderedDict) untuk menyimpan atribut class dalam urutan definisi (Python 3.6+ sudah preserve order by default)\n- Metaclass bisa mengubah inheritance (`bases`) atau menambahkan attributes ke `attrs`\n- Class dengan metaclass tidak bisa di-instance jika metaclass `__call__` tidak mengembalikan instance (misal untuk abstract classes)\n- `type` adalah kelas itu sendiri (type of type is type)\n- Banyak pattern yang bisa dilakukan dengan class decorators; metaclasses lebih powerful tapi lebih kompleks\n\n## Latihan\n\n### Soal 1\nBuat metaclass `AddRepr` yang otomatis menambahkan `__repr__` method ke class yang menggunakannya. `__repr__` harus mengembalikan `\"ClassName(attr1=value1, attr2=value2, ...)\"` untuk semua instance attributes (dari `self.__dict__`). Jangan override jika class sudah punya `__repr__`.\n\n```python\nclass AddRepr(type):\n    def __new__(mcs, name, bases, attrs):\n        # Tulis kode kamu di sini\n        pass\n\nclass Person(metaclass=AddRepr):\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\nif __name__ == \"__main__\":\n    p = Person(\"Alice\", 25)\n    print(repr(p))  # Person(name='Alice', age=25)\n```\n\n**Expected Output**:\n```\nPerson(name='Alice', age=25)\n```\n\n### Soal 2\nBuat metaclass `EnforceTypes` yang memeriksa semua type hints dalam methods (gunakan `__annotations__`). Saat `__new__`, jika ada type hints, store them. Lalu, override `__call__` (metaclass `__call__` adalah saat instance dibuat) untuk validate arguments yang diberikan ke `__init__` terhadap type hints. Jika type tidak sesuai, raise TypeError. Hanya check attributes yang diannotate di `__init__` (jangan methods lain).\n\n```python\nclass EnforceTypes(type):\n    def __new__(mcs, name, bases, attrs):\n        # collect hints from __init__ if exists\n        # store di cls.__type_hints__\n        pass\n\n    def __call__(cls, *args, **kwargs):\n        # bind args ke __init__ parameters\n        # validate type sesuai hints\n        # jika ok, panggil super().__call__()\n        pass\n\nclass Person(metaclass=EnforceTypes):\n    def __init__(self, name: str, age: int):\n        self.name = name\n        self.age = age\n\nif __name__ == \"__main__\":\n    p = Person(\"Bob\", 30)   # OK\n    p2 = Person(123, 30)    # TypeError: name harus str\n```\n\n**Expected Output**:\n```\nTypeError: Argument 'name' must be type <class 'str'>, got <class 'int'>\n```\n\n## Referensi\n- [Python Official Documentation - type](https://docs.python.org/3/library/functions.html#type)\n- [Python Official Documentation - metaclasses](https://docs.python.org/3/reference/datamodel.html#customizing-class-creation)\n- [Real Python - Metaclasses in Python](https://realpython.com/python-metaclasses/)\n- [W3Schools Python Metaclasses](https://www.w3schools.com/python/python_metaclasses.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M09-L01](M09-L01.md)"
     },
     {
         "id": 43,
-        "title": "43. M09 L01",
-        "description": "<p><strong>Threading: Running Code Concurrently</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "43. Lesson M09-L01",
+        "description": "<p><strong>Lesson M09-L01</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M09-L01 di Python!\")",
+        "expectedOutput": "Belajar Lesson M09-L01 di Python!",
+        "hint": "Pelajari lesson m09-l01.",
         "quiz": {
-            "question": "Apa yang dipelajari di M09 L01?",
+            "question": "Apa yang dipelajari di Lesson M09-L01?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -848,17 +932,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Threading: Running Code Concurrently\n**ID**: `M09-L01`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nCreate threads with threading.Thread, understand GIL, and use thread synchronization (Lock, RLock, Event).\n\n## Materi\n\n### Konsep Dasar\n**Threading**: Eksekusi concurrent dalam satu process (threads berbagi memory). Berguna untuk I/O-bound tasks (network, file). Python memiliki GIL (Global Interpreter Lock) yang membatasi eksekusi parallel pada CPU-bound code.\n\n**Creating Threads**:\n```python\nimport threading\n\ndef worker():\n    print(\"Working\")\n\nt = threading.Thread(target=worker, args=(...), kwargs={...})\nt.start()   # start thread\nt.join()    # wait until finished\n```\n\n**Daemon Threads**: Thread yang akan terminate otomatis saat program exit (jika masih hidup). `t.daemon = True` sebelum `start()`.\n\n### Synchronization Primitives\n- **Lock** (mutex): `lock.acquire()`, `lock.release()`, atau `with lock:` untuk critical section.\n- **RLock** (reentrant lock): Thread yang sudah acquire bisa acquire lagi (recursive).\n- **Event**: `event.set()`, `event.clear()`, `event.wait()`. Thread bisa menunggu event.\n- **Semaphore**: `threading.Semaphore(value)` untuk batasan concurrent access.\n- **Condition**: `condition.wait()`, `condition.notify()` untuk complex coordination.\n\n### Global Interpreter Lock (GIL)\nGIL memastikan hanya satu thread yang mengeksekusi Python bytecode pada satu waktu. Ini membuat threading tidak memberikan speedup untuk CPU-bound tasks (karena hanya satu thread yang benar-benar berjalan). Untuk I/O-bound, threading tetap efektif karena thread menunggu I/O sementara GIL dilepas.\n\n### Detail Teknis\n- `threading.current_thread()` mendapatkan current thread object\n- `threading.main_thread()` untuk main thread\n- `threading.enumerate()` list semua alive threads\n- `t.is_alive()` cek status\n- Race condition terjadi jika multiple threads akses shared data tanpa synchronization\n- Deadlock: dua thread menunggu lock milik masing-masing\n- Locking: `with lock:` lebih aman daripada `acquire/release` manual\n- `threading.local()` untuk thread-local storage (data yang exclusive per thread)\n\n## Latihan\n\n### Soal 1\nBuat program yang membuat 5 threads, masing-masing mencetak \"Hello from thread X\" di mana X adalah nomor thread (0-4). Gunakan `threading.Thread` dan `target` function yang menerima argumen. Tunggu semua thread selesai dengan `join()`.\n\n```python\nimport threading\nimport time\n\ndef worker(num):\n    time.sleep(0.1)  # simulasi work\n    print(f\"Hello from thread {num}\")\n\ndef latihan_1():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1()\n```\n\n**Expected Output** (order mungkin tidak teratur):\n```\nHello from thread 0\nHello from thread 1\nHello from thread 2\nHello from thread 3\nHello from thread 4\n```\n\n### Soal 2\nBuat program dengan shared variable `counter = 0`. Buat 10 threads, masing-masing increment `counter` sebesar 1000 kali (total seharusnya 10000). Gunakan `Lock` untuk melindungi critical section. Tanpa lock, hasil akan acak (race condition). Verifikasi hasil akhir.\n\n```python\nimport threading\n\ncounter = 0\nlock = threading.Lock()\n\ndef increment():\n    global counter\n    # Tulis kode kamu di sini\n    pass\n\ndef latihan_2():\n    threads = []\n    for _ in range(10):\n        t = threading.Thread(target=increment)\n        t.start()\n        threads.append(t)\n    for t in threads:\n        t.join()\n    print(f\"Final counter: {counter}\")\n\nif __name__ == \"__main__\":\n    latihan_2()\n```\n\n**Expected Output**:\n```\nFinal counter: 10000\n```\n\n## Referensi\n- [Python Official Documentation - threading](https://docs.python.org/3/library/threading.html)\n- [Real Python - Python Threading](https://realpython.com/intro-to-python-threading/)\n- [W3Schools Python Threading](https://www.w3schools.com/python/python_multithreading.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M09-L02](M09-L02.md)"
     },
     {
         "id": 44,
-        "title": "44. M09 L02",
-        "description": "<p><strong>Multiprocessing: True Parallel Execution</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "44. Lesson M09-L02",
+        "description": "<p><strong>Lesson M09-L02</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M09-L02 di Python!\")",
+        "expectedOutput": "Belajar Lesson M09-L02 di Python!",
+        "hint": "Pelajari lesson m09-l02.",
         "quiz": {
-            "question": "Apa yang dipelajari di M09 L02?",
+            "question": "Apa yang dipelajari di Lesson M09-L02?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -867,17 +953,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Multiprocessing: True Parallel Execution\n**ID**: `M09-L02`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nSpawn processes with multiprocessing, share data with Queue and Pipe, bypass GIL for CPU-bound tasks.\n\n## Materi\n\n### Konsep Dasar\n**Multiprocessing**: Membuat multiple processes, masing-masing memiliki memory space sendiri. Bypass GIL, memungkinkan true parallel execution untuk CPU-bound tasks.\n\n**Creating Processes**:\n```python\nfrom multiprocessing import Process\n\ndef worker(name):\n    print(f\"Hello from {name}\")\n\np = Process(target=worker, args=(\"Alice\",))\np.start()\np.join()\n```\n\n**Process Pool**: `multiprocessing.Pool` untuk manage pool of worker processes.\n```python\nfrom multiprocessing import Pool\n\ndef square(x):\n    return x * x\n\nwith Pool(4) as pool:\n    results = pool.map(square, [1,2,3,4,5])\n```\n\n### Inter-Process Communication (IPC)\n- **Queue**: `multiprocessing.Queue` untuk thread-safe dan process-safe queue.\n- **Pipe**: `multiprocessing.Pipe()` untuk duplex communication (two-way).\n- **Manager**: `multiprocessing.Manager()` untuk shared objects (list, dict, Namespace) di antara processes.\n- **Value/Array**: Shared memory untuk primitive types.\n\n### GIL Bypass\nKarena setiap process memiliki interpreter GIL-nya sendiri, multiprocessing dapat memanfaatkan multiple cores untuk CPU-bound tasks (seperti komputasi, image processing). Namun overhead process creation dan serialization (pickle) lebih tinggi daripada threading.\n\n### Detail Teknis\n- Process identity: `p.pid` (process ID)\n- `p.is_alive()`, `p.exitcode`\n- `p.terminate()` untuk kill process\n- `Pool.map()` blocks until all done; `pool.apply_async()` untuk async\n- `multiprocessing.cpu_count()` untuk jumlah cores\n- Data yang dikirim via Queue/Pipe harus pickleable\n- Windows: `if __name__ == '__main__':` wajib untuk multiprocessing (tidak di Unix yang menggunakan fork)\n- Shared memory: `multiprocessing.Value`, `Array` untuk efficient sharing\n- `multiprocessing.Event`, `Lock`, `Semaphore` juga tersedia untuk synchronization antar processes\n\n## Latihan\n\n### Soal 1\nBuat program yang menggunakan `Pool` untuk menghitung kuadrat dari list angka `[1,2,3,4,5]` secara parallel. Gunakan `pool.map()`.\n\n```python\nfrom multiprocessing import Pool\n\ndef square(x):\n    return x * x\n\ndef latihan_1():\n    numbers = [1, 2, 3, 4, 5]\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1()\n```\n\n**Expected Output**:\n```\n[1, 4, 9, 16, 25]\n```\n\n### Soal 2\nBuat dua processes yang berkomunikasi menggunakan `Pipe`. Process A mengirim bilangan genap dari 0 hingga 10 (inclusive) ke Process B. Process B menerima dan mencetak setiap bilangan yang diterima.\n\n```python\nfrom multiprocessing import Process, Pipe\n\ndef sender(conn):\n    # Tulis kode kamu di sini\n    pass\n\ndef receiver(conn):\n    # Tulis kode kamu di sini\n    pass\n\ndef latihan_2():\n    parent_conn, child_conn = Pipe()\n    p1 = Process(target=sender, args=(parent_conn,))\n    p2 = Process(target=receiver, args=(child_conn,))\n    p1.start()\n    p2.start()\n    p1.join()\n    p2.join()\n\nif __name__ == \"__main__\":\n    latihan_2()\n```\n\n**Expected Output** (order may vary):\n```\nReceived: 0\nReceived: 2\nReceived: 4\nReceived: 6\nReceived: 8\nReceived: 10\n```\n\n## Referensi\n- [Python Official Documentation - multiprocessing](https://docs.python.org/3/library/multiprocessing.html)\n- [Real Python - Python Multiprocessing](https://realpython.com/python-multiprocessing/)\n- [W3Schools Python Multiprocessing](https://www.w3schools.com/python/python_multiprocessing.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M09-L03](M09-L03.md)"
     },
     {
         "id": 45,
-        "title": "45. M09 L03",
-        "description": "<p><strong>Asyncio: Asynchronous I/O</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "45. Lesson M09-L03",
+        "description": "<p><strong>Lesson M09-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M09-L03 di Python!\")",
+        "expectedOutput": "Belajar Lesson M09-L03 di Python!",
+        "hint": "Pelajari lesson m09-l03.",
         "quiz": {
-            "question": "Apa yang dipelajari di M09 L03?",
+            "question": "Apa yang dipelajari di Lesson M09-L03?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -886,17 +974,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Asyncio: Asynchronous I/O\n**ID**: `M09-L03`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nWrite async functions with async/await, use Event Loop, understand coroutines and tasks.\n\n## Materi\n\n### Konsep Dasar\n**Asyncio**: Library untuk concurrent programming menggunakan event loop dan coroutines. Cocok untuk I/O-bound tasks dengan many concurrent connections (e.g., web servers, network clients).\n\n**async/await**:\n```python\nimport asyncio\n\nasync def fetch_data():\n    print(\"Start\")\n    await asyncio.sleep(1)  # simulasi I/O\n    print(\"Done\")\n    return {\"data\": 123}\n\nasync def main():\n    result = await fetch_data()\n    print(result)\n\nasyncio.run(main())  # Python 3.7+\n```\n\n**Event Loop**: Menjalankan coroutines, tasks, dan callbacks.\n\n**Coroutines**: Functions didefinisikan dengan `async def`. Bisa dipanggil, mengembalikan coroutine object. Harus di-`await`-kan untuk mengeksekusi.\n\n**Tasks**: Coroutines yang dijadwalkan di event loop. `asyncio.create_task(coro)` untuk schedule.\n\n### Concurrency dengan asyncio\n`await asyncio.gather(coro1, coro2, ...)` untuk run multiple coroutines concurrently.\n```python\nasync def main():\n    results = await asyncio.gather(fetch(1), fetch(2), fetch(3))\n```\n\n**asyncio.sleep()** untuk delay non-blocking.\n**asyncio.Queue** untuk communication between coroutines.\n\n### Detail Teknis\n- `asyncio.run(coro)` adalah entry point (membuat event loop baru, jalankan, close)\n- `await` hanya bisa di dalam `async def` function\n- Blocking calls (seperti `time.sleep()`, synchronous file I/O, blocking network) harus dihindari; gunakan async versions\n- `asyncio.sleep(0)` untuk yield control ke event loop\n- `asyncio.current_task()` untuk dapat task saat ini\n- `asyncio.wait_for(coro, timeout)` untuk timeout\n- `asyncio.shield(coro)` untuk protect coro dari cancellation\n- `asyncio.CancelledError` untuk cancellation handling\n- Bisa tambah callback dengan `task.add_done_callback(func)`\n- `asyncio.run_until_complete()` (Python <3.7) atau manual loop\n\n## Latihan\n\n### Soal 1\nBuat coroutine `download_simulated(url, delay)` yang mensimulasikan download dengan `await asyncio.sleep(delay)` lalu kembalikan string `\"Content from {url}\"`. Buat `main()` yang menjalankan 3 downloads concurrently dengan `asyncio.gather()` dan cetak hasilnya.\n\n```python\nimport asyncio\n\nasync def download_simulated(url, delay):\n    # Tulis kode kamu di sini\n    pass\n\nasync def latihan_1():\n    urls = [('http://a.com', 1), ('http://b.com', 2), ('http://c.com', 1)]\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    asyncio.run(latihan_1())\n```\n\n**Expected Output** (contoh, concurrent makes total time ~2s):\n```\nContent from http://a.com\nContent from http://b.com\nContent from http://c.com\n```\n\n### Soal 2\nBuat producer-consumer pattern menggunakan `asyncio.Queue`. Producer mengirim angka 0-9 ke queue dengan `await asyncio.sleep(0.5)` antar item. Consumer mengambil item dari queue, proses (print), dan sleep 0.1. Run producer dan consumer concurrently dengan `asyncio.gather()`. Gunakan sentinel value (None) untuk memberitahu consumer berhenti setelah producer selesai.\n\n```python\nimport asyncio\n\nasync def producer(queue):\n    # Tulis kode kamu di sini\n    pass\n\nasync def consumer(queue):\n    # Tulis kode kamu di sini\n    pass\n\nasync def latihan_2():\n    queue = asyncio.Queue()\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    asyncio.run(latihan_2())\n```\n\n**Expected Output** (contoh):\n```\nProduced: 0\nConsumed: 0\nProduced: 1\nConsumed: 1\n...\nProduced: 9\nConsumed: 9\nConsumer exiting...\n```\n\n## Referensi\n- [Python Official Documentation - asyncio](https://docs.python.org/3/library/asyncio.html)\n- [Real Python - Async IO in Python](https://realpython.com/async-io-python/)\n- [W3Schools Python Asyncio](https://www.w3schools.com/python/python_asyncio.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M09-L04](M09-L04.md)"
     },
     {
         "id": 46,
-        "title": "46. M09 L04",
-        "description": "<p><strong>Concurrent Futures: ThreadPoolExecutor and ProcessPoolExecutor</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "46. Lesson M09-L04",
+        "description": "<p><strong>Lesson M09-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M09-L04 di Python!\")",
+        "expectedOutput": "Belajar Lesson M09-L04 di Python!",
+        "hint": "Pelajari lesson m09-l04.",
         "quiz": {
-            "question": "Apa yang dipelajari di M09 L04?",
+            "question": "Apa yang dipelajari di Lesson M09-L04?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -905,17 +995,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Concurrent Futures: ThreadPoolExecutor and ProcessPoolExecutor\n**ID**: `M09-L04`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nSimplify concurrent code with high-level executors, map tasks to pools.\n\n## Materi\n\n### Konsep Dasar\n**concurrent.futures**: Module yang menyediakan interface tingkat tinggi untuk asynchronous execution. Dua executor utama:\n- `ThreadPoolExecutor`: untuk I/O-bound tasks (threads)\n- `ProcessPoolExecutor`: untuk CPU-bound tasks (processes)\n\n**Executor Interface**:\n```python\nfrom concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor\nimport time\n\ndef task(n):\n    time.sleep(1)\n    return n * n\n\nwith ThreadPoolExecutor(max_workers=4) as executor:\n    # Submit single task\n    future = executor.submit(task, 5)\n    result = future.result()  # blocking\n\n    # Map multiple tasks\n    results = executor.map(task, [1,2,3,4,5])\n    for r in results:\n        print(r)\n```\n\n**Future Objects**: `Future` mewakili eksekusi yang belum selesai. Method: `result()`, `exception()`, `add_done_callback(fn)`, `cancel()`.\n\n### ThreadPoolExecutor vs ProcessPoolExecutor\n- `ThreadPoolExecutor`: Shared memory, GIL berlaku, baik untuk I/O-bound\n- `ProcessPoolExecutor`: Terpisah memory, bypass GIL, baik untuk CPU-bound, tetapi serialization overhead (pickle)\n\n### Best Practices\n- Gunakan context manager (`with`) untuk otomatis shutdown executor\n- `max_workers`: default = number of processors * 5 untuk ThreadPoolExecutor; untuk ProcessPoolExecutor biasanya jumlah CPU cores\n- `executor.map()` mengembalikan iterator hasil dalam urutan input\n- `as_completed(futures)` untuk iterate saat task selesai (tidak urut)\n- `timeout` parameter di `future.result(timeout=...)` untuk avoid hung\n\n### Detail Teknis\n- `submit()` mengembalikan `Future` untuk satu task\n- `map()` batch tasks, return iterator; raises exception saat iterate jika task error (jika ingin tangkap, iterate dengan try/except)\n- `executor.shutdown(wait=True)` secara otomatis dipanggil oleh `__exit__` context manager\n- Bisa `executor.submit(fn, *args, **kwargs)` dengan arbitrary arguments\n- `future.done()` cek apakah selesai\n- `future.exception()` mengembalikan exception jika ada, else None\n- `concurrent.futures.wait(futures)` untuk menunggu multiple futures\n\n## Latihan\n\n### Soal 1\nGunakan `ThreadPoolExecutor` untuk download simulasi (task yang sleep 1 detik) untuk 5 URLs secara concurrent. Gunakan `executor.map()` dan cetak hasil.ukur waktu eksekusi total dengan `time.time()`.\n\n```python\nfrom concurrent.futures import ThreadPoolExecutor\nimport time\n\ndef download(url):\n    time.sleep(1)\n    return f\"Content from {url}\"\n\ndef latihan_1():\n    urls = [f\"http://site{i}.com\" for i in range(5)]\n    start = time.time()\n    # Tulis kode kamu di sini dengan ThreadPoolExecutor\n    end = time.time()\n    print(f\"Total time: {end-start:.2f}s\")\n\nif __name__ == \"__main__\":\n    latihan_1()\n```\n\n**Expected Output**:\n```\nContent from http://site0.com\nContent from http://site1.com\nContent from http://site2.com\nContent from http://site3.com\nContent from http://site4.com\nTotal time: ~1.0s (not 5s)\n```\n\n### Soal 2\nGunakan `ProcessPoolExecutor` untuk menghitung factorial dari angka 10 hingga 20. Gunakan `executor.map()` dan cetak hasil. Bandingkan kecepatan dengan sequential loop (opsional).\n\n```python\nfrom concurrent.futures import ProcessPoolExecutor\nimport math\n\ndef factorial(n):\n    return math.factorial(n)\n\ndef latihan_2():\n    numbers = list(range(10, 21))\n    with ProcessPoolExecutor() as executor:\n        # Tulis kode kamu di sini\n        pass\n\nif __name__ == \"__main__\":\n    latihan_2()\n```\n\n**Expected Output**:\n```\n10! = 3628800\n11! = 39916800\n...\n20! = 2432902008176640000\n```\n\n## Referensi\n- [Python Official Documentation - concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html)\n- [Real Python - Python Concurrency](https://realpython.com/python-concurrency/)\n- [W3Schools Python Concurrency](https://www.w3schools.com/python/python_multithreading.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M09-L05](M09-L05.md)"
     },
     {
         "id": 47,
-        "title": "47. M09 L05",
-        "description": "<p><strong>Choosing the Right Concurrency Model</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "47. Lesson M09-L05",
+        "description": "<p><strong>Lesson M09-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M09-L05 di Python!\")",
+        "expectedOutput": "Belajar Lesson M09-L05 di Python!",
+        "hint": "Pelajari lesson m09-l05.",
         "quiz": {
-            "question": "Apa yang dipelajari di M09 L05?",
+            "question": "Apa yang dipelajari di Lesson M09-L05?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -924,17 +1016,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Choosing the Right Concurrency Model\n**ID**: `M09-L05`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nDecide between threading, multiprocessing, and asyncio based on I/O vs CPU bound tasks.\n\n## Materi\n\n### Konsep Dasar\nPython menawarkan beberapa model concurrency:\n- **Threading**: threads dalam satu process, GIL membatasi CPU-bound parallelism, baik untuk I/O-bound.\n- **Multiprocessing**: multiple processes, bypass GIL, baik untuk CPU-bound.\n- **Asyncio**: single-threaded event loop, cooperative multitasking, sangat baik untuk I/O-bound dengan many concurrent connections.\n\n**Decision Criteria**:\n1. **Task Type**:\n   - I/O-bound (network, disk, database): Threading atau Asyncio\n   - CPU-bound (komputasi, processing): Multiprocessing\n2. **Number of Concurrent Tasks**:\n   - Many (hundreds/thousands) I/O operations: Asyncio lebih efisien (low overhead)\n   - Moderate ( few dozen) I/O operations: Threading cukup\n3. **Legacy Code**:\n   - Jika library blocking (tidak support async), threading lebih mudah\n4. **Complexity**:\n   - Asyncio require async/await pattern; bisa rumit untuk debugging\n   - Threading lebih familiar tapi ada race conditions\n5. **Memory Usage**:\n   - Threads share memory (tapi perlu lock)\n   - Processes terisolasi (lebih memory tapi lebih safe)\n\n### Comparison Table\n\n| Feature | Threading | Multiprocessing | Asyncio |\n|---------|-----------|-----------------|---------|\n| Parallelism | No (GIL) | Yes (multiple processes) | No (cooperative) |\n| Best for | I/O-bound | CPU-bound | I/O-bound, many connections |\n| Overhead | Moderate | High (process creation) | Low |\n| Memory | Shared | Separate | Shared (single thread) |\n| Complexity | Moderate | Moderate | Higher (async/await) |\n| Debugging | Hard (races) | Easier (isolated) | Hard (event loop) |\n\n### When to Use What\n- **Web scraper dengan requests (blocking)**: Threading (simple) atau Asyncio dengan aiohttp (advanced)\n- **Data processing (komputasi berat)**: Multiprocessing\n- **Chat server / real-time web**: Asyncio\n- **GUI aplikasi dengan background tasks**: Threading (jaga UI responsiveness)\n- **Mixing CPU & I/O**: Combine (misal: asyncio untuk I/O, process pool untuk CPU)\n\n### Hybrid Approaches\nBisa menggabungkan: `asyncio` dengan `run_in_executor()` untuk menjalankan blocking code di thread pool atau process pool.\n```python\nloop = asyncio.get_event_loop()\nresult = await loop.run_in_executor(None, blocking_func, arg)\n```\n\n### Detail Teknis\n- Thread safe: data structures seperti `queue.Queue` thread-safe; list/dict tidak\n- Process safe: `multiprocessing.Queue`, `Pipe`, `Manager`\n- Asyncio: semua I/O operations harus async (library support)\n- GIL dilepas saat I/O wait atau explicit release (`time.sleep` juga release GIL)\n- `concurrent.futures` bisa abstraksi: `ThreadPoolExecutor` atau `ProcessPoolExecutor` dengan API yang sama\n- `asyncio` tidak cocok untuk CPU-bound tasks (tidak parallelism)\n\n## Latihan\n\n### Soal 1\nAnda memiliki fungsi CPU-bound `compute_prime(n)` yang memeriksa primality. Ada 20 angka yang harus dicek. Tentukan model concurrency yang tepat dan implementasikan menggunakan `ProcessPoolExecutor`. Justifikasi di komentar.\n\n```python\nfrom concurrent.futures import ProcessPoolExecutor\nimport math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(math.sqrt(n)) + 1):\n        if n % i == 0:\n            return False\n    return True\n\ndef latihan_1(numbers):\n    # Pilih executor yang tepat dan map\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    nums = [112272535095293, 112582705942171, 115280095190773, 115797848077099, 1099726899285419]\n    results = latihan_1(nums)\n    for n, prime in zip(nums, results):\n        print(f\"{n} is prime: {prime}\")\n```\n\n**Expected Output** (contoh):\n```\n112272535095293 is prime: True\n112582705942171 is prime: True\n...\n```\n\n### Soal 2\nAnda perlu fetch 100 URLs secara concurrent (simulasi dengan `time.sleep`). Pilih antara Threading dan Asyncio. Implementasikan dengan Asyncio (gunakan `asyncio.gather` dan `asyncio.sleep`). Buktikan bahwa total waktu kurang dari sequential (100 * 0.1s = 10s).\n\n```python\nimport asyncio\nimport time\n\nasync def fetch(url):\n    await asyncio.sleep(0.1)\n    return f\"Data from {url}\"\n\nasync def latihan_2():\n    urls = [f\"http://example.com/page{i}\" for i in range(100)]\n    start = time.time()\n    # Tulis kode kamu di sini\n    end = time.time()\n    print(f\"Concurrent time: {end-start:.2f}s\")\n\nif __name__ == \"__main__\":\n    asyncio.run(latihan_2())\n```\n\n**Expected Output**:\n```\nConcurrent time: ~0.5-1.0s (much less than 10s)\n```\n\n## Referensi\n- [Real Python - Python Concurrency](https://realpython.com/python-concurrency/)\n- [Python Official Documentation - concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html)\n- [Python Official Documentation - asyncio](https://docs.python.org/3/library/asyncio.html)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M10-L01](M10-L01.md)"
     },
     {
         "id": 48,
-        "title": "48. M10 L01",
-        "description": "<p><strong>Writing Tests with unittest and pytest</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "48. Lesson M10-L01",
+        "description": "<p><strong>Lesson M10-L01</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M10-L01 di Python!\")",
+        "expectedOutput": "Belajar Lesson M10-L01 di Python!",
+        "hint": "Pelajari lesson m10-l01.",
         "quiz": {
-            "question": "Apa yang dipelajari di M10 L01?",
+            "question": "Apa yang dipelajari di Lesson M10-L01?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -943,17 +1037,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Writing Tests with unittest and pytest\n**ID**: `M10-L01`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nWrite unit tests, use assertions, fixtures, and parametrize tests with pytest.\n\n## Materi\n\n### Konsep Dasar\n**Testing**: Memastikan kode berfungsi sesuai yang diharapkan. Unit testing menguji komponen kecil (functions, classes) secara terisolasi.\n\n**unittest** (built-in):\n```python\nimport unittest\n\ndef add(a, b):\n    return a + b\n\nclass TestAdd(unittest.TestCase):\n    def test_add_positive(self):\n        self.assertEqual(add(2, 3), 5)\n\n    def test_add_negative(self):\n        self.assertEqual(add(-1, -1), -2)\n\nif __name__ == '__main__':\n    unittest.main()\n```\nJalankan: `python test_file.py` atau `python -m unittest discover`.\n\n**pytest** (external, lebih populer):\n```python\n# test_file.py\ndef add(a, b):\n    return a + b\n\ndef test_add():\n    assert add(2, 3) == 5\n    assert add(-1, -1) == -2\n```\nJalankan: `pytest` (butuh install `pytest`).\n\n**Fixtures** (pytest): Setup dan teardown untuk test.\n```python\nimport pytest\n\n@pytest.fixture\ndef sample_data():\n    return [1, 2, 3]\n\ndef test_sum(sample_data):\n    assert sum(sample_data) == 6\n```\n\n**Parametrize** (pytest): Test dengan multiple inputs.\n```python\nimport pytest\n\n@pytest.mark.parametrize(\"a,b,expected\", [\n    (1, 2, 3),\n    (-1, 1, 0),\n    (0, 0, 0),\n])\ndef test_add_param(a, b, expected):\n    assert add(a, b) == expected\n```\n\n### Assertions\n- unittest: `assertEqual`, `assertNotEqual`, `assertTrue`, `assertFalse`, `assertIs`, `assertIsNone`, `assertIn`, `assertRaises`, dll.\n- pytest: plain `assert` (lebih simple), dengan introspection yang bagus saat gagal.\n- `pytest.raises()` untuk exception testing:\n  ```python\n  def test_zero_division():\n      with pytest.raises(ZeroDivisionError):\n          1 / 0\n  ```\n\n### Detail Teknis\n- unittest menggunakan OOP (TestClass), pytest lebih fungsional\n- pytest secara otomatis menemukan file `test_*.py` atau `*_test.py`\n- Fixtures bisa scope: function (default), class, module, session\n- `pytest` memiliki plugin ekstensif (coverage, mocking, dll)\n- `unittest` bagian dari stdlib (tidak perlu install)\n- Test organization: tests/ folder terpisah dari source code\n- Coverage: `pytest --cov=my_module tests/` untuk melihat kode yang ditest\n\n## Latihan\n\n### Soal 1\nBuat function `divide(a, b)` yang mengembalikan `a / b` dan raise `ZeroDivisionError` jika `b == 0`. Tulis test untuk fungsi ini menggunakan **unittest**.\n\n```python\n# File: test_math_unittest.py\nimport unittest\n\ndef divide(a, b):\n    # Tulis kode kamu di sini\n    pass\n\nclass TestDivide(unittest.TestCase):\n    # Tulis test methods di sini\n    pass\n\nif __name__ == '__main__':\n    unittest.main()\n```\n\n**Expected Output** (saat `python test_math_unittest.py`):\n```\n..\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n```\n\n### Soal 2\nBuat function `is_palindrome(s)` yang mengembalikan True jika string `s` adalah palindrome (abaikan case dan non-alphanumeric characters). Tulis test menggunakan **pytest** dengan parametrize untuk beberapa kasus: \"Racecar\", \"hello\", \"A man, a plan, a canal: Panama\".\n\n```python\n# File: test_string_pytest.py\nimport re\n\ndef is_palindrome(s):\n    # Tulis kode kamu di sini\n    pass\n\n@pytest.mark.parametrize(\"input_str,expected\", [\n    (\"Racecar\", True),\n    (\"hello\", False),\n    (\"A man, a plan, a canal: Panama\", True),\n])\ndef test_is_palindrome(input_str, expected):\n    assert is_palindrome(input_str) == expected\n```\n\n**Expected Output** (saat `pytest test_string_pytest.py`):\n```\n.. [100%]\n2 passed in 0.01s\n```\n\n## Referensi\n- [Python Official Documentation - unittest](https://docs.python.org/3/library/unittest.html)\n- [Pytest Documentation](https://docs.pytest.org/en/stable/)\n- [Real Python - Testing in Python](https://realpython.com/python-testing/)\n- [W3Schools Python Unit Testing](https://www.w3schools.com/python/python_unit_testing.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M10-L02](M10-L02.md)"
     },
     {
         "id": 49,
-        "title": "49. M10 L02",
-        "description": "<p><strong>Test-Driven Development (TDD) Workflow</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "49. Lesson M10-L02",
+        "description": "<p><strong>Lesson M10-L02</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M10-L02 di Python!\")",
+        "expectedOutput": "Belajar Lesson M10-L02 di Python!",
+        "hint": "Pelajari lesson m10-l02.",
         "quiz": {
-            "question": "Apa yang dipelajari di M10 L02?",
+            "question": "Apa yang dipelajari di Lesson M10-L02?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -962,17 +1058,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Test-Driven Development (TDD) Workflow\n**ID**: `M10-L02`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nFollow Red-Green-Refactor cycle, write tests before implementation.\n\n## Materi\n\n### Konsep Dasar\n**TDD**: Development process di mana kita menulis test terlebih dahulu sebelum implementasi kode. Cycle:\n1. **Red**: Tulis test yang gagal (belum ada implementasi).\n2. **Green**: Tulis minimal kode agar test berhasil (pass).\n3. **Refactor**: Perbaiki kode tanpa mengubah behavior (pastikan test tetap pass).\n\n**Benefits**:\n- Desain API dari sudut pandang pengguna\n- Confidence dalam refactoring\n- Documentation via tests\n- Prevent bugs\n\n### TDD Steps Example\n```python\n# test_calculator.py\ndef test_add():\n    assert add(2, 3) == 5\n\n# calculator.py\ndef add(a, b):\n    return a + b  # implementasi paling sederhana\n```\n\n**Red**: test gagal karena `add` belum ada.\n**Green**: implement `add` paling sederhana.\n**Refactor**: improve implementation (misal: handle edge cases) sambil menjaga test tetap pass.\n\n### Practical Tips\n- Start dengan test-case yang jelas\n- Test satu behavior per test function\n- Use descriptive test names: `test_function_should_...`\n- Keep tests fast dan independent\n- Use fixtures untuk setup common data\n- Run tests frequently\n\n### Detail Teknis\n- TDD bukan berarti test 100% coverage; fokus pada behavior penting\n- Bisa test exception: `with pytest.raises(ValueError): func(...)`\n- Refactor bisa mencakup: rename variables, extract functions, improve algorithms\n- Tetap maintainable: test code juga perlu dibersihkan secara berkala\n- TDD cocok untuk功能 development; untuk exploration/prototyping mungkin kurang\n\n## Latihan\n\n### Soal 1\nGunakan TDD untuk mengembangkan fungsi `factorial(n)` yang menghitung factorial dari non-negative integer. Tulis test terlebih dahulu (dengan pytest). Lalu implementasi paling sederhana agar test pass. Kemudian refactor untuk handle edge cases (factorial(0)=1, negative raise ValueError).\n\n```python\n# test_factorial_tdd.py\nimport pytest\n\ndef factorial(n):\n    # Implementation awal (hanya untuk passing test)\n    pass\n\n@pytest.mark.parametrize(\"n,expected\", [\n    (0, 1),\n    (1, 1),\n    (5, 120),\n])\ndef test_factorial(n, expected):\n    assert factorial(n) == expected\n\ndef test_factorial_negative():\n    with pytest.raises(ValueError):\n        factorial(-1)\n```\n\n**Expected Output** (saat `pytest`):\n```\n3 passed in 0.01s\n```\n\n### Soal 2\nTDD untuk class `BankAccount`:\n- `__init__(self, initial_balance=0)` set balance\n- `deposit(amount)` tambah balance, return None; amount harus >0, else ValueError\n- `withdraw(amount)` kurangi balance, return None; amount >0 dan <= balance, else ValueError\n- `get_balance()` return balance\n\nTulis test terlebih dahulu (menggunakan pytest), lalu implement, lalu refactor.\n\n```python\n# test_bank_account_tdd.py\nclass BankAccount:\n    # Tulis implementasi\n    pass\n\ndef test_initial_balance():\n    acc = BankAccount()\n    assert acc.get_balance() == 0\n\ndef test_deposit():\n    acc = BankAccount()\n    acc.deposit(100)\n    assert acc.get_balance() == 100\n\ndef test_deposit_negative():\n    acc = BankAccount()\n    with pytest.raises(ValueError):\n        acc.deposit(-50)\n\ndef test_withdraw():\n    acc = BankAccount(100)\n    acc.withdraw(30)\n    assert acc.get_balance() == 70\n\ndef test_withdraw_insufficient():\n    acc = BankAccount(50)\n    with pytest.raises(ValueError):\n        acc.withdraw(100)\n```\n\n**Expected Output**:\n```\n5 passed in 0.02s\n```\n\n## Referensi\n- [Test-Driven Development with Python](https://testdriven.io/) (book/resources)\n- [Real Python - Test-Driven Development with pytest](https://realpython.com/pytest-python-testing/)\n- [W3Schools Python TDD](https://www.w3schools.com/python/python_ai_testing.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M10-L03](M10-L03.md)"
     },
     {
         "id": 50,
-        "title": "50. M10 L03",
-        "description": "<p><strong>Debugging with pdb and IDE Debuggers</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "50. Lesson M10-L03",
+        "description": "<p><strong>Lesson M10-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M10-L03 di Python!\")",
+        "expectedOutput": "Belajar Lesson M10-L03 di Python!",
+        "hint": "Pelajari lesson m10-l03.",
         "quiz": {
-            "question": "Apa yang dipelajari di M10 L03?",
+            "question": "Apa yang dipelajari di Lesson M10-L03?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -981,17 +1079,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Debugging with pdb and IDE Debuggers\n**ID**: `M10-L03`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nSet breakpoints, step through code, inspect variables, use post-mortem debugging.\n\n## Materi\n\n### Konsep Dasar\n**Debugging**: Proses menemukan dan memperbaiki bugs. Python memiliki debugger bawaan `pdb` (Python Debugger) dan semua IDE modern memiliki debugger GUI.\n\n**pdb Commands**:\n- `l` (list): tampilkan kode di sekitar posisi saat ini\n- `n` (next): eksekusi baris berikutnya (step over)\n- `s` (step): step into function call\n- `c` (continue): lanjutkan sampai breakpoint berikutnya atau selesai\n- `r` (return): continue sampai return dari current function\n- `p expr` (print): evaluate expression dan print\n- `pp expr`: pretty-print\n- `b [file:]lineno` atau `b func`: set breakpoint\n- `cl` atau `clear`: hapus breakpoint\n- `w` (where): print stack trace\n- `u` (up) / `d` (down): navigate stack frames\n- `q` (quit): keluar dari debugger\n\n**Using pdb**:\n```python\nimport pdb\n\ndef buggy_function(x):\n    pdb.set_trace()  # breakpoint\n    result = x / (x - 5)\n    return result\n\nbuggy_function(10)\n```\nJalankan script, akan berhenti di `set_trace()`. Atau: `python -m pdb script.py` untuk debug dari awal.\n\n**Post-mortem Debugging**: Setelah exception, gunakan `import pdb; pdb.pm()` untuk masuk ke debugger di posisi where exception terjadi.\n\n**IDE Debuggers**:\n- VS Code, PyCharm, dll: breakpoint via klik, watch variables, step over/into, continue, evaluate expression, conditional breakpoints.\n- Lebih user-friendly, graphical.\n\n### Detail Teknis\n- `breakpoint()` (Python 3.7+) adalah function yang memanggil debugger sesuai `sys.breakpointhook`. Default `pdb.set_trace()`. Bisa ubah dengan env `PYTHONBREAKPOINT`.\n- `pdb.Pdb()` bisa subclass untuk custom commands.\n- `pdb.run(statement)` atau `pdb.runcall(function, *args, **kwargs)` untuk programmatic debugging.\n- `pdb.post_mortem(traceback)` untuk post-mortem.\n- Conditional breakpoints: `b 42, x > 5` (break di line 42 jika x>5)\n- Ignore count: `b func, ignore:10` (skip 10 kali)\n- `display expr`: auto-print expr setiap stop\n- `undisplay` untuk hapus display\n- `pdb` bisa remote debugging via `pdb.runcall` atau `pdb.set_trace()`\n\n## Latihan\n\n### Soal 1\nGunakan `pdb` untuk men-debug fungsi berikut yang memiliki bug (off-by-one). Set breakpoint, step through, periksa variabel, temukan bug, dan perbaiki.\n\n```python\ndef sum_range(n):\n    total = 0\n    for i in range(1, n):\n        total += i\n    return total\n\nif __name__ == \"__main__\":\n    print(sum_range(5))  # seharusnya 1+2+3+4 = 10, tapi output?\n```\n\n**Tugas**: Tambah `pdb.set_trace()`, jalankan, cek nilai `i` dan `total` tiap iterasi, temukan bahwa `range(1,n)` seharusnya `range(1, n+1)` atau `range(n+1)`. Perbaiki.\n\n**Expected Output** (setelah perbaikan):\n```\n10\n```\n\n### Soal 2\nBuat fungsi rekursif `factorial(n)` yang memiliki bug (tidak handle base case 0). Gunakan post-mortem debugging: panggil fungsi dengan nilai yang akan cause exception, lalu import pdb dan `pdb.pm()`.\n\n```python\ndef factorial(n):\n    return n * factorial(n-1)  # missing base case\n\nif __name__ == \"__main__\":\n    try:\n        print(factorial(5))\n    except RecursionError:\n        import pdb\n        pdb.pm()  # debug di posisi exception\n```\n\n**Tugas**: Setelah masuk ke pdb, lihat stack trace (`w`), cek nilai `n` di setiap frame, temukan bahwa base case `if n == 0: return 1` tidak ada. Tambahkan base case dan verifikasi.\n\n**Expected Output** (setelah perbaikan):\n```\n120\n```\n\n## Referensi\n- [Python Official Documentation - pdb](https://docs.python.org/3/library/pdb.html)\n- [Real Python - Python Debugging with pdb](https://realpython.com/python-debugging-pdb/)\n- [W3Schools Python Debugging](https://www.w3schools.com/python/python_debugging.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M10-L04](M10-L04.md)"
     },
     {
         "id": 51,
-        "title": "51. M10 L04",
-        "description": "<p><strong>Logging: The Right Way to Print</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "51. Lesson M10-L04",
+        "description": "<p><strong>Lesson M10-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M10-L04 di Python!\")",
+        "expectedOutput": "Belajar Lesson M10-L04 di Python!",
+        "hint": "Pelajari lesson m10-l04.",
         "quiz": {
-            "question": "Apa yang dipelajari di M10 L04?",
+            "question": "Apa yang dipelajari di Lesson M10-L04?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -1000,17 +1100,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Logging: The Right Way to Print\n**ID**: `M10-L04`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nConfigure logging module, use different log levels, format logs, and file handlers.\n\n## Materi\n\n### Konsep Dasar\n**Logging** menggantikan `print()` untuk production. Memungkinkan level keparahan, output ke file/console, formatting, dan rotasi.\n\n**Basic Usage**:\n```python\nimport logging\n\nlogging.debug(\"Debug message\")\nlogging.info(\"Info message\")\nlogging.warning(\"Warning message\")\nlogging.error(\"Error message\")\nlogging.critical(\"Critical message\")\n```\nDefault level adalah `WARNING`, jadi `debug` dan `info` tidak muncul.\n\n**Configuration**:\n```python\nlogging.basicConfig(\n    level=logging.DEBUG,\n    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',\n    filename='app.log',\n    filemode='a'\n)\n```\n\n**Loggers**:\n```python\nlogger = logging.getLogger(__name__)\nlogger.debug(\"Message\")\n```\nSetiap module bisa punya logger sendiri.\n\n### Log Levels\n- `DEBUG`: detail info, biasanya untuk debugging\n- `INFO`: konfirmasi things work as expected\n- `WARNING`: something unexpected happened, but program continues\n- `ERROR`: serious problem, some functionality failed\n- `CRITICAL`: very serious error, program may stop\n\n### Handlers\n- `StreamHandler()` → console (sys.stdout/stderr)\n- `FileHandler(filename)` → file\n- `RotatingFileHandler(filename, maxBytes, backupCount)` → rotate file when too big\n- `TimedRotatingFileHandler` → rotate based on time\n- Banyak handlers sekaligus (log ke console dan file)\n\n### Formatting\nFormat string menggunakan placeholders:\n- `%(asctime)s`: waktu\n- `%(name)s`: logger name\n- `%(levelname)s`: level name\n- `%(message)s`: pesan\n- `%(filename)s`, `%(lineno)d`: lokasi\n\n### Detail Teknis\n- `basicConfig()` hanya efektif jikabelum ada handlers\n- Logger hierarchy: `logging.getLogger('A.B')` inherit settings dari `'A'` kecuali override\n- `logger.propagate = False` untuk stop propagasi ke parent logger\n- `logging.disable(level)` untuk disable log di bawah level tertentu\n- `try/except` lalu `logger.exception()` otomatis include traceback\n- `NullHandler()` untuk menghindari \"No handlers could be found\" warning\n- `logging.config.dictConfig()` untuk konfigurasi kompleks via dict/YAML\n\n## Latihan\n\n### Soal 1\nBuat program yang mengatur logging untuk mencatat semua level (DEBUG ke CRITICAL) ke file `app.log` dengan format: `[LEVEL] timestamp: message`. Juga tampilkan WARNING dan lebih tinggi ke console. Gunakan `RotatingFileHandler` dengan max 10KB, 3 backups.\n\n```python\nimport logging\nfrom logging.handlers import RotatingFileHandler\n\ndef latihan_1():\n    # Tulis konfigurasi logging\n    logger = logging.getLogger(__name__)\n    logger.setLevel(logging.DEBUG)\n\n    # File handler (all levels) dengan rotation\n    # Console handler (WARNING+)\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1()\n    logging.debug(\"Debug info\")\n    logging.info(\"Info message\")\n    logging.warning(\"Warning!\")\n    logging.error(\"Error occurred\")\n    logging.critical(\"Critical failure\")\n```\n\n**Expected Output** (app.log):\n```\n[DEBUG] 2026-02-24 02:32:15,123: Debug info\n[INFO] 2026-02-24 02:32:15,124: Info message\n[WARNING] 2026-02-24 02:32:15,124: Warning!\n[ERROR] 2026-02-24 02:32:15,124: Error occurred\n[CRITICAL] 2026-02-24 02:32:15,125: Critical failure\n```\nConsole hanya menampilkan WARNING ke atas.\n\n### Soal 2\nBuat module `database.py` dengan fungsi `connect()` yang mensimulasikan koneksi DB. Gunakan logger dengan nama `'database'`. Di `connect()`, log info \"Connecting to database...\", lalu jika success log info \"Connected\", jika error log error. Di script utama, konfigurasi root logger ke file, lalu import `database` dan panggil `connect()`. Buktikan bahwa logger module terpisah namun tetap menulis ke file yang sama (jika tidak diatur, bisa ikut parent logger).\n\n```python\n# database.py\nimport logging\nlogger = logging.getLogger(__name__)\n\ndef connect():\n    # Tulis kode dengan logging\n    pass\n```\n\n```python\n# main.py\nimport logging\nimport database\n\ndef latihan_2():\n    logging.basicConfig(filename='db.log', level=logging.INFO,\n                        format='%(name)s - %(levelname)s: %(message)s')\n    database.connect()\n\nif __name__ == \"__main__\":\n    latihan_2()\n```\n\n**Expected Output** (db.log):\n```\ndatabase - INFO: Connecting to database...\ndatabase - INFO: Connected\n```\n\n## Referensi\n- [Python Official Documentation - logging](https://docs.python.org/3/library/logging.html)\n- [Real Python - Python Logging](https://realpython.com/python-logging/)\n- [W3Schools Python Logging](https://www.w3schools.com/python/python_logging.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M10-L05](M10-L05.md)"
     },
     {
         "id": 52,
-        "title": "52. M10 L05",
-        "description": "<p><strong>Code Quality: PEP 8, Linters, and Formatters</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "52. Lesson M10-L05",
+        "description": "<p><strong>Lesson M10-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M10-L05 di Python!\")",
+        "expectedOutput": "Belajar Lesson M10-L05 di Python!",
+        "hint": "Pelajari lesson m10-l05.",
         "quiz": {
-            "question": "Apa yang dipelajari di M10 L05?",
+            "question": "Apa yang dipelajari di Lesson M10-L05?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -1019,17 +1121,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Code Quality: PEP 8, Linters, and Formatters\n**ID**: `M10-L05`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nFollow PEP 8, use flake8/pylint, and auto-format with black and isort.\n\n## Materi\n\n### Konsep Dasar\n**PEP 8**: Style guide untuk Python code. Menjaga konsistensi readability.\n\n**Key PEP 8 Rules**:\n- Indentation: 4 spaces per level (no tabs)\n- Maximum line length: 79 characters (PEP 8) or 99 (many modern projects)\n- Blank lines: 2 between top-level functions/classes, 1 between methods\n- Imports: grouped (standard library, third-party, local), each group separated by blank line; within group sorted alphabetically\n- Naming: `snake_case` for functions/variables, `CamelCase` for classes, `UPPER_SNAKE_CASE` for constants\n- Whitespace: around operators after commas, but not inside parentheses/brackets/braces\n- Trailing commas in multi-line collections\n\n**Linters**: Tools yang menganalisis code untuk potential errors dan style violations.\n- **flake8**: combination of PyFlakes (errors), pycodestyle (PEP 8), McCabe (complexity)\n- **pylint**: lebih verbose, lebih banyak checks (best practices, design, etc.)\n\n**Formatters**: Auto-format code sesuai style guide.\n- **black**: \"uncompromising\" formatter, opinionated, konsisten\n- **isort**:专门 untuk sorting imports\n\n### Using flake8\n```bash\npip install flake8\nflake8 my_module.py\n```\nOutput: `file.py:line:col: code message`\n\n### Using black\n```bash\npip install black\nblack my_module.py  # modifies file in-place\nblack . --check  # check only, no change\n```\n\n### Using isort\n```bash\npip install isort\nisort my_module.py  # sort imports\n```\n\n### Pre-commit Hooks\nGunakan `pre-commit` framework untuk otomatis run linters/formatters sebelum commit.\n```yaml\n# .pre-commit-config.yaml\nrepos:\n  - repo: https://github.com/psf/black\n    rev: 22.3.0\n    hooks:\n      - id: black\n  - repo: https://github.com/pycqa/isort\n    rev: 5.10.1\n    hooks:\n      - id: isort\n  - repo: https://github.com/pycqa/flake8\n    rev: 4.0.1\n    hooks:\n      - id: flake8\n```\nInstall: `pre-commit install`, lalu otomatis setiap `git commit`.\n\n### Detail Teknis\n- flake8 config via `setup.cfg`, `tox.ini`, or `.flake8`\n- pylint messages: `C` (convention), `R` (refactor), `W` (warning), `E` (error), `F` (fatal)\n- black line length default 88 characters (bisa ubah dengan `--line-length`)\n- black tidak mengubah semantics; hanya formatting\n- isort profile: `black` profile untuk compatibility dengan black\n- Bisa integrate dengan IDE (VS Code, PyCharm) untuk on-save formatting\n- CI/CD pipelines: run linters dan formatters check\n\n## Latihan\n\n### Soal 1\nInstal flake8 dan black (jika belum). Ambil file kode yang buruk style (berikan contoh), lalu:\n- Jalankan `flake8` untuk melihat violations\n- Perbaiki manual sesuai PEP 8\n- Jalankan `black` untuk auto-format\n- Verifikasi `flake8` lagi (harus lebih sedikit violations)\n\nContoh kode buruk:\n```python\ndef add(a,b):\n    return a+b\n```\n\nSetelah black: `def add(a, b):\\n    return a + b`\n\n**Tugas**: Tulis script yang sengaja violates PEP 8 (misal: long line, bad spacing, mixed imports), lalu perbaiki dengan tools.\n\n```bash\n# commands to run\nflake8 bad_style.py\nblack bad_style.py\nflake8 bad_style.py\n```\n\n**Expected Output**: flake8 pertama shows violations, setelah black shows none (or fewer).\n\n### Soal 2\nBuat file module dengan imports dari standard library, third-party, dan local. Lalu:\n- Jalankan `isort` untuk sort imports dengan profile black\n- Cek urutan: standard (alphabetical), blank line, third-party (alphabetical), blank line, local (alphabetical)\n- Buat `.isort.cfg` atau `pyproject.toml` untuk konfigurasi\n\n```python\n# mymodule.py (sebelum isort)\nimport os\nimport sys\nimport numpy as np\nfrom mypackage import local_module\nimport requests\nfrom datetime import datetime\n\ndef main():\n    pass\n```\n\nSetelah isort:\n```python\nimport os\nimport sys\nfrom datetime import datetime\n\nimport numpy as np\nimport requests\n\nfrom mypackage import local_module\n```\n\n**Tugas**: Jalankan isort, periksa hasilnya.\n\n**Expected Output**: imports terurut sesuai grup dan alphabet.\n\n## Referensi\n- [PEP 8 -- Style Guide for Python Code](https://peps.python.org/pep-0008/)\n- [flake8 Documentation](https://flake8.pycqa.org/en/latest/)\n- [black Documentation](https://black.readthedocs.io/en/stable/)\n- [isort Documentation](https://pycqa.github.io/isort/)\n- [pre-commit Documentation](https://pre-commit.com/)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M10-L06](M10-L06.md)"
     },
     {
         "id": 53,
-        "title": "53. M10 L06",
-        "description": "<p><strong>Type Checking with mypy</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "53. Lesson M10-L06",
+        "description": "<p><strong>Lesson M10-L06</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M10-L06 di Python!\")",
+        "expectedOutput": "Belajar Lesson M10-L06 di Python!",
+        "hint": "Pelajari lesson m10-l06.",
         "quiz": {
-            "question": "Apa yang dipelajari di M10 L06?",
+            "question": "Apa yang dipelajari di Lesson M10-L06?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -1038,17 +1142,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Type Checking with mypy\n**ID**: `M10-L06`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nRun static type checking, understand common mypy errors, improve code reliability.\n\n## Materi\n\n### Konsep Dasar\n**mypy**: Static type checker untuk Python. Memeriksa kode berdasarkan type hints (PEP 484) tanpa menjalankannya. Menemukan potential type errors sebelum runtime.\n\n**Installation**:\n```bash\npip install mypy\n```\n\n**Basic Usage**:\n```bash\nmypy my_module.py\n```\nOutput: error messages dengan baris dan kolom.\n\n**Type Hints**: Tambahkan `: type` untuk parameters dan `-> type` untuk return.\n```python\ndef greet(name: str) -> str:\n    return \"Hello \" + name\n```\n\n### Common mypy Errors\n- **Incompatible types**: `Argument 1 to \"foo\" has incompatible type \"int\"; expected \"str\"`\n- **Missing attributes**: `Item \"int\" of \"Union[int, str]\" has no attribute \"upper\"`\n- **Invalid return type**: `Missing type parameters for generic type \"List\"`\n- **Unused ignore**: `error: unused \"type: ignore\" comment`\n- **Name undefined**: `Name 'x' is not defined`\n\n### Configuring mypy\nFile `mypy.ini` atau `pyproject.toml`:\n```ini\n[mypy]\npython_version = 3.9\nwarn_return_any = True\nwarn_unused_configs = True\ndisallow_untyped_defs = True\ncheck_untyped_defs = True\n```\nAtau command-line flags: `mypy --strict my_module.py`.\n\n### Type Hinting Tips\n- Gunakan `from typing import List, Dict, Optional, Union, Callable, Any`\n- Python 3.9+: `list[int]`, `dict[str, int]` (built-in collection types)\n- `Optional[T]` sama dengan `Union[T, None]`\n- `Any` menonaktifkan checking (hindari jika bisa)\n- `cast(type, value)` untuk tell mypy about type you know\n- `TypedDict` untuk dictionary dengan specific keys\n- `Protocol` untuk structural subtyping (duck typing with types)\n\n### Detail Teknis\n- mypy check function bodies, tapi tidak mengeksekusi kode\n- Bisa ignore error dengan `# type: ignore` (tapi sebaiknya hindari)\n- `--ignore-missing-imports` untuk packages tanpa stubs\n- Third-party packages mungkin perlu type stubs (`types-requests`, dll)\n- `mypy` bisa diintegrasikan ke CI pipeline\n- `reveal_type(expr)` akan menampilkan type yang di-infer oleh mypy (debugging type hints)\n- `# mypy: follow-imports=skip` untuk ignore imported modules\n\n## Latihan\n\n### Soal 1\nBuat file `calculator.py` dengan fungsi-fungsi matematika sederhana (tambahan, pengurangan, perkalian, pembagian) dengan type hints (parameter `float`, return `float`). Tambahkan juga fungsi `average(nums: list[float]) -> float`. Lalu jalankan `mypy` pada file itu. Perbaiki semua errors (misal: penggunaan `int` di mana `float` diharapkan, atau return `None`).\n\n```python\n# calculator.py\ndef add(a: float, b: float) -> float:\n    return a + b\n\ndef subtract(a: float, b: float) -> float:\n    return a - b\n\ndef multiply(a: float, b: float) -> float:\n    return a * b\n\ndef divide(a: float, b: float) -> float:\n    if b == 0:\n        return None  # mypy akan complain karena None vs float\n    return a / b\n\ndef average(nums: list) -> float:\n    return sum(nums) / len(nums)\n\nif __name__ == \"__main__\":\n    print(average([1, 2, 3]))\n```\n\n**Tugas**: Jalankan `mypy calculator.py`. Perbaiki errors:\n- `divide` harus return `float` atau raise exception, jangan `None`\n- `average` parameter harus `list[float]` (atau `Sequence[float]`)\n- Pastikan semua type hints konsisten.\n\n**Expected Output** setelah perbaikan:\n```\nSuccess: no issues found in 1 source file\n```\n\n### Soal 2\nBuat module `data_processor.py` dengan fungsi yang menggunakan `TypedDict` dan `Optional`. Contoh: fungsi `process_user(user: UserDict) -> str` dengan `UserDict = TypedDict('UserDict', {'name': str, 'age': int})`. Juga fungsi `find_user(users: list[UserDict], name: str) -> Optional[UserDict]`. Tambahkan type hints, lalu cek dengan mypy.\n\n```python\nfrom typing import TypedDict, Optional, List\n\nUser = TypedDict('User', {'name': str, 'age': int})\n\ndef process_user(user: User) -> str:\n    return f\"{user['name']} is {user['age']} years old\"\n\ndef find_user(users: List[User], name: str) -> Optional[User]:\n    for u in users:\n        if u['name'] == name:\n            return u\n    return None\n\nif __name__ == \"__main__\":\n    users = [{'name': 'Alice', 'age': 25}, {'name': 'Bob', 'age': 30}]\n    print(process_user(users[0]))\n    print(find_user(users, 'Charlie'))  # None\n```\n\n**Tugas**: Jalankan `mypy data_processor.py`. Harus `Success`.\n\n**Expected Output**:\n```\nSuccess: no issues found in 1 source file\n```\n\n## Referensi\n- [mypy Documentation](https://mypy.readthedocs.io/en/stable/)\n- [PEP 484 -- Type Hints](https://peps.python.org/pep-0484/)\n- [Real Python - Python Type Checking](https://realpython.com/python-type-checking/)\n- [W3Schools Python Type Hinting](https://www.w3schools.com/python/python_type_hinting.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M10-L07](M10-L07.md)"
     },
     {
         "id": 54,
-        "title": "54. M10 L07",
-        "description": "<p><strong>Profiling and Performance Optimization</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "54. Lesson M10-L07",
+        "description": "<p><strong>Lesson M10-L07</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M10-L07 di Python!\")",
+        "expectedOutput": "Belajar Lesson M10-L07 di Python!",
+        "hint": "Pelajari lesson m10-l07.",
         "quiz": {
-            "question": "Apa yang dipelajari di M10 L07?",
+            "question": "Apa yang dipelajari di Lesson M10-L07?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -1057,17 +1163,19 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Profiling and Performance Optimization\n**ID**: `M10-L07`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nProfile code with cProfile, timeit, and line_profiler; identify bottlenecks.\n\n## Materi\n\n### Konsep Dasar\n**Profiling**: Mengukur performance code (waktu eksekusi, function calls) untuk menemukan bottleneck.\n\n**cProfile**: Built-in deterministic profiler (mengukur function calls dan waktu).\n```bash\npython -m cProfile -o profile.out my_script.py\n```\nAtau dalam kode:\n```python\nimport cProfile\nimport pstats\n\nprofiler = cProfile.Profile()\nprofiler.enable()\n# code to profile\nprofiler.create_stats()\nstats = pstats.Stats(profiler)\nstats.sort_stats('cumulative').print_stats(10)  # top 10 by cumulative time\n```\n\n**timeit**: Untuk mengukur small code snippets.\n```python\nimport timeit\n\ntime = timeit.timeit('\"-\".join(str(n) for n in range(100))', number=10000)\nprint(time)\n```\nAtau di command line: `python -m timeit '\"-\".join(str(n) for n in range(100))'`.\n\n**line_profiler** (external): Profiler per baris kode. Butuh install `line_profiler` dan decorator `@profile`.\n```bash\npip install line_profiler\nkernprof -l -v my_script.py\n```\n\n### Interpreting Results\n- **cProfile**: kolom `ncalls` (number of calls), `tottime` (time dalam fungsi itu sendiri), `percall` (tottime/ncalls), `cumtime` (total time termasuk fungsi yang dipanggil), `percall` (cumtime/ncalls)\n- Fokus pada fungsi dengan `cumtime` tinggi atau `tottime` tinggi (bisa jadi recursive)\n- `line_profiler` menunjukkan waktu per baris, membantu menemukan baris spesifik yang lambat\n\n### Optimization Strategies\n- Choose right data structures (list vs set untuk membership)\n- Avoid unnecessary computations (cache results, memoization)\n- Use built-in functions (lebih cepat)\n- Algorithmic improvements (O(n^2) → O(n log n))\n- Local variables (lebih cepat daripada global)\n- Loop optimizations (avoid work inside loop jika bisa)\n- Use `join()`Instead of repeated string concatenation\n\n### Detail Teknis\n- `pstats.Stats` bisa save to file, sort by different columns (`'time'`, `'calls'`, `'cumulative'`)\n- `cProfile` memiliki overhead; untuk production gunakan sampling profiler (seperti `yappi` atau `py-spy`)\n- `timeit` otomatis disable garbage collector; bisa di-enable dengan `setup='gc.enable()'`\n- `line_profiler` memerlukan decorator `@profile` pada fungsi yang ingin di-profile; jalankan dengan `kernprof`\n- Profiling memory: `memory_profiler` module (line-by-line memory usage)\n- `snakeviz` untuk visualize cProfile output (graphical)\n\n## Latihan\n\n### Soal 1\nBuat dua fungsi: `sum_squares(n)` yang menghitung jumlah kuadrat dari 1 sampai n dengan loop, dan `sum_squares_formula(n)` yang menggunakan rumus matemática `n*(n+1)*(2n+1)/6`. Profile kedua fungsi untuk `n=1000000` menggunakan `timeit`. Bandingkan waktu.\n\n```python\nimport timeit\n\ndef sum_squares(n):\n    total = 0\n    for i in range(1, n+1):\n        total += i * i\n    return total\n\ndef sum_squares_formula(n):\n    return n * (n+1) * (2*n+1) // 6\n\ndef latihan_1():\n    n = 1000000\n    time_loop = timeit.timeit(lambda: sum_squares(n), number=10)\n    time_formula = timeit.timeit(lambda: sum_squares_formula(n), number=10)\n    print(f\"Loop: {time_loop:.4f}s\")\n    print(f\"Formula: {time_formula:.4f}s\")\n\nif __name__ == \"__main__\":\n    latihan_1()\n```\n\n**Expected Output** (contoh):\n```\nLoop: 0.5432s\nFormula: 0.0001s\n```\n\n### Soal 2\nGunakan `cProfile` untuk menganalisis fungsi yang melakukan banyak recursive calls (misal: Fibonacci naive). Tampilkan top 5 fungsi berdasarkan `cumulative` time.identifikasi bottleneck.\n\n```python\nimport cProfile\nimport pstats\n\ndef fib(n):\n    if n <= 1:\n        return n\n    return fib(n-1) + fib(n-2)\n\ndef latihan_2():\n    profiler = cProfile.Profile()\n    profiler.enable()\n    result = fib(30)\n    profiler.create_stats()\n    stats = pstats.Stats(profiler)\n    stats.sort_stats('cumulative').print_stats(5)\n    print(f\"Result: {result}\")\n\nif __name__ == \"__main__\":\n    latihan_2()\n```\n\n**Expected Output** (contoh):\n```\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n  1346263    0.200    0.000    0.200    0.000 <string>:1(fib)\n        1    0.000    0.000    0.200    0.200 <string>:1(<module>)\n...\nResult: 832040\n```\n\n## Referensi\n- [Python Official Documentation - cProfile](https://docs.python.org/3/library/cProfile.html)\n- [Python Official Documentation - timeit](https://docs.python.org/3/library/timeit.html)\n- [Real Python - Python Profiling](https://realpython.com/python-performance-analysis/)\n- [W3Schools Python Optimization](https://www.w3schools.com/python/python_optimization.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, lanjutkan ke:\n- [M10-L08](M10-L08.md)"
     },
     {
         "id": 55,
-        "title": "55. M10 L08",
-        "description": "<p><strong>Packaging and Distributing Python Packages</strong></p>",
-        "defaultCode": "print(\"Hello, Python!\")",
-        "expectedOutput": "Hello, Python!",
-        "hint": "Pelajari materi dan coba kode di editor.",
+        "title": "55. Lesson M10-L08",
+        "description": "<p><strong>Lesson M10-L08</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
+        "defaultCode": "print(\"Belajar Lesson M10-L08 di Python!\")",
+        "expectedOutput": "Belajar Lesson M10-L08 di Python!",
+        "hint": "Pelajari lesson m10-l08.",
         "quiz": {
-            "question": "Apa yang dipelajari di M10 L08?",
+            "question": "Apa yang dipelajari di Lesson M10-L08?",
             "options": [
                 "Opsi A",
                 "Opsi B",
@@ -1076,6 +1184,8 @@ const lessons = [
             ],
             "answer": 0
         },
+        "moduleId": 6,
+        "module": "Lanjutan",
         "mdContent": "# Packaging and Distributing Python Packages\n**ID**: `M10-L08`  \n**Type**: lesson  \n**Duration**: 30-60 menit  \n**Tags**: python, tutorial\n\n## Tujuan Pembelajaran\nCreate setup.py/pyproject.toml, build distributions, and publish to PyPI (optional).\n\n## Materi\n\n### Konsep Dasar\n**Packaging**: Mengorganisir kode menjadi package yang bisa diinstall via `pip`. Package adalah direktori dengan `__init__.py` dan modul-modul lainnya, plus file metadata.\n\n**pyproject.toml** (modern, direkomendasikan):\n```toml\n[build-system]\nrequires = [\"setuptools>=61.0\", \"wheel\"]\nbuild-backend = \"setuptools.build_meta\"\n\n[project]\nname = \"mypackage\"\nversion = \"0.1.0\"\ndescription = \"Short description\"\nauthors = [{name=\"Your Name\", email=\"you@example.com\"}]\nreadme = \"README.md\"\nlicense = {text=\"MIT\"}\nclassifiers = [\n    \"Programming Language :: Python :: 3\",\n    \"License :: OSI Approved :: MIT License\",\n]\ndependencies = [\n    \"requests>=2.0\",\n]\n\n[project.optional-dependencies]\ndev = [\n    \"pytest>=6.0\",\n    \"black\",\n]\n\n[project.urls]\nHomepage = \"https://github.com/username/mypackage\"\n```\n\n**setup.py** (legacy, masih umum):\n```python\nfrom setuptools import setup, find_packages\n\nsetup(\n    name=\"mypackage\",\n    version=\"0.1.0\",\n    packages=find_packages(),\n    install_requires=[\"requests>=2.0\"],\n    python_requires=\">=3.8\",\n    entry_points={\n        \"console_scripts\": [\n            \"mycmd=mypackage.cli:main\",\n        ],\n    },\n)\n```\n\n### Building Distributions\n```bash\npython -m pip install --upgrade build twine\npython -m build  # creates dist/*.whl dan dist/*.tar.gz\n```\n- Wheel (`.whl`): binary distribution (pre-compiled, install cepat)\n- Source (`.tar.gz`): source distribution (dikompile saat install)\n\n### Publishing to PyPI\n```bash\npython -m twine upload dist/*\n```\nButuh akun PyPI (test: test.pypi.org). Bisa juga upload ke private repository.\n\n### Package Structure\n```\nmypackage/\n├── pyproject.toml\n├── README.md\n├── LICENSE\n├── src/\n│   └── mypackage/\n│       ├── __init__.py\n│       ├── module1.py\n│       └── module2.py\n└── tests/\n    └── test_module1.py\n```\nGunakan `src/` layout untuk menghindari import conflict saat development.\n\n### Entry Points\nConsole scripts: `entry_points={'console_scripts': ['cmd=module:function']}` memungkinkan install command-line tool.\n\n### Versioning\nGunakan [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`.\n\n### Detail Teknis\n- `find_packages(where=\"src\")` jika paket di `src/`\n- `include_package_data=True` untuk include non-Python files (via MANIFEST.in)\n- `package_data={\"mypackage\": [\"data/*.json\"]}` untuk data files dalam package\n- `exclude_package_data` untuk mengecualikan\n- `setup.cfg` bisa digunakan bersama `setup.py` untuk deklaratif config\n- `twine check dist/*` untuk validasi sebelum upload\n- `python -m build --sdist` dan `--wheel` untuk build tertentu\n- Dependency management: `install_requires`, `extras_require` (optional dependencies)\n- `setup_requires` untuk build-time dependencies (jarang)\n\n## Latihan\n\n### Soal 1\nBuat package sederhana `math_utils` dengan struktur:\n```\nmath_utils/\n├── pyproject.toml (atau setup.py)\n├── README.md\n└── src/\n    └── math_utils/\n        ├── __init__.py (export add, subtract)\n        ├── basic.py (def add(a,b), subtract(a,b))\n        └── advanced.py (def multiply(a,b), divide(a,b))\n```\nIsi `pyproject.toml` dengan metadata minimal (name, version, packages via setuptools). Build package dengan `python -m build`. Cek hasil di `dist/`.\n\n```bash\n# commands\ncd math_utils\npython -m build\nls dist/\n```\n\n**Expected Output**: file `math_utils-0.1.0-py3-none-any.whl` dan `.tar.gz`.\n\n### Soal 2\nBuat package dengan console script entry point. Misal package `greeter` dengan module `cli.py` berisi:\n```python\ndef main():\n    import sys\n    name = sys.argv[1] if len(sys.argv)>1 else \"World\"\n    print(f\"Hello, {name}!\")\n```\nDi `pyproject.toml` atau `setup.py`, tambah:\n```toml\n[project.scripts]\ngreet = \"greeter.cli:main\"\n```\nBuild dan install secara editable: `pip install -e .`. Lalu jalankan `greet Alice` dari terminal.\n\n```bash\npip install -e .\ngreet Alice\n```\n\n**Expected Output**:\n```\nHello, Alice!\n```\n\n## Referensi\n- [Python Packaging User Guide](https://packaging.python.org/en/latest/)\n- [PEP 517 – A build system independent format for source trees](https://peps.python.org/pep-0517/)\n- [PEP 621 – Storing project metadata in pyproject.toml](https://peps.python.org/pep-0621/)\n- [Real Python - Python Packaging](https://realpython.com/publishing-python-package/)\n- [W3Schools Python Package](https://www.w3schools.com/python/python_packages.asp)\n\n## Next Steps\nSetelah menyelesaikan pelajaran ini, Course **Python Learning Path** SELESAI! 🎉 Lanjutkan ke:\n- Praktek membuat project sendiri\n- Publish package ke PyPI (opsional)\n- Eksplor topik lanjutan: concurrency, async, web development, data science, dll."
     }
 ];
@@ -1098,7 +1208,6 @@ function renderNav() {
 function loadLesson(index) {
     currentLesson = index;
     const lesson = lessons[index];
-    const contentHtml = loadMarkdownContent(lesson, index);
     document.getElementById('current-lesson').innerHTML = `<h2 class="text-xl font-bold mb-4">${lesson.title}</h2><div class="prose prose-invert max-w-none">${lesson.description}</div>`;
     document.getElementById('code-editor').value = lesson.defaultCode;
     document.getElementById('terminal-output').innerHTML = '<span class="text-gray-500">// Output akan muncul di sini</span>';
@@ -1110,15 +1219,6 @@ function loadLesson(index) {
     document.getElementById('prev-btn').disabled = index === 0;
     document.getElementById('next-btn').disabled = index === lessons.length - 1;
     renderNav();
-}
-
-
-// Load and render markdown content
-function loadMarkdownContent(lesson, index) {
-    if (lesson.mdContent) {
-        return marked.parse(lesson.mdContent);
-    }
-    return lesson.description || '<p>Content not available</p>';
 }
 
 function runCode() {
