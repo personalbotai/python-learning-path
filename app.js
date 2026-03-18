@@ -1205,9 +1205,10 @@ function renderNav() {
     `).join('');
 }
 
-function loadLesson(index) {
+async function loadLesson(index) {
     currentLesson = index;
     const lesson = lessons[index];
+    const contentHtml = await loadMarkdownContent(lesson, index);
     document.getElementById('current-lesson').innerHTML = `<h2 class="text-xl font-bold mb-4">${lesson.title}</h2><div class="prose prose-invert max-w-none">${lesson.description}</div>`;
     document.getElementById('code-editor').value = lesson.defaultCode;
     document.getElementById('terminal-output').innerHTML = '<span class="text-gray-500">// Output akan muncul di sini</span>';
@@ -1219,6 +1220,20 @@ function loadLesson(index) {
     document.getElementById('prev-btn').disabled = index === 0;
     document.getElementById('next-btn').disabled = index === lessons.length - 1;
     renderNav();
+}
+
+
+// Load and render markdown content
+async function loadMarkdownContent(lesson, index) {
+    if (!lesson.mdFile) return lesson.description || '';
+    try {
+        const response = await fetch(lesson.mdFile);
+        const mdContent = await response.text();
+        return marked.parse(mdContent);
+    } catch (e) {
+        console.error('Error loading markdown:', e);
+        return lesson.description || 'Error loading content';
+    }
 }
 
 function runCode() {
