@@ -1272,7 +1272,27 @@ async function loadLesson(index) {
     } else { document.getElementById('quiz-section').classList.add('hidden'); }
     document.getElementById('prev-btn').disabled = index === 0;
     document.getElementById('next-btn').disabled = index === lessons.length - 1;
+    // Update complete button
+    const completeBtn = document.getElementById('complete-btn');
+    const completedBtn = document.getElementById('completed-btn');
+    if (progress[lesson.id]) {
+        completeBtn.style.display = 'none';
+        completedBtn.style.display = 'block';
+    } else {
+        completeBtn.style.display = 'block';
+        completedBtn.style.display = 'none';
+    }
+    
+    // Update breadcrumb
+    const mod = MODULES.find(m => m.id === lesson.moduleId);
+    document.getElementById('breadcrumb').textContent = mod ? mod.title : '';
+    
+    // Update nav buttons
+    document.getElementById('prev-btn').disabled = index === 0;
+    document.getElementById('next-btn').disabled = index === lessons.length - 1;
+    
     renderNav();
+    window.scrollTo(0, 0);
 }
 
 function runCode() {
@@ -1317,6 +1337,25 @@ function checkQuiz() {
 }
 function nextLesson() { if (currentLesson < lessons.length - 1) loadLesson(currentLesson + 1); }
 function prevLesson() { if (currentLesson > 0) loadLesson(currentLesson - 1); }
+
+function markComplete() {
+    const lesson = lessons[currentLesson];
+    progress[lesson.id] = true;
+    localStorage.setItem('python_progress', JSON.stringify(progress));
+    
+    const completeBtn = document.getElementById('complete-btn');
+    const completedBtn = document.getElementById('completed-btn');
+    completeBtn.style.display = 'none';
+    completedBtn.style.display = 'block';
+    
+    renderNav();
+    
+    // Auto-advance to next lesson
+    if (currentLesson < lessons.length - 1) {
+        setTimeout(() => loadLesson(currentLesson + 1), 500);
+    }
+}
+
 function updateProgress() { const done = Object.keys(progress).length; const pct = Math.round((done / lessons.length) * 100); document.getElementById('progress-text').textContent = pct + '%'; document.getElementById('progress-bar').style.width = pct + '%'; }
 function resetProgress() { if (!confirm('Reset semua progress?')) return; progress = {}; localStorage.removeItem('python_progress'); renderNav(); updateProgress(); }
 function escapeHtml(str) { return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
