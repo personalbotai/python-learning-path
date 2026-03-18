@@ -1208,7 +1208,12 @@ function renderNav() {
 function loadLesson(index) {
     currentLesson = index;
     const lesson = lessons[index];
-    document.getElementById('current-lesson').innerHTML = `<h2 class="text-xl font-bold mb-4">${lesson.title}</h2><div class="prose prose-invert max-w-none">${lesson.description}</div>`;
+    // Render markdown content if available, otherwise use description
+    let contentHtml = lesson.description || '';
+    if (lesson.mdContent && typeof marked !== 'undefined') {
+        contentHtml = marked.parse(lesson.mdContent);
+    }
+    document.getElementById('current-lesson').innerHTML = `<h2 class="text-xl font-bold mb-4">${lesson.title}</h2><div class="prose prose-invert max-w-none text-sm leading-relaxed">${contentHtml}</div>`;
     document.getElementById('code-editor').value = lesson.defaultCode;
     document.getElementById('terminal-output').innerHTML = '<span class="text-gray-500">// Output akan muncul di sini</span>';
     document.getElementById('validation-msg').className = 'mt-4 p-3 rounded hidden';
