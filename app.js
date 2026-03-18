@@ -1295,34 +1295,14 @@ async function loadLesson(index) {
     window.scrollTo(0, 0);
 }
 
-function runCode() {
-    const code = document.getElementById('code-editor').value;
-    const output = document.getElementById('output');
-    const validation = document.getElementById('validation-msg');
-    let logs = [];
-    const originalLog = console.log;
-    console.log = (...args) => { logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' ')); };
-    try {
-        eval(code);
-        const result = logs.join('\n');
-        output.innerHTML = `<span class="text-green-400">${escapeHtml(result)}</span>`;
-        const expected = lessons[currentLesson].expectedOutput;
-        if (result.trim() === expected.trim()) {
-            validation.className = 'mt-4 p-3 rounded bg-green-900/50 border border-green-500 text-green-300';
-            validation.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Benar! Output sesuai.';
-            progress[currentLesson] = true;
-            localStorage.setItem('python_progress', JSON.stringify(progress));
-            updateProgress(); renderNav();
-        } else {
-            validation.className = 'mt-4 p-3 rounded bg-yellow-900/50 border border-yellow-500 text-yellow-300';
-            validation.innerHTML = `<i class="fas fa-lightbulb mr-2"></i>Hint: ${lessons[currentLesson].hint}`;
-        }
-    } catch (e) {
-        output.innerHTML = `<span class="text-red-400">Error: ${escapeHtml(e.message)}</span>`;
-        validation.className = 'mt-4 p-3 rounded bg-red-900/50 border border-red-500 text-red-300';
-        validation.innerHTML = `<i class="fas fa-times-circle mr-2"></i>${e.message}`;
+// Overridden by Pyodide in index.html
+// // runCode is overridden by Pyodide in index.html
+async function runCode() {
+    // This is a stub - actual implementation loaded via Pyodide in index.html
+    if (typeof initPyodide === 'function') {
+        await initPyodide();
+        // The real runCode is defined in index.html
     }
-    console.log = originalLog;
 }
 
 function resetCode() { document.getElementById('code-editor').value = lessons[currentLesson].defaultCode; }
