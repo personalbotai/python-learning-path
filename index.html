@@ -135,6 +135,7 @@
     <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
     <script src="app.js"></script>
 
+<script>
 // Pyodide Python runtime
 let pyodide = null;
 let pyodideReady = false;
@@ -228,6 +229,9 @@ sys.stdout = StringIO()
 document.addEventListener('DOMContentLoaded', () => {
     initPyodide();
 });
+
+
+</script>
 
 </body>
 </html>
