@@ -1,9 +1,42 @@
-// Python Learning Path - Application Logic
+// Python Learning Path
+const MODULES = [
+    {
+        "id": 1,
+        "title": "Pengenalan Python",
+        "icon": "fas fa-play-circle"
+    },
+    {
+        "id": 2,
+        "title": "Kontrol Alur",
+        "icon": "fas fa-code-branch"
+    },
+    {
+        "id": 3,
+        "title": "Struktur Data",
+        "icon": "fas fa-database"
+    },
+    {
+        "id": 4,
+        "title": "Fungsi",
+        "icon": "fas fa-cube"
+    },
+    {
+        "id": 5,
+        "title": "OOP",
+        "icon": "fas fa-object-group"
+    },
+    {
+        "id": 6,
+        "title": "Lanjutan",
+        "icon": "fas fa-rocket"
+    }
+];
+
 const lessons = [
     {
         "id": 1,
         "title": "1. Instalasi Python",
-        "description": "<p><strong>Instalasi Python</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Instalasi Python</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Python terinstall!\")\nimport sys\nprint(f\"Python {sys.version}\")",
         "expectedOutput": "Python terinstall!\nPython 3.x.x",
         "hint": "Install dari python.org atau gunakan package manager.",
@@ -16,12 +49,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 1,
+        "module": "Pengenalan Python"
     },
     {
         "id": 2,
         "title": "2. Hello World",
-        "description": "<p><strong>Hello World</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Hello World</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Hello, World!\")\nprint(\"Selamat datang di Python!\")",
         "expectedOutput": "Hello, World!\nSelamat datang di Python!",
         "hint": "print() = fungsi untuk mencetak output.",
@@ -34,12 +69,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 1,
+        "module": "Pengenalan Python"
     },
     {
         "id": 3,
         "title": "3. Variabel dan Tipe Data",
-        "description": "<p><strong>Variabel dan Tipe Data</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Variabel dan Tipe Data</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "nama = \"Archon\"\numur = 25\ntinggi = 175.5\naktif = True\n\nprint(f\"Nama: {nama}, Umur: {umur}\")\nprint(f\"Tipe nama: {type(nama).__name__}\")",
         "expectedOutput": "Nama: Archon, Umur: 25\nTipe nama: str",
         "hint": "Python = dynamic typing. Tipe: str, int, float, bool.",
@@ -52,12 +89,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 1,
+        "module": "Pengenalan Python"
     },
     {
         "id": 4,
         "title": "4. Operator",
-        "description": "<p><strong>Operator</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Operator</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "a, b = 10, 3\nprint(f\"a + b = {a + b}\")\nprint(f\"a % b = {a % b}\")\nprint(f\"a ** b = {a ** b}\")\nprint(f\"a == b: {a == b}\")",
         "expectedOutput": "a + b = 13\na % b = 1\na ** b = 1000\na == b: False",
         "hint": "Operator: +, -, *, /, //, %, **, ==, !=.",
@@ -70,12 +109,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 1,
+        "module": "Pengenalan Python"
     },
     {
         "id": 5,
         "title": "5. If/Else",
-        "description": "<p><strong>If/Else</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>If/Else</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "umur = 20\nif umur >= 18:\n    print(\"Dewasa\")\nelif umur >= 13:\n    print(\"Remaja\")\nelse:\n    print(\"Anak-anak\")",
         "expectedOutput": "Dewasa",
         "hint": "Indentasi penting! Gunakan 4 spasi.",
@@ -88,12 +129,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 2,
+        "module": "Kontrol Alur"
     },
     {
         "id": 6,
         "title": "6. For Loop",
-        "description": "<p><strong>For Loop</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>For Loop</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "buah = [\"apel\", \"jeruk\", \"mangga\"]\nfor item in buah:\n    print(item)\n\nfor i in range(3):\n    print(f\"i={i}\")",
         "expectedOutput": "apel\njeruk\nmangga\ni=0\ni=1\ni=2",
         "hint": "for item in iterable: ... range() untuk angka.",
@@ -106,12 +149,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 2,
+        "module": "Kontrol Alur"
     },
     {
         "id": 7,
         "title": "7. While Loop",
-        "description": "<p><strong>While Loop</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>While Loop</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "count = 0\nwhile count < 3:\n    print(f\"count={count}\")\n    count += 1",
         "expectedOutput": "count=0\ncount=1\ncount=2",
         "hint": "while condition: ... Jangan lupa update variable!",
@@ -124,12 +169,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 2,
+        "module": "Kontrol Alur"
     },
     {
         "id": 8,
         "title": "8. Match-Case (Python 3.10+)",
-        "description": "<p><strong>Match-Case (Python 3.10+)</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Match-Case (Python 3.10+)</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "status = 200\nmatch status:\n    case 200:\n        print(\"OK\")\n    case 404:\n        print(\"Not Found\")\n    case _:\n        print(\"Unknown\")",
         "expectedOutput": "OK",
         "hint": "match-case = switch-case di Python 3.10+.",
@@ -142,12 +189,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 2,
+        "module": "Kontrol Alur"
     },
     {
         "id": 9,
         "title": "9. List",
-        "description": "<p><strong>List</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>List</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "buah = [\"apel\", \"jeruk\", \"mangga\"]\nbuah.append(\"pisang\")\nprint(buah)\nprint(buah[0])\nprint(len(buah))",
         "expectedOutput": "[\"apel\", \"jeruk\", \"mangga\", \"pisang\"]\napel\n4",
         "hint": "List = mutable, ordered. Method: append, pop, sort.",
@@ -160,12 +209,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 3,
+        "module": "Struktur Data"
     },
     {
         "id": 10,
         "title": "10. Tuple",
-        "description": "<p><strong>Tuple</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Tuple</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "koordinat = (10, 20)\nx, y = koordinat  # unpacking\nprint(f\"x={x}, y={y}\")\nprint(f\"Length: {len(koordinat)}\")",
         "expectedOutput": "x=10, y=20\nLength: 2",
         "hint": "Tuple = immutable, ordered. Gunakan untuk data tetap.",
@@ -178,12 +229,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 3,
+        "module": "Struktur Data"
     },
     {
         "id": 11,
         "title": "11. Dictionary",
-        "description": "<p><strong>Dictionary</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Dictionary</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "user = {\"nama\": \"Archon\", \"umur\": 25}\nprint(user[\"nama\"])\nuser[\"email\"] = \"a@mail.com\"\nprint(user.get(\"phone\", \"N/A\"))\nprint(user.keys())",
         "expectedOutput": "Archon\nN/A\ndict_keys([\"nama\", \"umur\", \"email\"])",
         "hint": "Dict = key-value pairs. .get() untuk safe access.",
@@ -196,12 +249,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 3,
+        "module": "Struktur Data"
     },
     {
         "id": 12,
         "title": "12. Set",
-        "description": "<p><strong>Set</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Set</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "a = {1, 2, 3, 3, 3}\nb = {2, 3, 4}\nprint(a)  # {1, 2, 3}\nprint(a | b)  # union\nprint(a & b)  # intersection\nprint(a - b)  # difference",
         "expectedOutput": "{1, 2, 3}\n{1, 2, 3, 4}\n{2, 3}\n{1}",
         "hint": "Set = unique, unordered. | = union, & = intersection.",
@@ -214,12 +269,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 3,
+        "module": "Struktur Data"
     },
     {
         "id": 13,
         "title": "13. Lesson M03-L05",
-        "description": "<p><strong>Lesson M03-L05</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M03-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M03-L05 di Python!\")",
         "expectedOutput": "Belajar Lesson M03-L05 di Python!",
         "hint": "Pelajari lesson m03-l05.",
@@ -232,12 +289,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 4,
+        "module": "Fungsi"
     },
     {
         "id": 14,
         "title": "14. Lesson M03-L06",
-        "description": "<p><strong>Lesson M03-L06</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M03-L06</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M03-L06 di Python!\")",
         "expectedOutput": "Belajar Lesson M03-L06 di Python!",
         "hint": "Pelajari lesson m03-l06.",
@@ -250,12 +309,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 4,
+        "module": "Fungsi"
     },
     {
         "id": 15,
         "title": "15. Function Dasar",
-        "description": "<p><strong>Function Dasar</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Function Dasar</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "def sapa(nama):\n    return f\"Halo, {nama}!\"\n\nprint(sapa(\"Archon\"))\n\ndef tambah(a, b=0):\n    return a + b\n\nprint(tambah(3, 5))\nprint(tambah(3))",
         "expectedOutput": "Halo, Archon!\n8\n3",
         "hint": "def function(params): ... Default value = b=0.",
@@ -268,12 +329,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 4,
+        "module": "Fungsi"
     },
     {
         "id": 16,
         "title": "16. Lambda dan Higher-Order",
-        "description": "<p><strong>Lambda dan Higher-Order</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lambda dan Higher-Order</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "kuadrat = lambda x: x ** 2\nprint(kuadrat(5))\n\nangka = [1, 2, 3, 4, 5]\nprint(list(map(lambda x: x*2, angka)))\nprint(list(filter(lambda x: x > 2, angka)))",
         "expectedOutput": "25\n[2, 4, 6, 8, 10]\n[3, 4, 5]",
         "hint": "lambda = anonymous function. map/filter = HOF.",
@@ -286,12 +349,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 4,
+        "module": "Fungsi"
     },
     {
         "id": 17,
         "title": "17. List Comprehension",
-        "description": "<p><strong>List Comprehension</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>List Comprehension</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "kuadrat = [x**2 for x in range(5)]\nprint(kuadrat)\n\ngenap = [x for x in range(10) if x % 2 == 0]\nprint(genap)\n\nmatrix = [[i*j for j in range(3)] for i in range(3)]\nprint(matrix)",
         "expectedOutput": "[0, 1, 4, 9, 16]\n[0, 2, 4, 6, 8]\n[[0, 0, 0], [0, 1, 2], [0, 2, 4]]",
         "hint": "[expr for item in iterable if condition].",
@@ -304,12 +369,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 4,
+        "module": "Fungsi"
     },
     {
         "id": 18,
         "title": "18. Lesson M04-L04",
-        "description": "<p><strong>Lesson M04-L04</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M04-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M04-L04 di Python!\")",
         "expectedOutput": "Belajar Lesson M04-L04 di Python!",
         "hint": "Pelajari lesson m04-l04.",
@@ -322,12 +389,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 4,
+        "module": "Fungsi"
     },
     {
         "id": 19,
         "title": "19. Lesson M04-L05",
-        "description": "<p><strong>Lesson M04-L05</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M04-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M04-L05 di Python!\")",
         "expectedOutput": "Belajar Lesson M04-L05 di Python!",
         "hint": "Pelajari lesson m04-l05.",
@@ -340,12 +409,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 5,
+        "module": "OOP"
     },
     {
         "id": 20,
         "title": "20. Lesson M04-L06",
-        "description": "<p><strong>Lesson M04-L06</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M04-L06</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M04-L06 di Python!\")",
         "expectedOutput": "Belajar Lesson M04-L06 di Python!",
         "hint": "Pelajari lesson m04-l06.",
@@ -358,12 +429,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 5,
+        "module": "OOP"
     },
     {
         "id": 21,
         "title": "21. Class Dasar",
-        "description": "<p><strong>Class Dasar</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Class Dasar</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "class User:\n    def __init__(self, nama):\n        self.nama = nama\n    \n    def sapa(self):\n        return f\"Halo, {self.nama}!\"\n\nu = User(\"Archon\")\nprint(u.sapa())",
         "expectedOutput": "Halo, Archon!",
         "hint": "class = blueprint. __init__ = constructor. self = this.",
@@ -376,12 +449,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 5,
+        "module": "OOP"
     },
     {
         "id": 22,
         "title": "22. Inheritance",
-        "description": "<p><strong>Inheritance</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Inheritance</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "class Animal:\n    def __init__(self, nama):\n        self.nama = nama\n    def speak(self):\n        return f\"{self.nama} bersuara\"\n\nclass Dog(Animal):\n    def speak(self):\n        return f\"{self.nama} menggonggong!\"\n\nprint(Dog(\"Buddy\").speak())",
         "expectedOutput": "Buddy menggonggong!",
         "hint": "class Child(Parent): ... = inheritance.",
@@ -394,12 +469,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 5,
+        "module": "OOP"
     },
     {
         "id": 23,
         "title": "23. Lesson M05-L03",
-        "description": "<p><strong>Lesson M05-L03</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M05-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M05-L03 di Python!\")",
         "expectedOutput": "Belajar Lesson M05-L03 di Python!",
         "hint": "Pelajari lesson m05-l03.",
@@ -412,12 +489,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 5,
+        "module": "OOP"
     },
     {
         "id": 24,
         "title": "24. Lesson M05-L04",
-        "description": "<p><strong>Lesson M05-L04</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M05-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M05-L04 di Python!\")",
         "expectedOutput": "Belajar Lesson M05-L04 di Python!",
         "hint": "Pelajari lesson m05-l04.",
@@ -430,12 +509,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 5,
+        "module": "OOP"
     },
     {
         "id": 25,
         "title": "25. Lesson M05-L05",
-        "description": "<p><strong>Lesson M05-L05</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M05-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M05-L05 di Python!\")",
         "expectedOutput": "Belajar Lesson M05-L05 di Python!",
         "hint": "Pelajari lesson m05-l05.",
@@ -448,12 +529,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 5,
+        "module": "OOP"
     },
     {
         "id": 26,
         "title": "26. Lesson M05-L06",
-        "description": "<p><strong>Lesson M05-L06</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M05-L06</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M05-L06 di Python!\")",
         "expectedOutput": "Belajar Lesson M05-L06 di Python!",
         "hint": "Pelajari lesson m05-l06.",
@@ -466,12 +549,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 27,
         "title": "27. Lesson M05-L07",
-        "description": "<p><strong>Lesson M05-L07</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M05-L07</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M05-L07 di Python!\")",
         "expectedOutput": "Belajar Lesson M05-L07 di Python!",
         "hint": "Pelajari lesson m05-l07.",
@@ -484,12 +569,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 28,
         "title": "28. Lesson M06-L01",
-        "description": "<p><strong>Lesson M06-L01</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M06-L01</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M06-L01 di Python!\")",
         "expectedOutput": "Belajar Lesson M06-L01 di Python!",
         "hint": "Pelajari lesson m06-l01.",
@@ -502,12 +589,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 29,
         "title": "29. Lesson M06-L02",
-        "description": "<p><strong>Lesson M06-L02</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M06-L02</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M06-L02 di Python!\")",
         "expectedOutput": "Belajar Lesson M06-L02 di Python!",
         "hint": "Pelajari lesson m06-l02.",
@@ -520,12 +609,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 30,
         "title": "30. Lesson M06-L03",
-        "description": "<p><strong>Lesson M06-L03</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M06-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M06-L03 di Python!\")",
         "expectedOutput": "Belajar Lesson M06-L03 di Python!",
         "hint": "Pelajari lesson m06-l03.",
@@ -538,12 +629,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 31,
         "title": "31. Lesson M06-L04",
-        "description": "<p><strong>Lesson M06-L04</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M06-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M06-L04 di Python!\")",
         "expectedOutput": "Belajar Lesson M06-L04 di Python!",
         "hint": "Pelajari lesson m06-l04.",
@@ -556,12 +649,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 32,
         "title": "32. Lesson M07-L01",
-        "description": "<p><strong>Lesson M07-L01</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M07-L01</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M07-L01 di Python!\")",
         "expectedOutput": "Belajar Lesson M07-L01 di Python!",
         "hint": "Pelajari lesson m07-l01.",
@@ -574,12 +669,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 33,
         "title": "33. Lesson M07-L02",
-        "description": "<p><strong>Lesson M07-L02</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M07-L02</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M07-L02 di Python!\")",
         "expectedOutput": "Belajar Lesson M07-L02 di Python!",
         "hint": "Pelajari lesson m07-l02.",
@@ -592,12 +689,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 34,
         "title": "34. Lesson M07-L03",
-        "description": "<p><strong>Lesson M07-L03</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M07-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M07-L03 di Python!\")",
         "expectedOutput": "Belajar Lesson M07-L03 di Python!",
         "hint": "Pelajari lesson m07-l03.",
@@ -610,12 +709,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 35,
         "title": "35. Lesson M07-L04",
-        "description": "<p><strong>Lesson M07-L04</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M07-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M07-L04 di Python!\")",
         "expectedOutput": "Belajar Lesson M07-L04 di Python!",
         "hint": "Pelajari lesson m07-l04.",
@@ -628,12 +729,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 36,
         "title": "36. Lesson M07-L05",
-        "description": "<p><strong>Lesson M07-L05</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M07-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M07-L05 di Python!\")",
         "expectedOutput": "Belajar Lesson M07-L05 di Python!",
         "hint": "Pelajari lesson m07-l05.",
@@ -646,12 +749,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 37,
         "title": "37. Lesson M08-L01",
-        "description": "<p><strong>Lesson M08-L01</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M08-L01</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M08-L01 di Python!\")",
         "expectedOutput": "Belajar Lesson M08-L01 di Python!",
         "hint": "Pelajari lesson m08-l01.",
@@ -664,12 +769,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 38,
         "title": "38. Lesson M08-L02",
-        "description": "<p><strong>Lesson M08-L02</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M08-L02</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M08-L02 di Python!\")",
         "expectedOutput": "Belajar Lesson M08-L02 di Python!",
         "hint": "Pelajari lesson m08-l02.",
@@ -682,12 +789,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 39,
         "title": "39. Lesson M08-L03",
-        "description": "<p><strong>Lesson M08-L03</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M08-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M08-L03 di Python!\")",
         "expectedOutput": "Belajar Lesson M08-L03 di Python!",
         "hint": "Pelajari lesson m08-l03.",
@@ -700,12 +809,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 40,
         "title": "40. Lesson M08-L04",
-        "description": "<p><strong>Lesson M08-L04</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M08-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M08-L04 di Python!\")",
         "expectedOutput": "Belajar Lesson M08-L04 di Python!",
         "hint": "Pelajari lesson m08-l04.",
@@ -718,12 +829,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 41,
         "title": "41. Lesson M08-L05",
-        "description": "<p><strong>Lesson M08-L05</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M08-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M08-L05 di Python!\")",
         "expectedOutput": "Belajar Lesson M08-L05 di Python!",
         "hint": "Pelajari lesson m08-l05.",
@@ -736,12 +849,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 42,
         "title": "42. Lesson M08-L06",
-        "description": "<p><strong>Lesson M08-L06</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M08-L06</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M08-L06 di Python!\")",
         "expectedOutput": "Belajar Lesson M08-L06 di Python!",
         "hint": "Pelajari lesson m08-l06.",
@@ -754,12 +869,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 43,
         "title": "43. Lesson M09-L01",
-        "description": "<p><strong>Lesson M09-L01</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M09-L01</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M09-L01 di Python!\")",
         "expectedOutput": "Belajar Lesson M09-L01 di Python!",
         "hint": "Pelajari lesson m09-l01.",
@@ -772,12 +889,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 44,
         "title": "44. Lesson M09-L02",
-        "description": "<p><strong>Lesson M09-L02</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M09-L02</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M09-L02 di Python!\")",
         "expectedOutput": "Belajar Lesson M09-L02 di Python!",
         "hint": "Pelajari lesson m09-l02.",
@@ -790,12 +909,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 45,
         "title": "45. Lesson M09-L03",
-        "description": "<p><strong>Lesson M09-L03</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M09-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M09-L03 di Python!\")",
         "expectedOutput": "Belajar Lesson M09-L03 di Python!",
         "hint": "Pelajari lesson m09-l03.",
@@ -808,12 +929,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 46,
         "title": "46. Lesson M09-L04",
-        "description": "<p><strong>Lesson M09-L04</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M09-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M09-L04 di Python!\")",
         "expectedOutput": "Belajar Lesson M09-L04 di Python!",
         "hint": "Pelajari lesson m09-l04.",
@@ -826,12 +949,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 47,
         "title": "47. Lesson M09-L05",
-        "description": "<p><strong>Lesson M09-L05</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M09-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M09-L05 di Python!\")",
         "expectedOutput": "Belajar Lesson M09-L05 di Python!",
         "hint": "Pelajari lesson m09-l05.",
@@ -844,12 +969,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 48,
         "title": "48. Lesson M10-L01",
-        "description": "<p><strong>Lesson M10-L01</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M10-L01</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M10-L01 di Python!\")",
         "expectedOutput": "Belajar Lesson M10-L01 di Python!",
         "hint": "Pelajari lesson m10-l01.",
@@ -862,12 +989,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 49,
         "title": "49. Lesson M10-L02",
-        "description": "<p><strong>Lesson M10-L02</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M10-L02</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M10-L02 di Python!\")",
         "expectedOutput": "Belajar Lesson M10-L02 di Python!",
         "hint": "Pelajari lesson m10-l02.",
@@ -880,12 +1009,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 50,
         "title": "50. Lesson M10-L03",
-        "description": "<p><strong>Lesson M10-L03</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M10-L03</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M10-L03 di Python!\")",
         "expectedOutput": "Belajar Lesson M10-L03 di Python!",
         "hint": "Pelajari lesson m10-l03.",
@@ -898,12 +1029,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 51,
         "title": "51. Lesson M10-L04",
-        "description": "<p><strong>Lesson M10-L04</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M10-L04</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M10-L04 di Python!\")",
         "expectedOutput": "Belajar Lesson M10-L04 di Python!",
         "hint": "Pelajari lesson m10-l04.",
@@ -916,12 +1049,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 52,
         "title": "52. Lesson M10-L05",
-        "description": "<p><strong>Lesson M10-L05</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M10-L05</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M10-L05 di Python!\")",
         "expectedOutput": "Belajar Lesson M10-L05 di Python!",
         "hint": "Pelajari lesson m10-l05.",
@@ -934,12 +1069,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 53,
         "title": "53. Lesson M10-L06",
-        "description": "<p><strong>Lesson M10-L06</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M10-L06</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M10-L06 di Python!\")",
         "expectedOutput": "Belajar Lesson M10-L06 di Python!",
         "hint": "Pelajari lesson m10-l06.",
@@ -952,12 +1089,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 54,
         "title": "54. Lesson M10-L07",
-        "description": "<p><strong>Lesson M10-L07</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M10-L07</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M10-L07 di Python!\")",
         "expectedOutput": "Belajar Lesson M10-L07 di Python!",
         "hint": "Pelajari lesson m10-l07.",
@@ -970,12 +1109,14 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     },
     {
         "id": 55,
         "title": "55. Lesson M10-L08",
-        "description": "<p><strong>Lesson M10-L08</strong> adalah materi penting dalam pemrograman Python.</p><h4>Konsep Utama:</h4><ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Standard library dan ecosystem</li></ul><h4>Praktik:</h4><ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk menguji pemahaman</li></ul>",
+        "description": "<p><strong>Lesson M10-L08</strong> adalah materi penting dalam pemrograman Python.</p>\n<h4>🎯 Yang Dipelajari:</h4>\n<ul><li>Sintaks Python yang bersih dan readable</li><li>Dynamic typing dan Pythonic approach</li><li>Contoh kode dan implementasi</li></ul>\n<h4>💻 Praktik:</h4>\n<ul><li>Tulis kode di editor</li><li>Jalankan dan lihat output</li><li>Quiz untuk uji pemahaman</li></ul>",
         "defaultCode": "print(\"Belajar Lesson M10-L08 di Python!\")",
         "expectedOutput": "Belajar Lesson M10-L08 di Python!",
         "hint": "Pelajari lesson m10-l08.",
@@ -988,7 +1129,9 @@ const lessons = [
                 "Opsi D"
             ],
             "answer": 0
-        }
+        },
+        "moduleId": 6,
+        "module": "Lanjutan"
     }
 ];
 
