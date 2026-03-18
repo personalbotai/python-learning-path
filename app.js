@@ -1264,7 +1264,7 @@ async function loadLesson(index) {
             ${contentHtml}
         </div>`;
     document.getElementById('code-editor').value = (lesson.defaultCode || '').replace(/\\n/g, '\n');
-    document.getElementById('terminal-output').innerHTML = '<span class="text-gray-500">// Output akan muncul di sini</span>';
+    document.getElementById('output').innerHTML = '<span class="text-gray-500">// Output akan muncul di sini</span>';
     document.getElementById('validation-msg').className = 'mt-4 p-3 rounded hidden';
     if (lesson.quiz) {
         document.getElementById('quiz-section').classList.remove('hidden');
@@ -1297,7 +1297,7 @@ async function loadLesson(index) {
 
 function runCode() {
     const code = document.getElementById('code-editor').value;
-    const output = document.getElementById('terminal-output');
+    const output = document.getElementById('output');
     const validation = document.getElementById('validation-msg');
     let logs = [];
     const originalLog = console.log;
@@ -1356,7 +1356,7 @@ function markComplete() {
     }
 }
 
-function updateProgress() { const done = Object.keys(progress).length; const pct = Math.round((done / lessons.length) * 100); document.getElementById('progress-text').textContent = pct + '%'; document.getElementById('progress-bar').style.width = pct + '%'; }
+function updateProgress() { const done = Object.keys(progress).length; const pct = Math.round((done / lessons.length) * 100); document.getElementById('course-progress').textContent = pct + '%'; document.getElementById('progress-fill').style.width = pct + '%'; }
 function resetProgress() { if (!confirm('Reset semua progress?')) return; progress = {}; localStorage.removeItem('python_progress'); renderNav(); updateProgress(); }
 function escapeHtml(str) { return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
