@@ -1211,6 +1211,29 @@ async function initPyodideRuntime() {
     }
 }
 
+// Cloud fallback: Judge0 CE (Python 3.12) when Pyodide WASM unavailable
+async function runPythonCloud(code) {
+    try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 25000);
+        const res = await fetch('https://ce.judge0.com/submissions?base64_encoded=false&wait=true', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ language_id: 100, source_code: code }),
+            signal: controller.signal
+        });
+        clearTimeout(timer);
+        if (!res.ok) return null;
+        const j = await res.json();
+        if (j.stdout) return j.stdout;
+        if (j.stderr) return 'Error: ' + j.stderr;
+        if (j.compile_output) return 'Error: ' + j.compile_output;
+        if (j.message) return 'Error: ' + j.message;
+        const st = j.status && j.status.description ? j.status.description : 'Unknown';
+        return 'Error: ' + st;
+    } catch (e) { return null; }
+}
+
 async function runCode() {
     const output = document.getElementById('output');
     const _edPy=document.getElementById('code-editor'); const code = _edPy ? _edPy.value : '';
@@ -1223,7 +1246,8 @@ async function runCode() {
             pyodideInstance.runPython(code);
             res = pyodideInstance.runPython('sys.stdout.getvalue()');
         } else {
-            res = fallbackRuntime.run(code);
+            res = await runPythonCloud(code);
+            if (res === null) res = fallbackRuntime.run(code);
         }
         if (output) output.innerHTML = '<pre class="text-emerald-400 font-mono text-xs sm:text-sm whitespace-pre-wrap">' + escapeHtml(res || '(Selesai tanpa output)') + '</pre>';
         const cur = lessons[currentLesson];
