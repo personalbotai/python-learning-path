@@ -1428,6 +1428,14 @@ function closeSidebar() {
     if (typeof window !== 'undefined' && window.innerWidth >= 1024 && sb) { sb.classList.remove('-translate-x-full'); }
 }
 
+// expose for command palette / inline handlers
+if (typeof window !== 'undefined') {
+  window.MODULES = MODULES;
+  window.lessons = lessons;
+  window.LESSONS = lessons;
+  window.app = { MODULES, LESSONS: lessons, lessons, loadLesson, runCode, checkQuiz, renderNav, markComplete, resetProgress };
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     renderNav();
     loadLesson(0);
