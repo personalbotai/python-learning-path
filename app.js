@@ -60,7 +60,7 @@ const lessons = [
     "title": "1. Installing Python and Setting Up Development Environment",
     "codeName": "M01-L01",
     "mdFile": "lessons/M01-L01.md",
-    "defaultCode": "import sys\nimport pkg_resources\n\ndef latihan_2():\n    print(f\"Python version: {sys.version}\")\n    print(\"\\nInstalled packages:\")\n    for dist in sorted(pkg_resources.working_set, key=lambda x: x.project_name.lower()):\n        print(f\"{dist.project_name}=={dist.version}\")\n\nif __name__ == \"__main__\":\n    latihan_2()",
+    "defaultCode": "import sys\nimport platform\n\ndef info_environment():\n    print(\"=== Python Execution Environment ===\")\n    print(f\"Python Version : {sys.version.split()[0]}\")\n    print(f\"Platform       : {platform.platform()}\")\n    print(f\"Byteorder      : {sys.byteorder}\")\n    print(f\"Max Integer    : {sys.maxsize}\")\n    print(\"Environment siap untuk pembelajaran Python modern!\")\n\nif __name__ == \"__main__\":\n    info_environment()",
     "quiz": {
       "question": "What is the correct file extension for Python scripts?",
       "options": [
@@ -80,7 +80,7 @@ const lessons = [
     "title": "2. First Steps: Hello World and Basic Syntax",
     "codeName": "M01-L02",
     "mdFile": "lessons/M01-L02.md",
-    "defaultCode": "def latihan_1():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1()",
+    "defaultCode": "def demo_syntax():\n    greeting = \"Hello, Pythonista!\"\n    version = 3.12\n    is_awesome = True\n    print(greeting)\n    print(f\"Belajar Python versi {version}\")\n    print(f\"Apakah Python powerful? -> {is_awesome}\")\n    print(\"\\nPola Segitiga Bintang:\")\n    for i in range(1, 6):\n        print(\"*\" * i)\n\nif __name__ == \"__main__\":\n    demo_syntax()",
     "quiz": {
       "question": "Which command creates a virtual environment in Python?",
       "options": [
@@ -100,7 +100,7 @@ const lessons = [
     "title": "3. Variables, Data Types, and Type System",
     "codeName": "M01-L03",
     "mdFile": "lessons/M01-L03.md",
-    "defaultCode": "def latihan_1():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1()",
+    "defaultCode": "def demo_types():\n    nama: str = \"Budi Santoso\"\n    umur: int = 24\n    tinggi_m: float = 1.75\n    is_active: bool = True\n    skills: list[str] = [\"Python\", \"AsyncIO\", \"FastAPI\"]\n    print(f\"Nama    : {nama} (type: {type(nama).__name__})\")\n    print(f\"Umur    : {umur} (type: {type(umur).__name__})\")\n    print(f\"Tinggi  : {tinggi_m} m (type: {type(tinggi_m).__name__})\")\n    print(f\"Aktif   : {is_active} (type: {type(is_active).__name__})\")\n    print(f\"Skills  : {skills} (type: {type(skills).__name__})\")\n    umur_str = str(umur)\n    print(f\"Konversi umur ke string: {repr(umur_str)}\")\n\nif __name__ == \"__main__\":\n    demo_types()",
     "quiz": {
       "question": "What is the output of: print('Hello' + 'World')?",
       "options": [
@@ -120,7 +120,7 @@ const lessons = [
     "title": "4. Basic Input/Output and String Formatting",
     "codeName": "M01-L04",
     "mdFile": "lessons/M01-L04.md",
-    "defaultCode": "def latihan_1():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1()",
+    "defaultCode": "def format_showcase():\n    item = \"Laptop Pro\"\n    harga = 18500000.75\n    diskon = 0.15\n    harga_akhir = harga * (1 - diskon)\n    print(f\"Produk      : {item}\")\n    print(f\"Harga Asli  : Rp {harga:,.2f}\")\n    print(f\"Diskon      : {diskon:.0%}\")\n    print(f\"Harga Akhir : Rp {harga_akhir:,.2f}\")\n    x = 42\n    y = 58\n    print(f\"\\nDebug: {x=}, {y=}, {x+y=}\")\n\nif __name__ == \"__main__\":\n    format_showcase()",
     "quiz": {
       "question": "Which of these is a valid variable name in Python?",
       "options": [
@@ -140,7 +140,7 @@ const lessons = [
     "title": "5. Conditional Statements: if, elif, else",
     "codeName": "M02-L01",
     "mdFile": "lessons/M02-L01.md",
-    "defaultCode": "if kondisi:\n    # kode jika True\nelif kondisi_lain:\n    # kode jika True\nelse:\n    # kode jika semua False",
+    "defaultCode": "def cek_kelayakan(nilai: float, kehadiran: float) -> str:\n    if nilai >= 85 and kehadiran >= 90:\n        return \"Grade A - Lulus dengan Pujian (Cum Laude)\"\n    elif nilai >= 70 and kehadiran >= 75:\n        return \"Grade B - Lulus Reguler\"\n    elif nilai >= 55:\n        return \"Grade C - Lulus Bersyarat (Tugas Tambahan)\"\n    else:\n        return \"Grade D/E - Tidak Lulus (Wajib Mengulang)\"\n\nif __name__ == \"__main__\":\n    for n, k in [(92, 95), (78, 80), (62, 70), (45, 60)]:\n        print(f\"Nilai: {n}, Presensi: {k}% -> {cek_kelayakan(n, k)}\")",
     "quiz": {
       "question": "What does 'elif' stand for?",
       "options": [
@@ -160,7 +160,7 @@ const lessons = [
     "title": "6. Loops: while and for",
     "codeName": "M02-L02",
     "mdFile": "lessons/M02-L02.md",
-    "defaultCode": "while kondisi:\n    # kode di sini diulang",
+    "defaultCode": "def demo_loops():\n    print(\"1. For Loop dengan enumerate & range:\")\n    for idx, item in enumerate([\"Apel\", \"Jeruk\", \"Mangga\", \"Pisang\"], start=1):\n        print(f\"  {idx}. {item}\")\n    print(\"\\n2. While Loop dengan break & continue:\")\n    angka = 0\n    while angka < 10:\n        angka += 1\n        if angka % 2 == 0:\n            continue\n        if angka > 7:\n            break\n        print(f\"  Ganjil ditemukan: {angka}\")\n    else:\n        print(\"  Loop selesai normal\")\n\nif __name__ == \"__main__\":\n    demo_loops()",
     "quiz": {
       "question": "Which loop executes at least once?",
       "options": [
@@ -180,7 +180,7 @@ const lessons = [
     "title": "7. Logical Operators and Boolean Expressions",
     "codeName": "M02-L03",
     "mdFile": "lessons/M02-L03.md",
-    "defaultCode": "def latihan_1(username):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    print(latihan_1(\"alice\"))      # True\n    print(latihan_1(\"a\"))          # False (too short)\n    print(latihan_1(\"alice smith\")) # False (contains space)\n    print(latihan_1(\"alice@123\"))  # False (contains @)",
+    "defaultCode": "def validasi_akses(role: str, is_active: bool, level: int) -> bool:\n    is_admin = (role == \"admin\" or role == \"superuser\")\n    return is_active and (is_admin or level >= 5)\n\nif __name__ == \"__main__\":\n    for role, active, lvl in [(\"admin\", True, 1), (\"editor\", True, 6), (\"editor\", False, 8), (\"guest\", True, 2)]:\n        print(f\"Role: {role:<10} Aktif: {str(active):<5} Level: {lvl} -> {validasi_akses(role, active, lvl)}\")",
     "quiz": {
       "question": "What does 'break' do?",
       "options": [
@@ -200,7 +200,7 @@ const lessons = [
     "title": "8. Match-Case Statements (Python 3.10+)",
     "codeName": "M02-L04",
     "mdFile": "lessons/M02-L04.md",
-    "defaultCode": "match subject:\n    case pattern1:\n        # kode\n    case pattern2 if guard:\n        # kode dengan kondisi (guard)\n    case _:\n        # default (catch-all)",
+    "defaultCode": "def handle_command(command: str | list[str]):\n    tokens = command.split() if isinstance(command, str) else command\n    match tokens:\n        case [\"quit\" | \"exit\"]:\n            print(\"Sistem dimatikan.\")\n        case [\"load\", filename]:\n            print(f\"Memuat berkas: '{filename}'\")\n        case [\"save\", filename, \"--force\"]:\n            print(f\"Paksa menyimpan ke: '{filename}'\")\n        case [\"save\", filename]:\n            print(f\"Menyimpan ke: '{filename}'\")\n        case [\"move\", (\"up\" | \"down\" | \"left\" | \"right\") as direction, steps]:\n            print(f\"Bergerak {direction} sejauh {steps} langkah.\")\n        case _:\n            print(f\"Perintah tidak dikenali: {command}\")\n\nif __name__ == \"__main__\":\n    for p in [\"load config.json\", \"save data.db --force\", \"move up 10\", \"quit\", \"invalid cmd\"]:\n        handle_command(p)",
     "quiz": {
       "question": "What is the result of: True and False?",
       "options": [
@@ -220,7 +220,7 @@ const lessons = [
     "title": "9. Lists: Creation, Indexing, and Basic Operations",
     "codeName": "M03-L01",
     "mdFile": "lessons/M03-L01.md",
-    "defaultCode": "def latihan_1(angka):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    data = [1, 2, 3, 4]\n    hasil = latihan_1(data)\n    print(hasil)",
+    "defaultCode": "def demo_list_operations():\n    angka = [10, 20, 30, 40, 50]\n    print(f\"List awal      : {angka}\")\n    print(f\"Tiga pertama   : {angka[:3]}\")\n    print(f\"Reverse (balik): {angka[::-1]}\")\n    angka.append(60)\n    angka.insert(1, 15)\n    print(f\"Setelah append & insert: {angka}\")\n    print(f\"Popped element : {angka.pop()}\")\n    print(f\"List akhir     : {angka}\")\n\nif __name__ == \"__main__\":\n    demo_list_operations()",
     "quiz": {
       "question": "Which data structure is mutable?",
       "options": [
@@ -240,7 +240,7 @@ const lessons = [
     "title": "10. List Comprehensions and Advanced Manipulation",
     "codeName": "M03-L02",
     "mdFile": "lessons/M03-L02.md",
-    "defaultCode": "[expression for item in iterable]\n[expression for item in iterable if condition]\n[expression for item1 in iterable1 for item2 in iterable2]  # nested loops",
+    "defaultCode": "def demo_comprehensions():\n    angka = range(1, 11)\n    genap_kuadrat = [x**2 for x in angka if x % 2 == 0]\n    print(f\"Kuadrat genap (1-10): {genap_kuadrat}\")\n    matriks = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n    flattened = [val for baris in matriks for val in baris]\n    print(f\"Flatten matriks     : {flattened}\")\n    clean_nama = [n.capitalize() for n in [\"alice\", \"BOB\", \"cHaRLie\"]]\n    print(f\"Format nama         : {clean_nama}\")\n\nif __name__ == \"__main__\":\n    demo_comprehensions()",
     "quiz": {
       "question": "How do you access the last element of a list 'arr'?",
       "options": [
@@ -260,7 +260,7 @@ const lessons = [
     "title": "11. Tuples: Immutable Sequences",
     "codeName": "M03-L03",
     "mdFile": "lessons/M03-L03.md",
-    "defaultCode": "def latihan_1(a, b):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    x, y = 10, 20\n    hasil = latihan_1(x, y)\n    print(hasil)  # (20, 10)",
+    "defaultCode": "def demo_tuples():\n    koordinat = (3.14, -7.25, 100.0)\n    x, y, z = koordinat\n    print(f\"Koordinat: x={x}, y={y}, z={z}\")\n    def get_user_stats():\n        return \"andi\", 95, \"A\"\n    username, score, grade = get_user_stats()\n    print(f\"User: {username} | Skor: {score} | Grade: {grade}\")\n    grid = {(0, 0): \"Start\", (1, 2): \"Checkpoint\", (5, 5): \"Finish\"}\n    print(f\"Isi grid di (1,2): {grid[(1, 2)]}\")\n\nif __name__ == \"__main__\":\n    demo_tuples()",
     "quiz": {
       "question": "What does a set do?",
       "options": [
@@ -280,7 +280,7 @@ const lessons = [
     "title": "12. Dictionaries: Key-Value Mappings",
     "codeName": "M03-L04",
     "mdFile": "lessons/M03-L04.md",
-    "defaultCode": "def latihan_1():\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    pb = latihan_1()\n    print(pb)",
+    "defaultCode": "def demo_dict():\n    user = {\"id\": 101, \"name\": \"Sarah Connor\", \"roles\": [\"admin\", \"editor\"], \"is_active\": True}\n    print(f\"User: {user['name']} (ID: {user['id']})\")\n    print(f\"Email: {user.get('email', 'email_tidak_diatur@domain.com')}\")\n    print(\"\\nDetail User:\")\n    for k, v in user.items():\n        print(f\"  - {k:<10}: {v}\")\n\nif __name__ == \"__main__\":\n    demo_dict()",
     "quiz": {
       "question": "Which method removes and returns the last element of a list?",
       "options": [
@@ -300,7 +300,7 @@ const lessons = [
     "title": "13. Dictionary Comprehensions and Dict Methods",
     "codeName": "M03-L05",
     "mdFile": "lessons/M03-L05.md",
-    "defaultCode": "{key_expr: value_expr for item in iterable}\n{key_expr: value_expr for item in iterable if condition}",
+    "defaultCode": "from collections import defaultdict\ndef demo_dict_methods():\n    names = [\"Alice\", \"Bob\", \"Charlie\", \"Diana\"]\n    print(f\"Panjang nama: {{name: len(name) for name in names}}\")\n    grouped = defaultdict(list)\n    for word in [\"apple\", \"banana\", \"avocado\", \"blueberry\", \"cherry\"]:\n        grouped[word[0]].append(word)\n    print(\"\\nPengelompokan kata:\")\n    for letter, items in sorted(grouped.items()):\n        print(f\"  '{letter}': {items}\")\n\nif __name__ == \"__main__\":\n    demo_dict_methods()",
     "quiz": {
       "question": "What is the output of: dict([('a',1),('b',2)])?",
       "options": [
@@ -320,7 +320,7 @@ const lessons = [
     "title": "14. Sets: Unordered Unique Collections",
     "codeName": "M03-L06",
     "mdFile": "lessons/M03-L06.md",
-    "defaultCode": "{expr for item in iterable if condition}",
+    "defaultCode": "def demo_sets():\n    frontend = {\"HTML\", \"CSS\", \"JavaScript\", \"TypeScript\", \"Python\"}\n    backend = {\"Python\", \"Go\", \"PostgreSQL\", \"Docker\", \"JavaScript\"}\n    print(f\"Frontend: {frontend}\")\n    print(f\"Backend : {backend}\")\n    print(f\"Irisan (Keduanya)        : {frontend & backend}\")\n    print(f\"Gabungan (Semua Skill)   : {frontend | backend}\")\n    print(f\"Frontend saja (Selisih)  : {frontend - backend}\")\n    print(f\"Symmetric Difference     : {frontend ^ backend}\")\n    unik = sorted(set([1, 2, 2, 3, 4, 4, 4, 5]))\n    print(f\"\\nDeduplikasi: {unik}\")\n\nif __name__ == \"__main__\":\n    demo_sets()",
     "quiz": {
       "question": "Which data structure is mutable?",
       "options": [
@@ -340,7 +340,7 @@ const lessons = [
     "title": "15. Defining and Calling Functions",
     "codeName": "M04-L01",
     "mdFile": "lessons/M04-L01.md",
-    "defaultCode": "def nama_fungsi(parameter1, parameter2, ...):\n    \"\"\"docstring optional\"\"\"\n    # body\n    return nilai  # optional, default None",
+    "defaultCode": "def hitung_diskon(total: float, tier: str = \"bronze\") -> float:\n    diskon_map = {\"bronze\": 0.05, \"silver\": 0.10, \"gold\": 0.20, \"platinum\": 0.30}\n    return total * (1.0 - diskon_map.get(tier.lower(), 0.0))\n\nif __name__ == \"__main__\":\n    for t in [\"bronze\", \"silver\", \"gold\", \"platinum\"]:\n        print(f\"Tier {t.title():<10} | Bayar: Rp {hitung_diskon(500000.0, tier=t):,.0f}\")",
     "quiz": {
       "question": "What keyword defines a function?",
       "options": [
@@ -360,7 +360,7 @@ const lessons = [
     "title": "16. Arguments: Positional, Keyword, Default, and *args/**kwargs",
     "codeName": "M04-L02",
     "mdFile": "lessons/M04-L02.md",
-    "defaultCode": "def f(a, b):\n    return a + b\nf(1, 2)  # a=1, b=2",
+    "defaultCode": "def build_query(table: str, *columns, **filters) -> str:\n    cols = \", \".join(columns) if columns else \"*\"\n    query = f\"SELECT {cols} FROM {table}\"\n    if filters:\n        conditions = [f\"{k} = '{v}'\" if isinstance(v, str) else f\"{k} = {v}\" for k, v in filters.items()]\n        query += \" WHERE \" + \" AND \".join(conditions)\n    return query + \";\"\n\nif __name__ == \"__main__\":\n    print(\"Q1:\", build_query(\"users\"))\n    print(\"Q2:\", build_query(\"employees\", \"id\", \"name\", \"salary\", department=\"Engineering\", active=1))",
     "quiz": {
       "question": "What does *args allow?",
       "options": [
@@ -380,7 +380,7 @@ const lessons = [
     "title": "17. Lambda Functions and Higher-Order Functions",
     "codeName": "M04-L03",
     "mdFile": "lessons/M04-L03.md",
-    "defaultCode": "lambda arguments: expression",
+    "defaultCode": "def demo_lambdas_hof():\n    karyawan = [{\"name\": \"Budi\", \"age\": 30, \"salary\": 12000000}, {\"name\": \"Siti\", \"age\": 25, \"salary\": 15000000}, {\"name\": \"Dewi\", \"age\": 28, \"salary\": 11000000}]\n    for k in sorted(karyawan, key=lambda x: x[\"salary\"], reverse=True):\n        print(f\"  - {k['name']:<6}: Rp {k['salary']:,}\")\n    angka = [1, 2, 3, 4, 5, 6]\n    print(f\"Filter genap & kuadrat: {list(filter(lambda x: x % 2 == 0, angka))} -> {list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, angka)))}\")\n\nif __name__ == \"__main__\":\n    demo_lambdas_hof()",
     "quiz": {
       "question": "What is the purpose of __name__ == '__main__'?",
       "options": [
@@ -400,7 +400,7 @@ const lessons = [
     "title": "18. Docstrings, Type Hints, and Function Annotations",
     "codeName": "M04-L04",
     "mdFile": "lessons/M04-L04.md",
-    "defaultCode": "def func(arg1, arg2):\n    \"\"\"Short description.\n\n    Longer description explaining details.\n\n    Args:\n        arg1 (int): description\n        arg2 (str): description\n\n    Returns:\n        bool: description\n    \"\"\"",
+    "defaultCode": "def transfer_dana(pengirim: str, penerima: str, jumlah: float) -> dict:\n    if jumlah <= 0:\n        return {\"sukses\": False, \"pesan\": \"Jumlah harus > 0\"}\n    return {\"sukses\": True, \"pengirim\": pengirim, \"penerima\": penerima, \"jumlah\": jumlah, \"ref\": f\"TRX-{hash((pengirim, penerima, jumlah)) & 0xFFFFFF:06X}\"}\n\nif __name__ == \"__main__\":\n    print(transfer_dana(\"ACC-001\", \"ACC-002\", 750000.0))",
     "quiz": {
       "question": "Which statement imports a specific function from a module?",
       "options": [
@@ -420,7 +420,7 @@ const lessons = [
     "title": "19. Modules and Packages",
     "codeName": "M04-L05",
     "mdFile": "lessons/M04-L05.md",
-    "defaultCode": "import module_name\nimport package.module_name\nfrom module_name import name1, name2\nfrom package.module_name import something\nfrom module_name import *\nimport module_name as alias",
+    "defaultCode": "import math, random\nfrom datetime import datetime\ndef demo_modules():\n    print(f\"Waktu Sekarang : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\")\n    print(f\"Konstanta Pi   : {math.pi:.5f}\")\n    print(f\"Akar dari 144  : {math.isqrt(144)}\")\n    print(f\"Pilihan Acak   : {random.choice(['Python','Golang','Rust','TypeScript'])}\")\n\nif __name__ == \"__main__\":\n    demo_modules()",
     "quiz": {
       "question": "What is a docstring?",
       "options": [
@@ -440,7 +440,7 @@ const lessons = [
     "title": "20. The if __name__ == '__main__' Pattern",
     "codeName": "M04-L06",
     "mdFile": "lessons/M04-L06.md",
-    "defaultCode": "def main():\n    # kode utama program\n    pass\n\nif __name__ == \"__main__\":\n    main()",
+    "defaultCode": "def greeting(nama: str) -> str:\n    return f\"Halo {nama}, selamat datang di Python LP!\"\ndef main():\n    print(\"Script dieksekusi secara langsung (entrypoint utama).\")\n    print(greeting(\"Developer\"))\nif __name__ == \"__main__\":\n    main()",
     "quiz": {
       "question": "What keyword defines a function?",
       "options": [
@@ -460,7 +460,7 @@ const lessons = [
     "title": "21. Classes and Objects: Basics of OOP",
     "codeName": "M05-L01",
     "mdFile": "lessons/M05-L01.md",
-    "defaultCode": "class Person:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n    \n    def greet(self):\n        return f\"Hello, I'm {self.name}\"",
+    "defaultCode": "class Mobil:\n    def __init__(self, merk: str, model: str, tahun: int):\n        self.merk, self.model, self.tahun, self.kecepatan = merk, model, tahun, 0\n    def akselerasi(self, tambah: int):\n        self.kecepatan += tambah\n        print(f\" {self.merk} {self.model}: {self.kecepatan} km/jam\")\n    def rem(self, kurangi: int):\n        self.kecepatan = max(0, self.kecepatan - kurangi)\n        print(f\" Rem: {self.kecepatan} km/jam\")\nif __name__ == \"__main__\":\n    m = Mobil(\"Toyota\", \"GR Yaris\", 2023)\n    m.akselerasi(60); m.akselerasi(40); m.rem(30)",
     "quiz": {
       "question": "What is the first parameter of instance methods by convention?",
       "options": [
@@ -480,7 +480,7 @@ const lessons = [
     "title": "22. Instance Variables, Class Variables, and Methods",
     "codeName": "M05-L02",
     "mdFile": "lessons/M05-L02.md",
-    "defaultCode": "class Counter:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    c1 = Counter()\n    c2 = Counter()\n    c1.increment()\n    c1.increment()\n    c2.increment()\n    print(c1.get_instance_count())  # 2\n    print(c2.get_instance_count())  # 1\n    print(Counter.get_total_class_count())  # 2",
+    "defaultCode": "class RekeningBank:\n    bunga_tahunan = 0.04\n    total_nasabah = 0\n    def __init__(self, pemilik: str, saldo_awal: float):\n        self.pemilik, self.saldo = pemilik, saldo_awal\n        RekeningBank.total_nasabah += 1\n    def setor(self, nominal: float):\n        self.saldo += nominal\n        print(f\"[+] {self.pemilik} setor Rp {nominal:,.0f} | Saldo: Rp {self.saldo:,.0f}\")\n    @classmethod\n    def ubah_bunga(cls, baru: float):\n        cls.bunga_tahunan = baru\n        print(f\"[*] Bunga: {cls.bunga_tahunan:.1%}\")\nif __name__ == \"__main__\":\n    r1 = RekeningBank(\"Ahmad\", 1000000)\n    r2 = RekeningBank(\"Budi\", 2500000)\n    r1.setor(500000)\n    print(f\"Total Nasabah: {RekeningBank.total_nasabah}\")\n    RekeningBank.ubah_bunga(0.05)",
     "quiz": {
       "question": "What does super() do?",
       "options": [
@@ -500,7 +500,7 @@ const lessons = [
     "title": "23. Inheritance and Method Resolution Order (MRO)",
     "codeName": "M05-L03",
     "mdFile": "lessons/M05-L03.md",
-    "defaultCode": "class SubClass(SuperClass):\n    # override atau tambah methods",
+    "defaultCode": "class Animal:\n    def __init__(self, name: str): self.name = name\n    def speak(self) -> str: return \"Some sound\"\nclass Dog(Animal):\n    def speak(self) -> str: return f\"{self.name} says: Woof!\"\nclass Cat(Animal):\n    def speak(self) -> str: return f\"{self.name} says: Meow!\"\nif __name__ == \"__main__\":\n    for a in [Dog(\"Buddy\"), Cat(\"Luna\")]:\n        print(a.speak())\n    print(f\"Dog MRO: {[c.__name__ for c in Dog.__mro__]}\")",
     "quiz": {
       "question": "Which method is called when an object is converted to string with str()?",
       "options": [
@@ -520,7 +520,7 @@ const lessons = [
     "title": "24. Encapsulation: Public, Private, and Protected",
     "codeName": "M05-L04",
     "mdFile": "lessons/M05-L04.md",
-    "defaultCode": "class MyClass:\n    def __init__(self):\n        self.__private = 42  # becomes _MyClass__private",
+    "defaultCode": "class SecureAccount:\n    def __init__(self, username: str, pin: str, saldo: float):\n        self.username, self._level, self.__pin, self.__saldo = username, \"Silver\", pin, saldo\n    def get_saldo(self, pin: str):\n        return self.__saldo if pin == self.__pin else \"Akses Ditolak: PIN Salah\"\n    def verify(self, pin: str) -> bool: return self.__pin == pin\nif __name__ == \"__main__\":\n    acc = SecureAccount(\"citra\", \"1234\", 5000000.0)\n    print(f\"User: {acc.username}\")\n    print(f\"Cek Saldo benar: Rp {acc.get_saldo('1234'):,}\")\n    print(f\"Cek Saldo salah: {acc.get_saldo('0000')}\")",
     "quiz": {
       "question": "What does a property decorator do?",
       "options": [
@@ -540,7 +540,7 @@ const lessons = [
     "title": "25. Properties, Getters, and Setters",
     "codeName": "M05-L05",
     "mdFile": "lessons/M05-L05.md",
-    "defaultCode": "class Celsius:\n    def __init__(self, temperature):\n        self._temperature = temperature\n\n    @property\n    def fahrenheit(self):\n        return (self._temperature * 9/5) + 32\n\n    @fahrenheit.setter\n    def fahrenheit(self, value):\n        self._temperature = (value - 32) * 5/9",
+    "defaultCode": "class Temperature:\n    def __init__(self, celsius: float = 0.0): self._celsius = celsius\n    @property\n    def celsius(self) -> float: return self._celsius\n    @celsius.setter\n    def celsius(self, value: float):\n        if value < -273.15: raise ValueError(\"Suhu di bawah nol mutlak\")\n        self._celsius = value\n    @property\n    def fahrenheit(self) -> float: return (self._celsius * 9/5) + 32\nif __name__ == \"__main__\":\n    t = Temperature(25)\n    print(f\"{t.celsius}C == {t.fahrenheit}F\")\n    t.celsius = 100\n    print(f\"Titik didih: {t.celsius}C == {t.fahrenheit}F\")",
     "quiz": {
       "question": "What is duck typing?",
       "options": [
@@ -560,7 +560,7 @@ const lessons = [
     "title": "26. Special (Dunder) Methods",
     "codeName": "M05-L06",
     "mdFile": "lessons/M05-L06.md",
-    "defaultCode": "class SimpleVector:\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    v = SimpleVector([1, 2, 3])\n    print(len(v))       # 3\n    print(v[0])         # 1\n    print(v[1:])        # [2, 3]\n    print(str(v))       # Vector(1, 2, 3)\n    print(repr(v))      # Vector([1, 2, 3])",
+    "defaultCode": "class Vector2D:\n    def __init__(self, x: float, y: float): self.x, self.y = x, y\n    def __repr__(self) -> str: return f\"Vector2D(x={self.x}, y={self.y})\"\n    def __add__(self, other): return Vector2D(self.x + other.x, self.y + other.y)\n    def __eq__(self, other): return isinstance(other, Vector2D) and self.x == other.x and self.y == other.y\nif __name__ == \"__main__\":\n    v1, v2 = Vector2D(2, 4), Vector2D(3, 1)\n    print(f\"{v1} + {v2} = {v1+v2}\")\n    print(f\"Equal? {v1+v2 == Vector2D(5,5)}\")",
     "quiz": {
       "question": "What is the first parameter of instance methods by convention?",
       "options": [
@@ -580,7 +580,7 @@ const lessons = [
     "title": "27. Polymorphism and Duck Typing",
     "codeName": "M05-L07",
     "mdFile": "lessons/M05-L07.md",
-    "defaultCode": "def make_sound(animal):\n    print(animal.speak())  # asumsi animal punya method speak()",
+    "defaultCode": "class PDFExporter:\n    def export(self, data: str) -> str: return f\"[PDF] {data}\"\nclass HTMLExporter:\n    def export(self, data: str) -> str: return f\"<html><body>{data}</body></html>\"\ndef render_document(exporter, content: str): print(exporter.export(content))\nif __name__ == \"__main__\":\n    for exp in [PDFExporter(), HTMLExporter()]:\n        render_document(exp, \"Laporan Keuangan Q3\")",
     "quiz": {
       "question": "What does super() do?",
       "options": [
@@ -600,7 +600,7 @@ const lessons = [
     "title": "28. Exceptions: try, except, else, finally",
     "codeName": "M06-L01",
     "mdFile": "lessons/M06-L01.md",
-    "defaultCode": "try:\n    # kode yang mungkin raise exception\n    result = 10 / 0\nexcept ZeroDivisionError:\n    # handle exception tertentu\n    print(\"Cannot divide by zero\")\nexcept (TypeError, ValueError) as e:\n    # handle multiple exceptions\n    print(f\"Error: {e}\")\nexcept Exception as e:\n    # catch所有 exceptions (tapi lebih baik spesifik)\n    print(f\"Unexpected error: {e}\")\nelse:\n    # dieksekusi jika tidak ada exception\n    print(\"Operation successful\")\nfinally:\n    # selalu dieksekusi (ada exception atau tidak)\n    print(\"Cleanup\")",
+    "defaultCode": "def bagi_angka(a: float, b: float):\n    try: hasil = a / b\n    except ZeroDivisionError as err: print(f\"Error: Pembagian nol! ({err})\")\n    except TypeError as err: print(f\"Error: Tipe salah! ({err})\")\n    else: print(f\"Sukses: {a} / {b} = {hasil:.2f}\")\n    finally: print(\"   -> finally selalu dieksekusi\")\nif __name__ == \"__main__\":\n    bagi_angka(10, 2)\n    print(\"---\")\n    bagi_angka(10, 0)",
     "quiz": {
       "question": "Which keyword is used to catch exceptions?",
       "options": [
@@ -620,7 +620,7 @@ const lessons = [
     "title": "29. Raising Exceptions and Custom Exceptions",
     "codeName": "M06-L02",
     "mdFile": "lessons/M06-L02.md",
-    "defaultCode": "raise ValueError(\"Invalid value\")\nraise MyCustomError(\"Something went wrong\")",
+    "defaultCode": "class InsufficientFundsError(Exception):\n    def __init__(self, saldo: float, tarik: float):\n        super().__init__(f\"Saldo Rp {saldo:,.0f} kurang untuk tarik Rp {tarik:,.0f}\")\n        self.saldo, self.tarik = saldo, tarik\ndef tarik_tunai(saldo: float, jumlah: float) -> float:\n    if jumlah > saldo: raise InsufficientFundsError(saldo, jumlah)\n    return saldo - jumlah\nif __name__ == \"__main__\":\n    try: tarik_tunai(50000.0, 100000.0)\n    except InsufficientFundsError as e: print(f\"Tertangkap: {e}\")",
     "quiz": {
       "question": "What does 'finally' do in a try-except block?",
       "options": [
@@ -640,7 +640,7 @@ const lessons = [
     "title": "30. Context Managers and the with Statement",
     "codeName": "M06-L03",
     "mdFile": "lessons/M06-L03.md",
-    "defaultCode": "with context_manager as variable:\n    # block code\n# otomatis cleanup (exit) terjadi di sini",
+    "defaultCode": "class TimerBlock:\n    def __enter__(self):\n        import time; self.start = time.perf_counter(); print(\"Mulai ukur...\"); return self\n    def __exit__(self, *a):\n        import time; print(f\"Selesai dalam {(time.perf_counter()-self.start)*1000:.3f} ms\"); return False\nif __name__ == \"__main__\":\n    with TimerBlock():\n        print(sum(x**2 for x in range(100000)))",
     "quiz": {
       "question": "How do you raise a custom exception?",
       "options": [
@@ -660,7 +660,7 @@ const lessons = [
     "title": "31. Exception Chaining and Best Practices",
     "codeName": "M06-L04",
     "mdFile": "lessons/M06-L04.md",
-    "defaultCode": "try:\n    risky_operation()\nexcept SomeError as e:\n    raise MyError(\"Higher-level failure\") from e",
+    "defaultCode": "def query_database(sql: str):\n    if \"DR\" + \"OP\" in sql: raise PermissionError(\"Operasi dilarang\")\n    return \"Data berhasil dimuat\"\ndef load_user_report():\n    try: query_database(\"DR\" + \"OP TABLE users;\")\n    except PermissionError as orig_err: raise RuntimeError(\"Gagal laporan\") from orig_err\nif __name__ == \"__main__\":\n    try: load_user_report()\n    except RuntimeError as e: print(f\"Error: {e} | cause: {e.__cause__}\")",
     "quiz": {
       "question": "What is the base class for all built-in exceptions?",
       "options": [
@@ -680,7 +680,7 @@ const lessons = [
     "title": "32. Reading and Writing Text Files",
     "codeName": "M07-L01",
     "mdFile": "lessons/M07-L01.md",
-    "defaultCode": "def latihan_1(src, dst):\n    # Tulis kode kamu di sini\n    pass\n\nif __name__ == \"__main__\":\n    latihan_1(\"input.txt\", \"output.txt\")",
+    "defaultCode": "import io\ndef demo_file_io():\n    buf = io.StringIO()\n    buf.write(\"Baris 1: Halo Python File I/O!\\n\")\n    buf.write(\"Baris 2: Menyimpan data teks.\\n\")\n    buf.seek(0)\n    for line in buf: print(\" ->\", line.strip())\nif __name__ == \"__main__\":\n    demo_file_io()",
     "quiz": {
       "question": "Which mode opens a file for reading text?",
       "options": [
@@ -700,7 +700,7 @@ const lessons = [
     "title": "33. Working with CSV and JSON Data",
     "codeName": "M07-L02",
     "mdFile": "lessons/M07-L02.md",
-    "defaultCode": "import csv\n\n# Reading\nwith open('file.csv', newline='') as f:\n    reader = csv.reader(f)  # returns iterator of lists\n    for row in reader:\n        print(row)  # list of strings\n\n# DictReader (more convenient)\nwith open('file.csv') as f:\n    reader = csv.DictReader(f)  # each row is dict dengan keys dari header\n    for row in reader:\n        print(row['name'])\n\n# Writing\nwith open('out.csv', 'w', newline='') as f:\n    writer = csv.writer(f)\n    writer.writerow(['name', 'age'])  # header\n    writer.writerow(['Alice', 25])\n\n# DictWriter\nwith open('out.csv', 'w', newline='') as f:\n    fieldnames = ['name', 'age']\n    writer = csv.DictWriter(f, fieldnames=fieldnames)\n    writer.writeheader()\n    writer.writerow({'name': 'Bob', 'age': 30})",
+    "defaultCode": "import json, csv, io\ndef demo_json_csv():\n    data = {\"course\": \"Python LP\", \"lessons\": 55, \"topics\": [\"Basics\", \"OOP\", \"Async\"]}\n    print(json.dumps(data, indent=2))\n    csv_data = \"nama,peran,skor\\nBudi,Backend,90\\nSiti,Frontend,95\"\n    for row in csv.DictReader(io.StringIO(csv_data)): print(row)\nif __name__ == \"__main__\":\n    demo_json_csv()",
     "quiz": {
       "question": "What is the safest way to open a file?",
       "options": [
@@ -720,7 +720,7 @@ const lessons = [
     "title": "34. Pickle and Binary Serialization",
     "codeName": "M07-L03",
     "mdFile": "lessons/M07-L03.md",
-    "defaultCode": "import pickle\n\ndata = {'a': [1, 2.0, 3+4j], 'b': ('string', u'unicode string'), 'c': None}\nwith open('data.pkl', 'wb') as f:\n    pickle.dump(data, f)                # default protocol tertinggi yang tersedia\n    pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)  # explicit",
+    "defaultCode": "import pickle\ndef demo_pickle():\n    data = {\"user_id\": 42, \"username\": \"developer\", \"preferences\": {\"theme\": \"dark\"}}\n    b = pickle.dumps(data)\n    print(f\"bytes: {len(b)}, restored: {pickle.loads(b) == data}\")\nif __name__ == \"__main__\":\n    demo_pickle()",
     "quiz": {
       "question": "Which module is used for JSON serialization?",
       "options": [
@@ -740,7 +740,7 @@ const lessons = [
     "title": "35. Working with Paths: os.path and pathlib",
     "codeName": "M07-L04",
     "mdFile": "lessons/M07-L04.md",
-    "defaultCode": "import os.path\n\npath = '/home/user/file.txt'\nos.path.join('dir', 'subdir', 'file.txt')\nos.path.split(path)          # ('/home/user', 'file.txt')\nos.path.dirname(path)       # '/home/user'\nos.path.basename(path)      # 'file.txt'\nos.path.splitext(path)      # ('/home/user/file', '.txt')\nos.path.exists(path)\nos.path.isfile(path)\nos.path.isdir(path)\nos.path.getsize(path)",
+    "defaultCode": "from pathlib import Path\ndef demo_pathlib():\n    p = Path(\"src/modules/submodule/app.py\")\n    print(f\"Path: {p}, name: {p.name}, parent: {p.parent}, new: {p.with_suffix('.min.js')}\")\n    print(f\"Join: {Path('/data') / 'logs' / 'server.log'}\")\nif __name__ == \"__main__\":\n    demo_pathlib()",
     "quiz": {
       "question": "How do you read all lines of a file into a list?",
       "options": [
@@ -760,7 +760,7 @@ const lessons = [
     "title": "36. File System Operations",
     "codeName": "M07-L05",
     "mdFile": "lessons/M07-L05.md",
-    "defaultCode": "import os\n\nos.listdir(path='.')          # list direktori (names only)\nos.scandir(path='.')          # iterator of DirEntry (lebih efisien, punya atribut)\nos.getcwd()\nos.chdir(path)\nos.mkdir(path)               # buat satu level\nos.makedirs(path, exist_ok=True)  # buat recursively\nos.rmdir(path)               # hapus direktori kosong\nos.remove(path)              # hapus file\nos.removedirs(path)          # hapus recursively (jika kosong)\nos.rename(src, dst)\nos.replace(src, dst)         # atomic rename\nos.scandir() untuk atribut: entry.name, entry.path, entry.is_file(), entry.is_dir()",
+    "defaultCode": "import os, tempfile\ndef demo_filesystem():\n    print(f\"CWD: {os.getcwd()}\")\n    print(f\"Temp: {tempfile.gettempdir()}\")\n    print(f\"sep: {repr(os.sep)}\")\nif __name__ == \"__main__\":\n    demo_filesystem()",
     "quiz": {
       "question": "What does 'rb' mode do?",
       "options": [
@@ -780,7 +780,7 @@ const lessons = [
     "title": "37. Iterators and the Iterator Protocol",
     "codeName": "M08-L01",
     "mdFile": "lessons/M08-L01.md",
-    "defaultCode": "iterator = iter(iterable)  # panggil __iter__()\nwhile True:\n    try:\n        item = next(iterator)  # panggil __next__()\n        # process item\n    except StopIteration:\n        break",
+    "defaultCode": "class CountDown:\n    def __init__(self, start: int): self.current = start\n    def __iter__(self): return self\n    def __next__(self) -> int:\n        if self.current <= 0: raise StopIteration\n        val = self.current; self.current -= 1; return val\nif __name__ == \"__main__\":\n    for num in CountDown(5): print(f\"T-minus {num}...\")\n    print(\"Liftoff!\")",
     "quiz": {
       "question": "What file marks a directory as a Python package?",
       "options": [
@@ -800,7 +800,7 @@ const lessons = [
     "title": "38. Generators and yield",
     "codeName": "M08-L02",
     "mdFile": "lessons/M08-L02.md",
-    "defaultCode": "def count_up_to(n):\n    i = 0\n    while i < n:\n        yield i\n        i += 1\n\nfor x in count_up_to(5):\n    print(x)  # 0 1 2 3 4",
+    "defaultCode": "def fibonacci_gen(limit: int):\n    a, b = 0, 1\n    for _ in range(limit): yield a; a, b = b, a + b\nif __name__ == \"__main__\":\n    print(list(fibonacci_gen(10)))",
     "quiz": {
       "question": "What is the difference between 'import module' and 'from module import *'?",
       "options": [
@@ -820,7 +820,7 @@ const lessons = [
     "title": "39. Decorators: Functions That Wrap Functions",
     "codeName": "M08-L03",
     "mdFile": "lessons/M08-L03.md",
-    "defaultCode": "def my_decorator(func):\n    def wrapper(*args, **kwargs):\n        # pre-processing\n        result = func(*args, **kwargs)\n        # post-processing\n        return result\n    return wrapper\n\n@my_decorator\ndef say_hello():\n    print(\"Hello\")\n\nsay_hello()  # sebenarnya memanggil wrapper",
+    "defaultCode": "import functools, time\ndef timer_decorator(func):\n    @functools.wraps(func)\n    def wrapper(*a, **kw):\n        t0 = time.perf_counter(); r = func(*a, **kw)\n        print(f\"{func.__name__} {(time.perf_counter()-t0)*1000:.3f} ms\"); return r\n    return wrapper\n@timer_decorator\ndef hitung_faktorial(n: int) -> int:\n    import math; return math.factorial(n)\nif __name__ == \"__main__\":\n    print(len(str(hitung_faktorial(500))))",
     "quiz": {
       "question": "How do you import a module from a parent package?",
       "options": [
@@ -840,7 +840,7 @@ const lessons = [
     "title": "40. Contextlib and Advanced Context Managers",
     "codeName": "M08-L04",
     "mdFile": "lessons/M08-L04.md",
-    "defaultCode": "from contextlib import contextmanager\n\n@contextmanager\ndef my_context():\n    # setup\n    resource = acquire_resource()\n    try:\n        yield resource\n    finally:\n        # cleanup\n        release_resource(resource)",
+    "defaultCode": "from contextlib import contextmanager\n@contextmanager\ndef temporary_flag(obj, attr, val):\n    old = getattr(obj, attr); setattr(obj, attr, val)\n    try: yield obj\n    finally: setattr(obj, attr, old)\nclass AppConfig: debug_mode = False\nif __name__ == \"__main__\":\n    cfg = AppConfig()\n    print(cfg.debug_mode)\n    with temporary_flag(cfg, \"debug_mode\", True): print(cfg.debug_mode)\n    print(cfg.debug_mode)",
     "quiz": {
       "question": "What does sys.path control?",
       "options": [
@@ -860,7 +860,7 @@ const lessons = [
     "title": "41. Descriptors and the Descriptor Protocol",
     "codeName": "M08-L05",
     "mdFile": "lessons/M08-L05.md",
-    "defaultCode": "class Descriptor:\n    def __init__(self, name):\n        self.name = name\n\n    def __get__(self, instance, owner):\n        # instance: objek yang memiliki attribute, atau None jika diakses via class\n        # owner: class yang own descriptor\n        return instance.__dict__[self.name]\n\n    def __set__(self, instance, value):\n        instance.__dict__[self.name] = value\n\n    def __delete__(self, instance):\n        del instance.__dict__[self.name]\n\nclass MyClass:\n    attr = Descriptor('attr')",
+    "defaultCode": "class NonNegative:\n    def __init__(self, name: str): self.name = name\n    def __get__(self, inst, owner): return inst.__dict__.get(self.name, 0) if inst else self\n    def __set__(self, inst, value):\n        if value < 0: raise ValueError(f\"{self.name} negatif!\")\n        inst.__dict__[self.name] = value\nclass Product:\n    price = NonNegative(\"price\"); stock = NonNegative(\"stock\")\n    def __init__(self, n, p, s): self.name, self.price, self.stock = n, p, s\nif __name__ == \"__main__\":\n    print(Product(\"Keyboard\", 850000, 15).price)",
     "quiz": {
       "question": "What is __all__ used for?",
       "options": [
@@ -880,7 +880,7 @@ const lessons = [
     "title": "42. Metaclasses and Class Creation",
     "codeName": "M08-L06",
     "mdFile": "lessons/M08-L06.md",
-    "defaultCode": "class MyClass:\n    pass\n# Di balik layar: MyClass = type('MyClass', (object,), {})",
+    "defaultCode": "class AutoMethodMeta(type):\n    def __new__(cls, name, bases, dct):\n        dct[\"created_by\"] = \"AutoMethodMeta\"; dct[\"registry_name\"] = name.lower()\n        return super().__new__(cls, name, bases, dct)\nclass BasePlugin(metaclass=AutoMethodMeta): pass\nclass AudioPlugin(BasePlugin):\n    def process(self): return \"Memproses audio...\"\nif __name__ == \"__main__\":\n    p = AudioPlugin(); print(p.registry_name, p.created_by, p.process())",
     "quiz": {
       "question": "What file marks a directory as a Python package?",
       "options": [
@@ -900,7 +900,7 @@ const lessons = [
     "title": "43. Threading: Running Code Concurrently",
     "codeName": "M09-L01",
     "mdFile": "lessons/M09-L01.md",
-    "defaultCode": "import threading\n\ndef worker():\n    print(\"Working\")\n\nt = threading.Thread(target=worker, args=(...), kwargs={...})\nt.start()   # start thread\nt.join()    # wait until finished",
+    "defaultCode": "import threading, time\ndef worker(i, results):\n    time.sleep(0.05); results.append(f\"Hasil {i}\")\ndef demo_threading():\n    hasil = []\n    threads = [threading.Thread(target=worker, args=(i, hasil)) for i in range(1, 4)]\n    for t in threads: t.start()\n    for t in threads: t.join()\n    print(hasil)\nif __name__ == \"__main__\":\n    demo_threading()",
     "quiz": {
       "question": "What command creates a virtual environment?",
       "options": [
@@ -920,7 +920,7 @@ const lessons = [
     "title": "44. Multiprocessing: True Parallel Execution",
     "codeName": "M09-L02",
     "mdFile": "lessons/M09-L02.md",
-    "defaultCode": "from multiprocessing import Process\n\ndef worker(name):\n    print(f\"Hello from {name}\")\n\np = Process(target=worker, args=(\"Alice\",))\np.start()\np.join()",
+    "defaultCode": "def hitung_kuadrat(n: int) -> int: return n * n\ndef demo_multiprocessing():\n    data = [10, 20, 30, 40, 50]\n    print([hitung_kuadrat(x) for x in data])\nif __name__ == \"__main__\":\n    demo_multiprocessing()",
     "quiz": {
       "question": "How do you activate a virtual environment on Linux/macOS?",
       "options": [
@@ -940,7 +940,7 @@ const lessons = [
     "title": "45. Asyncio: Asynchronous I/O",
     "codeName": "M09-L03",
     "mdFile": "lessons/M09-L03.md",
-    "defaultCode": "import asyncio\n\nasync def fetch_data():\n    print(\"Start\")\n    await asyncio.sleep(1)  # simulasi I/O\n    print(\"Done\")\n    return {\"data\": 123}\n\nasync def main():\n    result = await fetch_data()\n    print(result)\n\nasyncio.run(main())  # Python 3.7+",
+    "defaultCode": "import asyncio\nasync def fetch_api(endpoint: str, delay: float) -> dict:\n    await asyncio.sleep(delay); return {\"endpoint\": endpoint, \"status\": 200}\nasync def main_async():\n    results = await asyncio.gather(fetch_api(\"/users\", 0.05), fetch_api(\"/products\", 0.08), fetch_api(\"/orders\", 0.03))\n    for r in results: print(r)\nif __name__ == \"__main__\":\n    asyncio.run(main_async())",
     "quiz": {
       "question": "What command installs packages from requirements.txt?",
       "options": [
@@ -960,7 +960,7 @@ const lessons = [
     "title": "46. Concurrent Futures: ThreadPoolExecutor and ProcessPoolExecutor",
     "codeName": "M09-L04",
     "mdFile": "lessons/M09-L04.md",
-    "defaultCode": "from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor\nimport time\n\ndef task(n):\n    time.sleep(1)\n    return n * n\n\nwith ThreadPoolExecutor(max_workers=4) as executor:\n    # Submit single task\n    future = executor.submit(task, 5)\n    result = future.result()  # blocking\n\n    # Map multiple tasks\n    results = executor.map(task, [1,2,3,4,5])\n    for r in results:\n        print(r)",
+    "defaultCode": "from concurrent.futures import ThreadPoolExecutor\ndef fetch_url_simulasi(url: str) -> str: return f\"200 OK {url}\"\ndef demo_futures():\n    urls = [\"https://api.site.com/a\",\"https://api.site.com/b\",\"https://api.site.com/c\"]\n    print(list(ThreadPoolExecutor(max_workers=3).map(fetch_url_simulasi, urls)))\nif __name__ == \"__main__\":\n    demo_futures()",
     "quiz": {
       "question": "What does 'pip freeze' do?",
       "options": [
@@ -980,7 +980,7 @@ const lessons = [
     "title": "47. Choosing the Right Concurrency Model",
     "codeName": "M09-L05",
     "mdFile": "lessons/M09-L05.md",
-    "defaultCode": "loop = asyncio.get_event_loop()\nresult = await loop.run_in_executor(None, blocking_func, arg)",
+    "defaultCode": "def concurrency_guide():\n    for s, sol, n in [(\"I/O Bound\",\"asyncio / ThreadPool\",\"non-blocking\"),(\"CPU Bound\",\"multiprocessing\",\"bypass GIL\"),(\"Simple\",\"Sync\",\"debug mudah\")]:\n        print(f\"{s}: {sol} ({n})\")\nif __name__ == \"__main__\":\n    concurrency_guide()",
     "quiz": {
       "question": "What is the purpose of a virtual environment?",
       "options": [
@@ -1000,7 +1000,7 @@ const lessons = [
     "title": "48. Writing Tests with unittest and pytest",
     "codeName": "M10-L01",
     "mdFile": "lessons/M10-L01.md",
-    "defaultCode": "import unittest\n\ndef add(a, b):\n    return a + b\n\nclass TestAdd(unittest.TestCase):\n    def test_add_positive(self):\n        self.assertEqual(add(2, 3), 5)\n\n    def test_add_negative(self):\n        self.assertEqual(add(-1, -1), -2)\n\nif __name__ == '__main__':\n    unittest.main()",
+    "defaultCode": "import unittest, io, sys\ndef multiply(a: int, b: int) -> int: return a*b\nclass TestMathOperations(unittest.TestCase):\n    def test_multiply_positive(self): self.assertEqual(multiply(3,4),12)\n    def test_multiply_zero(self): self.assertEqual(multiply(5,0),0)\n    def test_multiply_negative(self): self.assertEqual(multiply(-2,3),-6)\nif __name__ == \"__main__\":\n    buf = io.StringIO()\n    runner = unittest.TextTestRunner(stream=buf, verbosity=2)\n    suite = unittest.TestLoader().loadTestsFromTestCase(TestMathOperations)\n    res = runner.run(suite)\n    print(buf.getvalue()); print(f\"Tests:{res.testsRun} Fail:{len(res.failures)}\")",
     "quiz": {
       "question": "Which style guide is the official Python convention?",
       "options": [
@@ -1020,7 +1020,7 @@ const lessons = [
     "title": "49. Test-Driven Development (TDD) Workflow",
     "codeName": "M10-L02",
     "mdFile": "lessons/M10-L02.md",
-    "defaultCode": "# test_calculator.py\ndef test_add():\n    assert add(2, 3) == 5\n\n# calculator.py\ndef add(a, b):\n    return a + b  # implementasi paling sederhana",
+    "defaultCode": "def is_palindrome(text: str) -> bool: return \"\".join(c.lower() for c in text if c.isalnum()) == \"\".join(c.lower() for c in text if c.isalnum())[::-1]\ndef test_suite():\n    assert is_palindrome(\"radar\") == True\n    assert is_palindrome(\"Kasur rusak\") == True\n    assert is_palindrome(\"python\") == False\n    print(\"Semua test TDD lolos!\")\nif __name__ == \"__main__\":\n    test_suite()",
     "quiz": {
       "question": "What is a good practice for managing project dependencies?",
       "options": [
@@ -1040,7 +1040,7 @@ const lessons = [
     "title": "50. Debugging with pdb and IDE Debuggers",
     "codeName": "M10-L03",
     "mdFile": "lessons/M10-L03.md",
-    "defaultCode": "import pdb\n\ndef buggy_function(x):\n    pdb.set_trace()  # breakpoint\n    result = x / (x - 5)\n    return result\n\nbuggy_function(10)",
+    "defaultCode": "def debug_demo():\n    total = 0\n    for i, x in enumerate([10,20,30,40]):\n        total += x; print(f\"Step {i+1}: +{x} total={total}\")\n    return total\nif __name__ == \"__main__\":\n    print(f\"Hasil: {debug_demo()}\")",
     "quiz": {
       "question": "Which tool is commonly used for Python package publishing?",
       "options": [
@@ -1060,7 +1060,7 @@ const lessons = [
     "title": "51. Logging: The Right Way to Print",
     "codeName": "M10-L04",
     "mdFile": "lessons/M10-L04.md",
-    "defaultCode": "import logging\n\nlogging.debug(\"Debug message\")\nlogging.info(\"Info message\")\nlogging.warning(\"Warning message\")\nlogging.error(\"Error message\")\nlogging.critical(\"Critical message\")",
+    "defaultCode": "import logging, sys\ndef demo_logging():\n    logger = logging.getLogger(\"PythonLP\"); logger.setLevel(logging.INFO)\n    if not logger.handlers:\n        h = logging.StreamHandler(sys.stdout); h.setFormatter(logging.Formatter(\"[%(levelname)s] %(message)s\")); logger.addHandler(h)\n    logger.info(\"Server mulai...\")\n    logger.warning(\"Memori 75%\")\n    logger.error(\"Backup gagal\")\nif __name__ == \"__main__\":\n    demo_logging()",
     "quiz": {
       "question": "What is the recommended way to share a Python script with others?",
       "options": [
@@ -1080,7 +1080,7 @@ const lessons = [
     "title": "52. Code Quality: PEP 8, Linters, and Formatters",
     "codeName": "M10-L05",
     "mdFile": "lessons/M10-L05.md",
-    "defaultCode": "def add(a,b):\n    return a+b",
+    "defaultCode": "def hitung_rata_rata(nums: list[float]) -> float: return sum(nums)/len(nums) if nums else 0.0\nif __name__ == \"__main__\":\n    print(f\"{hitung_rata_rata([85.5,90,78.5,92]):.2f}\")",
     "quiz": {
       "question": "Which community resource is best for Python documentation?",
       "options": [
@@ -1100,7 +1100,7 @@ const lessons = [
     "title": "53. Type Checking with mypy",
     "codeName": "M10-L06",
     "mdFile": "lessons/M10-L06.md",
-    "defaultCode": "def greet(name: str) -> str:\n    return \"Hello \" + name",
+    "defaultCode": "from typing import TypeAlias\nUserId: TypeAlias = int\nUserData: TypeAlias = dict[str, str | int]\ndef find_user(uid: UserId) -> UserData | None:\n    db: dict[UserId, UserData] = {1: {\"username\": \"alice\",\"age\":28},2: {\"username\":\"bob\",\"age\":34}}\n    return db.get(uid)\nif __name__ == \"__main__\":\n    print(find_user(1)); print(find_user(99))",
     "quiz": {
       "question": "Which style guide is the official Python convention?",
       "options": [
@@ -1120,7 +1120,7 @@ const lessons = [
     "title": "54. Profiling and Performance Optimization",
     "codeName": "M10-L07",
     "mdFile": "lessons/M10-L07.md",
-    "defaultCode": "import cProfile\nimport pstats\n\nprofiler = cProfile.Profile()\nprofiler.enable()\n# code to profile\nprofiler.create_stats()\nstats = pstats.Stats(profiler)\nstats.sort_stats('cumulative').print_stats(10)  # top 10 by cumulative time",
+    "defaultCode": "import cProfile, pstats, io\ndef task_komputasi(): return sum(i*i for i in range(10000))\ndef run_profiler():\n    pr = cProfile.Profile(); pr.enable(); task_komputasi(); pr.disable()\n    s = io.StringIO(); pstats.Stats(pr, stream=s).sort_stats('cumulative').print_stats(5)\n    print(s.getvalue())\nif __name__ == \"__main__\":\n    run_profiler()",
     "quiz": {
       "question": "What is a good practice for managing project dependencies?",
       "options": [
@@ -1140,7 +1140,7 @@ const lessons = [
     "title": "55. Packaging and Distributing Python Packages",
     "codeName": "M10-L08",
     "mdFile": "lessons/M10-L08.md",
-    "defaultCode": "from setuptools import setup, find_packages\n\nsetup(\n    name=\"mypackage\",\n    version=\"0.1.0\",\n    packages=find_packages(),\n    install_requires=[\"requests>=2.0\"],\n    python_requires=\">=3.8\",\n    entry_points={\n        \"console_scripts\": [\n            \"mycmd=mypackage.cli:main\",\n        ],\n    },\n)",
+    "defaultCode": "def info_packaging():\n    meta = {\"name\": \"python-learning-suite\",\"version\":\"1.0.0\",\"author\":\"personalbotai\",\"license\":\"MIT\"}\n    for k,v in meta.items(): print(f\"{k}: {v}\")\nif __name__ == \"__main__\":\n    info_packaging()",
     "quiz": {
       "question": "Which tool is commonly used for Python package publishing?",
       "options": [
