@@ -259,13 +259,12 @@
     <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
     <script src="app.js"></script>
     <script>
-    // Global Theme Toggle Function
+        // Global Theme Toggle Function
     window.toggleAppTheme = function() {
         const html = document.documentElement;
         const icon = document.getElementById('themeToggleIcon');
         const isDark = html.classList.contains('dark');
         const next = isDark ? 'light' : 'dark';
-        
         if (next === 'light') {
             html.classList.remove('dark');
             html.classList.add('light');
@@ -275,12 +274,8 @@
             html.classList.remove('light');
             if (icon) icon.className = 'fas fa-moon text-sm text-slate-400 pointer-events-none';
         }
-        try {
-            localStorage.setItem('py_theme', next);
-        } catch(e) {}
+        try { localStorage.setItem('py_theme', next); } catch(e) {}
     };
-    
-    // Theme toggle init on load
     (function(){
         const icon = document.getElementById('themeToggleIcon');
         const html = document.documentElement;
@@ -294,10 +289,6 @@
             html.classList.remove('light');
             if (icon) icon.className = 'fas fa-moon text-sm text-slate-400 pointer-events-none';
         }
-    })();
-
-        
-    
         // Search: filter via renderNav(filter) if supported
         const s=document.getElementById('lesson-search');
         const sm=document.getElementById('lesson-search-mobile');
@@ -305,7 +296,6 @@
             if(!el) return;
             el.addEventListener('input',()=>{
                 const v=el.value;
-                // sync both inputs
                 if(s && el!==s) s.value=v;
                 if(sm && el!==sm) sm.value=v;
                 if(typeof renderNav==='function'){
@@ -315,8 +305,6 @@
             el.addEventListener('keydown',e=>{
                 if(e.key==='Enter'){
                     e.preventDefault();
-                    // jump to first filtered lesson
-                    const q=v=>v&&v.toLowerCase();
                     const query=(el.value||'').toLowerCase();
                     if(!query) return;
                     const idx=lessons.findIndex(l=>l.title.toLowerCase().includes(query));
@@ -325,7 +313,6 @@
             });
         }
         bindSearch(s); bindSearch(sm);
-        // "/" shortcut
         document.addEventListener('keydown',e=>{
             if(e.key==='/' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)){
                 e.preventDefault(); s?.focus();
@@ -346,7 +333,6 @@
         }
         function closeSidebarFn(){
             sb?.classList.remove('sidebar-open'); sb?.classList.add('-translate-x-full');
-            // keep lg translate
             if(window.innerWidth>=1024){ sb?.classList.remove('-translate-x-full'); sb?.classList.add('lg:translate-x-0'); }
             ov?.classList.add('hidden'); ov?.classList.remove('overlay-open');
             bd?.classList.add('hidden'); bd?.classList.remove('show');
