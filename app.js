@@ -1213,7 +1213,7 @@ async function initPyodideRuntime() {
 
 async function runCode() {
     const output = document.getElementById('output');
-    const code = document.getElementById('code-editor').value;
+    const _edPy=document.getElementById('code-editor'); const code = _edPy ? _edPy.value : '';
     if (!pyodideReady) await initPyodideRuntime();
     if (output) output.innerHTML = '<span class="text-amber-400">Menjalankan...</span>';
     try {
