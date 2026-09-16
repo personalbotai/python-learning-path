@@ -1215,6 +1215,7 @@ async function initPyodideRuntime() {
             }
             if (typeof loadPyodide === 'function') {
                 pyodideInstance = await loadPyodide();
+                try { await pyodideInstance.loadPackage('micropip'); } catch (e2) { console.warn('micropip preload skip:', e2); }
                 pyodideReady = true;
                 setPyStatus('✓ WASM Ready', 'text-emerald-400');
                 console.log('Pyodide WebAssembly siap di background.');
@@ -1278,9 +1279,25 @@ async function runCode() {
     try {
         let res = '';
         if (pyodideInstance) {
-            pyodideInstance.runPython('import sys\nfrom io import StringIO\nsys.stdout = StringIO()\nsys.stderr = sys.stdout');
-            pyodideInstance.runPython(code);
-            res = pyodideInstance.runPython('sys.stdout.getvalue()');
+            const runWithCapture = (src) => {
+                pyodideInstance.runPython('import sys\nfrom io import StringIO\nsys.stdout = StringIO()\nsys.stderr = sys.stdout');
+                pyodideInstance.runPython(src);
+                return pyodideInstance.runPython('sys.stdout.getvalue()');
+            };
+            try {
+                res = runWithCapture(code);
+            } catch (err) {
+                const msg = String((err && err.message) || err);
+                const m = msg.match(/The module '([^']+)' is included in the Pyodide distribution/i) || msg.match(/No module named '([^']+)'/i) || msg.match(/ModuleNotFoundError[^'"]*'([^'"]+)'/i);
+                const PKG_ALIAS = { pkg_resources: 'setuptools' };
+                if (m && pyodideInstance.loadPackage) {
+                    let pkg = m[1].split('.')[0];
+                    pkg = PKG_ALIAS[pkg] || pkg;
+                    if (output) output.innerHTML = '<span class="text-amber-400">&#9203; Installing Pyodide package: ' + escapeHtml(pkg) + '&hellip;</span>';
+                    await pyodideInstance.loadPackage(pkg);
+                    res = runWithCapture(code);
+                } else { throw err; }
+            }
         } else {
             res = await runPythonCloud(code);
             if (res === null) res = fallbackRuntime.run(code);
