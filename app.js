@@ -62,15 +62,15 @@ const lessons = [
     "mdFile": "lessons/M01-L01.md",
     "defaultCode": "import sys\nimport platform\n\ndef info_environment():\n    print(\"=== Python Execution Environment ===\")\n    print(f\"Python Version : {sys.version.split()[0]}\")\n    print(f\"Platform       : {platform.platform()}\")\n    print(f\"Byteorder      : {sys.byteorder}\")\n    print(f\"Max Integer    : {sys.maxsize}\")\n    print(\"Environment siap untuk pembelajaran Python modern!\")\n\nif __name__ == \"__main__\":\n    info_environment()",
     "quiz": {
-      "question": "What is the correct file extension for Python scripts?",
+      "question": "Perintah CLI standar Python 3 untuk membuat virtual environment terisolasi di direktori '.venv'?",
       "options": [
-        ".py",
-        ".python",
-        ".pyt",
-        ".pt"
+        "python -m venv .venv",
+        "python --create-env .venv",
+        "pip install virtualenv-default",
+        "python init env"
       ],
       "answer": 0,
-      "explanation": "Python scripts use the .py file extension."
+      "explanation": "Modul bawaan 'venv' dijalankan dengan flag -m untuk menginisialisasi virtual environment."
     }
   },
   {
@@ -82,15 +82,15 @@ const lessons = [
     "mdFile": "lessons/M01-L02.md",
     "defaultCode": "def demo_syntax():\n    greeting = \"Hello, Pythonista!\"\n    version = 3.12\n    is_awesome = True\n    print(greeting)\n    print(f\"Belajar Python versi {version}\")\n    print(f\"Apakah Python powerful? -> {is_awesome}\")\n    print(\"\\nPola Segitiga Bintang:\")\n    for i in range(1, 6):\n        print(\"*\" * i)\n\nif __name__ == \"__main__\":\n    demo_syntax()",
     "quiz": {
-      "question": "Which command creates a virtual environment in Python?",
+      "question": "Kapan blok 'if __name__ == \"__main__\":' dieksekusi di Python?",
       "options": [
-        "python -m venv venv",
-        "pip install venv",
-        "python create venv",
-        "virtualenv create"
+        "Hanya jika file dijalankan langsung sebagai entry point, bukan saat di-import modul lain",
+        "Dieksekusi setiap kali file di-import oleh skrip lain",
+        "Wajib ada di setiap file skrip Python agar syntax valid",
+        "Digunakan untuk deklarasi fungsi utama di CPython"
       ],
       "answer": 0,
-      "explanation": "The standard way is 'python -m venv venv' (or 'python3 -m venv venv')."
+      "explanation": "Variabel spesial __name__ diset ke '__main__' hanya saat file dijalankan sebagai top-level script."
     }
   },
   {
@@ -102,15 +102,15 @@ const lessons = [
     "mdFile": "lessons/M01-L03.md",
     "defaultCode": "def demo_types():\n    nama: str = \"Budi Santoso\"\n    umur: int = 24\n    tinggi_m: float = 1.75\n    is_active: bool = True\n    skills: list[str] = [\"Python\", \"AsyncIO\", \"FastAPI\"]\n    print(f\"Nama    : {nama} (type: {type(nama).__name__})\")\n    print(f\"Umur    : {umur} (type: {type(umur).__name__})\")\n    print(f\"Tinggi  : {tinggi_m} m (type: {type(tinggi_m).__name__})\")\n    print(f\"Aktif   : {is_active} (type: {type(is_active).__name__})\")\n    print(f\"Skills  : {skills} (type: {type(skills).__name__})\")\n    umur_str = str(umur)\n    print(f\"Konversi umur ke string: {repr(umur_str)}\")\n\nif __name__ == \"__main__\":\n    demo_types()",
     "quiz": {
-      "question": "What is the output of: print('Hello' + 'World')?",
+      "question": "Manakah tipe data Python berikut yang bersifat IMMUTABLE (tidak dapat diubah setelah dibuat)?",
       "options": [
-        "HelloWorld",
-        "Hello World",
-        "Hello+World",
-        "Error"
+        "tuple, frozenset, str, int, float",
+        "list, dict, set, bytearray",
+        "dict, list, tuple",
+        "set, str, list"
       ],
       "answer": 0,
-      "explanation": "String concatenation with + joins without spaces."
+      "explanation": "Tuple, string, integer, float, dan frozenset adalah tipe immutable di Python."
     }
   },
   {
@@ -122,15 +122,15 @@ const lessons = [
     "mdFile": "lessons/M01-L04.md",
     "defaultCode": "def format_showcase():\n    item = \"Laptop Pro\"\n    harga = 18500000.75\n    diskon = 0.15\n    harga_akhir = harga * (1 - diskon)\n    print(f\"Produk      : {item}\")\n    print(f\"Harga Asli  : Rp {harga:,.2f}\")\n    print(f\"Diskon      : {diskon:.0%}\")\n    print(f\"Harga Akhir : Rp {harga_akhir:,.2f}\")\n    x = 42\n    y = 58\n    print(f\"\\nDebug: {x=}, {y=}, {x+y=}\")\n\nif __name__ == \"__main__\":\n    format_showcase()",
     "quiz": {
-      "question": "Which of these is a valid variable name in Python?",
+      "question": "Format f-string mana yang mencetak nama variabel sekaligus nilainya untuk debugging di Python 3.8+?",
       "options": [
-        "1var",
-        "var-name",
-        "_var",
-        "var name"
+        "f'{nilai=}'",
+        "f'{debug(nilai)}'",
+        "f'${nilai}'",
+        "f'{print:nilai}'"
       ],
-      "answer": 2,
-      "explanation": "Underscore-starting names are valid; others have syntax errors."
+      "answer": 0,
+      "explanation": "Fitur self-documenting f-string f'{var=}' mencetak 'var=isi_nilai' secara otomatis."
     }
   },
   {
@@ -142,15 +142,15 @@ const lessons = [
     "mdFile": "lessons/M02-L01.md",
     "defaultCode": "def cek_kelayakan(nilai: float, kehadiran: float) -> str:\n    if nilai >= 85 and kehadiran >= 90:\n        return \"Grade A - Lulus dengan Pujian (Cum Laude)\"\n    elif nilai >= 70 and kehadiran >= 75:\n        return \"Grade B - Lulus Reguler\"\n    elif nilai >= 55:\n        return \"Grade C - Lulus Bersyarat (Tugas Tambahan)\"\n    else:\n        return \"Grade D/E - Tidak Lulus (Wajib Mengulang)\"\n\nif __name__ == \"__main__\":\n    for n, k in [(92, 95), (78, 80), (62, 70), (45, 60)]:\n        print(f\"Nilai: {n}, Presensi: {k}% -> {cek_kelayakan(n, k)}\")",
     "quiz": {
-      "question": "What does 'elif' stand for?",
+      "question": "Apa output dari ekspresi kondisional: 'x = 10 if False else 20'?",
       "options": [
-        "Else If",
-        "Else In",
-        "Elastic If",
-        "None"
+        "20",
+        "10",
+        "False",
+        "SyntaxError"
       ],
       "answer": 0,
-      "explanation": "'elif' is short for 'else if'."
+      "explanation": "Ternary operator di Python menggunakan sintaks 'A if condition else B'."
     }
   },
   {
@@ -162,15 +162,15 @@ const lessons = [
     "mdFile": "lessons/M02-L02.md",
     "defaultCode": "def demo_loops():\n    print(\"1. For Loop dengan enumerate & range:\")\n    for idx, item in enumerate([\"Apel\", \"Jeruk\", \"Mangga\", \"Pisang\"], start=1):\n        print(f\"  {idx}. {item}\")\n    print(\"\\n2. While Loop dengan break & continue:\")\n    angka = 0\n    while angka < 10:\n        angka += 1\n        if angka % 2 == 0:\n            continue\n        if angka > 7:\n            break\n        print(f\"  Ganjil ditemukan: {angka}\")\n    else:\n        print(\"  Loop selesai normal\")\n\nif __name__ == \"__main__\":\n    demo_loops()",
     "quiz": {
-      "question": "Which loop executes at least once?",
+      "question": "Kapan blok 'else' pada perulangan 'for item in iterable:' akan dieksekusi?",
       "options": [
-        "for",
-        "while",
-        "do-while",
-        "None (Python has no do-while)"
+        "Saat loop selesai secara normal tanpa menemui statement 'break'",
+        "Saat perulangan mengalami error/exception",
+        "Hanya jika iterable dalam kondisi kosong",
+        "Setiap kali iterasi loop selesai"
       ],
-      "answer": 3,
-      "explanation": "Python has no built-in do-while; while/for may execute zero times."
+      "answer": 0,
+      "explanation": "Klausul else pada for/while loop hanya dieksekusi bila loop tidak diinterupsi oleh 'break'."
     }
   },
   {
@@ -182,15 +182,15 @@ const lessons = [
     "mdFile": "lessons/M02-L03.md",
     "defaultCode": "def validasi_akses(role: str, is_active: bool, level: int) -> bool:\n    is_admin = (role == \"admin\" or role == \"superuser\")\n    return is_active and (is_admin or level >= 5)\n\nif __name__ == \"__main__\":\n    for role, active, lvl in [(\"admin\", True, 1), (\"editor\", True, 6), (\"editor\", False, 8), (\"guest\", True, 2)]:\n        print(f\"Role: {role:<10} Aktif: {str(active):<5} Level: {lvl} -> {validasi_akses(role, active, lvl)}\")",
     "quiz": {
-      "question": "What does 'break' do?",
+      "question": "Apa hasil dari evaluasi short-circuit expression: '[] or \"Default\"'?",
       "options": [
-        "Skips to next iteration",
-        "Exits loop",
-        "Pauses loop",
-        "Restarts loop"
+        "\"Default\"",
+        "[]",
+        "False",
+        "True"
       ],
-      "answer": 1,
-      "explanation": "'break' immediately exits the nearest enclosing loop."
+      "answer": 0,
+      "explanation": "Karena list kosong [] bernilai falsy, operator 'or' melanjutkan evaluasi ke operan kanan ('Default')."
     }
   },
   {
@@ -202,15 +202,15 @@ const lessons = [
     "mdFile": "lessons/M02-L04.md",
     "defaultCode": "def handle_command(command: str | list[str]):\n    tokens = command.split() if isinstance(command, str) else command\n    match tokens:\n        case [\"quit\" | \"exit\"]:\n            print(\"Sistem dimatikan.\")\n        case [\"load\", filename]:\n            print(f\"Memuat berkas: '{filename}'\")\n        case [\"save\", filename, \"--force\"]:\n            print(f\"Paksa menyimpan ke: '{filename}'\")\n        case [\"save\", filename]:\n            print(f\"Menyimpan ke: '{filename}'\")\n        case [\"move\", (\"up\" | \"down\" | \"left\" | \"right\") as direction, steps]:\n            print(f\"Bergerak {direction} sejauh {steps} langkah.\")\n        case _:\n            print(f\"Perintah tidak dikenali: {command}\")\n\nif __name__ == \"__main__\":\n    for p in [\"load config.json\", \"save data.db --force\", \"move up 10\", \"quit\", \"invalid cmd\"]:\n        handle_command(p)",
     "quiz": {
-      "question": "What is the result of: True and False?",
+      "question": "Pada fitur Structural Pattern Matching (match/case) Python 3.10+, bagaimana menangkap default fallback case?",
       "options": [
-        "True",
-        "False",
-        "Error",
-        "None"
+        "case _:",
+        "case default:",
+        "case *:",
+        "else:"
       ],
-      "answer": 1,
-      "explanation": "Logical AND returns False if any operand is False."
+      "answer": 0,
+      "explanation": "Wildcard pattern 'case _:' bertindak sebagai default catch-all handler di match/case."
     }
   },
   {
@@ -222,15 +222,15 @@ const lessons = [
     "mdFile": "lessons/M03-L01.md",
     "defaultCode": "def demo_list_operations():\n    angka = [10, 20, 30, 40, 50]\n    print(f\"List awal      : {angka}\")\n    print(f\"Tiga pertama   : {angka[:3]}\")\n    print(f\"Reverse (balik): {angka[::-1]}\")\n    angka.append(60)\n    angka.insert(1, 15)\n    print(f\"Setelah append & insert: {angka}\")\n    print(f\"Popped element : {angka.pop()}\")\n    print(f\"List akhir     : {angka}\")\n\nif __name__ == \"__main__\":\n    demo_list_operations()",
     "quiz": {
-      "question": "Which data structure is mutable?",
+      "question": "Apa kompleksitas waktu (time complexity) rata-rata operasi append() di akhir list Python?",
       "options": [
-        "tuple",
-        "list",
-        "str",
-        "frozenset"
+        "O(1) Amortized",
+        "O(N)",
+        "O(log N)",
+        "O(N^2)"
       ],
-      "answer": 1,
-      "explanation": "Lists are mutable; tuples, strings, and frozensets are immutable."
+      "answer": 0,
+      "explanation": "List di Python diimplementasikan sebagai dynamic array, sehingga append di akhir adalah O(1) amortized."
     }
   },
   {
@@ -242,15 +242,15 @@ const lessons = [
     "mdFile": "lessons/M03-L02.md",
     "defaultCode": "def demo_comprehensions():\n    angka = range(1, 11)\n    genap_kuadrat = [x**2 for x in angka if x % 2 == 0]\n    print(f\"Kuadrat genap (1-10): {genap_kuadrat}\")\n    matriks = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n    flattened = [val for baris in matriks for val in baris]\n    print(f\"Flatten matriks     : {flattened}\")\n    clean_nama = [n.capitalize() for n in [\"alice\", \"BOB\", \"cHaRLie\"]]\n    print(f\"Format nama         : {clean_nama}\")\n\nif __name__ == \"__main__\":\n    demo_comprehensions()",
     "quiz": {
-      "question": "How do you access the last element of a list 'arr'?",
+      "question": "Manakah list comprehension yang benar untuk memfilter bilangan genap dan mengkuadratkannya?",
       "options": [
-        "arr[-1]",
-        "arr.last()",
-        "arr[0]",
-        "arr[end]"
+        "[x**2 for x in nums if x % 2 == 0]",
+        "[x**2 if x % 2 == 0 for x in nums]",
+        "[for x in nums x**2 where x % 2 == 0]",
+        "[x**2 in nums if x % 2 == 0]"
       ],
       "answer": 0,
-      "explanation": "Negative indices count from the end: -1 is last element."
+      "explanation": "Struktur standar comprehension adalah [ekspresi for item in iterable if kondisi]."
     }
   },
   {
@@ -262,15 +262,15 @@ const lessons = [
     "mdFile": "lessons/M03-L03.md",
     "defaultCode": "def demo_tuples():\n    koordinat = (3.14, -7.25, 100.0)\n    x, y, z = koordinat\n    print(f\"Koordinat: x={x}, y={y}, z={z}\")\n    def get_user_stats():\n        return \"andi\", 95, \"A\"\n    username, score, grade = get_user_stats()\n    print(f\"User: {username} | Skor: {score} | Grade: {grade}\")\n    grid = {(0, 0): \"Start\", (1, 2): \"Checkpoint\", (5, 5): \"Finish\"}\n    print(f\"Isi grid di (1,2): {grid[(1, 2)]}\")\n\nif __name__ == \"__main__\":\n    demo_tuples()",
     "quiz": {
-      "question": "What does a set do?",
+      "question": "Mengapa tuple sering digunakan sebagai key pada dictionary Python sedangkan list dilarang?",
       "options": [
-        "Stores ordered elements",
-        "Stores unique elements",
-        "Stores key-value pairs",
-        "Stores immutable sequence"
+        "Tuple bersifat immutable dan hashable (memiliki __hash__), sedangkan list unhashable",
+        "Tuple memiliki memory allocation lebih besar",
+        "List selalu di-sort otomatis saat dimasukkan ke dict",
+        "Tuple hanya dapat berisi string"
       ],
-      "answer": 1,
-      "explanation": "Sets store unique, unordered elements."
+      "answer": 0,
+      "explanation": "Key pada dictionary harus bertipe hashable. Objek mutable seperti list tidak memiliki hash statis."
     }
   },
   {
@@ -282,15 +282,15 @@ const lessons = [
     "mdFile": "lessons/M03-L04.md",
     "defaultCode": "def demo_dict():\n    user = {\"id\": 101, \"name\": \"Sarah Connor\", \"roles\": [\"admin\", \"editor\"], \"is_active\": True}\n    print(f\"User: {user['name']} (ID: {user['id']})\")\n    print(f\"Email: {user.get('email', 'email_tidak_diatur@domain.com')}\")\n    print(\"\\nDetail User:\")\n    for k, v in user.items():\n        print(f\"  - {k:<10}: {v}\")\n\nif __name__ == \"__main__\":\n    demo_dict()",
     "quiz": {
-      "question": "Which method removes and returns the last element of a list?",
+      "question": "Metode dictionary apa yang aman mengambil nilai berdasarkan key tanpa melempar KeyError jika key tidak ditemukan?",
       "options": [
-        "remove()",
-        "pop()",
-        "del",
-        "discard"
+        "dict.get(key, default)",
+        "dict.fetch(key)",
+        "dict.find(key)",
+        "dict.lookup(key)"
       ],
-      "answer": 1,
-      "explanation": "pop() removes and returns the last (or specified) element."
+      "answer": 0,
+      "explanation": "Metode get() mengembalikan default value (None jika tidak dispesifikasikan) saat key tidak ada."
     }
   },
   {
@@ -302,15 +302,15 @@ const lessons = [
     "mdFile": "lessons/M03-L05.md",
     "defaultCode": "from collections import defaultdict\ndef demo_dict_methods():\n    names = [\"Alice\", \"Bob\", \"Charlie\", \"Diana\"]\n    print(f\"Panjang nama: {{name: len(name) for name in names}}\")\n    grouped = defaultdict(list)\n    for word in [\"apple\", \"banana\", \"avocado\", \"blueberry\", \"cherry\"]:\n        grouped[word[0]].append(word)\n    print(\"\\nPengelompokan kata:\")\n    for letter, items in sorted(grouped.items()):\n        print(f\"  '{letter}': {items}\")\n\nif __name__ == \"__main__\":\n    demo_dict_methods()",
     "quiz": {
-      "question": "What is the output of: dict([('a',1),('b',2)])?",
+      "question": "Operasi himpunan apa yang dihasilkan oleh operator simetris '^' pada Set (set_a ^ set_b)?",
       "options": [
-        "[('a',1),('b',2)]",
-        "{'a':1, 'b':2}",
-        "('a',1,'b',2)",
-        "Error"
+        "Symmetric Difference (elemen di A atau B, tetapi tidak di kedua-duanya)",
+        "Intersection (irisan)",
+        "Union (gabungan seluruh elemen)",
+        "Subset check"
       ],
-      "answer": 1,
-      "explanation": "dict() constructor creates a dictionary from an iterable of key-value pairs."
+      "answer": 0,
+      "explanation": "Operator ^ menghasilkan symmetric difference antara dua set."
     }
   },
   {
@@ -322,15 +322,15 @@ const lessons = [
     "mdFile": "lessons/M03-L06.md",
     "defaultCode": "def demo_sets():\n    frontend = {\"HTML\", \"CSS\", \"JavaScript\", \"TypeScript\", \"Python\"}\n    backend = {\"Python\", \"Go\", \"PostgreSQL\", \"Docker\", \"JavaScript\"}\n    print(f\"Frontend: {frontend}\")\n    print(f\"Backend : {backend}\")\n    print(f\"Irisan (Keduanya)        : {frontend & backend}\")\n    print(f\"Gabungan (Semua Skill)   : {frontend | backend}\")\n    print(f\"Frontend saja (Selisih)  : {frontend - backend}\")\n    print(f\"Symmetric Difference     : {frontend ^ backend}\")\n    unik = sorted(set([1, 2, 2, 3, 4, 4, 4, 5]))\n    print(f\"\\nDeduplikasi: {unik}\")\n\nif __name__ == \"__main__\":\n    demo_sets()",
     "quiz": {
-      "question": "Which data structure is mutable?",
+      "question": "Bagaimana cara melakukan shallow copy pada dictionary di Python modern?",
       "options": [
-        "tuple",
-        "list",
-        "str",
-        "frozenset"
+        "dict_a.copy() atau {**dict_a}",
+        "copy(dict_a)",
+        "dict_a[:]",
+        "clone(dict_a)"
       ],
-      "answer": 1,
-      "explanation": "Lists are mutable; tuples, strings, and frozensets are immutable."
+      "answer": 0,
+      "explanation": "dict.copy() dan dictionary unpacking {**d} menghasilkan shallow copy objek dictionary."
     }
   },
   {
@@ -342,15 +342,15 @@ const lessons = [
     "mdFile": "lessons/M04-L01.md",
     "defaultCode": "def hitung_diskon(total: float, tier: str = \"bronze\") -> float:\n    diskon_map = {\"bronze\": 0.05, \"silver\": 0.10, \"gold\": 0.20, \"platinum\": 0.30}\n    return total * (1.0 - diskon_map.get(tier.lower(), 0.0))\n\nif __name__ == \"__main__\":\n    for t in [\"bronze\", \"silver\", \"gold\", \"platinum\"]:\n        print(f\"Tier {t.title():<10} | Bayar: Rp {hitung_diskon(500000.0, tier=t):,.0f}\")",
     "quiz": {
-      "question": "What keyword defines a function?",
+      "question": "Apa output dari slicing string 'Python'[-3:]?",
       "options": [
-        "func",
-        "def",
-        "function",
-        "define"
+        "'hon'",
+        "'tho'",
+        "'Pyt'",
+        "'Py'"
       ],
-      "answer": 1,
-      "explanation": "Python uses 'def' to define functions."
+      "answer": 0,
+      "explanation": "Indeks negatif -3 merujuk ke karakter ke-3 dari belakang ('h') sampai akhir string ('hon')."
     }
   },
   {
@@ -362,15 +362,15 @@ const lessons = [
     "mdFile": "lessons/M04-L02.md",
     "defaultCode": "def build_query(table: str, *columns, **filters) -> str:\n    cols = \", \".join(columns) if columns else \"*\"\n    query = f\"SELECT {cols} FROM {table}\"\n    if filters:\n        conditions = [f\"{k} = '{v}'\" if isinstance(v, str) else f\"{k} = {v}\" for k, v in filters.items()]\n        query += \" WHERE \" + \" AND \".join(conditions)\n    return query + \";\"\n\nif __name__ == \"__main__\":\n    print(\"Q1:\", build_query(\"users\"))\n    print(\"Q2:\", build_query(\"employees\", \"id\", \"name\", \"salary\", department=\"Engineering\", active=1))",
     "quiz": {
-      "question": "What does *args allow?",
+      "question": "Metode string apa yang paling efisien menggabungkan list of strings: ['A', 'B', 'C'] menjadi 'A-B-C'?",
       "options": [
-        "Keyword arguments",
-        "Variable positional arguments",
-        "Variable keyword arguments",
-        "Arbitrary expressions"
+        "'-'.join(['A', 'B', 'C'])",
+        "['A', 'B', 'C'].concat('-')",
+        "'-'.merge(['A', 'B', 'C'])",
+        "concat('-', ['A', 'B', 'C'])"
       ],
-      "answer": 1,
-      "explanation": "*args collects extra positional arguments as a tuple."
+      "answer": 0,
+      "explanation": "str.join() mengalokasikan memori sekali untuk menggabungkan seluruh elemen iterable secara efisien."
     }
   },
   {
@@ -382,15 +382,15 @@ const lessons = [
     "mdFile": "lessons/M04-L03.md",
     "defaultCode": "def demo_lambdas_hof():\n    karyawan = [{\"name\": \"Budi\", \"age\": 30, \"salary\": 12000000}, {\"name\": \"Siti\", \"age\": 25, \"salary\": 15000000}, {\"name\": \"Dewi\", \"age\": 28, \"salary\": 11000000}]\n    for k in sorted(karyawan, key=lambda x: x[\"salary\"], reverse=True):\n        print(f\"  - {k['name']:<6}: Rp {k['salary']:,}\")\n    angka = [1, 2, 3, 4, 5, 6]\n    print(f\"Filter genap & kuadrat: {list(filter(lambda x: x % 2 == 0, angka))} -> {list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, angka)))}\")\n\nif __name__ == \"__main__\":\n    demo_lambdas_hof()",
     "quiz": {
-      "question": "What is the purpose of __name__ == '__main__'?",
+      "question": "Apa bahaya dari penggunaan default argument mutable seperti 'def append_to(val, target=[])'?",
       "options": [
-        "Import module",
-        "Define main function",
-        "Check if script is run directly",
-        "None"
+        "List 'target' hanya dibuat sekali saat fungsi didefinisikan, sehingga datanya persisten di antara pemanggilan berulang",
+        "Fungsi akan melempar TypeError saat dipanggil kedua kali",
+        "Python akan membuat salinan baru list setiap kali fungsi dipanggil",
+        "Nilai target akan otomatis direset menjadi None"
       ],
-      "answer": 2,
-      "explanation": "It allows code to run only when the file is executed as a script, not when imported."
+      "answer": 0,
+      "explanation": "Default argument dievaluasi saat fungsi didefinisikan (definition time), bukan saat dipanggil (runtime)."
     }
   },
   {
@@ -402,15 +402,15 @@ const lessons = [
     "mdFile": "lessons/M04-L04.md",
     "defaultCode": "def transfer_dana(pengirim: str, penerima: str, jumlah: float) -> dict:\n    if jumlah <= 0:\n        return {\"sukses\": False, \"pesan\": \"Jumlah harus > 0\"}\n    return {\"sukses\": True, \"pengirim\": pengirim, \"penerima\": penerima, \"jumlah\": jumlah, \"ref\": f\"TRX-{hash((pengirim, penerima, jumlah)) & 0xFFFFFF:06X}\"}\n\nif __name__ == \"__main__\":\n    print(transfer_dana(\"ACC-001\", \"ACC-002\", 750000.0))",
     "quiz": {
-      "question": "Which statement imports a specific function from a module?",
+      "question": "Apa perbedaan antara *args dan **kwargs pada deklarasi parameter fungsi?",
       "options": [
-        "import module",
-        "from module import function",
-        "include module",
-        "use module.function"
+        "*args menangkap positional arguments sebagai tuple, **kwargs menangkap keyword arguments sebagai dict",
+        "*args bertipe list, **kwargs bertipe set",
+        "*args hanya untuk number, **kwargs hanya untuk string",
+        "Tidak ada perbedaan, keduanya alias"
       ],
-      "answer": 1,
-      "explanation": "'from module import function' imports just that function."
+      "answer": 0,
+      "explanation": "*args mengumpulkan kelebihan argumen posisional ke tuple, **kwargs ke dictionary."
     }
   },
   {
@@ -422,15 +422,15 @@ const lessons = [
     "mdFile": "lessons/M04-L05.md",
     "defaultCode": "import math, random\nfrom datetime import datetime\ndef demo_modules():\n    print(f\"Waktu Sekarang : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\")\n    print(f\"Konstanta Pi   : {math.pi:.5f}\")\n    print(f\"Akar dari 144  : {math.isqrt(144)}\")\n    print(f\"Pilihan Acak   : {random.choice(['Python','Golang','Rust','TypeScript'])}\")\n\nif __name__ == \"__main__\":\n    demo_modules()",
     "quiz": {
-      "question": "What is a docstring?",
+      "question": "Kapan fungsi anonymous lambda sebaiknya digunakan di Python?",
       "options": [
-        "String literal as first statement in function/class/module",
-        "Comment",
-        "Type hint",
-        "None"
+        "Untuk ekspresi fungsi singkat satu baris, misalnya sebagai parameter key pada sort() atau map()",
+        "Sebagai pengganti seluruh deklarasi def",
+        "Untuk fungsi rekursif dengan multi-statement",
+        "Untuk mendeklarasikan asynchronous event loop"
       ],
       "answer": 0,
-      "explanation": "A docstring is a string literal that appears as the first statement in a function, class, or module."
+      "explanation": "Lambda dirancang untuk operasi singkat satu baris (single expression)."
     }
   },
   {
@@ -442,15 +442,15 @@ const lessons = [
     "mdFile": "lessons/M04-L06.md",
     "defaultCode": "def greeting(nama: str) -> str:\n    return f\"Halo {nama}, selamat datang di Python LP!\"\ndef main():\n    print(\"Script dieksekusi secara langsung (entrypoint utama).\")\n    print(greeting(\"Developer\"))\nif __name__ == \"__main__\":\n    main()",
     "quiz": {
-      "question": "What keyword defines a function?",
+      "question": "Scope resolution apa yang digunakan Python saat mencari referensi variabel (aturan LEGB)?",
       "options": [
-        "func",
-        "def",
-        "function",
-        "define"
+        "Local -> Enclosing -> Global -> Built-in",
+        "Local -> Global -> Block -> Module",
+        "Lexical -> External -> Global -> Base",
+        "Level -> Element -> Group -> Base"
       ],
-      "answer": 1,
-      "explanation": "Python uses 'def' to define functions."
+      "answer": 0,
+      "explanation": "LEGB adalah urutan scope resolution Python: Local, Enclosing (closure), Global, Built-in."
     }
   },
   {
@@ -462,15 +462,15 @@ const lessons = [
     "mdFile": "lessons/M05-L01.md",
     "defaultCode": "class Mobil:\n    def __init__(self, merk: str, model: str, tahun: int):\n        self.merk, self.model, self.tahun, self.kecepatan = merk, model, tahun, 0\n    def akselerasi(self, tambah: int):\n        self.kecepatan += tambah\n        print(f\" {self.merk} {self.model}: {self.kecepatan} km/jam\")\n    def rem(self, kurangi: int):\n        self.kecepatan = max(0, self.kecepatan - kurangi)\n        print(f\" Rem: {self.kecepatan} km/jam\")\nif __name__ == \"__main__\":\n    m = Mobil(\"Toyota\", \"GR Yaris\", 2023)\n    m.akselerasi(60); m.akselerasi(40); m.rem(30)",
     "quiz": {
-      "question": "What is the first parameter of instance methods by convention?",
+      "question": "Pada modul 'Classes and Objects: Basics of OOP', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "self",
-        "this",
-        "obj",
-        "instance"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
       "answer": 0,
-      "explanation": "Python uses 'self' as the first parameter of instance methods."
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -482,15 +482,15 @@ const lessons = [
     "mdFile": "lessons/M05-L02.md",
     "defaultCode": "class RekeningBank:\n    bunga_tahunan = 0.04\n    total_nasabah = 0\n    def __init__(self, pemilik: str, saldo_awal: float):\n        self.pemilik, self.saldo = pemilik, saldo_awal\n        RekeningBank.total_nasabah += 1\n    def setor(self, nominal: float):\n        self.saldo += nominal\n        print(f\"[+] {self.pemilik} setor Rp {nominal:,.0f} | Saldo: Rp {self.saldo:,.0f}\")\n    @classmethod\n    def ubah_bunga(cls, baru: float):\n        cls.bunga_tahunan = baru\n        print(f\"[*] Bunga: {cls.bunga_tahunan:.1%}\")\nif __name__ == \"__main__\":\n    r1 = RekeningBank(\"Ahmad\", 1000000)\n    r2 = RekeningBank(\"Budi\", 2500000)\n    r1.setor(500000)\n    print(f\"Total Nasabah: {RekeningBank.total_nasabah}\")\n    RekeningBank.ubah_bunga(0.05)",
     "quiz": {
-      "question": "What does super() do?",
+      "question": "Pada modul 'Instance Variables, Class Variables, and Methods', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Calls parent method",
-        "Creates subclass",
-        "Checks inheritance",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
       "answer": 0,
-      "explanation": "super() returns a temporary object of the parent class to allow method calls."
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -502,15 +502,15 @@ const lessons = [
     "mdFile": "lessons/M05-L03.md",
     "defaultCode": "class Animal:\n    def __init__(self, name: str): self.name = name\n    def speak(self) -> str: return \"Some sound\"\nclass Dog(Animal):\n    def speak(self) -> str: return f\"{self.name} says: Woof!\"\nclass Cat(Animal):\n    def speak(self) -> str: return f\"{self.name} says: Meow!\"\nif __name__ == \"__main__\":\n    for a in [Dog(\"Buddy\"), Cat(\"Luna\")]:\n        print(a.speak())\n    print(f\"Dog MRO: {[c.__name__ for c in Dog.__mro__]}\")",
     "quiz": {
-      "question": "Which method is called when an object is converted to string with str()?",
+      "question": "Pada modul 'Inheritance and Method Resolution Order (MRO)', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "__str__",
-        "__repr__",
-        "__toString__",
-        "__string__"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
       "answer": 0,
-      "explanation": "__str__ is called by str() and print() for user-friendly string representation."
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -522,15 +522,15 @@ const lessons = [
     "mdFile": "lessons/M05-L04.md",
     "defaultCode": "class SecureAccount:\n    def __init__(self, username: str, pin: str, saldo: float):\n        self.username, self._level, self.__pin, self.__saldo = username, \"Silver\", pin, saldo\n    def get_saldo(self, pin: str):\n        return self.__saldo if pin == self.__pin else \"Akses Ditolak: PIN Salah\"\n    def verify(self, pin: str) -> bool: return self.__pin == pin\nif __name__ == \"__main__\":\n    acc = SecureAccount(\"citra\", \"1234\", 5000000.0)\n    print(f\"User: {acc.username}\")\n    print(f\"Cek Saldo benar: Rp {acc.get_saldo('1234'):,}\")\n    print(f\"Cek Saldo salah: {acc.get_saldo('0000')}\")",
     "quiz": {
-      "question": "What does a property decorator do?",
+      "question": "Pada modul 'Encapsulation: Public, Private, and Protected', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Makes method static",
-        "Creates getter/setter for attribute",
-        "Hides attribute",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "@property turns a method into a read-only attribute; can pair with setter."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -542,15 +542,15 @@ const lessons = [
     "mdFile": "lessons/M05-L05.md",
     "defaultCode": "class Temperature:\n    def __init__(self, celsius: float = 0.0): self._celsius = celsius\n    @property\n    def celsius(self) -> float: return self._celsius\n    @celsius.setter\n    def celsius(self, value: float):\n        if value < -273.15: raise ValueError(\"Suhu di bawah nol mutlak\")\n        self._celsius = value\n    @property\n    def fahrenheit(self) -> float: return (self._celsius * 9/5) + 32\nif __name__ == \"__main__\":\n    t = Temperature(25)\n    print(f\"{t.celsius}C == {t.fahrenheit}F\")\n    t.celsius = 100\n    print(f\"Titik didih: {t.celsius}C == {t.fahrenheit}F\")",
     "quiz": {
-      "question": "What is duck typing?",
+      "question": "Pada modul 'Properties, Getters, and Setters', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Type checking at compile time",
-        "Type checking at runtime",
-        "'If it walks like a duck...'",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 2,
-      "explanation": "Duck typing means object suitability is determined by presence of methods/attributes, not explicit type."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -562,15 +562,15 @@ const lessons = [
     "mdFile": "lessons/M05-L06.md",
     "defaultCode": "class Vector2D:\n    def __init__(self, x: float, y: float): self.x, self.y = x, y\n    def __repr__(self) -> str: return f\"Vector2D(x={self.x}, y={self.y})\"\n    def __add__(self, other): return Vector2D(self.x + other.x, self.y + other.y)\n    def __eq__(self, other): return isinstance(other, Vector2D) and self.x == other.x and self.y == other.y\nif __name__ == \"__main__\":\n    v1, v2 = Vector2D(2, 4), Vector2D(3, 1)\n    print(f\"{v1} + {v2} = {v1+v2}\")\n    print(f\"Equal? {v1+v2 == Vector2D(5,5)}\")",
     "quiz": {
-      "question": "What is the first parameter of instance methods by convention?",
+      "question": "Pada modul 'Special (Dunder) Methods', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "self",
-        "this",
-        "obj",
-        "instance"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
       "answer": 0,
-      "explanation": "Python uses 'self' as the first parameter of instance methods."
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -582,15 +582,15 @@ const lessons = [
     "mdFile": "lessons/M05-L07.md",
     "defaultCode": "class PDFExporter:\n    def export(self, data: str) -> str: return f\"[PDF] {data}\"\nclass HTMLExporter:\n    def export(self, data: str) -> str: return f\"<html><body>{data}</body></html>\"\ndef render_document(exporter, content: str): print(exporter.export(content))\nif __name__ == \"__main__\":\n    for exp in [PDFExporter(), HTMLExporter()]:\n        render_document(exp, \"Laporan Keuangan Q3\")",
     "quiz": {
-      "question": "What does super() do?",
+      "question": "Pada modul 'Polymorphism and Duck Typing', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Calls parent method",
-        "Creates subclass",
-        "Checks inheritance",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
       "answer": 0,
-      "explanation": "super() returns a temporary object of the parent class to allow method calls."
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -602,15 +602,15 @@ const lessons = [
     "mdFile": "lessons/M06-L01.md",
     "defaultCode": "def bagi_angka(a: float, b: float):\n    try: hasil = a / b\n    except ZeroDivisionError as err: print(f\"Error: Pembagian nol! ({err})\")\n    except TypeError as err: print(f\"Error: Tipe salah! ({err})\")\n    else: print(f\"Sukses: {a} / {b} = {hasil:.2f}\")\n    finally: print(\"   -> finally selalu dieksekusi\")\nif __name__ == \"__main__\":\n    bagi_angka(10, 2)\n    print(\"---\")\n    bagi_angka(10, 0)",
     "quiz": {
-      "question": "Which keyword is used to catch exceptions?",
+      "question": "Pada modul 'Exceptions: try, except, else, finally', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "catch",
-        "except",
-        "handle",
-        "try"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "'except' is used to catch and handle exceptions."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -622,15 +622,15 @@ const lessons = [
     "mdFile": "lessons/M06-L02.md",
     "defaultCode": "class InsufficientFundsError(Exception):\n    def __init__(self, saldo: float, tarik: float):\n        super().__init__(f\"Saldo Rp {saldo:,.0f} kurang untuk tarik Rp {tarik:,.0f}\")\n        self.saldo, self.tarik = saldo, tarik\ndef tarik_tunai(saldo: float, jumlah: float) -> float:\n    if jumlah > saldo: raise InsufficientFundsError(saldo, jumlah)\n    return saldo - jumlah\nif __name__ == \"__main__\":\n    try: tarik_tunai(50000.0, 100000.0)\n    except InsufficientFundsError as e: print(f\"Tertangkap: {e}\")",
     "quiz": {
-      "question": "What does 'finally' do in a try-except block?",
+      "question": "Pada modul 'Raising Exceptions and Custom Exceptions', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Runs only if no exception",
-        "Runs only if exception occurs",
-        "Always runs regardless",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 2,
-      "explanation": "'finally' executes whether an exception occurs or not, typically for cleanup."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -642,15 +642,15 @@ const lessons = [
     "mdFile": "lessons/M06-L03.md",
     "defaultCode": "class TimerBlock:\n    def __enter__(self):\n        import time; self.start = time.perf_counter(); print(\"Mulai ukur...\"); return self\n    def __exit__(self, *a):\n        import time; print(f\"Selesai dalam {(time.perf_counter()-self.start)*1000:.3f} ms\"); return False\nif __name__ == \"__main__\":\n    with TimerBlock():\n        print(sum(x**2 for x in range(100000)))",
     "quiz": {
-      "question": "How do you raise a custom exception?",
+      "question": "Pada modul 'Context Managers and the with Statement', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "throw Exception()",
-        "raise Exception()",
-        "error Exception()",
-        "except Exception()"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "Use 'raise' followed by an exception instance or class."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -662,15 +662,15 @@ const lessons = [
     "mdFile": "lessons/M06-L04.md",
     "defaultCode": "def query_database(sql: str):\n    if \"DR\" + \"OP\" in sql: raise PermissionError(\"Operasi dilarang\")\n    return \"Data berhasil dimuat\"\ndef load_user_report():\n    try: query_database(\"DR\" + \"OP TABLE users;\")\n    except PermissionError as orig_err: raise RuntimeError(\"Gagal laporan\") from orig_err\nif __name__ == \"__main__\":\n    try: load_user_report()\n    except RuntimeError as e: print(f\"Error: {e} | cause: {e.__cause__}\")",
     "quiz": {
-      "question": "What is the base class for all built-in exceptions?",
+      "question": "Pada modul 'Exception Chaining and Best Practices', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "BaseException",
-        "Exception",
-        "Error",
-        "RuntimeError"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "Most built-in exceptions inherit from 'Exception' (BaseException is the absolute root)."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -682,15 +682,15 @@ const lessons = [
     "mdFile": "lessons/M07-L01.md",
     "defaultCode": "import io\ndef demo_file_io():\n    buf = io.StringIO()\n    buf.write(\"Baris 1: Halo Python File I/O!\\n\")\n    buf.write(\"Baris 2: Menyimpan data teks.\\n\")\n    buf.seek(0)\n    for line in buf: print(\" ->\", line.strip())\nif __name__ == \"__main__\":\n    demo_file_io()",
     "quiz": {
-      "question": "Which mode opens a file for reading text?",
+      "question": "Pada modul 'Reading and Writing Text Files', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "'r'",
-        "'w'",
-        "'a'",
-        "'x'"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
       "answer": 0,
-      "explanation": "'r' is read mode (default). 'w' write, 'a' append, 'x' exclusive creation."
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -702,15 +702,15 @@ const lessons = [
     "mdFile": "lessons/M07-L02.md",
     "defaultCode": "import json, csv, io\ndef demo_json_csv():\n    data = {\"course\": \"Python LP\", \"lessons\": 55, \"topics\": [\"Basics\", \"OOP\", \"Async\"]}\n    print(json.dumps(data, indent=2))\n    csv_data = \"nama,peran,skor\\nBudi,Backend,90\\nSiti,Frontend,95\"\n    for row in csv.DictReader(io.StringIO(csv_data)): print(row)\nif __name__ == \"__main__\":\n    demo_json_csv()",
     "quiz": {
-      "question": "What is the safest way to open a file?",
+      "question": "Pada modul 'Working with CSV and JSON Data', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "open(); close()",
-        "with open() as f:",
-        "try: open(); finally: close()",
-        "Using os.open()"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "'with' statement ensures proper cleanup even if exceptions occur."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -722,15 +722,15 @@ const lessons = [
     "mdFile": "lessons/M07-L03.md",
     "defaultCode": "import pickle\ndef demo_pickle():\n    data = {\"user_id\": 42, \"username\": \"developer\", \"preferences\": {\"theme\": \"dark\"}}\n    b = pickle.dumps(data)\n    print(f\"bytes: {len(b)}, restored: {pickle.loads(b) == data}\")\nif __name__ == \"__main__\":\n    demo_pickle()",
     "quiz": {
-      "question": "Which module is used for JSON serialization?",
+      "question": "Pada modul 'Pickle and Binary Serialization', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "csv",
-        "json",
-        "pickle",
-        "yaml"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "The 'json' module provides json.load() and json.dump()."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -742,15 +742,15 @@ const lessons = [
     "mdFile": "lessons/M07-L04.md",
     "defaultCode": "from pathlib import Path\ndef demo_pathlib():\n    p = Path(\"src/modules/submodule/app.py\")\n    print(f\"Path: {p}, name: {p.name}, parent: {p.parent}, new: {p.with_suffix('.min.js')}\")\n    print(f\"Join: {Path('/data') / 'logs' / 'server.log'}\")\nif __name__ == \"__main__\":\n    demo_pathlib()",
     "quiz": {
-      "question": "How do you read all lines of a file into a list?",
+      "question": "Pada modul 'Working with Paths: os.path and pathlib', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "f.read()",
-        "f.readlines()",
-        "f.read().splitlines()",
-        "Both B and C"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 3,
-      "explanation": "readlines() returns list with newlines; read().splitlines() removes newlines. Both are valid."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -762,15 +762,15 @@ const lessons = [
     "mdFile": "lessons/M07-L05.md",
     "defaultCode": "import os, tempfile\ndef demo_filesystem():\n    print(f\"CWD: {os.getcwd()}\")\n    print(f\"Temp: {tempfile.gettempdir()}\")\n    print(f\"sep: {repr(os.sep)}\")\nif __name__ == \"__main__\":\n    demo_filesystem()",
     "quiz": {
-      "question": "What does 'rb' mode do?",
+      "question": "Pada modul 'File System Operations', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Read binary",
-        "Read both",
-        "Read with backup",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
       "answer": 0,
-      "explanation": "'rb' opens file in binary read mode (for images, etc.)."
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -782,15 +782,15 @@ const lessons = [
     "mdFile": "lessons/M08-L01.md",
     "defaultCode": "class CountDown:\n    def __init__(self, start: int): self.current = start\n    def __iter__(self): return self\n    def __next__(self) -> int:\n        if self.current <= 0: raise StopIteration\n        val = self.current; self.current -= 1; return val\nif __name__ == \"__main__\":\n    for num in CountDown(5): print(f\"T-minus {num}...\")\n    print(\"Liftoff!\")",
     "quiz": {
-      "question": "What file marks a directory as a Python package?",
+      "question": "Pada modul 'Iterators and the Iterator Protocol', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "package.py",
-        "main.py",
-        "__init__.py",
-        "setup.py"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 2,
-      "explanation": "__init__.py (can be empty) marks a directory as a package."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -802,15 +802,15 @@ const lessons = [
     "mdFile": "lessons/M08-L02.md",
     "defaultCode": "def fibonacci_gen(limit: int):\n    a, b = 0, 1\n    for _ in range(limit): yield a; a, b = b, a + b\nif __name__ == \"__main__\":\n    print(list(fibonacci_gen(10)))",
     "quiz": {
-      "question": "What is the difference between 'import module' and 'from module import *'?",
+      "question": "Pada modul 'Generators and yield', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "No difference",
-        "First imports all, second imports specific",
-        "First keeps namespace, second pollutes",
-        "Second is faster"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 2,
-      "explanation": "from module import * brings all names into current namespace, which can cause conflicts."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -822,15 +822,15 @@ const lessons = [
     "mdFile": "lessons/M08-L03.md",
     "defaultCode": "import functools, time\ndef timer_decorator(func):\n    @functools.wraps(func)\n    def wrapper(*a, **kw):\n        t0 = time.perf_counter(); r = func(*a, **kw)\n        print(f\"{func.__name__} {(time.perf_counter()-t0)*1000:.3f} ms\"); return r\n    return wrapper\n@timer_decorator\ndef hitung_faktorial(n: int) -> int:\n    import math; return math.factorial(n)\nif __name__ == \"__main__\":\n    print(len(str(hitung_faktorial(500))))",
     "quiz": {
-      "question": "How do you import a module from a parent package?",
+      "question": "Pada modul 'Decorators: Functions That Wrap Functions', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "import parent.module",
-        "from .. import module",
-        "import ..module",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "Relative imports use dots: 'from .. import module' goes up one level."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -842,15 +842,15 @@ const lessons = [
     "mdFile": "lessons/M08-L04.md",
     "defaultCode": "from contextlib import contextmanager\n@contextmanager\ndef temporary_flag(obj, attr, val):\n    old = getattr(obj, attr); setattr(obj, attr, val)\n    try: yield obj\n    finally: setattr(obj, attr, old)\nclass AppConfig: debug_mode = False\nif __name__ == \"__main__\":\n    cfg = AppConfig()\n    print(cfg.debug_mode)\n    with temporary_flag(cfg, \"debug_mode\", True): print(cfg.debug_mode)\n    print(cfg.debug_mode)",
     "quiz": {
-      "question": "What does sys.path control?",
+      "question": "Pada modul 'Contextlib and Advanced Context Managers', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "System path",
-        "Module search paths",
-        "Executable path",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "sys.path is a list of directories Python searches for modules."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -862,15 +862,15 @@ const lessons = [
     "mdFile": "lessons/M08-L05.md",
     "defaultCode": "class NonNegative:\n    def __init__(self, name: str): self.name = name\n    def __get__(self, inst, owner): return inst.__dict__.get(self.name, 0) if inst else self\n    def __set__(self, inst, value):\n        if value < 0: raise ValueError(f\"{self.name} negatif!\")\n        inst.__dict__[self.name] = value\nclass Product:\n    price = NonNegative(\"price\"); stock = NonNegative(\"stock\")\n    def __init__(self, n, p, s): self.name, self.price, self.stock = n, p, s\nif __name__ == \"__main__\":\n    print(Product(\"Keyboard\", 850000, 15).price)",
     "quiz": {
-      "question": "What is __all__ used for?",
+      "question": "Pada modul 'Descriptors and the Descriptor Protocol', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Define all modules",
-        "Control 'from module import *' exports",
-        "List all functions",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "__all__ in a module defines which names are exported with 'import *'."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -882,15 +882,15 @@ const lessons = [
     "mdFile": "lessons/M08-L06.md",
     "defaultCode": "class AutoMethodMeta(type):\n    def __new__(cls, name, bases, dct):\n        dct[\"created_by\"] = \"AutoMethodMeta\"; dct[\"registry_name\"] = name.lower()\n        return super().__new__(cls, name, bases, dct)\nclass BasePlugin(metaclass=AutoMethodMeta): pass\nclass AudioPlugin(BasePlugin):\n    def process(self): return \"Memproses audio...\"\nif __name__ == \"__main__\":\n    p = AudioPlugin(); print(p.registry_name, p.created_by, p.process())",
     "quiz": {
-      "question": "What file marks a directory as a Python package?",
+      "question": "Pada modul 'Metaclasses and Class Creation', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "package.py",
-        "main.py",
-        "__init__.py",
-        "setup.py"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 2,
-      "explanation": "__init__.py (can be empty) marks a directory as a package."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -902,15 +902,15 @@ const lessons = [
     "mdFile": "lessons/M09-L01.md",
     "defaultCode": "import threading, time\ndef worker(i, results):\n    time.sleep(0.05); results.append(f\"Hasil {i}\")\ndef demo_threading():\n    hasil = []\n    threads = [threading.Thread(target=worker, args=(i, hasil)) for i in range(1, 4)]\n    for t in threads: t.start()\n    for t in threads: t.join()\n    print(hasil)\nif __name__ == \"__main__\":\n    demo_threading()",
     "quiz": {
-      "question": "What command creates a virtual environment?",
+      "question": "Pada modul 'Threading: Running Code Concurrently', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "pip install venv",
-        "python -m venv venv",
-        "virtualenv create",
-        "conda create"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "Standard library: 'python -m venv venv'. virtualenv is third-party, conda is Anaconda."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -922,15 +922,15 @@ const lessons = [
     "mdFile": "lessons/M09-L02.md",
     "defaultCode": "def hitung_kuadrat(n: int) -> int: return n * n\ndef demo_multiprocessing():\n    data = [10, 20, 30, 40, 50]\n    print([hitung_kuadrat(x) for x in data])\nif __name__ == \"__main__\":\n    demo_multiprocessing()",
     "quiz": {
-      "question": "How do you activate a virtual environment on Linux/macOS?",
+      "question": "Pada modul 'Multiprocessing: True Parallel Execution', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "activate",
-        "venv activate",
-        "source venv/bin/activate",
-        "start venv"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 2,
-      "explanation": "On POSIX systems: 'source venv/bin/activate'. On Windows: 'venv\\Scripts\\activate'."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -942,15 +942,15 @@ const lessons = [
     "mdFile": "lessons/M09-L03.md",
     "defaultCode": "import asyncio\nasync def fetch_api(endpoint: str, delay: float) -> dict:\n    await asyncio.sleep(delay); return {\"endpoint\": endpoint, \"status\": 200}\nasync def main_async():\n    results = await asyncio.gather(fetch_api(\"/users\", 0.05), fetch_api(\"/products\", 0.08), fetch_api(\"/orders\", 0.03))\n    for r in results: print(r)\nif __name__ == \"__main__\":\n    asyncio.run(main_async())",
     "quiz": {
-      "question": "What command installs packages from requirements.txt?",
+      "question": "Pada modul 'Asyncio: Asynchronous I/O', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "pip install requirements.txt",
-        "pip install -r requirements.txt",
-        "pip install all",
-        "pip install ."
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "'pip install -r requirements.txt' installs all listed dependencies."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -962,15 +962,15 @@ const lessons = [
     "mdFile": "lessons/M09-L04.md",
     "defaultCode": "from concurrent.futures import ThreadPoolExecutor\ndef fetch_url_simulasi(url: str) -> str: return f\"200 OK {url}\"\ndef demo_futures():\n    urls = [\"https://api.site.com/a\",\"https://api.site.com/b\",\"https://api.site.com/c\"]\n    print(list(ThreadPoolExecutor(max_workers=3).map(fetch_url_simulasi, urls)))\nif __name__ == \"__main__\":\n    demo_futures()",
     "quiz": {
-      "question": "What does 'pip freeze' do?",
+      "question": "Pada modul 'Concurrent Futures: ThreadPoolExecutor and ProcessPoolExecutor', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Shows outdated packages",
-        "Lists all installed packages with versions",
-        "Uninstalls packages",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "'pip freeze' outputs installed packages in requirements format."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -982,15 +982,15 @@ const lessons = [
     "mdFile": "lessons/M09-L05.md",
     "defaultCode": "def concurrency_guide():\n    for s, sol, n in [(\"I/O Bound\",\"asyncio / ThreadPool\",\"non-blocking\"),(\"CPU Bound\",\"multiprocessing\",\"bypass GIL\"),(\"Simple\",\"Sync\",\"debug mudah\")]:\n        print(f\"{s}: {sol} ({n})\")\nif __name__ == \"__main__\":\n    concurrency_guide()",
     "quiz": {
-      "question": "What is the purpose of a virtual environment?",
+      "question": "Pada modul 'Choosing the Right Concurrency Model', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Speed up Python",
-        "Isolate project dependencies",
-        "Create new Python version",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "Virtual environments isolate dependencies per project, avoiding conflicts."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -1002,15 +1002,15 @@ const lessons = [
     "mdFile": "lessons/M10-L01.md",
     "defaultCode": "import unittest, io, sys\ndef multiply(a: int, b: int) -> int: return a*b\nclass TestMathOperations(unittest.TestCase):\n    def test_multiply_positive(self): self.assertEqual(multiply(3,4),12)\n    def test_multiply_zero(self): self.assertEqual(multiply(5,0),0)\n    def test_multiply_negative(self): self.assertEqual(multiply(-2,3),-6)\nif __name__ == \"__main__\":\n    buf = io.StringIO()\n    runner = unittest.TextTestRunner(stream=buf, verbosity=2)\n    suite = unittest.TestLoader().loadTestsFromTestCase(TestMathOperations)\n    res = runner.run(suite)\n    print(buf.getvalue()); print(f\"Tests:{res.testsRun} Fail:{len(res.failures)}\")",
     "quiz": {
-      "question": "Which style guide is the official Python convention?",
+      "question": "Pada modul 'Writing Tests with unittest and pytest', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Google Style",
-        "PEP 8",
-        "Airbnb Style",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "PEP 8 is the official Python style guide."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -1022,15 +1022,15 @@ const lessons = [
     "mdFile": "lessons/M10-L02.md",
     "defaultCode": "def is_palindrome(text: str) -> bool: return \"\".join(c.lower() for c in text if c.isalnum()) == \"\".join(c.lower() for c in text if c.isalnum())[::-1]\ndef test_suite():\n    assert is_palindrome(\"radar\") == True\n    assert is_palindrome(\"Kasur rusak\") == True\n    assert is_palindrome(\"python\") == False\n    print(\"Semua test TDD lolos!\")\nif __name__ == \"__main__\":\n    test_suite()",
     "quiz": {
-      "question": "What is a good practice for managing project dependencies?",
+      "question": "Pada modul 'Test-Driven Development (TDD) Workflow', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Use system Python packages",
-        "Use virtual environments and requirements.txt",
-        "Install globally",
-        "Avoid dependencies"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "Isolate dependencies with venv and pin versions in requirements.txt."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -1042,15 +1042,15 @@ const lessons = [
     "mdFile": "lessons/M10-L03.md",
     "defaultCode": "def debug_demo():\n    total = 0\n    for i, x in enumerate([10,20,30,40]):\n        total += x; print(f\"Step {i+1}: +{x} total={total}\")\n    return total\nif __name__ == \"__main__\":\n    print(f\"Hasil: {debug_demo()}\")",
     "quiz": {
-      "question": "Which tool is commonly used for Python package publishing?",
+      "question": "Pada modul 'Debugging with pdb and IDE Debuggers', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "npm",
-        "pip",
-        "twine",
-        "conda"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 2,
-      "explanation": "twine is used to upload packages to PyPI."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -1062,15 +1062,15 @@ const lessons = [
     "mdFile": "lessons/M10-L04.md",
     "defaultCode": "import logging, sys\ndef demo_logging():\n    logger = logging.getLogger(\"PythonLP\"); logger.setLevel(logging.INFO)\n    if not logger.handlers:\n        h = logging.StreamHandler(sys.stdout); h.setFormatter(logging.Formatter(\"[%(levelname)s] %(message)s\")); logger.addHandler(h)\n    logger.info(\"Server mulai...\")\n    logger.warning(\"Memori 75%\")\n    logger.error(\"Backup gagal\")\nif __name__ == \"__main__\":\n    demo_logging()",
     "quiz": {
-      "question": "What is the recommended way to share a Python script with others?",
+      "question": "Pada modul 'Logging: The Right Way to Print', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Send .py file",
-        "Create a package with setup.py/pyproject.toml",
-        "Send via email",
-        "Use Google Drive"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "Proper packaging with pyproject.toml or setup.py makes sharing and installation easy."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -1082,15 +1082,15 @@ const lessons = [
     "mdFile": "lessons/M10-L05.md",
     "defaultCode": "def hitung_rata_rata(nums: list[float]) -> float: return sum(nums)/len(nums) if nums else 0.0\nif __name__ == \"__main__\":\n    print(f\"{hitung_rata_rata([85.5,90,78.5,92]):.2f}\")",
     "quiz": {
-      "question": "Which community resource is best for Python documentation?",
+      "question": "Pada modul 'Code Quality: PEP 8, Linters, and Formatters', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Wikipedia",
-        "docs.python.org",
-        "Stack Overflow",
-        "GitHub Issues"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "docs.python.org is the official Python documentation."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -1102,15 +1102,15 @@ const lessons = [
     "mdFile": "lessons/M10-L06.md",
     "defaultCode": "from typing import TypeAlias\nUserId: TypeAlias = int\nUserData: TypeAlias = dict[str, str | int]\ndef find_user(uid: UserId) -> UserData | None:\n    db: dict[UserId, UserData] = {1: {\"username\": \"alice\",\"age\":28},2: {\"username\":\"bob\",\"age\":34}}\n    return db.get(uid)\nif __name__ == \"__main__\":\n    print(find_user(1)); print(find_user(99))",
     "quiz": {
-      "question": "Which style guide is the official Python convention?",
+      "question": "Pada modul 'Type Checking with mypy', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Google Style",
-        "PEP 8",
-        "Airbnb Style",
-        "None"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "PEP 8 is the official Python style guide."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -1122,15 +1122,15 @@ const lessons = [
     "mdFile": "lessons/M10-L07.md",
     "defaultCode": "import cProfile, pstats, io\ndef task_komputasi(): return sum(i*i for i in range(10000))\ndef run_profiler():\n    pr = cProfile.Profile(); pr.enable(); task_komputasi(); pr.disable()\n    s = io.StringIO(); pstats.Stats(pr, stream=s).sort_stats('cumulative').print_stats(5)\n    print(s.getvalue())\nif __name__ == \"__main__\":\n    run_profiler()",
     "quiz": {
-      "question": "What is a good practice for managing project dependencies?",
+      "question": "Pada modul 'Profiling and Performance Optimization', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "Use system Python packages",
-        "Use virtual environments and requirements.txt",
-        "Install globally",
-        "Avoid dependencies"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 1,
-      "explanation": "Isolate dependencies with venv and pin versions in requirements.txt."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   },
   {
@@ -1142,20 +1142,19 @@ const lessons = [
     "mdFile": "lessons/M10-L08.md",
     "defaultCode": "def info_packaging():\n    meta = {\"name\": \"python-learning-suite\",\"version\":\"1.0.0\",\"author\":\"personalbotai\",\"license\":\"MIT\"}\n    for k,v in meta.items(): print(f\"{k}: {v}\")\nif __name__ == \"__main__\":\n    info_packaging()",
     "quiz": {
-      "question": "Which tool is commonly used for Python package publishing?",
+      "question": "Pada modul 'Packaging and Distributing Python Packages', manakah prinsip teknis dan praktik terbaik Python 3.12+ yang benar?",
       "options": [
-        "npm",
-        "pip",
-        "twine",
-        "conda"
+        "Menulis kode idiomatik (Pythonic), memanfaatkan standard library teroptimasi, dan menerapkan type hint",
+        "Mengabaikan exception dengan blok try/except pass tanpa logging",
+        "Menggunakan global variable di seluruh fungsi modul",
+        "Menghindari penggunaan context manager dan generator"
       ],
-      "answer": 2,
-      "explanation": "twine is used to upload packages to PyPI."
+      "answer": 0,
+      "explanation": "Prinsip Zen of Python dan PEP 8 mengedepankan keterbacaan, efisiensi memori, dan keamanan eksekusi."
     }
   }
 ];
 
-// State
 let currentLesson = 0;
 let progress = JSON.parse(localStorage.getItem('python_progress') || '{}');
 let pyodideInstance = null;
