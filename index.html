@@ -1,289 +1,197 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Learning Path - Course</title>
+    <title>Python Learning Path — Interactive Course</title>
+    <meta name="description" content="Kursus Python interaktif dari dasar sampai mahir. Belajar dengan code editor, quiz, dan materi terstruktur.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81' },
+                        surface: { 50:'#f8fafc',100:'#f1f5f9',800:'#1e293b',850:'#172033',900:'#0f172a',950:'#0a0f1a' }
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { box-sizing: border-box; }
-        body { background: #1c1d1f; color: #d1d7dc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-        .sidebar { width: 340px; background: #1c1d1f; border-right: 1px solid #3e4143; height: 100vh; overflow-y: auto; }
-        .section-header { background: #2d2f31; padding: 12px 16px; cursor: pointer; border-bottom: 1px solid #3e4143; }
-        .section-header:hover { background: #3e4143; }
-        .section-title { font-weight: 600; font-size: 14px; color: #f7f9fa; }
-        .section-meta { font-size: 12px; color: #9da5b1; margin-top: 2px; }
-        .lesson-item { display: flex; align-items: center; padding: 10px 16px 10px 24px; border-bottom: 1px solid #2d2f31; cursor: pointer; transition: background 0.1s; }
-        .lesson-item:hover { background: #2d2f31; }
-        .lesson-item.active { background: #3e4143; border-left: 3px solid #a435f0; }
-        .lesson-item.completed { opacity: 0.7; }
-        .lesson-icon { width: 20px; margin-right: 12px; text-align: center; flex-shrink: 0; }
-        .lesson-icon.playing { color: #a435f0; }
-        .lesson-icon.completed { color: #5624d0; }
-        .lesson-title { font-size: 13px; flex: 1; line-height: 1.4; }
-        .lesson-duration { font-size: 11px; color: #9da5b1; margin-left: 8px; }
-        .content-area { flex: 1; overflow-y: auto; height: 100vh; }
-        .video-placeholder { background: #000; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; position: relative; }
-        .lesson-content { max-width: 800px; margin: 0 auto; padding: 32px 24px; }
-        .lesson-content h1 { font-size: 28px; font-weight: 700; color: #f7f9fa; margin-bottom: 16px; }
-        .lesson-content h2 { font-size: 22px; font-weight: 600; color: #f7f9fa; margin: 32px 0 12px; border-bottom: 1px solid #3e4143; padding-bottom: 8px; }
-        .lesson-content h3 { font-size: 18px; font-weight: 600; color: #f7f9fa; margin: 24px 0 8px; }
-        .lesson-content h4 { font-size: 16px; font-weight: 600; color: #e0e0e0; margin: 16px 0 8px; }
-        .lesson-content p { font-size: 15px; line-height: 1.7; margin-bottom: 12px; color: #b0b0b0; }
-        .lesson-content ul, .lesson-content ol { margin: 12px 0; padding-left: 24px; }
-        .lesson-content li { font-size: 14px; line-height: 1.6; margin-bottom: 6px; color: #c0c0c0; }
-        .lesson-content code { background: #2d2f31; padding: 2px 6px; border-radius: 3px; font-size: 13px; color: #e06c75; }
-        .lesson-content pre { background: #2d2f31; padding: 16px; border-radius: 6px; overflow-x: auto; margin: 16px 0; border: 1px solid #3e4143; }
-        .lesson-content pre code { background: none; padding: 0; color: #d1d7dc; }
-        .lesson-content strong { color: #f7f9fa; }
-        .lesson-content a { color: #a435f0; text-decoration: none; }
-        .lesson-content a:hover { text-decoration: underline; }
-        .lesson-content img { max-width: 100%; border-radius: 6px; margin: 12px 0; }
-        .code-section { background: #1c1d1f; border-top: 1px solid #3e4143; padding: 16px; }
-        .code-editor { width: 100%; height: 200px; background: #1e1e1e; color: #d4d4d4; border: 1px solid #3e4143; border-radius: 6px; padding: 12px; font-family: 'Fira Code', 'Consolas', monospace; font-size: 13px; resize: vertical; }
-        .code-editor:focus { outline: none; border-color: #a435f0; }
-        .output-area { width: 100%; height: 120px; background: #0a0a0a; color: #22c55e; border: 1px solid #3e4143; border-radius: 6px; padding: 12px; font-family: 'Fira Code', monospace; font-size: 13px; overflow: auto; margin-top: 8px; }
-        .btn-run { background: #a435f0; color: white; border: none; padding: 8px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px; }
-        .btn-run:hover { background: #9130d9; }
-        .btn-reset { background: #3e4143; color: #d1d7dc; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; margin-left: 8px; }
-        .btn-reset:hover { background: #4e5153; }
-        .quiz-section { background: #2d2f31; border-radius: 8px; padding: 20px; margin: 24px 0; }
-        .quiz-title { font-size: 16px; font-weight: 600; color: #f7f9fa; margin-bottom: 12px; }
-        .quiz-option { display: flex; align-items: flex-start; padding: 10px 12px; margin: 6px 0; background: #1c1d1f; border: 1px solid #3e4143; border-radius: 6px; cursor: pointer; }
-        .quiz-option:hover { border-color: #a435f0; }
-        .quiz-option input { margin-right: 10px; margin-top: 3px; }
-        .quiz-option label { font-size: 14px; cursor: pointer; }
-        .progress-bar { height: 4px; background: #3e4143; border-radius: 2px; overflow: hidden; margin-top: 8px; }
-        .progress-fill { height: 100%; background: #a435f0; transition: width 0.3s; }
-        .header-bar { background: #2d2f31; border-bottom: 1px solid #3e4143; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; }
-        .course-title { font-size: 16px; font-weight: 600; color: #f7f9fa; }
-        .course-progress { font-size: 13px; color: #9da5b1; }
-        .nav-buttons { display: flex; gap: 8px; margin-top: 24px; padding-top: 16px; border-top: 1px solid #3e4143; }
-        .btn-nav { padding: 10px 20px; border-radius: 6px; font-size: 14px; cursor: pointer; border: none; }
-        .btn-prev { background: #3e4143; color: #d1d7dc; }
-        .btn-next { background: #a435f0; color: white; font-weight: 600; }
-        .btn-complete { background: #5624d0; color: white; padding: 10px 20px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; margin-left: auto; }
-        .btn-complete:hover { background: #6b3ae0; }
-        .btn-completed { background: #1e7e34; color: white; padding: 10px 20px; border-radius: 6px; border: none; cursor: default; margin-left: auto; }
-    </style>
-<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="flex h-screen">
+<body class="bg-surface-950 text-slate-200 font-['Inter',sans-serif] antialiased">
+
+    <!-- Mobile Header -->
+    <header class="lg:hidden sticky top-0 z-50 bg-surface-900/95 backdrop-blur-md border-b border-white/5">
+        <div class="flex items-center justify-between px-4 py-3">
+            <button id="sidebar-toggle" class="p-2 rounded-lg hover:bg-white/10 transition" aria-label="Menu">
+                <i class="fas fa-bars text-lg"></i>
+            </button>
+            <div class="flex items-center gap-2">
+                <span class="text-xl">🐍</span>
+                <span class="font-bold text-sm bg-gradient-to-r from-brand-400 to-cyan-400 bg-clip-text text-transparent">Python Learning Path</span>
+            </div>
+            <div class="text-xs font-mono text-slate-400" id="mobile-progress">0%</div>
+        </div>
+    </header>
+
+    <!-- Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" onclick="closeSidebar()"></div>
+
+    <div class="flex h-[100dvh] lg:h-screen overflow-hidden">
         <!-- Sidebar -->
-        <aside class="sidebar flex-shrink-0">
-            <div class="header-bar">
-                <div>
-                    <div class="course-title"><i class="fab fa-python mr-2 text-blue-400"></i>Python Learning Path</div>
-                    <div class="course-progress" id="course-progress">0% complete</div>
-                    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 0%"></div></div>
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-50 w-80 bg-surface-900 border-r border-white/5 flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out">
+            <!-- Brand -->
+            <div class="p-5 border-b border-white/5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center text-xl shadow-lg shadow-brand-500/25">🐍</div>
+                    <div>
+                        <h1 class="font-bold text-white text-sm leading-tight">Python Learning Path</h1>
+                        <p class="text-[11px] text-slate-500">Beginner → Advanced</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="flex-1 h-1.5 bg-surface-800 rounded-full overflow-hidden">
+                        <div id="progress-fill" class="h-full bg-gradient-to-r from-brand-500 to-cyan-400 rounded-full transition-all duration-500" style="width:0%"></div>
+                    </div>
+                    <span id="progress-text" class="text-[11px] font-mono text-slate-400 w-8 text-right">0%</span>
                 </div>
             </div>
-            <div id="lessons-nav">
-                <!-- Modules rendered here -->
+
+            <!-- Nav -->
+            <nav id="lessons-nav" class="flex-1 overflow-y-auto py-2 scrollbar-thin"></nav>
+
+            <!-- Footer -->
+            <div class="p-4 border-t border-white/5 flex items-center justify-between">
+                <button onclick="resetProgress()" class="text-[11px] text-slate-500 hover:text-red-400 transition flex items-center gap-1">
+                    <i class="fas fa-rotate-left"></i> Reset Progress
+                </button>
+                <a href="https://github.com/personalbotai/python-learning-path" target="_blank" class="text-slate-500 hover:text-white transition">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </aside>
 
         <!-- Main Content -->
-        <main class="content-area">
-            <div id="lesson-header" style="background: #2d2f31; padding: 16px 24px; border-bottom: 1px solid #3e4143;">
-                <div class="text-xs text-gray-500 mb-1" id="breadcrumb">Module 1</div>
-                <h1 id="lesson-title" style="font-size: 20px; font-weight: 600; color: #f7f9fa; margin: 0;">Select a lesson</h1>
-            </div>
-            
-            <!-- Lesson Content -->
-            <div class="lesson-content" id="lesson-content">
-                <p class="text-gray-500">Select a lesson from the sidebar to begin.</p>
-            </div>
-
-            <!-- Code Editor -->
-            <div class="code-section" id="code-section" style="max-width: 800px; margin: 0 auto;">
-                <div class="flex items-center justify-between mb-3">
-                    <span class="text-sm font-semibold text-gray-300"><i class="fas fa-code mr-2"></i>Code Editor</span>
-                    <div>
-                        <button class="btn-run" onclick="runCode()"><i class="fas fa-play mr-2"></i>Run</button>
-                        <button class="btn-reset" onclick="resetCode()">Reset</button>
+        <main class="flex-1 flex flex-col overflow-hidden min-w-0">
+            <!-- Lesson Header -->
+            <div id="lesson-header" class="sticky top-0 z-20 bg-surface-950/90 backdrop-blur-lg border-b border-white/5 px-4 sm:px-8 py-4">
+                <div class="max-w-4xl mx-auto flex items-center justify-between">
+                    <div class="min-w-0">
+                        <div class="text-[11px] font-medium text-brand-400 mb-0.5 uppercase tracking-wider" id="breadcrumb">Module 1</div>
+                        <h2 id="lesson-title" class="text-base sm:text-lg font-bold text-white truncate">Pilih pelajaran untuk mulai</h2>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0 ml-4">
+                        <button id="complete-btn" onclick="markComplete()" class="hidden sm:flex items-center gap-2 px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium rounded-lg transition shadow-lg shadow-brand-600/20">
+                            <i class="fas fa-check"></i> <span class="hidden sm:inline">Selesai</span>
+                        </button>
+                        <button id="completed-btn" class="hidden items-center gap-2 px-4 py-2 bg-emerald-500/10 text-emerald-400 text-sm font-medium rounded-lg border border-emerald-500/20 cursor-default">
+                            <i class="fas fa-check-circle"></i> <span class="hidden sm:inline">Selesai ✓</span>
+                        </button>
                     </div>
                 </div>
-                <textarea id="code-editor" class="code-editor" spellcheck="false" placeholder="# Write your Python code here..."></textarea>
-                <div class="mt-2">
-                    <span class="text-xs text-gray-500">Output:</span>
-                    <div id="output" class="output-area"><span class="text-gray-600"># Output will appear here</span></div>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto scroll-smooth" id="content-scroll">
+                <!-- Lesson Content -->
+                <div class="max-w-4xl mx-auto px-4 sm:px-8 py-8">
+                    <article id="lesson-content" class="prose prose-invert prose-slate max-w-none">
+                        <div class="text-center py-20">
+                            <div class="text-6xl mb-4">🐍</div>
+                            <h2 class="text-2xl font-bold text-white mb-2">Selamat Datang!</h2>
+                            <p class="text-slate-400">Pilih pelajaran dari sidebar untuk memulai belajar Python.</p>
+                        </div>
+                    </article>
                 </div>
-                <div id="validation-msg" class="mt-3 p-3 rounded hidden"></div>
-            </div>
 
-            <!-- Quiz -->
-            <div class="quiz-section" id="quiz-section" style="max-width: 800px; margin: 24px auto; display: none;">
-                <div class="quiz-title"><i class="fas fa-question-circle mr-2 text-yellow-400"></i>Quiz</div>
-                <div id="quiz-content"></div>
-                <button class="btn-run mt-3" onclick="checkQuiz()">Submit Answer</button>
-                <div id="quiz-result"></div>
-            </div>
+                <!-- Code Editor -->
+                <div id="code-section" class="max-w-4xl mx-auto px-4 sm:px-8 pb-4">
+                    <div class="bg-surface-900 rounded-2xl border border-white/5 overflow-hidden shadow-2xl">
+                        <div class="flex items-center justify-between px-5 py-3 bg-surface-850 border-b border-white/5">
+                            <div class="flex items-center gap-2">
+                                <div class="flex gap-1.5">
+                                    <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                                </div>
+                                <span class="text-xs text-slate-500 ml-2 font-mono">main.py</span>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="runCode()" class="flex items-center gap-2 px-4 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-semibold rounded-lg transition shadow-lg shadow-emerald-500/25">
+                                    <i class="fas fa-play text-[10px]"></i> Run
+                                </button>
+                                <button onclick="resetCode()" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-slate-400 text-xs rounded-lg transition">
+                                    <i class="fas fa-rotate-left"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <textarea id="code-editor" class="w-full bg-surface-950 text-emerald-300 font-['JetBrains_Mono',monospace] text-sm p-5 border-none resize-y min-h-[180px] focus:outline-none focus:ring-0 placeholder-slate-600" rows="8" spellcheck="false" placeholder="# Tulis kode Python di sini..."></textarea>
+                        <div class="border-t border-white/5">
+                            <div class="px-5 py-2 flex items-center gap-2 bg-surface-850">
+                                <i class="fas fa-terminal text-[10px] text-slate-500"></i>
+                                <span class="text-[11px] text-slate-500 font-mono">Output</span>
+                            </div>
+                            <div id="output" class="px-5 py-4 bg-black/40 font-['JetBrains_Mono',monospace] text-sm text-emerald-400 min-h-[80px] max-h-[200px] overflow-auto">
+                                <span class="text-slate-600">// Output akan muncul di sini</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="validation-msg" class="mt-3 p-4 rounded-xl hidden text-sm"></div>
+                </div>
 
-            <!-- Navigation -->
-            <div class="nav-buttons" id="nav-buttons" style="max-width: 800px; margin: 0 auto; padding: 16px 24px;">
-                <button class="btn-nav btn-prev" id="prev-btn" onclick="prevLesson()" disabled><i class="fas fa-chevron-left mr-2"></i>Previous</button>
-                <button class="btn-complete" id="complete-btn" onclick="markComplete()" style="display:none;">Mark as Complete</button>
-                <button class="btn-completed" id="completed-btn" style="display:none;"><i class="fas fa-check mr-2"></i>Completed</button>
-                <button class="btn-nav btn-next" id="next-btn" onclick="nextLesson()">Next<i class="fas fa-chevron-right ml-2"></i></button>
+                <!-- Quiz -->
+                <div id="quiz-section" class="max-w-4xl mx-auto px-4 sm:px-8 pb-4 hidden">
+                    <div class="bg-surface-900 rounded-2xl border border-white/5 p-6 shadow-2xl">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center">
+                                <i class="fas fa-brain text-amber-400"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Quiz</h3>
+                        </div>
+                        <div id="quiz-content" class="space-y-3"></div>
+                        <button onclick="checkQuiz()" class="mt-5 px-6 py-2.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold rounded-xl transition shadow-lg shadow-brand-600/20">
+                            <i class="fas fa-paper-plane mr-2"></i>Submit
+                        </button>
+                        <div id="quiz-result" class="mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="max-w-4xl mx-auto px-4 sm:px-8 py-6">
+                    <div class="flex items-center justify-between gap-3">
+                        <button id="prev-btn" onclick="prevLesson()" disabled class="flex items-center gap-2 px-5 py-2.5 bg-white/5 hover:bg-white/10 text-slate-300 text-sm font-medium rounded-xl transition disabled:opacity-30 disabled:cursor-not-allowed">
+                            <i class="fas fa-chevron-left text-xs"></i> Prev
+                        </button>
+                        <!-- Mobile complete btn -->
+                        <button id="complete-btn-mobile" onclick="markComplete()" class="sm:hidden flex items-center gap-2 px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium rounded-lg transition" style="display:none">
+                            <i class="fas fa-check"></i> Selesai
+                        </button>
+                        <button id="next-btn" onclick="nextLesson()" class="flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold rounded-xl transition shadow-lg shadow-brand-600/20">
+                            Next <i class="fas fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <footer class="max-w-4xl mx-auto px-4 sm:px-8 pb-8">
+                    <div class="text-center text-xs text-slate-600 border-t border-white/5 pt-6">
+                        <p>Python Learning Path — dibuat dengan <i class="fas fa-heart text-red-500/60"></i> untuk developer Indonesia</p>
+                        <p class="mt-1">© 2024 personalbotai · <a href="https://github.com/personalbotai" class="hover:text-brand-400 transition">GitHub</a></p>
+                    </div>
+                </footer>
             </div>
         </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
     <script src="app.js"></script>
-
-
-<script>
-// Simple Python runtime fallback (if Pyodide fails)
-class SimplePythonRuntime {
-    constructor() {
-        this.output = [];
-    }
-    
-    run(code) {
-        this.output = [];
-        const lines = code.split('\n');
-        let result = '';
-        
-        for (let line of lines) {
-            line = line.trim();
-            if (!line || line.startsWith('#')) continue;
-            
-            // Handle print()
-            const printMatch = line.match(/^print\s*\((.*)\)$/);
-            if (printMatch) {
-                let arg = printMatch[1].trim();
-                // Handle f-strings
-                if (arg.startsWith('f"') || arg.startsWith("f'")) {
-                    arg = arg.slice(2, -1);
-                    arg = arg.replace(/\{([^}]+)\}/g, (match, expr) => {
-                        try { return eval(expr); } catch(e) { return match; }
-                    });
-                    this.output.push(arg);
-                }
-                // Handle string literals
-                else if ((arg.startsWith('"') && arg.endsWith('"')) || 
-                         (arg.startsWith("'") && arg.endsWith("'"))) {
-                    this.output.push(arg.slice(1, -1));
-                }
-                // Handle variables or expressions
-                else {
-                    try {
-                        const val = eval(arg);
-                        this.output.push(String(val));
-                    } catch(e) {
-                        this.output.push(arg);
-                    }
-                }
-            }
-            // Handle simple assignments
-            else if (line.includes('=') && !line.includes('==')) {
-                const parts = line.split('=').map(s => s.trim());
-                if (parts.length === 2) {
-                    try { eval(`var ${parts[0]} = ${parts[1]}`); } catch(e) {}
-                }
-            }
-        }
-        
-        return this.output.join('\n');
-    }
-}
-
-// Pyodide loader with fallback
-let pyodide = null;
-let pyodideReady = false;
-let simplePython = null;
-
-async function initPyodide() {
-    if (pyodideReady) return;
-    
-    const output = document.getElementById('output');
-    const runBtn = document.querySelector('.btn-run');
-    
-    // Try Pyodide first
-    try {
-        output.innerHTML = '<span class="text-yellow-400">⏳ Loading Python runtime...</span>';
-        if (runBtn) { runBtn.disabled = true; runBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...'; }
-        
-        // Check if loadPyodide exists
-        if (typeof loadPyodide === 'function') {
-            pyodide = await loadPyodide();
-            pyodideReady = true;
-            output.innerHTML = '<span class="text-green-400">✅ Python (Pyodide) ready!</span>';
-        } else {
-            throw new Error('Pyodide not loaded');
-        }
-    } catch (e) {
-        // Fallback to simple Python
-        console.warn('Pyodide failed, using simple runtime:', e);
-        simplePython = new SimplePythonRuntime();
-        pyodideReady = true; // Mark as ready (using fallback)
-        output.innerHTML = '<span class="text-blue-400">✅ Python (simple mode) ready! (basic print support)</span>';
-    }
-    
-    if (runBtn) { runBtn.disabled = false; runBtn.innerHTML = '<i class="fas fa-play mr-2"></i>Run'; }
-}
-
-async function runCode() {
-    if (!pyodideReady) await initPyodide();
-    
-    const code = document.getElementById('code-editor').value;
-    const output = document.getElementById('output');
-    const validation = document.getElementById('validation-msg');
-    
-    try {
-        let result = '';
-        
-        if (pyodide) {
-            // Use Pyodide
-            pyodide.runPython(`import sys\nfrom io import StringIO\nsys.stdout = StringIO()`);
-            pyodide.runPython(code);
-            result = pyodide.runPython(`sys.stdout.getvalue()`);
-        } else if (simplePython) {
-            // Use simple fallback
-            result = simplePython.run(code);
-        } else {
-            throw new Error('No Python runtime available');
-        }
-        
-        output.innerHTML = '<span class="text-green-400">' + escapeHtml(result) + '</span>';
-        
-        // Validate
-        const lesson = lessons[currentLesson];
-        if (lesson && lesson.expectedOutput) {
-            const expected = lesson.expectedOutput.replace(/\\n/g, '\n');
-            if (result.trim() === expected.trim()) {
-                validation.className = 'mt-4 p-3 rounded bg-green-900/50 border border-green-500 text-green-300';
-                validation.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Benar! ✅';
-                if (lesson.id) {
-                    progress[lesson.id] = true;
-                    localStorage.setItem('python_progress', JSON.stringify(progress));
-                    updateProgress();
-                    renderNav();
-                }
-            } else {
-                validation.className = 'mt-4 p-3 rounded bg-yellow-900/50 border border-yellow-500 text-yellow-300';
-                validation.innerHTML = '<i class="fas fa-lightbulb mr-2"></i>Hint: ' + (lesson.hint || '');
-            }
-        }
-    } catch (e) {
-        output.innerHTML = '<span class="text-red-400">❌ ' + escapeHtml(String(e.message || e)) + '</span>';
-    }
-}
-
-function escapeHtml(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-// Init
-document.addEventListener('DOMContentLoaded', () => { initPyodide(); });
-</script>
-
-
-<script src="enhancement.js"></script>
 </body>
 </html>
