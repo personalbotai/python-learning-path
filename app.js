@@ -1244,15 +1244,18 @@ function resetCode() {
     if (cur) document.getElementById('code-editor').value = cur.defaultCode;
 }
 
-function renderNav() {
+function renderNav(filter) {
     const nav = document.getElementById('lessons-nav');
     if (!nav) return;
+    const q = (filter || '').toLowerCase().trim();
     const curModId = lessons[currentLesson] ? lessons[currentLesson].moduleId : 1;
     nav.innerHTML = MODULES.map(function(mod) {
         const modLessons = lessons.filter(function(l) { return l.moduleId === mod.id; });
+        const filtered = q ? modLessons.filter(function(l){ return l.title.toLowerCase().includes(q) || mod.title.toLowerCase().includes(q); }) : modLessons;
+        if (q && filtered.length === 0) return '';
         const doneCount = modLessons.filter(function(l) { return !!progress[l.id]; }).length;
-        const isCurrentModule = mod.id === curModId;
-        const lessonRows = modLessons.map(function(l) {
+        const isCurrentModule = q ? true : mod.id === curModId;
+        const lessonRows = filtered.map(function(l) {
             const idx = lessons.findIndex(function(x) { return x.id === l.id; });
             const isActive = idx === currentLesson;
             const isDone = !!progress[l.id];
@@ -1264,7 +1267,7 @@ function renderNav() {
         const badgeCls = doneCount === modLessons.length ? 'bg-emerald-500/20 text-emerald-300' : 'bg-white/5 text-slate-500';
         return '<div class="mb-1">' +
             '<button onclick="toggleModule(' + mod.id + ')" class="w-full flex items-center justify-between px-4 py-2.5 text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition rounded-lg text-left">' +
-            '<span class="flex items-center gap-2 truncate"><i class="' + mod.icon + ' text-sky-400 text-sm w-4 text-center"></i><span class="truncate">' + mod.title + '</span></span>' +
+            '<span class="flex items-center gap-2 truncate"><i class="' + mod.icon + ' text-amber-400 text-sm w-4 text-center"></i><span class="truncate">' + mod.title + '</span></span>' +
             '<span class="text-[10px] font-mono px-2 py-0.5 rounded-full ' + badgeCls + '">' + doneCount + '/' + modLessons.length + '</span></button>' +
             '<div id="module-' + mod.id + '" class="space-y-0.5 mt-0.5 px-2 ' + (isCurrentModule ? '' : 'hidden') + '">' + lessonRows + '</div></div>';
     }).join('');
@@ -1289,7 +1292,13 @@ async function loadLesson(index) {
         const res = await fetch(lesson.mdFile);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const mdText = await res.text();
-        if (contentEl) contentEl.innerHTML = marked.parse(mdText);
+        if (contentEl) {
+            if (typeof marked !== 'undefined' && typeof hljs !== 'undefined') {
+                marked.setOptions({ gfm: true, breaks: false, highlight: function(code, lang){ try{ if(lang && hljs.getLanguage(lang)) return hljs.highlight(code,{language:lang}).value; return hljs.highlightAuto(code).value; }catch(e){ return code; } } });
+            }
+            contentEl.innerHTML = marked.parse(mdText);
+            if (typeof hljs !== 'undefined') { contentEl.querySelectorAll('pre code').forEach(function(b){ try{ hljs.highlightElement(b); }catch(e){} }); }
+        }
     } catch (e) {
         if (contentEl) contentEl.innerHTML = '<h2>' + lesson.title + '</h2><p class="text-slate-400">Materi untuk pelajaran ini.</p>';
     }
@@ -1376,7 +1385,7 @@ function nextLesson() { if (currentLesson < lessons.length - 1) loadLesson(curre
 function prevLesson() { if (currentLesson > 0) loadLesson(currentLesson - 1); }
 
 function updateProgress() {
-    const done = Object.keys(progress).length;
+    const done = Object.keys(progress).filter(function(k){return !!progress[k];}).length;
     const total = lessons.length;
     const pct = Math.round((done / total) * 100);
     const t = document.getElementById('progress-text');
@@ -1385,6 +1394,14 @@ function updateProgress() {
     if (f) f.style.width = pct + '%';
     const mob = document.getElementById('mobile-progress');
     if (mob) mob.textContent = pct + '%';
+    const cp = document.getElementById('course-progress');
+    if (cp) cp.textContent = pct + '%';
+    const bar = document.getElementById('progress-fill-bar');
+    if (bar) bar.style.width = pct + '%';
+    const sd = document.getElementById('stat-done');
+    if (sd) sd.textContent = String(done);
+    const cpc = document.getElementById('sidebar-completed-count');
+    if (cpc) cpc.textContent = done + '/' + total;
 }
 
 function resetProgress() {
@@ -1403,8 +1420,12 @@ function escapeHtml(s) {
 function closeSidebar() {
     const sb = document.getElementById('sidebar');
     const ov = document.getElementById('sidebar-overlay');
-    if (sb) sb.classList.remove('sidebar-open');
-    if (ov) ov.classList.remove('overlay-open');
+    const bd = document.getElementById('backdrop');
+    if (sb) { sb.classList.remove('sidebar-open'); sb.classList.remove('open'); }
+    if (ov) { ov.classList.remove('overlay-open'); ov.classList.add('hidden'); }
+    if (bd) { bd.classList.remove('show'); bd.classList.add('hidden'); }
+    // ensure lg translate on desktop
+    if (typeof window !== 'undefined' && window.innerWidth >= 1024 && sb) { sb.classList.remove('-translate-x-full'); }
 }
 
 document.addEventListener('DOMContentLoaded', function() {

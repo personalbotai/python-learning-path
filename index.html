@@ -3,189 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Learning Path — Interactive Course</title>
-    <meta name="description" content="Kursus Python interaktif dari dasar sampai mahir. Belajar dengan code editor, quiz, dan materi terstruktur.">
+    <title>Python Learning Path — From Zero to Advanced</title>
+    <meta name="description" content="Kursus Python interaktif dari dasar sampai mahir — 55 pelajaran, editor Python live (Pyodide), terminal output & quiz. Modern Python 3.12+ (match/case, walrus, type hints |).">
+    <meta name="theme-color" content="#f59e0b">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>">
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter','system-ui','sans-serif'],
+                        mono: ['JetBrains Mono','monospace']
+                    },
                     colors: {
-                        brand: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81' },
+                        brand: { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f' },
                         surface: { 50:'#f8fafc',100:'#f1f5f9',800:'#1e293b',850:'#172033',900:'#0f172a',950:'#0a0f1a' }
                     }
                 }
             }
         }
     </script>
+    <!-- Markdown & Highlight -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <!-- Icons & Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-surface-950 text-slate-200 font-['Inter',sans-serif] antialiased">
+<body class="bg-[#0a0f1a] text-slate-200 font-['Inter',sans-serif] antialiased overflow-hidden">
 
-    <!-- Mobile Header -->
-    <header class="lg:hidden sticky top-0 z-50 bg-surface-900/95 backdrop-blur-md border-b border-white/5">
-        <div class="flex items-center justify-between px-4 py-3">
-            <button id="sidebar-toggle" class="p-2 rounded-lg hover:bg-white/10 transition" aria-label="Menu">
+    <!-- Sticky Header: logo SB + search + theme toggle + progress bar -->
+    <header class="sticky top-0 z-50 glass-header border-b border-white/5">
+        <div class="flex items-center gap-3 sm:gap-4 px-4 h-[56px] max-w-[1600px] mx-auto">
+            <!-- Hamburger (mobile drawer) -->
+            <button id="menuToggle" class="lg:hidden p-2 rounded-lg hover:bg-white/10 transition shrink-0" aria-label="Toggle menu">
                 <i class="fas fa-bars text-lg"></i>
             </button>
-            <div class="flex items-center gap-2">
-                <span class="text-xl">🐍</span>
-                <span class="font-bold text-sm bg-gradient-to-r from-brand-400 to-cyan-400 bg-clip-text text-transparent">Python Learning Path</span>
+            <button id="sidebar-toggle" class="hidden" aria-label="Sidebar toggle"></button>
+            <!-- Logo SB -->
+            <a href="#" class="flex items-center gap-3 shrink-0" onclick="loadLesson(0); return false;">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center font-extrabold text-sm text-white shadow-lg shadow-amber-500/25">SB</div>
+                <div class="hidden sm:block leading-tight">
+                    <div class="font-bold text-sm text-white flex items-center gap-2">Python Learning Path <span class="hidden md:inline-flex text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 text-white">PYTHON 3.12+</span></div>
+                    <div class="text-[11px] text-slate-500">10 Modul • 55 Pelajaran</div>
+                </div>
+                <span class="sm:hidden font-bold text-sm bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">Python LP</span>
+            </a>
+            <!-- Search -->
+            <div class="flex-1 max-w-[420px] relative hidden md:block mx-2">
+                <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                <input id="lesson-search" type="text" placeholder="Cari pelajaran… ( / )" autocomplete="off" class="w-full h-9 bg-white/5 border border-white/10 rounded-xl pl-9 pr-10 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500/40 focus:ring-2 focus:ring-amber-500/20 transition">
+                <kbd class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#0a0f1a] border border-white/10 text-[11px] text-slate-500 px-1.5 py-0.5 rounded font-mono hidden lg:block">/</kbd>
             </div>
-            <div class="text-xs font-mono text-slate-400" id="mobile-progress">0%</div>
-        </div>
-    </header>
-
-    <!-- Overlay -->
-    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" onclick="closeSidebar()"></div>
-
-    <div class="flex h-[100dvh] lg:h-screen overflow-hidden">
-        <!-- Sidebar -->
-        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-50 w-80 bg-surface-900 border-r border-white/5 flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out">
-            <!-- Brand -->
-            <div class="p-5 border-b border-white/5">
-                <div class="flex items-center gap-3 mb-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center text-xl shadow-lg shadow-brand-500/25">🐍</div>
-                    <div>
-                        <h1 class="font-bold text-white text-sm leading-tight">Python Learning Path</h1>
-                        <p class="text-[11px] text-slate-500">Beginner → Advanced</p>
+            <!-- Progress + Actions -->
+            <div class="flex items-center gap-2 sm:gap-3 ml-auto shrink-0">
+                <div class="hidden sm:flex items-center gap-3">
+                    <div class="text-right leading-none">
+                        <div class="text-[11px] text-slate-500">Progress</div>
+                        <div class="text-xs font-mono font-semibold text-amber-400" id="course-progress">0%</div>
+                        <div class="hidden" id="progress-text">0%</div>
+                    </div>
+                    <div class="w-20 lg:w-28 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                        <div id="progress-fill" class="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-all duration-500" style="width:0%"></div>
                     </div>
                 </div>
-                <div class="flex items-center gap-3">
-                    <div class="flex-1 h-1.5 bg-surface-800 rounded-full overflow-hidden">
-                        <div id="progress-fill" class="h-full bg-gradient-to-r from-brand-500 to-cyan-400 rounded-full transition-all duration-500" style="width:0%"></div>
-                    </div>
-                    <span id="progress-text" class="text-[11px] font-mono text-slate-400 w-8 text-right">0%</span>
-                </div>
-            </div>
-
-            <!-- Nav -->
-            <nav id="lessons-nav" class="flex-1 overflow-y-auto py-2 scrollbar-thin"></nav>
-
-            <!-- Footer -->
-            <div class="p-4 border-t border-white/5 flex items-center justify-between">
-                <button onclick="resetProgress()" class="text-[11px] text-slate-500 hover:text-red-400 transition flex items-center gap-1">
-                    <i class="fas fa-rotate-left"></i> Reset Progress
+                <span class="sm:hidden text-xs font-mono text-amber-400" id="mobile-progress">0%</span>
+                <button id="themeToggle" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 flex items-center justify-center text-slate-400 hover:text-white transition" title="Toggle theme">
+                    <i id="themeToggleIcon" class="fas fa-moon text-sm"></i>
                 </button>
-                <a href="https://github.com/personalbotai/python-learning-path" target="_blank" class="text-slate-500 hover:text-white transition">
+                <a href="https://github.com/personalbotai/python-learning-path" target="_blank" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hidden sm:flex items-center justify-center text-slate-400 hover:text-white transition" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
+        </div>
+        <!-- thin progress bar under header (mobile accent) -->
+        <div class="h-[2px] w-full bg-transparent"><div id="progress-fill-bar" class="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-500" style="width:0%"></div></div>
+    </header>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" onclick="closeSidebar()"></div>
+    <div id="backdrop" class="fixed inset-0 bg-black/60 z-40 hidden lg:hidden" onclick="closeSidebar()"></div>
+
+    <div class="flex h-[calc(100dvh-58px)] lg:h-[calc(100vh-58px)] overflow-hidden">
+        <!-- Sidebar kiri 300px: accordion 10 modul, lesson list, completed checkmarks -->
+        <aside id="sidebar" class="fixed lg:sticky top-[58px] lg:top-0 inset-y-0 left-0 z-50 w-[300px] shrink-0 bg-[#0f172a] lg:bg-[#0f172a] border-r border-white/5 flex flex-col h-[calc(100dvh-58px)] lg:h-[calc(100vh-58px)] transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out overflow-hidden">
+            <!-- Sidebar head -->
+            <div class="p-4 border-b border-white/5">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-[11px] font-bold tracking-widest text-slate-500 uppercase">Kurikulum</span>
+                    <span class="text-[11px] font-mono text-slate-500"><span id="stat-done">0</span>/55 selesai</span>
+                </div>
+                <!-- Mobile search inside sidebar -->
+                <div class="relative md:hidden">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                    <input id="lesson-search-mobile" type="text" placeholder="Cari pelajaran…" class="w-full h-9 bg-white/5 border border-white/10 rounded-xl pl-9 pr-3 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500/40">
+                </div>
+            </div>
+            <!-- Nav accordion -->
+            <nav id="lessons-nav" class="flex-1 overflow-y-auto py-2 scrollbar-thin px-2"></nav>
+            <!-- Footer -->
+            <div class="p-4 border-t border-white/5">
+                <button onclick="resetProgress()" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 text-xs font-medium text-slate-400 hover:text-white transition">
+                    <i class="fas fa-rotate-left"></i> Reset Progress
+                </button>
+                <p class="text-[11px] text-center text-slate-600 mt-2">Progress tersimpan otomatis</p>
+            </div>
         </aside>
 
-        <!-- Main Content -->
-        <main class="flex-1 flex flex-col overflow-hidden min-w-0">
-            <!-- Lesson Header -->
-            <div id="lesson-header" class="sticky top-0 z-20 bg-surface-950/90 backdrop-blur-lg border-b border-white/5 px-4 sm:px-8 py-4">
-                <div class="max-w-4xl mx-auto flex items-center justify-between">
-                    <div class="min-w-0">
-                        <div class="text-[11px] font-medium text-brand-400 mb-0.5 uppercase tracking-wider" id="breadcrumb">Module 1</div>
-                        <h2 id="lesson-title" class="text-base sm:text-lg font-bold text-white truncate">Pilih pelajaran untuk mulai</h2>
-                    </div>
-                    <div class="flex items-center gap-2 shrink-0 ml-4">
-                        <button id="complete-btn" onclick="markComplete()" class="hidden sm:flex items-center gap-2 px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium rounded-lg transition shadow-lg shadow-brand-600/20">
-                            <i class="fas fa-check"></i> <span class="hidden sm:inline">Selesai</span>
-                        </button>
-                        <button id="completed-btn" class="hidden items-center gap-2 px-4 py-2 bg-emerald-500/10 text-emerald-400 text-sm font-medium rounded-lg border border-emerald-500/20 cursor-default">
-                            <i class="fas fa-check-circle"></i> <span class="hidden sm:inline">Selesai ✓</span>
-                        </button>
+        <!-- Main Content: markdown prose + code editor panel + quiz card -->
+        <main class="flex-1 flex flex-col overflow-hidden min-w-0 bg-[#0a0f1a]">
+            <!-- Lesson Header (sticky inside main) -->
+            <div id="lesson-header" class="sticky top-0 z-20 bg-[#0a0f1a]/90 backdrop-blur-xl border-b border-white/5 px-4 sm:px-8 py-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="min-w-0 flex-1">
+                            <div class="flex items-center gap-2 text-[11px] font-medium text-amber-400 uppercase tracking-wider mb-1">
+                                <span id="breadcrumb">Pilih pelajaran untuk mulai</span>
+                                <span class="hidden" id="breadcrumb-module">Python</span>
+                                <span class="hidden" id="breadcrumb-lesson"></span>
+                            </div>
+                            <h1 id="lesson-title" class="text-base sm:text-xl font-bold text-white leading-tight truncate">Selamat Datang, Pythonista! 🐍</h1>
+                            <div class="flex items-center gap-2 mt-2">
+                                <span id="lesson-duration" class="hidden text-xs px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-slate-400"></span>
+                                <span id="lesson-level" class="hidden text-xs px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300"></span>
+                                <span id="lesson-id" class="hidden text-xs font-mono text-slate-600"></span>
+                                <span id="lesson-meta" class="text-xs text-slate-500"></span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <button id="complete-btn" onclick="markComplete()" class="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white text-sm font-semibold rounded-xl transition shadow-lg shadow-amber-600/20">
+                                <i class="fas fa-check text-xs"></i> Tandai Selesai
+                            </button>
+                            <button id="completed-btn" class="hidden items-center gap-2 px-4 py-2 bg-emerald-500/10 text-emerald-400 text-sm font-medium rounded-xl border border-emerald-500/20">
+                                <i class="fas fa-check-double"></i> Selesai ✓
+                            </button>
+                            <button id="complete-btn-mobile" onclick="markComplete()" class="sm:hidden flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white text-xs font-semibold rounded-xl" style="display:none">
+                                <i class="fas fa-check"></i> Selesai
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Scrollable Content -->
-            <div class="flex-1 overflow-y-auto scroll-smooth" id="content-scroll">
-                <!-- Lesson Content -->
+            <div class="flex-1 overflow-y-auto scroll-smooth scrollbar-thin" id="content-scroll">
                 <div class="max-w-4xl mx-auto px-4 sm:px-8 py-8">
-                    <article id="lesson-content" class="prose prose-invert prose-slate max-w-none">
-                        <div class="text-center py-20">
+                    <!-- Markdown prose -->
+                    <article id="lesson-content" class="prose prose-invert max-w-none">
+                        <div class="hero text-center py-10">
+                            <div class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 mb-6"><i class="fas fa-bolt"></i> Interaktif • Modern Python 3.12+ • Gratis</div>
                             <div class="text-6xl mb-4">🐍</div>
-                            <h2 class="text-2xl font-bold text-white mb-2">Selamat Datang!</h2>
-                            <p class="text-slate-400">Pilih pelajaran dari sidebar untuk memulai belajar Python.</p>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight">Belajar Python seperti engineer di GoTo, Traveloka & Tokopedia.</h2>
+                            <p class="text-slate-400 max-w-2xl mx-auto leading-relaxed">Python Learning Path menyatukan <b class="text-white">55 pelajaran</b> terkurasi, <b class="text-white">editor Python live</b> (Pyodide), <b class="text-white">terminal output</b> & <b class="text-white">quiz</b> — semua jalan di browser, tanpa install. Materi modern: <code>match/case</code>, <code>walrus :=</code>, <code>X | Y</code>, <code>f\"{x=}\"</code>.</p>
+                            <div class="flex flex-wrap gap-3 justify-center mt-8">
+                                <button onclick="loadLesson(0)" class="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white font-semibold rounded-xl shadow-lg shadow-amber-600/20 transition"><i class="fas fa-play mr-2"></i>Mulai dari Awal</button>
+                                <button onclick="loadLesson(7)" class="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-xl transition"><i class="fas fa-code-branch mr-2"></i>Lompat ke match/case</button>
+                            </div>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 text-center">
+                                <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4"><div class="text-2xl font-extrabold text-white">55</div><div class="text-xs text-slate-500">Pelajaran</div></div>
+                                <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4"><div class="text-2xl font-extrabold text-white">10</div><div class="text-xs text-slate-500">Modul</div></div>
+                                <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4"><div class="text-2xl font-extrabold text-white">3.12+</div><div class="text-xs text-slate-500">Modern</div></div>
+                                <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4"><div class="text-2xl font-extrabold text-white">∞</div><div class="text-xs text-slate-500">Bisa diulang</div></div>
+                            </div>
+                        </div>
+                        <div class="cards grid sm:grid-cols-3 gap-4 mt-10">
+                            <div class="bg-[#111827] border border-white/5 rounded-2xl p-5"><i class="fas fa-code text-amber-400 text-xl mb-3 block"></i><h3 class="font-semibold text-white mb-1">Editor Live</h3><p class="text-sm text-slate-400">Tulis & jalankan Python langsung. Validasi output otomatis via Pyodide.</p></div>
+                            <div class="bg-[#111827] border border-white/5 rounded-2xl p-5"><i class="fas fa-terminal text-amber-400 text-xl mb-3 block"></i><h3 class="font-semibold text-white mb-1">Terminal Output</h3><p class="text-sm text-slate-400">Lihat stdout/stderr real, debug walrus & pattern matching.</p></div>
+                            <div class="bg-[#111827] border border-white/5 rounded-2xl p-5"><i class="fas fa-brain text-amber-400 text-xl mb-3 block"></i><h3 class="font-semibold text-white mb-1">Quiz Adaptif</h3><p class="text-sm text-slate-400">Setiap bab ada quiz — lulus untuk simpan progress.</p></div>
                         </div>
                     </article>
                 </div>
 
-                <!-- Code Editor -->
+                <!-- Code Editor Panel: run button + terminal output -->
                 <div id="code-section" class="max-w-4xl mx-auto px-4 sm:px-8 pb-4">
-                    <div class="bg-surface-900 rounded-2xl border border-white/5 overflow-hidden shadow-2xl">
-                        <div class="flex items-center justify-between px-5 py-3 bg-surface-850 border-b border-white/5">
-                            <div class="flex items-center gap-2">
+                    <div class="bg-[#111827] rounded-2xl border border-white/5 overflow-hidden shadow-2xl">
+                        <div class="flex items-center justify-between px-4 py-3 bg-[#172033] border-b border-white/5">
+                            <div class="flex items-center gap-3">
                                 <div class="flex gap-1.5">
                                     <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
                                     <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
                                     <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
                                 </div>
-                                <span class="text-xs text-slate-500 ml-2 font-mono">main.py</span>
+                                <span class="text-xs text-slate-400 font-mono flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span> main.py — Python 3.12</span>
                             </div>
                             <div class="flex gap-2">
-                                <button onclick="runCode()" class="flex items-center gap-2 px-4 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-semibold rounded-lg transition shadow-lg shadow-emerald-500/25">
-                                    <i class="fas fa-play text-[10px]"></i> Run
+                                <button onclick="copyCode()" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium rounded-lg transition"><i class="far fa-copy"></i> Copy</button>
+                                <button onclick="runCode()" class="flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white text-xs font-bold rounded-lg transition shadow-lg shadow-amber-600/20">
+                                    <i class="fas fa-play text-[10px]"></i> Run <span class="hidden sm:inline font-mono text-[10px] opacity-80">⌘↵</span>
                                 </button>
-                                <button onclick="resetCode()" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-slate-400 text-xs rounded-lg transition">
-                                    <i class="fas fa-rotate-left"></i>
-                                </button>
+                                <button onclick="resetCode()" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-slate-400 text-xs rounded-lg transition" title="Reset code"><i class="fas fa-rotate-left"></i></button>
                             </div>
                         </div>
-                        <textarea id="code-editor" class="w-full bg-surface-950 text-emerald-300 font-['JetBrains_Mono',monospace] text-sm p-5 border-none resize-y min-h-[180px] focus:outline-none focus:ring-0 placeholder-slate-600" rows="8" spellcheck="false" placeholder="# Tulis kode Python di sini..."></textarea>
+                        <div class="relative">
+                            <textarea id="code-editor" class="w-full bg-[#0a0f1a] text-amber-100 font-['JetBrains_Mono',monospace] text-sm p-5 border-none resize-y min-h-[200px] focus:outline-none focus:ring-0 placeholder-slate-600 leading-relaxed" rows="10" spellcheck="false" placeholder="# Tulis kode Python 3.12+ di sini...
+# contoh: match/case, walrus, X|Y, f-string = ..."></textarea>
+                        </div>
                         <div class="border-t border-white/5">
-                            <div class="px-5 py-2 flex items-center gap-2 bg-surface-850">
-                                <i class="fas fa-terminal text-[10px] text-slate-500"></i>
-                                <span class="text-[11px] text-slate-500 font-mono">Output</span>
+                            <div class="px-4 py-2 flex items-center justify-between bg-[#172033]">
+                                <span class="flex items-center gap-2 text-[11px] font-semibold tracking-wider text-slate-400 uppercase"><i class="fas fa-terminal text-[10px]"></i> Output</span>
+                                <button onclick="clearOutput()" class="text-[11px] text-slate-500 hover:text-white transition">Clear</button>
                             </div>
-                            <div id="output" class="px-5 py-4 bg-black/40 font-['JetBrains_Mono',monospace] text-sm text-emerald-400 min-h-[80px] max-h-[200px] overflow-auto">
-                                <span class="text-slate-600">// Output akan muncul di sini</span>
-                            </div>
+                            <div id="output" class="px-5 py-4 bg-black/40 font-['JetBrains_Mono',monospace] text-sm text-emerald-400 min-h-[80px] max-h-[260px] overflow-auto whitespace-pre-wrap"><span class="text-slate-600">// Tekan Run untuk menjalankan kode (Pyodide)</span></div>
                         </div>
                     </div>
-                    <div id="validation-msg" class="mt-3 p-4 rounded-xl hidden text-sm"></div>
+                    <div id="validation-msg" class="mt-3 p-4 rounded-xl hidden text-sm border"></div>
                 </div>
 
-                <!-- Quiz -->
+                <!-- Quiz Card -->
                 <div id="quiz-section" class="max-w-4xl mx-auto px-4 sm:px-8 pb-4 hidden">
-                    <div class="bg-surface-900 rounded-2xl border border-white/5 p-6 shadow-2xl">
-                        <div class="flex items-center gap-3 mb-5">
-                            <div class="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                                <i class="fas fa-brain text-amber-400"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-white">Quiz</h3>
+                    <div class="bg-[#111827] rounded-2xl border border-white/5 overflow-hidden shadow-2xl">
+                        <div class="flex items-center gap-3 px-6 py-4 bg-[#172033] border-b border-white/5">
+                            <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center"><i class="fas fa-brain text-amber-400"></i></div>
+                            <h3 class="font-bold text-white">Quiz — uji pemahamanmu</h3>
                         </div>
-                        <div id="quiz-content" class="space-y-3"></div>
-                        <button onclick="checkQuiz()" class="mt-5 px-6 py-2.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold rounded-xl transition shadow-lg shadow-brand-600/20">
-                            <i class="fas fa-paper-plane mr-2"></i>Submit
-                        </button>
-                        <div id="quiz-result" class="mt-3"></div>
+                        <div class="p-6">
+                            <div id="quiz-content" class="space-y-3"></div>
+                            <button onclick="checkQuiz()" class="mt-5 px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white text-sm font-semibold rounded-xl transition shadow-lg shadow-amber-600/20">
+                                <i class="fas fa-paper-plane mr-2"></i>Submit Jawaban
+                            </button>
+                            <div id="quiz-result" class="mt-4"></div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Navigation -->
                 <div class="max-w-4xl mx-auto px-4 sm:px-8 py-6">
                     <div class="flex items-center justify-between gap-3">
-                        <button id="prev-btn" onclick="prevLesson()" disabled class="flex items-center gap-2 px-5 py-2.5 bg-white/5 hover:bg-white/10 text-slate-300 text-sm font-medium rounded-xl transition disabled:opacity-30 disabled:cursor-not-allowed">
+                        <button id="prev-btn" onclick="prevLesson()" disabled class="flex items-center gap-2 px-5 py-2.5 bg-white/5 hover:bg-white/10 text-slate-300 text-sm font-medium rounded-xl transition disabled:opacity-30 disabled:cursor-not-allowed border border-white/5">
                             <i class="fas fa-chevron-left text-xs"></i> Prev
                         </button>
-                        <!-- Mobile complete btn -->
-                        <button id="complete-btn-mobile" onclick="markComplete()" class="sm:hidden flex items-center gap-2 px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium rounded-lg transition" style="display:none">
-                            <i class="fas fa-check"></i> Selesai
-                        </button>
-                        <button id="next-btn" onclick="nextLesson()" class="flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold rounded-xl transition shadow-lg shadow-brand-600/20">
+                        <button id="next-btn" onclick="nextLesson()" class="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-white text-sm font-semibold rounded-xl transition shadow-lg shadow-amber-600/20">
                             Next <i class="fas fa-chevron-right text-xs"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Footer -->
-                <footer class="max-w-4xl mx-auto px-4 sm:px-8 pb-8">
-                    <div class="text-center text-xs text-slate-600 border-t border-white/5 pt-6">
-                        <p>Python Learning Path — dibuat dengan <i class="fas fa-heart text-red-500/60"></i> untuk developer Indonesia</p>
-                        <p class="mt-1">© 2024 personalbotai · <a href="https://github.com/personalbotai" class="hover:text-brand-400 transition">GitHub</a></p>
-                    </div>
+                <footer class="max-w-4xl mx-auto px-4 sm:px-8 pb-8 text-center text-xs text-slate-600 border-t border-white/5 pt-6 mt-2">
+                    <p>Python Learning Path — dibuat dengan <i class="fas fa-heart text-red-500/60"></i> untuk developer Indonesia • Modern Python 3.12+</p>
+                    <p class="mt-1">© 2024 personalbotai · <a href="https://github.com/personalbotai/python-learning-path" class="hover:text-amber-400 transition">GitHub</a> · <a href="https://docs.python.org/3/" target="_blank" class="hover:text-amber-400 transition">docs.python.org</a></p>
                 </footer>
             </div>
         </main>
@@ -193,5 +257,103 @@
 
     <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
     <script src="app.js"></script>
+    <script>
+    // Theme toggle (light/dark) — persist
+    (function(){
+        const btn=document.getElementById('themeToggle');
+        const icon=document.getElementById('themeToggleIcon');
+        const html=document.documentElement;
+        function apply(theme){
+            if(theme==='light'){ html.classList.remove('dark'); html.classList.add('light'); if(icon){ icon.className='fas fa-sun text-sm'; } }
+            else { html.classList.add('dark'); html.classList.remove('light'); if(icon){ icon.className='fas fa-moon text-sm'; } }
+        }
+        const saved=localStorage.getItem('py_theme')||'dark';
+        apply(saved);
+        if(btn) btn.addEventListener('click',()=>{
+            const isDark=html.classList.contains('dark');
+            const next=isDark?'light':'dark';
+            localStorage.setItem('py_theme', next);
+            apply(next);
+        });
+        // Search: filter via renderNav(filter) if supported
+        const s=document.getElementById('lesson-search');
+        const sm=document.getElementById('lesson-search-mobile');
+        function bindSearch(el){
+            if(!el) return;
+            el.addEventListener('input',()=>{
+                const v=el.value;
+                // sync both inputs
+                if(s && el!==s) s.value=v;
+                if(sm && el!==sm) sm.value=v;
+                if(typeof renderNav==='function'){
+                    try{ renderNav(v); }catch(e){ renderNav(); }
+                }
+            });
+            el.addEventListener('keydown',e=>{
+                if(e.key==='Enter'){
+                    e.preventDefault();
+                    // jump to first filtered lesson
+                    const q=v=>v&&v.toLowerCase();
+                    const query=(el.value||'').toLowerCase();
+                    if(!query) return;
+                    const idx=lessons.findIndex(l=>l.title.toLowerCase().includes(query));
+                    if(idx>=0) loadLesson(idx);
+                }
+            });
+        }
+        bindSearch(s); bindSearch(sm);
+        // "/" shortcut
+        document.addEventListener('keydown',e=>{
+            if(e.key==='/' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)){
+                e.preventDefault(); s?.focus();
+            }
+            if((e.metaKey||e.ctrlKey) && e.key==='Enter'){ e.preventDefault(); if(typeof runCode==='function') runCode(); }
+            if(e.key==='Escape'){ if(typeof closeSidebar==='function') closeSidebar(); }
+        });
+        // Mobile drawer toggle (both IDs)
+        const mt=document.getElementById('menuToggle');
+        const st=document.getElementById('sidebar-toggle');
+        const sb=document.getElementById('sidebar');
+        const ov=document.getElementById('sidebar-overlay');
+        const bd=document.getElementById('backdrop');
+        function openSidebar(){
+            sb?.classList.add('sidebar-open'); sb?.classList.remove('-translate-x-full');
+            ov?.classList.remove('hidden'); ov?.classList.add('overlay-open');
+            bd?.classList.remove('hidden'); bd?.classList.add('show');
+        }
+        function closeSidebarFn(){
+            sb?.classList.remove('sidebar-open'); sb?.classList.add('-translate-x-full');
+            // keep lg translate
+            if(window.innerWidth>=1024){ sb?.classList.remove('-translate-x-full'); sb?.classList.add('lg:translate-x-0'); }
+            ov?.classList.add('hidden'); ov?.classList.remove('overlay-open');
+            bd?.classList.add('hidden'); bd?.classList.remove('show');
+        }
+        window.closeSidebar=closeSidebarFn;
+        window.openSidebar=openSidebar;
+        if(mt) mt.addEventListener('click',()=>{
+            const isOpen=sb?.classList.contains('sidebar-open');
+            if(isOpen) closeSidebarFn(); else openSidebar();
+        });
+        if(st) st.addEventListener('click',()=>{
+            const isOpen=sb?.classList.contains('sidebar-open');
+            if(isOpen) closeSidebarFn(); else openSidebar();
+        });
+        if(ov) ov.addEventListener('click', closeSidebarFn);
+        if(bd) bd.addEventListener('click', closeSidebarFn);
+    })();
+    function copyCode(){
+        const ta=document.getElementById('code-editor');
+        if(!ta) return;
+        navigator.clipboard.writeText(ta.value).then(()=>{
+            const out=document.getElementById('output');
+            if(out) out.innerHTML='<span class="text-amber-400">✓ Kode disalin ke clipboard</span>';
+        });
+    }
+    function clearOutput(){
+        const o=document.getElementById('output');
+        if(o) o.innerHTML='<span class="text-slate-600">// Output dibersihkan — tekan Run</span>';
+        const v=document.getElementById('validation-msg'); if(v){ v.className='hidden'; v.innerHTML=''; }
+    }
+    </script>
 </body>
 </html>
