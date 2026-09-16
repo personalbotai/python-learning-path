@@ -1194,20 +1194,50 @@ class SimplePythonRuntime {
 }
 const fallbackRuntime = new SimplePythonRuntime();
 
+let pyodidePromise = null;
+
+function setPyStatus(text, color) {
+    const el = document.getElementById('py-runtime-status');
+    if (el) { el.textContent = text; el.className = 'text-[11px] font-mono ' + color; }
+}
+
 async function initPyodideRuntime() {
-    const output = document.getElementById('output');
-    if (pyodideReady) return;
-    try {
-        if (typeof loadPyodide === 'function') {
-            if (output) output.innerHTML = '<span class="text-amber-400">Menyiapkan Python (Pyodide WebAssembly)...</span>';
-            pyodideInstance = await loadPyodide();
-            pyodideReady = true;
-            if (output) output.innerHTML = '<span class="text-emerald-400">Python runtime siap. Tekan Run untuk mengeksekusi.</span>';
-        } else { throw new Error('loadPyodide not found'); }
-    } catch (e) {
-        console.warn('Pyodide init failed:', e);
-        pyodideReady = true;
-        if (output) output.innerHTML = '<span class="text-sky-400">Mode fallback aktif (fitur eksekusi terbatas).</span>';
+    if (pyodideReady) return pyodideInstance;
+    if (pyodidePromise) return pyodidePromise;
+    setPyStatus('⏳ Loading WASM…', 'text-amber-400');
+    pyodidePromise = (async () => {
+        try {
+            // Wait for loadPyodide if script still loading
+            let retries = 0;
+            while (typeof loadPyodide !== 'function' && retries < 50) {
+                await new Promise(r => setTimeout(r, 100));
+                retries++;
+            }
+            if (typeof loadPyodide === 'function') {
+                pyodideInstance = await loadPyodide();
+                pyodideReady = true;
+                setPyStatus('✓ WASM Ready', 'text-emerald-400');
+                console.log('Pyodide WebAssembly siap di background.');
+                return pyodideInstance;
+            } else {
+                throw new Error('loadPyodide script tidak tersedia');
+            }
+        } catch (e) {
+            console.warn('Pyodide WASM background load gagal, cloud fallback aktif:', e);
+            setPyStatus('☁ Cloud Ready', 'text-sky-400');
+            pyodideReady = false;
+            return null;
+        }
+    })();
+    return pyodidePromise;
+}
+
+// Preload Pyodide WebAssembly IMMEDIATELY in background on page load
+if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => initPyodideRuntime());
+    } else {
+        initPyodideRuntime();
     }
 }
 
@@ -1237,7 +1267,13 @@ async function runPythonCloud(code) {
 async function runCode() {
     const output = document.getElementById('output');
     const _edPy=document.getElementById('code-editor'); const code = _edPy ? _edPy.value : '';
-    if (!pyodideReady) await initPyodideRuntime();
+    // If still downloading WASM, await background promise
+    if (!pyodideReady && pyodidePromise) {
+        if (output) output.innerHTML = '<span class="text-amber-400">⏳ Menunggu download WebAssembly selesai...</span>';
+        await pyodidePromise;
+    } else if (!pyodideReady) {
+        await initPyodideRuntime();
+    }
     if (output) output.innerHTML = '<span class="text-amber-400">Menjalankan...</span>';
     try {
         let res = '';
