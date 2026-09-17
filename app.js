@@ -71,8 +71,11 @@ const lessons = [
     "moduleId": 1,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 1. Hello Python & Eksekusi Pyodide\n\nMateri Python modern.",
-    "code": "# 1. Hello Python & Eksekusi Pyodide\nprint('Menjalankan: 1. Hello Python & Eksekusi Pyodide')",
+    "content": "# 1. Hello Python & Eksekusi Pyodide
+
+Materi Python modern.",
+    "code": "# 1. Hello Python & Eksekusi Pyodide
+print('Menjalankan: 1. Hello Python & Eksekusi Pyodide')",
     "quiz": {
       "question": "Konsep utama 1. Hello Python & Eksekusi Pyodide?",
       "options": [
@@ -93,8 +96,11 @@ const lessons = [
     "moduleId": 1,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 2. Variabel & Tipe Data Dasar\n\nMateri Python modern.",
-    "code": "# 2. Variabel & Tipe Data Dasar\nprint('Menjalankan: 2. Variabel & Tipe Data Dasar')",
+    "content": "# 2. Variabel & Tipe Data Dasar
+
+Materi Python modern.",
+    "code": "# 2. Variabel & Tipe Data Dasar
+print('Menjalankan: 2. Variabel & Tipe Data Dasar')",
     "quiz": {
       "question": "Konsep utama 2. Variabel & Tipe Data Dasar?",
       "options": [
@@ -115,8 +121,11 @@ const lessons = [
     "moduleId": 1,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 3. Operator Aritmatika & Logika\n\nMateri Python modern.",
-    "code": "# 3. Operator Aritmatika & Logika\nprint('Menjalankan: 3. Operator Aritmatika & Logika')",
+    "content": "# 3. Operator Aritmatika & Logika
+
+Materi Python modern.",
+    "code": "# 3. Operator Aritmatika & Logika
+print('Menjalankan: 3. Operator Aritmatika & Logika')",
     "quiz": {
       "question": "Konsep utama 3. Operator Aritmatika & Logika?",
       "options": [
@@ -137,8 +146,11 @@ const lessons = [
     "moduleId": 1,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 4. Manipulasi String & F-String (Python 3.12+)\n\nMateri Python modern.",
-    "code": "# 4. Manipulasi String & F-String (Python 3.12+)\nprint('Menjalankan: 4. Manipulasi String & F-String (Python 3.12+)')",
+    "content": "# 4. Manipulasi String & F-String (Python 3.12+)
+
+Materi Python modern.",
+    "code": "# 4. Manipulasi String & F-String (Python 3.12+)
+print('Menjalankan: 4. Manipulasi String & F-String (Python 3.12+)')",
     "quiz": {
       "question": "Konsep utama 4. Manipulasi String & F-String (Python 3.12+)?",
       "options": [
@@ -159,8 +171,11 @@ const lessons = [
     "moduleId": 1,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 5. Input Pengguna & Casting Tipe Data\n\nMateri Python modern.",
-    "code": "# 5. Input Pengguna & Casting Tipe Data\nprint('Menjalankan: 5. Input Pengguna & Casting Tipe Data')",
+    "content": "# 5. Input Pengguna & Casting Tipe Data
+
+Materi Python modern.",
+    "code": "# 5. Input Pengguna & Casting Tipe Data
+print('Menjalankan: 5. Input Pengguna & Casting Tipe Data')",
     "quiz": {
       "question": "Konsep utama 5. Input Pengguna & Casting Tipe Data?",
       "options": [
@@ -181,8 +196,11 @@ const lessons = [
     "moduleId": 1,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 6. Pengenalan Type Hinting Dasar\n\nMateri Python modern.",
-    "code": "# 6. Pengenalan Type Hinting Dasar\nprint('Menjalankan: 6. Pengenalan Type Hinting Dasar')",
+    "content": "# 6. Pengenalan Type Hinting Dasar
+
+Materi Python modern.",
+    "code": "# 6. Pengenalan Type Hinting Dasar
+print('Menjalankan: 6. Pengenalan Type Hinting Dasar')",
     "quiz": {
       "question": "Konsep utama 6. Pengenalan Type Hinting Dasar?",
       "options": [
@@ -203,8 +221,11 @@ const lessons = [
     "moduleId": 2,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 7. Percabangan If, Elif, Else\n\nMateri Python modern.",
-    "code": "# 7. Percabangan If, Elif, Else\nprint('Menjalankan: 7. Percabangan If, Elif, Else')",
+    "content": "# 7. Percabangan If, Elif, Else
+
+Materi Python modern.",
+    "code": "# 7. Percabangan If, Elif, Else
+print('Menjalankan: 7. Percabangan If, Elif, Else')",
     "quiz": {
       "question": "Konsep utama 7. Percabangan If, Elif, Else?",
       "options": [
@@ -225,8 +246,11 @@ const lessons = [
     "moduleId": 2,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 8. Structural Pattern Matching (Match-Case)\n\nMateri Python modern.",
-    "code": "# 8. Structural Pattern Matching (Match-Case)\nprint('Menjalankan: 8. Structural Pattern Matching (Match-Case)')",
+    "content": "# 8. Structural Pattern Matching (Match-Case)
+
+Materi Python modern.",
+    "code": "# 8. Structural Pattern Matching (Match-Case)
+print('Menjalankan: 8. Structural Pattern Matching (Match-Case)')",
     "quiz": {
       "question": "Konsep utama 8. Structural Pattern Matching (Match-Case)?",
       "options": [
@@ -247,8 +271,11 @@ const lessons = [
     "moduleId": 2,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 9. Perulangan While & Kontrol Alur\n\nMateri Python modern.",
-    "code": "# 9. Perulangan While & Kontrol Alur\nprint('Menjalankan: 9. Perulangan While & Kontrol Alur')",
+    "content": "# 9. Perulangan While & Kontrol Alur
+
+Materi Python modern.",
+    "code": "# 9. Perulangan While & Kontrol Alur
+print('Menjalankan: 9. Perulangan While & Kontrol Alur')",
     "quiz": {
       "question": "Konsep utama 9. Perulangan While & Kontrol Alur?",
       "options": [
@@ -269,8 +296,11 @@ const lessons = [
     "moduleId": 2,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 10. Perulangan For & Iterasi\n\nMateri Python modern.",
-    "code": "# 10. Perulangan For & Iterasi\nprint('Menjalankan: 10. Perulangan For & Iterasi')",
+    "content": "# 10. Perulangan For & Iterasi
+
+Materi Python modern.",
+    "code": "# 10. Perulangan For & Iterasi
+print('Menjalankan: 10. Perulangan For & Iterasi')",
     "quiz": {
       "question": "Konsep utama 10. Perulangan For & Iterasi?",
       "options": [
@@ -291,8 +321,11 @@ const lessons = [
     "moduleId": 2,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 11. Nested Loops & Walrus Operator\n\nMateri Python modern.",
-    "code": "# 11. Nested Loops & Walrus Operator\nprint('Menjalankan: 11. Nested Loops & Walrus Operator')",
+    "content": "# 11. Nested Loops & Walrus Operator
+
+Materi Python modern.",
+    "code": "# 11. Nested Loops & Walrus Operator
+print('Menjalankan: 11. Nested Loops & Walrus Operator')",
     "quiz": {
       "question": "Konsep utama 11. Nested Loops & Walrus Operator?",
       "options": [
@@ -313,8 +346,11 @@ const lessons = [
     "moduleId": 2,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 12. Ternary Operator Pythonic\n\nMateri Python modern.",
-    "code": "# 12. Ternary Operator Pythonic\nprint('Menjalankan: 12. Ternary Operator Pythonic')",
+    "content": "# 12. Ternary Operator Pythonic
+
+Materi Python modern.",
+    "code": "# 12. Ternary Operator Pythonic
+print('Menjalankan: 12. Ternary Operator Pythonic')",
     "quiz": {
       "question": "Konsep utama 12. Ternary Operator Pythonic?",
       "options": [
@@ -335,8 +371,11 @@ const lessons = [
     "moduleId": 3,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 13. List & List Comprehension\n\nMateri Python modern.",
-    "code": "# 13. List & List Comprehension\nprint('Menjalankan: 13. List & List Comprehension')",
+    "content": "# 13. List & List Comprehension
+
+Materi Python modern.",
+    "code": "# 13. List & List Comprehension
+print('Menjalankan: 13. List & List Comprehension')",
     "quiz": {
       "question": "Konsep utama 13. List & List Comprehension?",
       "options": [
@@ -357,8 +396,11 @@ const lessons = [
     "moduleId": 3,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 14. Tuple & Konsep Immutability\n\nMateri Python modern.",
-    "code": "# 14. Tuple & Konsep Immutability\nprint('Menjalankan: 14. Tuple & Konsep Immutability')",
+    "content": "# 14. Tuple & Konsep Immutability
+
+Materi Python modern.",
+    "code": "# 14. Tuple & Konsep Immutability
+print('Menjalankan: 14. Tuple & Konsep Immutability')",
     "quiz": {
       "question": "Konsep utama 14. Tuple & Konsep Immutability?",
       "options": [
@@ -379,8 +421,11 @@ const lessons = [
     "moduleId": 3,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 15. Dictionary & Dict Comprehension\n\nMateri Python modern.",
-    "code": "# 15. Dictionary & Dict Comprehension\nprint('Menjalankan: 15. Dictionary & Dict Comprehension')",
+    "content": "# 15. Dictionary & Dict Comprehension
+
+Materi Python modern.",
+    "code": "# 15. Dictionary & Dict Comprehension
+print('Menjalankan: 15. Dictionary & Dict Comprehension')",
     "quiz": {
       "question": "Konsep utama 15. Dictionary & Dict Comprehension?",
       "options": [
@@ -401,8 +446,11 @@ const lessons = [
     "moduleId": 3,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 16. Set & Operasi Himpunan Matematis\n\nMateri Python modern.",
-    "code": "# 16. Set & Operasi Himpunan Matematis\nprint('Menjalankan: 16. Set & Operasi Himpunan Matematis')",
+    "content": "# 16. Set & Operasi Himpunan Matematis
+
+Materi Python modern.",
+    "code": "# 16. Set & Operasi Himpunan Matematis
+print('Menjalankan: 16. Set & Operasi Himpunan Matematis')",
     "quiz": {
       "question": "Konsep utama 16. Set & Operasi Himpunan Matematis?",
       "options": [
@@ -423,8 +471,11 @@ const lessons = [
     "moduleId": 3,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 17. Advanced Unpacking (*args, **kwargs)\n\nMateri Python modern.",
-    "code": "# 17. Advanced Unpacking (*args, **kwargs)\nprint('Menjalankan: 17. Advanced Unpacking (*args, **kwargs)')",
+    "content": "# 17. Advanced Unpacking (*args, **kwargs)
+
+Materi Python modern.",
+    "code": "# 17. Advanced Unpacking (*args, **kwargs)
+print('Menjalankan: 17. Advanced Unpacking (*args, **kwargs)')",
     "quiz": {
       "question": "Konsep utama 17. Advanced Unpacking (*args, **kwargs)?",
       "options": [
@@ -445,8 +496,11 @@ const lessons = [
     "moduleId": 3,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 18. Memilih Struktur Data (Efisiensi Big-O)\n\nMateri Python modern.",
-    "code": "# 18. Memilih Struktur Data (Efisiensi Big-O)\nprint('Menjalankan: 18. Memilih Struktur Data (Efisiensi Big-O)')",
+    "content": "# 18. Memilih Struktur Data (Efisiensi Big-O)
+
+Materi Python modern.",
+    "code": "# 18. Memilih Struktur Data (Efisiensi Big-O)
+print('Menjalankan: 18. Memilih Struktur Data (Efisiensi Big-O)')",
     "quiz": {
       "question": "Konsep utama 18. Memilih Struktur Data (Efisiensi Big-O)?",
       "options": [
@@ -467,8 +521,11 @@ const lessons = [
     "moduleId": 4,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 19. Definisi Fungsi & Return Values\n\nMateri Python modern.",
-    "code": "# 19. Definisi Fungsi & Return Values\nprint('Menjalankan: 19. Definisi Fungsi & Return Values')",
+    "content": "# 19. Definisi Fungsi & Return Values
+
+Materi Python modern.",
+    "code": "# 19. Definisi Fungsi & Return Values
+print('Menjalankan: 19. Definisi Fungsi & Return Values')",
     "quiz": {
       "question": "Konsep utama 19. Definisi Fungsi & Return Values?",
       "options": [
@@ -489,8 +546,11 @@ const lessons = [
     "moduleId": 4,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 20. Parameter Default & Keyword-Only Arguments\n\nMateri Python modern.",
-    "code": "# 20. Parameter Default & Keyword-Only Arguments\nprint('Menjalankan: 20. Parameter Default & Keyword-Only Arguments')",
+    "content": "# 20. Parameter Default & Keyword-Only Arguments
+
+Materi Python modern.",
+    "code": "# 20. Parameter Default & Keyword-Only Arguments
+print('Menjalankan: 20. Parameter Default & Keyword-Only Arguments')",
     "quiz": {
       "question": "Konsep utama 20. Parameter Default & Keyword-Only Arguments?",
       "options": [
@@ -511,8 +571,11 @@ const lessons = [
     "moduleId": 4,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 21. Lambda Functions & Ekspresi Anonim\n\nMateri Python modern.",
-    "code": "# 21. Lambda Functions & Ekspresi Anonim\nprint('Menjalankan: 21. Lambda Functions & Ekspresi Anonim')",
+    "content": "# 21. Lambda Functions & Ekspresi Anonim
+
+Materi Python modern.",
+    "code": "# 21. Lambda Functions & Ekspresi Anonim
+print('Menjalankan: 21. Lambda Functions & Ekspresi Anonim')",
     "quiz": {
       "question": "Konsep utama 21. Lambda Functions & Ekspresi Anonim?",
       "options": [
@@ -533,8 +596,11 @@ const lessons = [
     "moduleId": 4,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 22. Higher-Order Functions: Map, Filter, Reduce\n\nMateri Python modern.",
-    "code": "# 22. Higher-Order Functions: Map, Filter, Reduce\nprint('Menjalankan: 22. Higher-Order Functions: Map, Filter, Reduce')",
+    "content": "# 22. Higher-Order Functions: Map, Filter, Reduce
+
+Materi Python modern.",
+    "code": "# 22. Higher-Order Functions: Map, Filter, Reduce
+print('Menjalankan: 22. Higher-Order Functions: Map, Filter, Reduce')",
     "quiz": {
       "question": "Konsep utama 22. Higher-Order Functions: Map, Filter, Reduce?",
       "options": [
@@ -555,8 +621,11 @@ const lessons = [
     "moduleId": 4,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 23. Ruang Lingkup (Scope): Local, Global, Nonlocal\n\nMateri Python modern.",
-    "code": "# 23. Ruang Lingkup (Scope): Local, Global, Nonlocal\nprint('Menjalankan: 23. Ruang Lingkup (Scope): Local, Global, Nonlocal')",
+    "content": "# 23. Ruang Lingkup (Scope): Local, Global, Nonlocal
+
+Materi Python modern.",
+    "code": "# 23. Ruang Lingkup (Scope): Local, Global, Nonlocal
+print('Menjalankan: 23. Ruang Lingkup (Scope): Local, Global, Nonlocal')",
     "quiz": {
       "question": "Konsep utama 23. Ruang Lingkup (Scope): Local, Global, Nonlocal?",
       "options": [
@@ -577,8 +646,11 @@ const lessons = [
     "moduleId": 4,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 24. Closures Dasar & Pengantar Decorator\n\nMateri Python modern.",
-    "code": "# 24. Closures Dasar & Pengantar Decorator\nprint('Menjalankan: 24. Closures Dasar & Pengantar Decorator')",
+    "content": "# 24. Closures Dasar & Pengantar Decorator
+
+Materi Python modern.",
+    "code": "# 24. Closures Dasar & Pengantar Decorator
+print('Menjalankan: 24. Closures Dasar & Pengantar Decorator')",
     "quiz": {
       "question": "Konsep utama 24. Closures Dasar & Pengantar Decorator?",
       "options": [
@@ -599,8 +671,11 @@ const lessons = [
     "moduleId": 5,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 25. Konsep OOP, Class & Objek\n\nMateri Python modern.",
-    "code": "# 25. Konsep OOP, Class & Objek\nprint('Menjalankan: 25. Konsep OOP, Class & Objek')",
+    "content": "# 25. Konsep OOP, Class & Objek
+
+Materi Python modern.",
+    "code": "# 25. Konsep OOP, Class & Objek
+print('Menjalankan: 25. Konsep OOP, Class & Objek')",
     "quiz": {
       "question": "Konsep utama 25. Konsep OOP, Class & Objek?",
       "options": [
@@ -621,8 +696,11 @@ const lessons = [
     "moduleId": 5,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 26. Atribut Instance, Atribut Class & Konstruktor\n\nMateri Python modern.",
-    "code": "# 26. Atribut Instance, Atribut Class & Konstruktor\nprint('Menjalankan: 26. Atribut Instance, Atribut Class & Konstruktor')",
+    "content": "# 26. Atribut Instance, Atribut Class & Konstruktor
+
+Materi Python modern.",
+    "code": "# 26. Atribut Instance, Atribut Class & Konstruktor
+print('Menjalankan: 26. Atribut Instance, Atribut Class & Konstruktor')",
     "quiz": {
       "question": "Konsep utama 26. Atribut Instance, Atribut Class & Konstruktor?",
       "options": [
@@ -643,8 +721,11 @@ const lessons = [
     "moduleId": 5,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 27. Method Instance & Konsep Parameter `self`\n\nMateri Python modern.",
-    "code": "# 27. Method Instance & Konsep Parameter `self`\nprint('Menjalankan: 27. Method Instance & Konsep Parameter `self`')",
+    "content": "# 27. Method Instance & Konsep Parameter `self`
+
+Materi Python modern.",
+    "code": "# 27. Method Instance & Konsep Parameter `self`
+print('Menjalankan: 27. Method Instance & Konsep Parameter `self`')",
     "quiz": {
       "question": "Konsep utama 27. Method Instance & Konsep Parameter `self`?",
       "options": [
@@ -665,8 +746,11 @@ const lessons = [
     "moduleId": 5,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 28. Encapsulation & Access Modifiers Modifikasi\n\nMateri Python modern.",
-    "code": "# 28. Encapsulation & Access Modifiers Modifikasi\nprint('Menjalankan: 28. Encapsulation & Access Modifiers Modifikasi')",
+    "content": "# 28. Encapsulation & Access Modifiers Modifikasi
+
+Materi Python modern.",
+    "code": "# 28. Encapsulation & Access Modifiers Modifikasi
+print('Menjalankan: 28. Encapsulation & Access Modifiers Modifikasi')",
     "quiz": {
       "question": "Konsep utama 28. Encapsulation & Access Modifiers Modifikasi?",
       "options": [
@@ -687,8 +771,11 @@ const lessons = [
     "moduleId": 5,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 29. Decorator Properti (`@property`)\n\nMateri Python modern.",
-    "code": "# 29. Decorator Properti (`@property`)\nprint('Menjalankan: 29. Decorator Properti (`@property`)')",
+    "content": "# 29. Decorator Properti (`@property`)
+
+Materi Python modern.",
+    "code": "# 29. Decorator Properti (`@property`)
+print('Menjalankan: 29. Decorator Properti (`@property`)')",
     "quiz": {
       "question": "Konsep utama 29. Decorator Properti (`@property`)?",
       "options": [
@@ -709,8 +796,11 @@ const lessons = [
     "moduleId": 5,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 30. Magic / Dunder Methods Dasar\n\nMateri Python modern.",
-    "code": "# 30. Magic / Dunder Methods Dasar\nprint('Menjalankan: 30. Magic / Dunder Methods Dasar')",
+    "content": "# 30. Magic / Dunder Methods Dasar
+
+Materi Python modern.",
+    "code": "# 30. Magic / Dunder Methods Dasar
+print('Menjalankan: 30. Magic / Dunder Methods Dasar')",
     "quiz": {
       "question": "Konsep utama 30. Magic / Dunder Methods Dasar?",
       "options": [
@@ -731,8 +821,11 @@ const lessons = [
     "moduleId": 6,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 31. Inheritance (Pewarisan)\n\nMateri Python modern.",
-    "code": "# 31. Inheritance (Pewarisan)\nprint('Menjalankan: 31. Inheritance (Pewarisan)')",
+    "content": "# 31. Inheritance (Pewarisan)
+
+Materi Python modern.",
+    "code": "# 31. Inheritance (Pewarisan)
+print('Menjalankan: 31. Inheritance (Pewarisan)')",
     "quiz": {
       "question": "Konsep utama 31. Inheritance (Pewarisan)?",
       "options": [
@@ -753,8 +846,11 @@ const lessons = [
     "moduleId": 6,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 32. Polymorphism & Method Overriding\n\nMateri Python modern.",
-    "code": "# 32. Polymorphism & Method Overriding\nprint('Menjalankan: 32. Polymorphism & Method Overriding')",
+    "content": "# 32. Polymorphism & Method Overriding
+
+Materi Python modern.",
+    "code": "# 32. Polymorphism & Method Overriding
+print('Menjalankan: 32. Polymorphism & Method Overriding')",
     "quiz": {
       "question": "Konsep utama 32. Polymorphism & Method Overriding?",
       "options": [
@@ -775,8 +871,11 @@ const lessons = [
     "moduleId": 6,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 33. Penggunaan `super()` & Resolusi Urutan (MRO)\n\nMateri Python modern.",
-    "code": "# 33. Penggunaan `super()` & Resolusi Urutan (MRO)\nprint('Menjalankan: 33. Penggunaan `super()` & Resolusi Urutan (MRO)')",
+    "content": "# 33. Penggunaan `super()` & Resolusi Urutan (MRO)
+
+Materi Python modern.",
+    "code": "# 33. Penggunaan `super()` & Resolusi Urutan (MRO)
+print('Menjalankan: 33. Penggunaan `super()` & Resolusi Urutan (MRO)')",
     "quiz": {
       "question": "Konsep utama 33. Penggunaan `super()` & Resolusi Urutan (MRO)?",
       "options": [
@@ -797,8 +896,11 @@ const lessons = [
     "moduleId": 6,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 34. Abstract Base Classes (ABC)\n\nMateri Python modern.",
-    "code": "# 34. Abstract Base Classes (ABC)\nprint('Menjalankan: 34. Abstract Base Classes (ABC)')",
+    "content": "# 34. Abstract Base Classes (ABC)
+
+Materi Python modern.",
+    "code": "# 34. Abstract Base Classes (ABC)
+print('Menjalankan: 34. Abstract Base Classes (ABC)')",
     "quiz": {
       "question": "Konsep utama 34. Abstract Base Classes (ABC)?",
       "options": [
@@ -819,8 +921,11 @@ const lessons = [
     "moduleId": 6,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 35. Dataclasses (Python Modern)\n\nMateri Python modern.",
-    "code": "# 35. Dataclasses (Python Modern)\nprint('Menjalankan: 35. Dataclasses (Python Modern)')",
+    "content": "# 35. Dataclasses (Python Modern)
+
+Materi Python modern.",
+    "code": "# 35. Dataclasses (Python Modern)
+print('Menjalankan: 35. Dataclasses (Python Modern)')",
     "quiz": {
       "question": "Konsep utama 35. Dataclasses (Python Modern)?",
       "options": [
@@ -841,8 +946,11 @@ const lessons = [
     "moduleId": 6,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 36. Multiple Inheritance & Pendekatan Mixins\n\nMateri Python modern.",
-    "code": "# 36. Multiple Inheritance & Pendekatan Mixins\nprint('Menjalankan: 36. Multiple Inheritance & Pendekatan Mixins')",
+    "content": "# 36. Multiple Inheritance & Pendekatan Mixins
+
+Materi Python modern.",
+    "code": "# 36. Multiple Inheritance & Pendekatan Mixins
+print('Menjalankan: 36. Multiple Inheritance & Pendekatan Mixins')",
     "quiz": {
       "question": "Konsep utama 36. Multiple Inheritance & Pendekatan Mixins?",
       "options": [
@@ -863,8 +971,11 @@ const lessons = [
     "moduleId": 7,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 37. Eksekusi Exceptions Dasar (Try, Except, Else, Finally)\n\nMateri Python modern.",
-    "code": "# 37. Eksekusi Exceptions Dasar (Try, Except, Else, Finally)\nprint('Menjalankan: 37. Eksekusi Exceptions Dasar (Try, Except, Else, Finally)')",
+    "content": "# 37. Eksekusi Exceptions Dasar (Try, Except, Else, Finally)
+
+Materi Python modern.",
+    "code": "# 37. Eksekusi Exceptions Dasar (Try, Except, Else, Finally)
+print('Menjalankan: 37. Eksekusi Exceptions Dasar (Try, Except, Else, Finally)')",
     "quiz": {
       "question": "Konsep utama 37. Eksekusi Exceptions Dasar (Try, Except, Else, Finally)?",
       "options": [
@@ -885,8 +996,11 @@ const lessons = [
     "moduleId": 7,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 38. Custom Exceptions (Raise Statement)\n\nMateri Python modern.",
-    "code": "# 38. Custom Exceptions (Raise Statement)\nprint('Menjalankan: 38. Custom Exceptions (Raise Statement)')",
+    "content": "# 38. Custom Exceptions (Raise Statement)
+
+Materi Python modern.",
+    "code": "# 38. Custom Exceptions (Raise Statement)
+print('Menjalankan: 38. Custom Exceptions (Raise Statement)')",
     "quiz": {
       "question": "Konsep utama 38. Custom Exceptions (Raise Statement)?",
       "options": [
@@ -907,8 +1021,11 @@ const lessons = [
     "moduleId": 7,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 39. Exception Groups (Fitur Python 3.11+)\n\nMateri Python modern.",
-    "code": "# 39. Exception Groups (Fitur Python 3.11+)\nprint('Menjalankan: 39. Exception Groups (Fitur Python 3.11+)')",
+    "content": "# 39. Exception Groups (Fitur Python 3.11+)
+
+Materi Python modern.",
+    "code": "# 39. Exception Groups (Fitur Python 3.11+)
+print('Menjalankan: 39. Exception Groups (Fitur Python 3.11+)')",
     "quiz": {
       "question": "Konsep utama 39. Exception Groups (Fitur Python 3.11+)?",
       "options": [
@@ -929,8 +1046,11 @@ const lessons = [
     "moduleId": 7,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 40. Context Managers (`with` statement)\n\nMateri Python modern.",
-    "code": "# 40. Context Managers (`with` statement)\nprint('Menjalankan: 40. Context Managers (`with` statement)')",
+    "content": "# 40. Context Managers (`with` statement)
+
+Materi Python modern.",
+    "code": "# 40. Context Managers (`with` statement)
+print('Menjalankan: 40. Context Managers (`with` statement)')",
     "quiz": {
       "question": "Konsep utama 40. Context Managers (`with` statement)?",
       "options": [
@@ -951,8 +1071,11 @@ const lessons = [
     "moduleId": 7,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 41. Membangun Custom Context Manager\n\nMateri Python modern.",
-    "code": "# 41. Membangun Custom Context Manager\nprint('Menjalankan: 41. Membangun Custom Context Manager')",
+    "content": "# 41. Membangun Custom Context Manager
+
+Materi Python modern.",
+    "code": "# 41. Membangun Custom Context Manager
+print('Menjalankan: 41. Membangun Custom Context Manager')",
     "quiz": {
       "question": "Konsep utama 41. Membangun Custom Context Manager?",
       "options": [
@@ -973,8 +1096,11 @@ const lessons = [
     "moduleId": 7,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 42. Pemrosesan Lanjut Parsing JSON\n\nMateri Python modern.",
-    "code": "# 42. Pemrosesan Lanjut Parsing JSON\nprint('Menjalankan: 42. Pemrosesan Lanjut Parsing JSON')",
+    "content": "# 42. Pemrosesan Lanjut Parsing JSON
+
+Materi Python modern.",
+    "code": "# 42. Pemrosesan Lanjut Parsing JSON
+print('Menjalankan: 42. Pemrosesan Lanjut Parsing JSON')",
     "quiz": {
       "question": "Konsep utama 42. Pemrosesan Lanjut Parsing JSON?",
       "options": [
@@ -995,8 +1121,11 @@ const lessons = [
     "moduleId": 8,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 43. Type Hinting Lanjut (Union, Optional, Any)\n\nMateri Python modern.",
-    "code": "# 43. Type Hinting Lanjut (Union, Optional, Any)\nprint('Menjalankan: 43. Type Hinting Lanjut (Union, Optional, Any)')",
+    "content": "# 43. Type Hinting Lanjut (Union, Optional, Any)
+
+Materi Python modern.",
+    "code": "# 43. Type Hinting Lanjut (Union, Optional, Any)
+print('Menjalankan: 43. Type Hinting Lanjut (Union, Optional, Any)')",
     "quiz": {
       "question": "Konsep utama 43. Type Hinting Lanjut (Union, Optional, Any)?",
       "options": [
@@ -1017,8 +1146,11 @@ const lessons = [
     "moduleId": 8,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 44. Sintaks Type Parameter PEP 695 (Python 3.12+)\n\nMateri Python modern.",
-    "code": "# 44. Sintaks Type Parameter PEP 695 (Python 3.12+)\nprint('Menjalankan: 44. Sintaks Type Parameter PEP 695 (Python 3.12+)')",
+    "content": "# 44. Sintaks Type Parameter PEP 695 (Python 3.12+)
+
+Materi Python modern.",
+    "code": "# 44. Sintaks Type Parameter PEP 695 (Python 3.12+)
+print('Menjalankan: 44. Sintaks Type Parameter PEP 695 (Python 3.12+)')",
     "quiz": {
       "question": "Konsep utama 44. Sintaks Type Parameter PEP 695 (Python 3.12+)?",
       "options": [
@@ -1039,8 +1171,11 @@ const lessons = [
     "moduleId": 8,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 45. Iterators & Protokol Iterable\n\nMateri Python modern.",
-    "code": "# 45. Iterators & Protokol Iterable\nprint('Menjalankan: 45. Iterators & Protokol Iterable')",
+    "content": "# 45. Iterators & Protokol Iterable
+
+Materi Python modern.",
+    "code": "# 45. Iterators & Protokol Iterable
+print('Menjalankan: 45. Iterators & Protokol Iterable')",
     "quiz": {
       "question": "Konsep utama 45. Iterators & Protokol Iterable?",
       "options": [
@@ -1061,8 +1196,11 @@ const lessons = [
     "moduleId": 8,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 46. Generators & Kata Kunci `yield`\n\nMateri Python modern.",
-    "code": "# 46. Generators & Kata Kunci `yield`\nprint('Menjalankan: 46. Generators & Kata Kunci `yield`')",
+    "content": "# 46. Generators & Kata Kunci `yield`
+
+Materi Python modern.",
+    "code": "# 46. Generators & Kata Kunci `yield`
+print('Menjalankan: 46. Generators & Kata Kunci `yield`')",
     "quiz": {
       "question": "Konsep utama 46. Generators & Kata Kunci `yield`?",
       "options": [
@@ -1083,8 +1221,11 @@ const lessons = [
     "moduleId": 8,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 47. Generator Expressions vs List Comprehension\n\nMateri Python modern.",
-    "code": "# 47. Generator Expressions vs List Comprehension\nprint('Menjalankan: 47. Generator Expressions vs List Comprehension')",
+    "content": "# 47. Generator Expressions vs List Comprehension
+
+Materi Python modern.",
+    "code": "# 47. Generator Expressions vs List Comprehension
+print('Menjalankan: 47. Generator Expressions vs List Comprehension')",
     "quiz": {
       "question": "Konsep utama 47. Generator Expressions vs List Comprehension?",
       "options": [
@@ -1105,8 +1246,11 @@ const lessons = [
     "moduleId": 8,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 48. Decorators Berlanjut: Wrapper & Metadata\n\nMateri Python modern.",
-    "code": "# 48. Decorators Berlanjut: Wrapper & Metadata\nprint('Menjalankan: 48. Decorators Berlanjut: Wrapper & Metadata')",
+    "content": "# 48. Decorators Berlanjut: Wrapper & Metadata
+
+Materi Python modern.",
+    "code": "# 48. Decorators Berlanjut: Wrapper & Metadata
+print('Menjalankan: 48. Decorators Berlanjut: Wrapper & Metadata')",
     "quiz": {
       "question": "Konsep utama 48. Decorators Berlanjut: Wrapper & Metadata?",
       "options": [
@@ -1127,8 +1271,11 @@ const lessons = [
     "moduleId": 9,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 49. Decorator dengan Argumen & Penumpukan Chaining\n\nMateri Python modern.",
-    "code": "# 49. Decorator dengan Argumen & Penumpukan Chaining\nprint('Menjalankan: 49. Decorator dengan Argumen & Penumpukan Chaining')",
+    "content": "# 49. Decorator dengan Argumen & Penumpukan Chaining
+
+Materi Python modern.",
+    "code": "# 49. Decorator dengan Argumen & Penumpukan Chaining
+print('Menjalankan: 49. Decorator dengan Argumen & Penumpukan Chaining')",
     "quiz": {
       "question": "Konsep utama 49. Decorator dengan Argumen & Penumpukan Chaining?",
       "options": [
@@ -1149,8 +1296,11 @@ const lessons = [
     "moduleId": 9,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 50. Pengenalan Asynchronous Programming & Event Loop\n\nMateri Python modern.",
-    "code": "# 50. Pengenalan Asynchronous Programming & Event Loop\nprint('Menjalankan: 50. Pengenalan Asynchronous Programming & Event Loop')",
+    "content": "# 50. Pengenalan Asynchronous Programming & Event Loop
+
+Materi Python modern.",
+    "code": "# 50. Pengenalan Asynchronous Programming & Event Loop
+print('Menjalankan: 50. Pengenalan Asynchronous Programming & Event Loop')",
     "quiz": {
       "question": "Konsep utama 50. Pengenalan Asynchronous Programming & Event Loop?",
       "options": [
@@ -1171,8 +1321,11 @@ const lessons = [
     "moduleId": 9,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 51. Coroutines dengan Statemen `async def` & `await`\n\nMateri Python modern.",
-    "code": "# 51. Coroutines dengan Statemen `async def` & `await`\nprint('Menjalankan: 51. Coroutines dengan Statemen `async def` & `await`')",
+    "content": "# 51. Coroutines dengan Statemen `async def` & `await`
+
+Materi Python modern.",
+    "code": "# 51. Coroutines dengan Statemen `async def` & `await`
+print('Menjalankan: 51. Coroutines dengan Statemen `async def` & `await`')",
     "quiz": {
       "question": "Konsep utama 51. Coroutines dengan Statemen `async def` & `await`?",
       "options": [
@@ -1193,8 +1346,11 @@ const lessons = [
     "moduleId": 9,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 52. Menjalankan Task Paralel (TaskGroup & gather)\n\nMateri Python modern.",
-    "code": "# 52. Menjalankan Task Paralel (TaskGroup & gather)\nprint('Menjalankan: 52. Menjalankan Task Paralel (TaskGroup & gather)')",
+    "content": "# 52. Menjalankan Task Paralel (TaskGroup & gather)
+
+Materi Python modern.",
+    "code": "# 52. Menjalankan Task Paralel (TaskGroup & gather)
+print('Menjalankan: 52. Menjalankan Task Paralel (TaskGroup & gather)')",
     "quiz": {
       "question": "Konsep utama 52. Menjalankan Task Paralel (TaskGroup & gather)?",
       "options": [
@@ -1215,8 +1371,11 @@ const lessons = [
     "moduleId": 9,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 53. Timeout & Pembatalan *Task* Asinkron\n\nMateri Python modern.",
-    "code": "# 53. Timeout & Pembatalan *Task* Asinkron\nprint('Menjalankan: 53. Timeout & Pembatalan *Task* Asinkron')",
+    "content": "# 53. Timeout & Pembatalan *Task* Asinkron
+
+Materi Python modern.",
+    "code": "# 53. Timeout & Pembatalan *Task* Asinkron
+print('Menjalankan: 53. Timeout & Pembatalan *Task* Asinkron')",
     "quiz": {
       "question": "Konsep utama 53. Timeout & Pembatalan *Task* Asinkron?",
       "options": [
@@ -1237,8 +1396,11 @@ const lessons = [
     "moduleId": 9,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 54. Async Iterators & Async Generators Konseptual\n\nMateri Python modern.",
-    "code": "# 54. Async Iterators & Async Generators Konseptual\nprint('Menjalankan: 54. Async Iterators & Async Generators Konseptual')",
+    "content": "# 54. Async Iterators & Async Generators Konseptual
+
+Materi Python modern.",
+    "code": "# 54. Async Iterators & Async Generators Konseptual
+print('Menjalankan: 54. Async Iterators & Async Generators Konseptual')",
     "quiz": {
       "question": "Konsep utama 54. Async Iterators & Async Generators Konseptual?",
       "options": [
@@ -1259,8 +1421,11 @@ const lessons = [
     "moduleId": 10,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 55. Dasar Pengujian Unit (*Unit Testing* dengan *assert*)\n\nMateri Python modern.",
-    "code": "# 55. Dasar Pengujian Unit (*Unit Testing* dengan *assert*)\nprint('Menjalankan: 55. Dasar Pengujian Unit (*Unit Testing* dengan *assert*)')",
+    "content": "# 55. Dasar Pengujian Unit (*Unit Testing* dengan *assert*)
+
+Materi Python modern.",
+    "code": "# 55. Dasar Pengujian Unit (*Unit Testing* dengan *assert*)
+print('Menjalankan: 55. Dasar Pengujian Unit (*Unit Testing* dengan *assert*)')",
     "quiz": {
       "question": "Konsep utama 55. Dasar Pengujian Unit (*Unit Testing* dengan *assert*)?",
       "options": [
@@ -1281,8 +1446,11 @@ const lessons = [
     "moduleId": 10,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 56. Konsep Isolasi Eksternal (Mocking Dasar)\n\nMateri Python modern.",
-    "code": "# 56. Konsep Isolasi Eksternal (Mocking Dasar)\nprint('Menjalankan: 56. Konsep Isolasi Eksternal (Mocking Dasar)')",
+    "content": "# 56. Konsep Isolasi Eksternal (Mocking Dasar)
+
+Materi Python modern.",
+    "code": "# 56. Konsep Isolasi Eksternal (Mocking Dasar)
+print('Menjalankan: 56. Konsep Isolasi Eksternal (Mocking Dasar)')",
     "quiz": {
       "question": "Konsep utama 56. Konsep Isolasi Eksternal (Mocking Dasar)?",
       "options": [
@@ -1303,8 +1471,11 @@ const lessons = [
     "moduleId": 10,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 57. TypedDict & Peningkatan Keamanan Struktur Tipe\n\nMateri Python modern.",
-    "code": "# 57. TypedDict & Peningkatan Keamanan Struktur Tipe\nprint('Menjalankan: 57. TypedDict & Peningkatan Keamanan Struktur Tipe')",
+    "content": "# 57. TypedDict & Peningkatan Keamanan Struktur Tipe
+
+Materi Python modern.",
+    "code": "# 57. TypedDict & Peningkatan Keamanan Struktur Tipe
+print('Menjalankan: 57. TypedDict & Peningkatan Keamanan Struktur Tipe')",
     "quiz": {
       "question": "Konsep utama 57. TypedDict & Peningkatan Keamanan Struktur Tipe?",
       "options": [
@@ -1325,8 +1496,11 @@ const lessons = [
     "moduleId": 10,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 58. Menyelami Arsitektur Lanjut: Pengenalan Metaclasses\n\nMateri Python modern.",
-    "code": "# 58. Menyelami Arsitektur Lanjut: Pengenalan Metaclasses\nprint('Menjalankan: 58. Menyelami Arsitektur Lanjut: Pengenalan Metaclasses')",
+    "content": "# 58. Menyelami Arsitektur Lanjut: Pengenalan Metaclasses
+
+Materi Python modern.",
+    "code": "# 58. Menyelami Arsitektur Lanjut: Pengenalan Metaclasses
+print('Menjalankan: 58. Menyelami Arsitektur Lanjut: Pengenalan Metaclasses')",
     "quiz": {
       "question": "Konsep utama 58. Menyelami Arsitektur Lanjut: Pengenalan Metaclasses?",
       "options": [
@@ -1347,8 +1521,11 @@ const lessons = [
     "moduleId": 10,
     "duration": "15 m",
     "level": "Semua",
-    "content": "# 59. Konklusi Praktik Desain Pola (*Design Patterns Singleton & Factory*)\n\nMateri Python modern.",
-    "code": "# 59. Konklusi Praktik Desain Pola (*Design Patterns Singleton & Factory*)\nprint('Menjalankan: 59. Konklusi Praktik Desain Pola (*Design Patterns Singleton & Factory*)')",
+    "content": "# 59. Konklusi Praktik Desain Pola (*Design Patterns Singleton & Factory*)
+
+Materi Python modern.",
+    "code": "# 59. Konklusi Praktik Desain Pola (*Design Patterns Singleton & Factory*)
+print('Menjalankan: 59. Konklusi Praktik Desain Pola (*Design Patterns Singleton & Factory*)')",
     "quiz": {
       "question": "Konsep utama 59. Konklusi Praktik Desain Pola (*Design Patterns Singleton & Factory*)?",
       "options": [
