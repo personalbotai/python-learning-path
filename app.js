@@ -1598,6 +1598,28 @@ if (typeof window !== 'undefined') {
   window.MODULES = MODULES;
   window.lessons = lessons;
   window.LESSONS = lessons;
+
+function runCode() {
+    const editor = document.getElementById('code-editor');
+    const output = document.getElementById('output');
+    if (!editor || !output) return;
+    output.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menjalankan kode...';
+    setTimeout(() => {
+        try {
+            const code = editor.value;
+            // Simple Python-like output for now
+            output.innerHTML = '<span class="text-slate-500 font-mono text-xs">// Jalankan kode menggunakan Pyodide di browser</span>';
+        } catch(e) {
+            output.innerHTML = '<span class="text-rose-400 font-mono text-xs">Error: ' + e.message + '</span>';
+        }
+    }, 100);
+}
+
+function checkQuiz() {
+    const resultEl = document.getElementById('quiz-result');
+    if (!resultEl) return;
+    resultEl.innerHTML = '<span class="text-slate-500 text-xs">Quiz engine belum tersedia.</span>';
+}
   window.app = { MODULES, LESSONS: lessons, lessons, loadLesson, runCode, checkQuiz, renderNav, markComplete, resetProgress };
 }
 document.addEventListener('DOMContentLoaded', function() {
